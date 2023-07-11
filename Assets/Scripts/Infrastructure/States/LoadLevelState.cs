@@ -1,7 +1,9 @@
 ﻿using Scripts.CameraLogic;
+using Scripts.Hero;
 using Scripts.Infrastructure.Factory;
 using Scripts.Infrastructure.Services.PersistentProgress;
 using Scripts.Logic;
+using Scripts.UI;
 using System;
 using UnityEngine;
 
@@ -56,9 +58,21 @@ namespace Scripts.Infrastructure.States
 
         private void InitGameWorld()
         {
-            GameObject hero = _gameFactory.CreateHero(playerInitialPoint: GameObject.FindWithTag(PlayerInitialPointTag).transform.position);
-            _gameFactory.CreateHud();
+            GameObject hero = InitHero();
+            InitHud(hero);
             CameraFollow(hero);
+        }
+
+        private void InitHud(GameObject hero)
+        {
+            GameObject hud = _gameFactory.CreateHud();
+
+            hud.GetComponentInChildren<ActorUI>().Construct(hero.GetComponent<HeroHealth>());
+        }
+
+        private GameObject InitHero()
+        {
+            return _gameFactory.CreateHero(playerInitialPoint: GameObject.FindWithTag(PlayerInitialPointTag).transform.position);
         }
 
         private void CameraFollow(GameObject hero)

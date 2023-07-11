@@ -6,7 +6,7 @@ using UnityEngine;
 using Scripts.Data;
 using UnityEngine.SceneManagement;
 
-namespace Assets.Scripts.PlayerSpaceShip
+namespace Scripts.Hero
 {
 
     public class ShipMove : MonoBehaviour, ISavedProgress

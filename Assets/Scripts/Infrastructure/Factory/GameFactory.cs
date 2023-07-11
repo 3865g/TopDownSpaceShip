@@ -33,9 +33,9 @@ namespace Scripts.Infrastructure.Factory
         }
 
 
-        public void CreateHud()
+        public GameObject CreateHud()
         {
-            InstantiateRegistered(AssetPath.HudPath);
+            return InstantiateRegistered(AssetPath.HudPath);
         }
 
         public void Cleanup()

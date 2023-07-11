@@ -37,7 +37,14 @@ namespace Scripts.Infrastructure.States
 
         private PlayerProgress NewProgress()
         {
-           return new PlayerProgress(initialLvl: "TestingScene");
+            var progress = new PlayerProgress(initialLevel : "TestingScene");
+
+            progress.HeroStats.Damage = 10;
+            progress.HeroStats.DamageRadius = 20;
+            progress.HeroState.MaxHP = 50;
+            progress.HeroState.ResetHP();
+
+            return progress;
         }
     }
 }

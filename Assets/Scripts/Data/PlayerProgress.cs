@@ -1,15 +1,20 @@
-﻿using System;
+﻿using Scripts.Hero;
+using System;
 
 namespace Scripts.Data
 {
     [Serializable]
     public class PlayerProgress
     {
+        public State HeroState;
         public WorldData WorldData;
+        public Stats HeroStats;
 
-        public PlayerProgress(string initialLvl)
+        public PlayerProgress(string initialLevel)
         {
-            WorldData = new WorldData(initialLvl); 
-        }        
+            WorldData = new WorldData(initialLevel);
+            HeroState = new State();
+            HeroStats = new Stats();
+        }
     }
 }

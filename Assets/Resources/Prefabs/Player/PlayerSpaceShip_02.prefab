@@ -435,6 +435,9 @@ GameObject:
   - component: {fileID: 6095162580398375173}
   - component: {fileID: 4493251844961922401}
   - component: {fileID: 1956677515009683027}
+  - component: {fileID: 7462249170531715992}
+  - component: {fileID: 4448857839822134430}
+  - component: {fileID: 8967763076268185012}
   m_Layer: 12
   m_Name: PlayerSpaceShip_02
   m_TagString: Untagged
@@ -522,7 +525,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!65 &1956677515009683027
 BoxCollider:
@@ -539,12 +542,56 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 10, y: 5, z: 10}
   m_Center: {x: 0, y: 0, z: -1}
+--- !u!114 &7462249170531715992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4047270724007549241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09221afcf19a4024783440243eb7ad28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4448857839822134430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4047270724007549241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d01416a8808b247a6ff3656213d904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroHealth: {fileID: 7462249170531715992}
+  shipMove: {fileID: 6095162580398375173}
+  DeathFx: {fileID: 5386389529857311023, guid: 452ad8e7431d84142b20d957526a1111, type: 3}
+--- !u!114 &8967763076268185012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4047270724007549241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207f8f12a85f3e84b88e74c6f06bb65c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackCooldown: 1.5
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 65536
+  Damage: 5
 --- !u!1 &6938440191575588317
 GameObject:
   m_ObjectHideFlags: 0

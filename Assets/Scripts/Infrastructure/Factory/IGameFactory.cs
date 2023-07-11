@@ -15,7 +15,7 @@ namespace Scripts.Infrastructure.Factory
         event Action HeroCreated;
 
         GameObject CreateHero(Vector3 playerInitialPoint);
-        void CreateHud();
+        GameObject CreateHud();
         void Cleanup();
     }
 }
