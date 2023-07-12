@@ -43,7 +43,7 @@ namespace Scripts.Infrastructure.Factory
             ProgressReaders.Clear();
             ProgressWriters.Clear();
         }
-        private void Register(ISavedProgressReader progressReader)
+        public void Register(ISavedProgressReader progressReader)
         {
             if(progressReader is ISavedProgress progressWriter)
             {
@@ -52,6 +52,7 @@ namespace Scripts.Infrastructure.Factory
 
             ProgressReaders.Add(progressReader);
         }
+
         private void RegisterProgressWatchers(GameObject gameObject)
         {
             foreach (ISavedProgressReader progressReader in gameObject.GetComponentsInChildren<ISavedProgressReader>())

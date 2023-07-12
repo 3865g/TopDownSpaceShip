@@ -17,5 +17,6 @@ namespace Scripts.Infrastructure.Factory
         GameObject CreateHero(Vector3 playerInitialPoint);
         GameObject CreateHud();
         void Cleanup();
+        void Register(ISavedProgressReader savedProgress);
     }
 }
