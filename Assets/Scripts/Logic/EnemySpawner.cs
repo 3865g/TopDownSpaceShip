@@ -1,4 +1,7 @@
 ﻿using Scripts.Data;
+using Scripts.Enemy;
+using Scripts.Infrastructure.Factory;
+using Scripts.Infrastructure.Services;
 using Scripts.Infrastructure.Services.PersistentProgress;
 using Scripts.StaticData;
 using System;
@@ -11,8 +14,15 @@ namespace Scripts.Logic
     {
         public MonsterTypeId MonsterTypeId;
         private string _id;
-
+        private IGameFactory _gameFactory;
         private bool _slain;
+        private EnemyDeath _enemyDeath;
+
+        private void Awake()
+        {
+            _id = GetComponent<UniqueId>().Id;
+            _gameFactory = AllServices.Container.Single<IGameFactory>();
+        }
 
         public void LoadProgress(PlayerProgress progress)
         {
@@ -36,11 +46,18 @@ namespace Scripts.Logic
         }
         private void Spawn()
         {
+           GameObject enemy = _gameFactory.CreateEnemy(MonsterTypeId, transform);
+            _enemyDeath = enemy.GetComponent<EnemyDeath>();
+            _enemyDeath.Happened += Slay;
         }
 
-        private void Awake()
+        private void Slay()
         {
-            _id = GetComponent<UniqueId>().Id;
+            if(_enemyDeath != null)
+            {
+                _enemyDeath.Happened -= Slay;
+            }
+            _slain = true;
         }
     }
 }

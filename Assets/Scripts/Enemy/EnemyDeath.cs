@@ -23,7 +23,7 @@ namespace Scripts.Enemy
 
         private void HealthChanged()
         {
-            if(Health.CurrentHP > 0)
+            if(Health.CurrentHP <= 0)
             {
                 Die();
             }

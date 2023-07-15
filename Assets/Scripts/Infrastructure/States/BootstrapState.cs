@@ -4,6 +4,8 @@ using Scripts.Infrastructure.Services;
 using Scripts.Infrastructure.Services.PersistentProgress;
 using Scripts.Infrastructure.Services.PersistentProgress.SaveLoad;
 using Scripts.Services.Input;
+using Scripts.StaticData;
+using System.ComponentModel;
 using UnityEngine;
 
 namespace Scripts.Infrastructure.States
@@ -32,20 +34,30 @@ namespace Scripts.Infrastructure.States
 
         public void Exit()
         {
+        }       
+
+        private void RegisterServices()
+        {
+            RegisterStaticData();
+
+            _services.RegisterSingle<IInputService>(InputService());
+            _services.RegisterSingle<IAssetProvider>(new AssetProvider());
+            _services.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
+            _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssetProvider>(), _services.Single<IStaticDataService>()));
+            _services.RegisterSingle<ISaveLoadService>(new SaveLoadService(_services.Single<IPersistentProgressService>(), _services.Single<IGameFactory>()));
+
+        }
+
+        private void RegisterStaticData()
+        {
+            IStaticDataService staticData = new StaticDataService();
+            staticData.LoadMonsters();
+            _services.RegisterSingle(staticData);
         }
 
         private void EnterLoadLevel()
         {
-            _gameStateMachine.Enter <LoadProgressState>();
-        }
-
-        private void RegisterServices()
-        {
-            _services.RegisterSingle<IInputService>(InputService());
-            _services.RegisterSingle<IAssetProvider>(new AssetProvider());
-            _services.RegisterSingle <IPersistentProgressService>(new PersistentProgressService());
-            _services.RegisterSingle<IGameFactory>(new GameFactory(AllServices.Container.Single<IAssetProvider>()));
-            _services.RegisterSingle <ISaveLoadService>(new SaveLoadService(_services.Single<IPersistentProgressService>(), _services.Single<IGameFactory>()));
+            _gameStateMachine.Enter<LoadProgressState>();
         }
 
         private static IInputService InputService()

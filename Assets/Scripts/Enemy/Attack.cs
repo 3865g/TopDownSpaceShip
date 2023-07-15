@@ -1,11 +1,6 @@
-﻿using Scripts.Hero;
-using Scripts.Infrastructure.Factory;
-using Scripts.Infrastructure.Services;
+﻿using Scripts.Infrastructure.AssetManagement;
 using Scripts.Logic;
-using System;
-using System.Collections;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 namespace Scripts.Enemy
@@ -14,57 +9,56 @@ namespace Scripts.Enemy
     {
         public float AttackCooldown = 1.5f;
         public LayerMask LayerMask;
+        public float Damage = 10f;
+        public float Cleavage = 10f;
+        public float EffectiveDistane = 10f;
 
-        private IGameFactory _gameFactory;
         private Transform _heroTransform;
         private float _attackCooldown;
         private bool _isAttacking;
         private int _layerMask; 
-        private float Clevage = 10f;
         private Collider[] _hits = new Collider[1];
-        private float _effectiveDistane = 1f;
         private bool _attackIsActive;
 
-        [SerializeField]
-        private float Damage = 5f;
+        
+
+        public void Construct(Transform heroTransform)
+        {
+            _heroTransform = heroTransform;
+        }
 
         private void Awake()
         {
-            _gameFactory = AllServices.Container.Single<IGameFactory>();
-            _gameFactory.HeroCreated += OnHeroCreated;
             _layerMask = LayerMask;
+
         }
+
+        
 
         private void Update()
         {
-
             UpdateCooldown();
 
 
             if (CanAttack())
             {
                 StartAttack();
-            }
-            
-        }
-
-      
+            }            
+        }      
 
         private void OnAttack()
         {
             if(Hit(out Collider hit))
             {
-                //PhysicsDebug.DrawDebug(GetStartPoint(), Clevage, 1);
-                
                 hit.transform.GetComponent<IHealth>().TakeDamage(Damage);
                 _attackCooldown = AttackCooldown;
+                //Debug.Log("AttackHero");
             }
-            //Debug.Log("Attack");
         }
 
         private Vector3 GetStartPoint()
         {
-            return new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.forward * _effectiveDistane;
+            return new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.forward * EffectiveDistane;
         }
 
         private void UpdateCooldown()
@@ -78,11 +72,6 @@ namespace Scripts.Enemy
         {
             transform.LookAt(_heroTransform);
             OnAttack();
-        }
-
-        private void OnHeroCreated()
-        {
-            _heroTransform = _gameFactory.HeroGameObject.transform;
         }
 
         internal void EnableAttack()
@@ -109,13 +98,13 @@ namespace Scripts.Enemy
         private bool Hit(out Collider hit)
         {
             Vector3 startPoint = GetStartPoint();
-            int hitsCount = Physics.OverlapSphereNonAlloc(GetStartPoint(), Clevage, _hits, _layerMask);
+            int hitsCount = Physics.OverlapSphereNonAlloc(GetStartPoint(), Cleavage, _hits, _layerMask);
             hit = _hits.FirstOrDefault();
             //Debug.Log(hit);
             return hitsCount > 0;
 
         }
 
-
+        
     }
 }

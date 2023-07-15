@@ -39,7 +39,7 @@ namespace Scripts.Infrastructure.States
         {
             var progress = new PlayerProgress(initialLevel : "TestingScene");
 
-            progress.HeroStats.Damage = 10;
+            progress.HeroStats.Damage = 2;
             progress.HeroStats.DamageRadius = 20;
             progress.HeroState.MaxHP = 50;
             progress.HeroState.ResetHP();

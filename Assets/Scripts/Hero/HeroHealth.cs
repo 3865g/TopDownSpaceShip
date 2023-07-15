@@ -36,6 +36,7 @@ namespace Scripts.Hero
         {
            _state = progress.HeroState;
 
+            HealthChanged?.Invoke();
 
         }
 
@@ -43,6 +44,8 @@ namespace Scripts.Hero
         {
             progress.HeroState.CurrentHP = CurrentHP;
             progress.HeroState.MaxHP = MaxHP;
+
+            //Debug.Log(CurrentHP);
         }
 
         public void TakeDamage(float damage)

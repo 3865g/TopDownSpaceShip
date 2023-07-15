@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 6867412711167110712}
   - component: {fileID: 6978631495115145654}
   m_Layer: 0
-  m_Name: Enemy1
+  m_Name: BaseEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -330,7 +330,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4596696923416135860}
-  - {fileID: 5877172613983764811}
   - {fileID: 8908097638269532785}
   - {fileID: 1993286764048612054}
   - {fileID: 3707223149550991592}
@@ -356,7 +355,7 @@ NavMeshAgent:
   m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 18
-  m_BaseOffset: 0
+  m_BaseOffset: 16
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &5683212607915809259
@@ -371,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d69a24699d4b8c64cadac93f15a4d3fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _agent: {fileID: 3750075406532380847}
 --- !u!114 &1769360111835078316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,8 +399,10 @@ MonoBehaviour:
   AttackCooldown: 3
   LayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4096
   Damage: 5
+  Cleavage: 10
+  EffectiveDistane: 10
 --- !u!114 &724903914523089135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,89 +585,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ImageCurrent: {fileID: 7228449980270666176}
---- !u!1 &8088572177704541995
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5877172613983764811}
-  - component: {fileID: 6931256293472073255}
-  - component: {fileID: 5440742727797547267}
-  m_Layer: 0
-  m_Name: SpaceShipEnemy1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5877172613983764811
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8088572177704541995}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6154475502682113977}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6931256293472073255
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8088572177704541995}
-  m_Mesh: {fileID: 6438911831683605979, guid: e56f225f6b32a2b46af99f5e6965b6ca, type: 3}
---- !u!23 &5440742727797547267
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8088572177704541995}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a8d949d8301ef2045a864612c460951e, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8969281872933212947
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,10 +652,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 2c85c92836b93e94db6db57b67b7256d, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0

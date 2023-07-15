@@ -587,11 +587,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207f8f12a85f3e84b88e74c6f06bb65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackCooldown: 1.5
   LayerMask:
     serializedVersion: 2
     m_Bits: 65536
-  Damage: 5
+  Damage: 1
 --- !u!1 &6938440191575588317
 GameObject:
   m_ObjectHideFlags: 0

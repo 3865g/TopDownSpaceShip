@@ -1,4 +1,5 @@
 ﻿using Scripts.CameraLogic;
+using Scripts.Enemy;
 using Scripts.Hero;
 using Scripts.Infrastructure.Factory;
 using Scripts.Infrastructure.Services.PersistentProgress;
@@ -14,13 +15,14 @@ namespace Scripts.Infrastructure.States
     {
         private const string PlayerInitialPointTag = "PlayerInitialPoint";
         private const string EnemySpawnerTag = "EnemySpawners";
+
         private readonly GameStateMachine _stateMachine;
         private readonly SceneLoader _sceneLoader;
         private readonly IGameFactory _gameFactory;
         private readonly LoadingCurtain _curtain;
         private readonly IPersistentProgressService _persistentProgressService;
 
-        public LoadLevelState(GameStateMachine stateMachine, SceneLoader sceneLoader, Logic.LoadingCurtain curtain, IGameFactory gameFactory, IPersistentProgressService progressService)
+        public LoadLevelState(GameStateMachine stateMachine, SceneLoader sceneLoader, LoadingCurtain curtain, IGameFactory gameFactory, IPersistentProgressService progressService)
         {
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
@@ -46,34 +48,6 @@ namespace Scripts.Infrastructure.States
             InformProgressReaders();
 
             _stateMachine.Enter<GameLoopState>();
-        }       
-
-        private void InitGameWorld()
-        {
-            InitSpawners();
-
-            GameObject hero = InitHero();
-            InitHud(hero);
-            CameraFollow(hero);
-        }
-
-        
-
-        private void InitHud(GameObject hero)
-        {
-            GameObject hud = _gameFactory.CreateHud();
-
-            hud.GetComponentInChildren<ActorUI>().Construct(hero.GetComponent<HeroHealth>());
-        }
-
-        private GameObject InitHero()
-        {
-            return _gameFactory.CreateHero(playerInitialPoint: GameObject.FindWithTag(PlayerInitialPointTag).transform.position);
-        }
-
-        private void CameraFollow(GameObject hero)
-        {
-            Camera.main.GetComponent<CameraFollow>().FollowObject(hero);
         }
 
         private void InformProgressReaders()
@@ -83,14 +57,47 @@ namespace Scripts.Infrastructure.States
                 progressReader.LoadProgress(_persistentProgressService.Progress);
             }
         }
+
+        private void InitGameWorld()
+        {
+            InitSpawners();
+
+            GameObject hero = InitHero();
+            InitHud(hero);
+            CameraFollow(hero);
+
+        }
+
         private void InitSpawners()
         {
-            foreach(GameObject spawnerObjects in GameObject.FindGameObjectsWithTag(EnemySpawnerTag))
+            foreach (GameObject spawnerObjects in GameObject.FindGameObjectsWithTag(EnemySpawnerTag))
             {
-               var spawner = spawnerObjects.GetComponent<EnemySpawner>();
+                var spawner = spawnerObjects.GetComponent<EnemySpawner>();
                 _gameFactory.Register(spawner);
             }
         }
+
+        private GameObject InitHero()
+        {
+            return _gameFactory.CreateHero(GameObject.FindWithTag(PlayerInitialPointTag));
+        }
+
+        private void InitHud(GameObject hero)
+        {
+            GameObject hud = _gameFactory.CreateHud();
+
+            hud.GetComponentInChildren<ActorUI>().Construct(hero.GetComponent<HeroHealth>());
+        }
+
+        
+
+        private void CameraFollow(GameObject hero)
+        {
+            Camera.main.GetComponent<CameraFollow>().FollowObject(hero);
+        }
+
+        
+       
     }
 }
 

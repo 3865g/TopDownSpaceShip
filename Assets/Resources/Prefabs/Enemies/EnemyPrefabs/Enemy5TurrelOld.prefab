@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 6154475502682113977}
   - component: {fileID: 1769360111835078316}
   m_Layer: 0
-  m_Name: Enemy5Turrel
+  m_Name: Enemy5TurrelOld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

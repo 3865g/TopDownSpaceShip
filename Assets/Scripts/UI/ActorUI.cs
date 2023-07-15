@@ -1,5 +1,6 @@
 ﻿using Scripts.Hero;
 using Scripts.Logic;
+using System;
 using UnityEngine;
 
 namespace Scripts.UI
@@ -8,14 +9,14 @@ namespace Scripts.UI
     {
         public HpBar HpBar;
 
-        private HeroHealth _heroHealth;
+        private IHealth _heroHealth;
 
-        private IHealth _health;
+
 
         public void Construct(IHealth health)
         {
-            _health = health;
-            _health.HealthChanged += UpdateHpBar;
+            _heroHealth = health;
+            _heroHealth.HealthChanged += UpdateHpBar;
         }
 
         private void Start()
@@ -27,17 +28,12 @@ namespace Scripts.UI
                 Construct(health);
             }
         }
-
-
-        public void Construct(HeroHealth health)
-        {
-            _heroHealth = health;
-
-            _heroHealth.HealthChanged += UpdateHpBar;
-        }
         private void OnDestroy()
         {
-            _heroHealth.HealthChanged -= UpdateHpBar;
+            if (_heroHealth != null)
+            {
+                _heroHealth.HealthChanged -= UpdateHpBar;
+            }
         }
 
         private void UpdateHpBar()
