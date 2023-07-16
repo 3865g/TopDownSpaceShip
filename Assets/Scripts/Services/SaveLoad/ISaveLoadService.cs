@@ -1,6 +1,6 @@
 ﻿using Scripts.Data;
 
-namespace Scripts.Infrastructure.Services.PersistentProgress.SaveLoad
+namespace Scripts.Services.SaveLoad
 {
     public interface ISaveLoadService : IService
     {

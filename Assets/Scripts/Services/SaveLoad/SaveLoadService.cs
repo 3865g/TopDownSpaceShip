@@ -1,8 +1,9 @@
 ﻿using Scripts.Data;
 using Scripts.Infrastructure.Factory;
+using Scripts.Services.PersistentProgress;
 using UnityEngine;
 
-namespace Scripts.Infrastructure.Services.PersistentProgress.SaveLoad
+namespace Scripts.Services.SaveLoad
 {
     public class SaveLoadService : ISaveLoadService
     {

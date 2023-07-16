@@ -1,6 +1,6 @@
 ﻿using Scripts.Data;
 
-namespace Scripts.Infrastructure.Services.PersistentProgress
+namespace Scripts.Services.PersistentProgress
 {
     public class PersistentProgressService : IPersistentProgressService
     {

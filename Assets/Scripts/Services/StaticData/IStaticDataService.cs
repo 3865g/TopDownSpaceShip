@@ -1,6 +1,7 @@
-﻿using Scripts.Infrastructure.Services;
+﻿
+using Scripts.StaticData;
 
-namespace Scripts.StaticData
+namespace Scripts.Services.StaticData
 {
     public interface IStaticDataService : IService
     {

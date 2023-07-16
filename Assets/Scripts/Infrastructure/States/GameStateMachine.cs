@@ -1,9 +1,9 @@
 ﻿using System;
-using Scripts.Infrastructure.Services;
+using Scripts.Services;
 using System.Collections.Generic;
 using Scripts.Infrastructure.Factory;
-using Scripts.Infrastructure.Services.PersistentProgress;
-using Scripts.Infrastructure.Services.PersistentProgress.SaveLoad;
+using Scripts.Services.SaveLoad;
+using Scripts.Services.PersistentProgress;
 
 namespace Scripts.Infrastructure.States
 {

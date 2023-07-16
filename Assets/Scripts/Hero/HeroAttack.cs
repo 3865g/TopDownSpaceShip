@@ -1,7 +1,7 @@
 ﻿using System;
 using Scripts.Data;
-using Scripts.Infrastructure.Services;
-using Scripts.Infrastructure.Services.PersistentProgress;
+using Scripts.Services;
+using Scripts.Services.PersistentProgress;
 using Scripts.Logic;
 using Scripts.Services.Input;
 using UnityEngine;

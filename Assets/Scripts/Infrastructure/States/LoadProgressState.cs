@@ -1,6 +1,6 @@
-﻿using Scripts.Data;
-using Scripts.Infrastructure.Services.PersistentProgress;
-using Scripts.Infrastructure.Services.PersistentProgress.SaveLoad;
+﻿using Scripts.Services.PersistentProgress;
+using Scripts.Data;
+using Scripts.Services.SaveLoad;
 using System;
 
 namespace Scripts.Infrastructure.States
@@ -39,7 +39,7 @@ namespace Scripts.Infrastructure.States
         {
             var progress = new PlayerProgress(initialLevel : "TestingScene");
 
-            progress.HeroStats.Damage = 2;
+            progress.HeroStats.Damage = 5;
             progress.HeroStats.DamageRadius = 20;
             progress.HeroState.MaxHP = 50;
             progress.HeroState.ResetHP();

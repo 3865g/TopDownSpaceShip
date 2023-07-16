@@ -7,11 +7,13 @@ namespace Scripts.StaticData
     {
         public MonsterTypeId MonsterTypeId;
 
-        [Range(1f, 100f)]
+        
         public int Hp;
-
-        [Range(1f, 100f)]
         public float Damage;
+
+        public int MaxLoot;
+
+        public int MinLoot;
 
         [Range(1f, 100f)]
         public float EffectiveDistane = 10f;

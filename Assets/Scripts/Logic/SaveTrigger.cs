@@ -1,5 +1,5 @@
-﻿using Scripts.Infrastructure.Services;
-using Scripts.Infrastructure.Services.PersistentProgress.SaveLoad;
+﻿using Scripts.Services;
+using Scripts.Services.SaveLoad;
 using UnityEngine;
 
 namespace Scripts.Logic

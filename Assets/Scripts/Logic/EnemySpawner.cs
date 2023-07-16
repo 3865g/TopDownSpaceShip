@@ -1,8 +1,8 @@
 ﻿using Scripts.Data;
 using Scripts.Enemy;
 using Scripts.Infrastructure.Factory;
-using Scripts.Infrastructure.Services;
-using Scripts.Infrastructure.Services.PersistentProgress;
+using Scripts.Services;
+using Scripts.Services.PersistentProgress;
 using Scripts.StaticData;
 using System;
 using System.Collections;

@@ -1,4 +1,4 @@
-﻿using Scripts.Infrastructure.Services;
+﻿using Scripts.Services;
 using UnityEngine;
 
 namespace Scripts.Infrastructure.AssetManagement

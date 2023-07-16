@@ -662,7 +662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2393640229815069268, guid: 06d94c702c808374c9b4d11ed70a9729, type: 3}
       propertyPath: MonsterTypeId
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8526060451938996445, guid: 06d94c702c808374c9b4d11ed70a9729, type: 3}
       propertyPath: m_RootOrder

@@ -1,5 +1,6 @@
-﻿using Scripts.Infrastructure.Services;
-using Scripts.Infrastructure.Services.PersistentProgress;
+﻿using Scripts.Enemy;
+using Scripts.Services;
+using Scripts.Services.PersistentProgress;
 using Scripts.StaticData;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Scripts.Infrastructure.Factory
         GameObject CreateHero(GameObject playerInitialPoint);
         GameObject CreateHud();
         GameObject CreateEnemy(MonsterTypeId monsterTypeId, Transform parent);
+        LootPiece CreateLoot();
         void Cleanup();
         void Register(ISavedProgressReader savedProgress);
     }

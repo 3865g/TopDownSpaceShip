@@ -9,7 +9,6 @@ namespace Scripts.Data
         public State HeroState;
         public WorldData WorldData;
         public Stats HeroStats;
-
         public KillData KillData;
 
         public PlayerProgress(string initialLevel)

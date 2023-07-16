@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using Scripts.Infrastructure.AssetManagement;
 using System.Collections.Generic;
-using Scripts.Infrastructure.Services.PersistentProgress;
+using Scripts.Services.PersistentProgress;
 using Scripts.StaticData;
 using Object = UnityEngine.Object;
 using Scripts.Logic;
 using Scripts.UI;
 using Scripts.Enemy;
 using UnityEngine.AI;
+using Scripts.Services;
+using Scripts.Services.Randomizer;
+using Scripts.Services.StaticData;
 
 namespace Scripts.Infrastructure.Factory
 {
@@ -18,13 +21,17 @@ namespace Scripts.Infrastructure.Factory
 
         private readonly IAssetProvider _assetsProvider;
         private readonly IStaticDataService _staticDataService;
+        private readonly IRandomService _randomService;
+        private readonly IPersistentProgressService _persistentProgressService;
 
         private GameObject _heroGameObject;
 
-        public GameFactory(IAssetProvider assetsProvider, IStaticDataService staticDataService)
+        public GameFactory(IAssetProvider assetsProvider, IStaticDataService staticDataService, IRandomService randomService, IPersistentProgressService persistentProgressService)
         {
             _assetsProvider = assetsProvider;
             _staticDataService = staticDataService;
+            _randomService = randomService;
+            _persistentProgressService = persistentProgressService;
         }
 
         public GameObject CreateHero(GameObject playerInitialPoint)
@@ -36,7 +43,18 @@ namespace Scripts.Infrastructure.Factory
 
         public GameObject CreateHud()
         {
-            return InstantiateRegistered(AssetPath.HudPath);
+            GameObject hud = InstantiateRegistered(AssetPath.HudPath);
+            hud.GetComponentInChildren<LootCounter>().Construct(_persistentProgressService.Progress.WorldData);
+
+            return hud;
+        }
+
+        public LootPiece CreateLoot()
+        {
+            LootPiece lootPiece = InstantiateRegistered(AssetPath.Loot).GetComponent<LootPiece>();
+            lootPiece.Construct(_persistentProgressService.Progress.WorldData);
+
+            return lootPiece;
         }
 
         public GameObject CreateEnemy(MonsterTypeId monsterTypeId, Transform parent)
@@ -52,6 +70,8 @@ namespace Scripts.Infrastructure.Factory
             monster.GetComponent<AgentMoveToPlayer>().Construct(_heroGameObject.transform);
             monster.GetComponent<NavMeshAgent>().speed = monsterStaticData.MoveSpeed;
 
+            
+
             var attack = monster.GetComponent<Attack>();
             attack.Construct(_heroGameObject.transform);
             attack.Damage = monsterStaticData.Damage;
@@ -60,9 +80,15 @@ namespace Scripts.Infrastructure.Factory
 
             monster.GetComponent<RotateToHero>()?.Construct(_heroGameObject.transform);
 
+            LootSpawner lootSpawner = monster.GetComponentInChildren<LootSpawner>();
+            lootSpawner.SetLoot(monsterStaticData.MinLoot, monsterStaticData.MaxLoot);
+            lootSpawner.Construct(this, _randomService);
+
 
             return monster;
         }
+
+       
 
         public void Register(ISavedProgressReader progressReader)
         {
@@ -100,6 +126,7 @@ namespace Scripts.Infrastructure.Factory
                 Register(progressReader);
             }
         }
-       
+
+        
     }
 }

@@ -1,11 +1,11 @@
-﻿using Scripts.CameraLogic;
+﻿using System.Collections.Generic;
+using Scripts.Services.PersistentProgress;
+using Scripts.CameraLogic;
 using Scripts.Enemy;
 using Scripts.Hero;
 using Scripts.Infrastructure.Factory;
-using Scripts.Infrastructure.Services.PersistentProgress;
 using Scripts.Logic;
 using Scripts.UI;
-using System;
 using UnityEngine;
 
 namespace Scripts.Infrastructure.States
@@ -18,8 +18,8 @@ namespace Scripts.Infrastructure.States
 
         private readonly GameStateMachine _stateMachine;
         private readonly SceneLoader _sceneLoader;
-        private readonly IGameFactory _gameFactory;
         private readonly LoadingCurtain _curtain;
+        private readonly IGameFactory _gameFactory;
         private readonly IPersistentProgressService _persistentProgressService;
 
         public LoadLevelState(GameStateMachine stateMachine, SceneLoader sceneLoader, LoadingCurtain curtain, IGameFactory gameFactory, IPersistentProgressService progressService)
@@ -61,13 +61,12 @@ namespace Scripts.Infrastructure.States
         private void InitGameWorld()
         {
             InitSpawners();
-
+            InitLootPieces();
             GameObject hero = InitHero();
             InitHud(hero);
             CameraFollow(hero);
 
         }
-
         private void InitSpawners()
         {
             foreach (GameObject spawnerObjects in GameObject.FindGameObjectsWithTag(EnemySpawnerTag))
@@ -76,6 +75,16 @@ namespace Scripts.Infrastructure.States
                 _gameFactory.Register(spawner);
             }
         }
+
+        private void InitLootPieces()
+        {
+            foreach(string key in _persistentProgressService.Progress.WorldData.LootData.LootPieceOnScene.Dictionary.Keys)
+            {
+                LootPiece lootPiece = _gameFactory.CreateLoot();
+                lootPiece.GetComponent<UniqueId>().Id = key;
+            }
+        }
+
 
         private GameObject InitHero()
         {

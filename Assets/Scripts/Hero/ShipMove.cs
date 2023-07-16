@@ -1,6 +1,6 @@
-using Scripts.Infrastructure.Services.PersistentProgress;
 using Scripts;
-using Scripts.Infrastructure.Services;
+using Scripts.Services.PersistentProgress;
+using Scripts.Services;
 using Scripts.Services.Input;
 using UnityEngine;
 using Scripts.Data;
