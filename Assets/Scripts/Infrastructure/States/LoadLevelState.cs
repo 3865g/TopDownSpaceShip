@@ -7,6 +7,9 @@ using Scripts.Infrastructure.Factory;
 using Scripts.Logic;
 using Scripts.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Scripts.StaticData;
+using Scripts.Services.StaticData;
 
 namespace Scripts.Infrastructure.States
 {
@@ -21,14 +24,17 @@ namespace Scripts.Infrastructure.States
         private readonly LoadingCurtain _curtain;
         private readonly IGameFactory _gameFactory;
         private readonly IPersistentProgressService _persistentProgressService;
+        private readonly IStaticDataService _staticDataService;
 
-        public LoadLevelState(GameStateMachine stateMachine, SceneLoader sceneLoader, LoadingCurtain curtain, IGameFactory gameFactory, IPersistentProgressService progressService)
+
+        public LoadLevelState(GameStateMachine stateMachine, SceneLoader sceneLoader, LoadingCurtain curtain, IGameFactory gameFactory, IPersistentProgressService progressService, IStaticDataService staticDataService)
         {
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
             _curtain = curtain;
             _gameFactory = gameFactory;
             _persistentProgressService = progressService;
+            _staticDataService = staticDataService;
         }
 
         public void Enter(string sceneName)
@@ -69,10 +75,12 @@ namespace Scripts.Infrastructure.States
         }
         private void InitSpawners()
         {
-            foreach (GameObject spawnerObjects in GameObject.FindGameObjectsWithTag(EnemySpawnerTag))
+            string sceneKey = SceneManager.GetActiveScene().name;
+            LevelStaticData levelStaticData = _staticDataService.ForLevel(sceneKey);
+
+            foreach(EnemySpawnerStaticData enemySpawnerData in levelStaticData.EnemySpawnerData)
             {
-                var spawner = spawnerObjects.GetComponent<EnemySpawner>();
-                _gameFactory.Register(spawner);
+                _gameFactory.CreateSpawner(enemySpawnerData.Position, enemySpawnerData.Id, enemySpawnerData.MonsterTypeId);
             }
         }
 

@@ -20,7 +20,7 @@ namespace Scripts.Infrastructure
             _coroutineRunner.StartCoroutine(LoadScene(name, onLoaded));
         }
 
-        private IEnumerator LoadScene(string nextScene, Action onLoaded)
+        private IEnumerator LoadScene(string nextScene, Action onLoaded = null)
         {
             if(SceneManager.GetActiveScene().name == nextScene)
             {
@@ -35,10 +35,11 @@ namespace Scripts.Infrastructure
                 yield return null;
             }
 
-            if(onLoaded != null)
-            {
-                onLoaded.Invoke();
-            }
+            //if(onLoaded != null)
+            //{
+            //    onLoaded.Invoke();
+            //}
+            onLoaded.Invoke();
         }
     }
 }

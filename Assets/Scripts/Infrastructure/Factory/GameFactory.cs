@@ -11,6 +11,8 @@ using UnityEngine.AI;
 using Scripts.Services;
 using Scripts.Services.Randomizer;
 using Scripts.Services.StaticData;
+using Scripts.Logic.EnemySpawners;
+
 
 namespace Scripts.Infrastructure.Factory
 {
@@ -88,7 +90,16 @@ namespace Scripts.Infrastructure.Factory
             return monster;
         }
 
-       
+        public void CreateSpawner(Vector3 position, string spawnerId, MonsterTypeId monsterTypeId)
+        {
+            SpawnPoint spawner = InstantiateRegistered(AssetPath.Spawner, position).GetComponent<SpawnPoint>();
+
+            spawner.Construct(this);
+            spawner.Id = spawnerId;
+            spawner.MonsterTypeId = monsterTypeId;
+        }
+
+
 
         public void Register(ISavedProgressReader progressReader)
         {

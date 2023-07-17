@@ -40,7 +40,7 @@ namespace Scripts.Infrastructure.States
 
         private void RegisterServices()
         {
-            RegisterStaticData();
+            RegisterStaticDataService();
 
             _services.RegisterSingle<IInputService>(InputService());
             _services.RegisterSingle<IRandomService>(new RandomService());
@@ -51,10 +51,10 @@ namespace Scripts.Infrastructure.States
 
         }
 
-        private void RegisterStaticData()
+        private void RegisterStaticDataService()
         {
             IStaticDataService staticData = new StaticDataService();
-            staticData.LoadMonsters();
+            staticData.Load();
             _services.RegisterSingle(staticData);
         }
 

@@ -1,32 +1,39 @@
 ﻿using Scripts.Data;
 using Scripts.Enemy;
 using Scripts.Infrastructure.Factory;
-using Scripts.Services;
 using Scripts.Services.PersistentProgress;
 using Scripts.StaticData;
-using System;
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace Scripts.Logic
+namespace Scripts.Logic.EnemySpawners
 {
-    public class EnemySpawner : MonoBehaviour, ISavedProgress
+    public class SpawnPoint : MonoBehaviour, ISavedProgress
     {
         public MonsterTypeId MonsterTypeId;
-        private string _id;
+        public string Id { get; set; }
         private IGameFactory _gameFactory;
         private bool _slain;
         private EnemyDeath _enemyDeath;
 
-        private void Awake()
+        public void Construct(IGameFactory gameFactory)
         {
-            _id = GetComponent<UniqueId>().Id;
-            _gameFactory = AllServices.Container.Single<IGameFactory>();
+            _gameFactory = gameFactory;
         }
+
+        private void OnDestroy()
+        {
+            if(_enemyDeath != null)
+            {
+                _enemyDeath.Happened -= Slay;
+            }
+        }
+
+
 
         public void LoadProgress(PlayerProgress progress)
         {
-            if (progress.KillData.ClearedSpawners.Contains(_id))
+            if (progress.KillData.ClearedSpawners.Contains(Id))
             {
                 _slain = true;
             }
@@ -39,9 +46,10 @@ namespace Scripts.Logic
 
         public void UpdateProgress(PlayerProgress progress)
         {
-            if (_slain)
+            List<string> slainSpawnerList = progress.KillData.ClearedSpawners;
+            if (_slain && !slainSpawnerList.Contains(Id))
             {
-                progress.KillData.ClearedSpawners.Add(_id);
+                slainSpawnerList.Add(Id);
             }
         }
         private void Spawn()
