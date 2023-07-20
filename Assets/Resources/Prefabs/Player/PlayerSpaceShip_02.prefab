@@ -546,7 +546,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 5, z: 10}
+  m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: -1}
 --- !u!114 &7462249170531715992
 MonoBehaviour:
@@ -590,7 +590,6 @@ MonoBehaviour:
   LayerMask:
     serializedVersion: 2
     m_Bits: 65536
-  Damage: 1
 --- !u!1 &6938440191575588317
 GameObject:
   m_ObjectHideFlags: 0
