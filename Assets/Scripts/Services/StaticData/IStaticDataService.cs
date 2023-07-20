@@ -1,5 +1,6 @@
-﻿
-using Scripts.StaticData;
+﻿using Scripts.StaticData;
+using Scripts.StaticData.Windows;
+using Scripts.UI.Services.Windows;
 
 namespace Scripts.Services.StaticData
 {
@@ -8,5 +9,6 @@ namespace Scripts.Services.StaticData
         void Load();
         MonsterStaticData ForMonster(MonsterTypeId typeId);
         LevelStaticData ForLevel(string sceneKey);
+        WindowConfig ForWindow(WindowId windowId);
     }
 }

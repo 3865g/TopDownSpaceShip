@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Scripts.UI
-{
+namespace Scripts.UI.Elements
     public class HpBar : MonoBehaviour
     {
         public Image ImageCurrent;

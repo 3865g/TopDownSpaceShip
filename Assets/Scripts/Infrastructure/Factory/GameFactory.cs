@@ -5,14 +5,15 @@ using Scripts.Services.PersistentProgress;
 using Scripts.StaticData;
 using Object = UnityEngine.Object;
 using Scripts.Logic;
-using Scripts.UI;
+using Scripts.UI.Elements;
 using Scripts.Enemy;
 using UnityEngine.AI;
 using Scripts.Services;
 using Scripts.Services.Randomizer;
 using Scripts.Services.StaticData;
 using Scripts.Logic.EnemySpawners;
-
+using Assets.Scripts.UI.Elements;
+using Scripts.UI.Services.Windows;
 
 namespace Scripts.Infrastructure.Factory
 {
@@ -25,16 +26,20 @@ namespace Scripts.Infrastructure.Factory
         private readonly IStaticDataService _staticDataService;
         private readonly IRandomService _randomService;
         private readonly IPersistentProgressService _persistentProgressService;
+        private readonly IWindowService _windowService;
 
         private GameObject _heroGameObject;
 
-        public GameFactory(IAssetProvider assetsProvider, IStaticDataService staticDataService, IRandomService randomService, IPersistentProgressService persistentProgressService)
+        public GameFactory(IAssetProvider assetsProvider, IStaticDataService staticDataService, IRandomService randomService, IPersistentProgressService persistentProgressService, IWindowService windowService)
         {
             _assetsProvider = assetsProvider;
             _staticDataService = staticDataService;
             _randomService = randomService;
             _persistentProgressService = persistentProgressService;
+            _windowService = windowService;
         }
+
+      
 
         public GameObject CreateHero(GameObject playerInitialPoint)
         {
@@ -47,6 +52,11 @@ namespace Scripts.Infrastructure.Factory
         {
             GameObject hud = InstantiateRegistered(AssetPath.HudPath);
             hud.GetComponentInChildren<LootCounter>().Construct(_persistentProgressService.Progress.WorldData);
+
+            foreach(OpenWindowButton openWindowButton in hud.GetComponentsInChildren<OpenWindowButton>())
+            {
+                openWindowButton.Construct(_windowService);
+            }
 
             return hud;
         }

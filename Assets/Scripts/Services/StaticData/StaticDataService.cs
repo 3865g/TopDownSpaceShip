@@ -1,5 +1,7 @@
 ﻿using Scripts.Services.StaticData;
 using Scripts.StaticData;
+using Scripts.StaticData.Windows;
+using Scripts.UI.Services.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,17 +12,20 @@ namespace Scripts.Services.StaticData
 
     public class StaticDataService : IStaticDataService
     {
-        private const string levelDataPath = "StaticData/Levels";
-        private const string enemyDataPath = "StaticData/Enemy";
+        private const string _staticDataLevelPath = "StaticData/Levels";
+        private const string _staticDataenemyPath = "StaticData/Enemy";
+        private const string _staticDataWindowPath = "StaticData/UI/WindowStaticData";
         private Dictionary<MonsterTypeId, MonsterStaticData> _monsters;
         private Dictionary<string, LevelStaticData> _levels;
+        private Dictionary<WindowId, WindowConfig> _windowConfigs;
 
-        
         public void Load()
         {
-            _monsters = Resources.LoadAll<MonsterStaticData>(enemyDataPath).ToDictionary(x => x.MonsterTypeId, x => x);
+            _monsters = Resources.LoadAll<MonsterStaticData>(_staticDataenemyPath).ToDictionary(x => x.MonsterTypeId, x => x);
         
-            _levels = Resources.LoadAll<LevelStaticData>(levelDataPath).ToDictionary(x => x.LevelKey, x => x);
+            _levels = Resources.LoadAll<LevelStaticData>(_staticDataLevelPath).ToDictionary(x => x.LevelKey, x => x);
+
+            _windowConfigs = Resources.Load<WindowStaticData>(_staticDataWindowPath).Configs.ToDictionary(x => x.WindowId, x => x);
         }
 
         public MonsterStaticData ForMonster(MonsterTypeId typeId)
@@ -37,6 +42,15 @@ namespace Scripts.Services.StaticData
             if (_levels.TryGetValue(sceneKey, out LevelStaticData levelStaticData))
             {
                 return levelStaticData;
+            }
+            return null;
+        }
+
+        public WindowConfig ForWindow(WindowId windowId)
+        {
+            if (_windowConfigs.TryGetValue(windowId, out WindowConfig windowConfig))
+            {
+                return windowConfig;
             }
             return null;
         }

@@ -1,4 +1,6 @@
-﻿using Scripts.Logic;
+﻿using Scripts.Hero;
+using Scripts.Logic;
+using System;
 using UnityEngine;
 
 namespace Scripts.UI.Elements
@@ -21,7 +23,7 @@ namespace Scripts.UI.Elements
         {
             IHealth health = GetComponent<IHealth>();
 
-            if (health != null)
+            if(health != null)
             {
                 Construct(health);
             }
@@ -39,7 +41,7 @@ namespace Scripts.UI.Elements
             HpBar.SetValue(_heroHealth.CurrentHP, _heroHealth.MaxHP);
         }
 
-
+        
 
     }
 }
