@@ -6,5 +6,6 @@
         public const string HudPath = "Hud/Hud";
         public const string Loot = "Prefabs/Loot/LootBase";
         public const string Spawner = "Prefabs/Enemies/SpawnPoint";
+        public const string LevelTransferTrigger = "Prefabs/Level/TransferTrigger";
     }
 }

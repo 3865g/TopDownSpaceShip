@@ -14,6 +14,7 @@ using Scripts.Services.StaticData;
 using Scripts.Logic.EnemySpawners;
 using Assets.Scripts.UI.Elements;
 using Scripts.UI.Services.Windows;
+using Scripts.Infrastructure.States;
 
 namespace Scripts.Infrastructure.Factory
 {
@@ -27,23 +28,30 @@ namespace Scripts.Infrastructure.Factory
         private readonly IRandomService _randomService;
         private readonly IPersistentProgressService _persistentProgressService;
         private readonly IWindowService _windowService;
+        private readonly IGameStateMachine _gameStateMachine;
 
         private GameObject _heroGameObject;
 
-        public GameFactory(IAssetProvider assetsProvider, IStaticDataService staticDataService, IRandomService randomService, IPersistentProgressService persistentProgressService, IWindowService windowService)
+        public GameFactory(IAssetProvider assetsProvider,
+            IStaticDataService staticDataService,
+            IRandomService randomService,
+            IPersistentProgressService persistentProgressService,
+            IWindowService windowService,
+            IGameStateMachine gameStateMachine)
         {
             _assetsProvider = assetsProvider;
             _staticDataService = staticDataService;
             _randomService = randomService;
             _persistentProgressService = persistentProgressService;
             _windowService = windowService;
+            _gameStateMachine = gameStateMachine;
         }
 
       
 
-        public GameObject CreateHero(GameObject playerInitialPoint)
+        public GameObject CreateHero(Vector3 playerInitialPoint)
         {
-            _heroGameObject = InstantiateRegistered(AssetPath.HeroPath, playerInitialPoint.transform.position);
+            _heroGameObject = InstantiateRegistered(AssetPath.HeroPath, playerInitialPoint);
             return _heroGameObject;
         }
 
@@ -59,6 +67,13 @@ namespace Scripts.Infrastructure.Factory
             }
 
             return hud;
+        }
+
+        public void CreateLevelTransfer(Vector3 transferInitialPoint)
+        {
+            GameObject prefab = InstantiateRegistered(AssetPath.LevelTransferTrigger, transferInitialPoint);
+            LevelTransferTrigger levelTransferTrigger = prefab.GetComponent<LevelTransferTrigger>();
+            levelTransferTrigger.Construct(_gameStateMachine);
         }
 
         public LootPiece CreateLoot()

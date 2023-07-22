@@ -10,7 +10,7 @@ using Scripts.UI.Services.Factory;
 
 namespace Scripts.Infrastructure.States
 {
-    public partial class GameStateMachine
+    public partial class GameStateMachine : IGameStateMachine
     {
         private readonly Dictionary<Type, IExitableState> _states;
         private IExitableState _activeState;
@@ -35,9 +35,9 @@ namespace Scripts.Infrastructure.States
             state.Enter();
         }
 
-        
 
-        public void Enter<TState, TPayLoad>(TPayLoad payload ) where TState : class,  IPayLoadedState<TPayLoad>
+
+        public void Enter<TState, TPayLoad>(TPayLoad payload) where TState : class, IPayLoadedState<TPayLoad>
         {
             TState state = ChangeState<TState>();
             state.Enter(payload);
@@ -57,7 +57,7 @@ namespace Scripts.Infrastructure.States
 
         private TState GetState<TState>() where TState : class, IExitableState
         {
-           return _states[typeof(TState)] as TState;
+            return _states[typeof(TState)] as TState;
         }
     }
 }

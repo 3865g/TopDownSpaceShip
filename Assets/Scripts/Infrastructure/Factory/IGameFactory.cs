@@ -13,11 +13,12 @@ namespace Scripts.Infrastructure.Factory
         List<ISavedProgressReader> ProgressReaders { get; }
         List<ISavedProgress> ProgressWriters { get; }
 
-        GameObject CreateHero(GameObject playerInitialPoint);
+        GameObject CreateHero(Vector3 playerInitialPoint);
         GameObject CreateHud();
         GameObject CreateEnemy(MonsterTypeId monsterTypeId, Transform parent);
         LootPiece CreateLoot();
         void CreateSpawner(Vector3 position, string spawnerId, MonsterTypeId monsterTypeId);
+        void CreateLevelTransfer(Vector3 transferInitialPoint);
         void Cleanup();
     }
 }

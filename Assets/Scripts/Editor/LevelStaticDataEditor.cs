@@ -10,9 +10,11 @@ using UnityEngine.SceneManagement;
 namespace Scripts.Editor
 {
     [CustomEditor(typeof(LevelStaticData))]
-    internal class LevelStaticDataEditor : UnityEditor.Editor
+    public class LevelStaticDataEditor : UnityEditor.Editor
     {
-       public override void OnInspectorGUI()
+        private const string PlayerInitialPointTag = "PlayerInitialPoint";
+        private const string LevelTransferInitialPoint = "LevelTransferInitialPoint";
+        public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
 
@@ -23,6 +25,10 @@ namespace Scripts.Editor
                 levelData.EnemySpawnerData = FindObjectsOfType<SpawnMarker>().Select(x => new EnemySpawnerStaticData(x.GetComponent<UniqueId>().Id, x.MonsterTypeId, x.transform.position)).ToList();
 
                 levelData.LevelKey = SceneManager.GetActiveScene().name;
+
+                levelData.InitialHeroPosition = GameObject.FindWithTag(PlayerInitialPointTag).transform.position;
+
+                levelData.LevelTransfer.Position = GameObject.FindWithTag(LevelTransferInitialPoint).transform.position;
             }
 
             EditorUtility.SetDirty(target);
