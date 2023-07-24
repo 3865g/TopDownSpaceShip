@@ -6,17 +6,16 @@ namespace Scripts.Logic
 {
     public class LevelTransferTrigger : MonoBehaviour
     {
-        private string _transferTo;
+        public string TransferTo;
 
         private const string PlayerTag = "Player";
         private IGameStateMachine _gameStateMachine;
         private bool _isTransfering = false;
                
 
-        public void Construct(IGameStateMachine gameStateMachine, string transferTo)
+        public void Construct(IGameStateMachine gameStateMachine)
         {
             _gameStateMachine = gameStateMachine;
-            _transferTo = transferTo;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -30,7 +29,7 @@ namespace Scripts.Logic
             if (other.CompareTag(PlayerTag))
             {
                     Debug.Log("Transfer");
-                    _gameStateMachine.Enter<LoadLevelState, string>(_transferTo);
+                    _gameStateMachine.Enter<LoadLevelState, string>(TransferTo);
                     _isTransfering = true;
              }
 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64fc6b33d614e4f48a7bf06da581b06d, type: 3}
   m_Name: Enemy1StaticData
   m_EditorClassIdentifier: 
-  MonsterTypeId: 0
+  MonsterTypeId: 1
   Hp: 50
   Damage: 2
   MaxLoot: 1
@@ -20,4 +20,8 @@ MonoBehaviour:
   EffectiveDistane: 30
   Cleavage: 41.5
   MoveSpeed: 30
-  PrefabEnemy: {fileID: 2976977863919688537, guid: fc4fb269bf1748249af62cae6fae3e07, type: 3}
+  PrefabEnemyReference:
+    m_AssetGUID: fc4fb269bf1748249af62cae6fae3e07
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

@@ -78,12 +78,13 @@ namespace Scripts.Infrastructure.Factory
             return hud;
         }
 
-        public async Task CreateLevelTransfer(Vector3 transferInitialPoint)
+        public async Task CreateLevelTransfer(Vector3 transferInitialPoint, string transferTo)
         {
             GameObject prefab = await InstantiateRegisteredAsync(AssetsAddress.LevelTransferTrigger, transferInitialPoint);
             LevelTransferTrigger levelTransferTrigger = prefab.GetComponent<LevelTransferTrigger>();
+            levelTransferTrigger.TransferTo = transferTo;
             //LevelTransferStaticData levelTransferStaticData = _staticDataService.
-            levelTransferTrigger.Construct(_gameStateMachine, "");
+            levelTransferTrigger.Construct(_gameStateMachine);
         }
 
         public async Task<LootPiece> CreateLoot()

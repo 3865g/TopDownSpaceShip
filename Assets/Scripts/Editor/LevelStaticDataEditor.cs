@@ -29,6 +29,8 @@ namespace Scripts.Editor
                 levelData.InitialHeroPosition = GameObject.FindWithTag(PlayerInitialPointTag).transform.position;
 
                 levelData.LevelTransfer.Position = GameObject.FindWithTag(LevelTransferInitialPoint).transform.position;
+
+                levelData.LevelTransfer.TransferTo = GameObject.FindWithTag(LevelTransferInitialPoint).GetComponent<LevelTransferInitialPoint>().TransferTo;
             }
 
             EditorUtility.SetDirty(target);

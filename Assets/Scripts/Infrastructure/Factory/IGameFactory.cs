@@ -21,6 +21,6 @@ namespace Scripts.Infrastructure.Factory
         Task CreateSpawner(string spawnerId,Vector3 position, MonsterTypeId monsterTypeId);
         void Cleanup();
         Task WarmUp();
-        Task CreateLevelTransfer(Vector3 transferInitialPoint);
+        Task CreateLevelTransfer(Vector3 transferInitialPoint, string transferTo);
     }
 }

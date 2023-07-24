@@ -91,7 +91,7 @@ namespace Scripts.Infrastructure.States
 
         private async Task InitLevelTransfer(LevelStaticData levelStaticData)
         {
-            await _gameFactory.CreateLevelTransfer(levelStaticData.LevelTransfer.Position);
+            await _gameFactory.CreateLevelTransfer(levelStaticData.LevelTransfer.Position, levelStaticData.LevelTransfer.TransferTo);
         }
 
         private async Task InitSpawners(LevelStaticData levelStaticData)
