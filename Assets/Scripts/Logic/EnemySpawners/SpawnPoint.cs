@@ -47,14 +47,15 @@ namespace Scripts.Logic.EnemySpawners
         public void UpdateProgress(PlayerProgress progress)
         {
             List<string> slainSpawnerList = progress.KillData.ClearedSpawners;
+
             if (_slain && !slainSpawnerList.Contains(Id))
             {
                 slainSpawnerList.Add(Id);
             }
         }
-        private void Spawn()
+        private async void Spawn()
         {
-           GameObject enemy = _gameFactory.CreateEnemy(MonsterTypeId, transform);
+           GameObject enemy = await _gameFactory.CreateEnemy(MonsterTypeId, transform);
             _enemyDeath = enemy.GetComponent<EnemyDeath>();
             _enemyDeath.Happened += Slay;
         }

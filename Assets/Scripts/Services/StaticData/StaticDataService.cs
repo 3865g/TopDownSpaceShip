@@ -46,6 +46,7 @@ namespace Scripts.Services.StaticData
             return null;
         }
 
+
         public WindowConfig ForWindow(WindowId windowId)
         {
             if (_windowConfigs.TryGetValue(windowId, out WindowConfig windowConfig))

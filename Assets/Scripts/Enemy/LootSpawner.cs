@@ -24,11 +24,17 @@ namespace Scripts.Enemy
             EnemyDeath.Happened += SpawnLoot;
         }
 
-        private void SpawnLoot()
+        public void SetLoot(int min, int max)
+        {
+            _lootMin = min;
+            _lootMax = max;
+        }
+
+        private async void SpawnLoot()
         {
             EnemyDeath.Happened -= SpawnLoot;
 
-            LootPiece lootPiece = _gameFactory.CreateLoot();
+            LootPiece lootPiece = await _gameFactory.CreateLoot();
             lootPiece.transform.position = transform.position;
 
             Loot lootItem = GenerateLoot();
@@ -44,10 +50,6 @@ namespace Scripts.Enemy
             };
         }
 
-        public void SetLoot(int min, int max)
-        {
-            _lootMin = min;
-            _lootMax = max;
-        }
+       
     }
 }

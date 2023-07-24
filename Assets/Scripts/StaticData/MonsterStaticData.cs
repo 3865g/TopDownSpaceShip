@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Scripts.StaticData
 {
@@ -25,6 +26,6 @@ namespace Scripts.StaticData
         public float MoveSpeed = 30f;
 
 
-        public GameObject PrefabEnemy;
+        public AssetReferenceGameObject PrefabEnemyReference;
     }
 }

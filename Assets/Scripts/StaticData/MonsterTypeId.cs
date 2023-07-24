@@ -2,10 +2,11 @@
 {
     public enum MonsterTypeId
     {
-        enemy1 = 0,
-        enemy2 = 10,
-        enemy3 = 20,
-        enemy4 = 30,
-        enemy5Turel = 40,
+        enemy1 = 1,
+        enemy2 = 2,
+        enemy3 = 3,
+        enemy4 = 4,
+        enemy5Turel = 5,
+        enemy6 = 6,
     }
 }

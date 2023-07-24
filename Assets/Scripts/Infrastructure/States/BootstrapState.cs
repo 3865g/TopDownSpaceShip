@@ -9,6 +9,8 @@ using UnityEngine;
 using Scripts.Services.StaticData;
 using Scripts.UI.Services.Factory;
 using Scripts.UI.Services.Windows;
+using System;
+using CodeBase.Services.Ads;
 
 namespace Scripts.Infrastructure.States
 {
@@ -41,6 +43,7 @@ namespace Scripts.Infrastructure.States
         private void RegisterServices()
         {
             RegisterStaticDataService();
+            RegisterAdsService();
 
             _services.RegisterSingle<IGameStateMachine>(_gameStateMachine);
             _services.RegisterSingle<IInputService>(InputService());
@@ -50,7 +53,9 @@ namespace Scripts.Infrastructure.States
 
             _services.RegisterSingle<IUIFactory>(new UIFactory(_services.Single<IAssetProvider>(), 
                 _services.Single<IStaticDataService>(), 
-                _services.Single<IPersistentProgressService>()));
+                _services.Single<IPersistentProgressService>(),
+                _services.Single<IAdsService>()));
+
             _services.RegisterSingle<IWindowService>(new WindowService(_services.Single<IUIFactory>()));
 
             _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssetProvider>(), 
@@ -60,9 +65,17 @@ namespace Scripts.Infrastructure.States
                 _services.Single<IWindowService>(),
                 _services.Single<IGameStateMachine>()));
 
-            _services.RegisterSingle<ISaveLoadService>(new SaveLoadService(_services.Single<IPersistentProgressService>(),
+            _services.RegisterSingle<ISaveLoadService>(new SaveLoadService(
+                _services.Single<IPersistentProgressService>(),
                 _services.Single<IGameFactory>()));
 
+        }
+
+        private void RegisterAdsService()
+        {
+            IAdsService adsService = new AdsService();
+            adsService.Initialize();
+            _services.RegisterSingle<IAdsService>(adsService);
         }
 
         private void RegisterStaticDataService()

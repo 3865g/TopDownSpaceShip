@@ -1,23 +1,35 @@
-﻿using TMPro;
+﻿using CodeBase.Services.Ads;
+using TMPro;
+using Scripts.Services.PersistentProgress;
 
-namespace Scripts.UI.Windows
+namespace Scripts.UI.Windows.Shop
 {
     public class ShopWindow: WindowBase
     {
         public TextMeshProUGUI CoinText;
+        public RewardedAdItem RewardedAdItem;    
+
+        public void Construct(IAdsService adsService, IPersistentProgressService persistantProgressService)
+        {
+            base.Construct(persistantProgressService);
+            RewardedAdItem.Construct(adsService, persistantProgressService);
+        }
 
         protected override void Initialize()
         {
+            RewardedAdItem.Initialize();
             RefreshCoinText();
         }
         protected override void SubscribeUpdates()
         {
+            RewardedAdItem.Subscribe();
             PlayerProgress.WorldData.LootData.ChangedValue += RefreshCoinText;
         }
 
         protected override void Clenup()
         {
             base.Clenup();
+            RewardedAdItem.Cleanup();
             PlayerProgress.WorldData.LootData.ChangedValue -= RefreshCoinText;
         }
 
