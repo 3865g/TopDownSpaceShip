@@ -8,6 +8,9 @@ TagManager:
   - LoadingCurtain
   - EnemySpawners
   - LevelTransferInitialPoint
+  - CanHit
+  - BlockingScene
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -27,8 +30,8 @@ TagManager:
   - Attack
   - CanHit
   - Pickup
-  - 
-  - 
+  - HeroAttackZone
+  - Laser
   - 
   - 
   - 

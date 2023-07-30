@@ -5,63 +5,80 @@ using Scripts.Services.PersistentProgress;
 using Scripts.Logic;
 using Scripts.Services.Input;
 using UnityEngine;
+using Scripts.Hero;
+using Scripts.Infrastructure.AssetManagement;
+using Assets.Scripts.Hero;
+using UnityEngine.EventSystems;
 
 namespace Scripts.Enemy
 {
     public class HeroAttack : MonoBehaviour, ISavedProgressReader
     {
-        public LayerMask LayerMask;
+        public float AttackCooldown = 0.1f;
+        public float LaserSpeed = 500f;
+        public bool CanAttack;
+        public Transform LaserStartTransform;
+        public GameObject Laserprefab;
 
-        private IInputService _inputService;
 
-        private CharacterController _characterController;
-        private int _layerMask;
-        private Collider[] _hits = new Collider[3];
-        
         private Stats _stats;
+        private float _attackCooldown;
+        private RotateForAttack _roatateForAttack;
 
         private void Awake()
         {
-            _inputService = AllServices.Container.Single<IInputService>();
-            _layerMask = LayerMask;
-            _characterController = GetComponent<CharacterController>();
+            _roatateForAttack = gameObject.GetComponent<RotateForAttack>();
         }
 
         private void Update()
         {
-            if (Input.GetKeyDown("space"))
+
+            UpdateCooldown();
+
+
+            if (ReadyAttack())
             {
                 OnAttack();
-                //Debug.Log("Attack");
             }
+
+            //Debug.Log(_attackCooldown);
         }
 
         public void OnAttack()
         {
-            //PhysicsDebug.DrawDebug(StartPoint() + transform.forward, _stats.DamageRadius, 1.0f);
-            for (int i = 0; i < Hit(); i++)
-            {
-                _hits[i].transform.parent.GetComponent<IHealth>().TakeDamage(_stats.Damage);
-                //Debug.Log(_hits[i].ToString());
-            }
+            GameObject laserPrefab = Instantiate(Laserprefab, LaserStartTransform.position, Quaternion.identity);
+            Laser laser = laserPrefab.GetComponent<Laser>();
+            Vector3 laserDirection = (_roatateForAttack._enemy.transform.position - LaserStartTransform.position).normalized;            
+            laser.Construct(laserDirection, _stats.Damage);
+            
+            _attackCooldown = AttackCooldown;
         }
 
-        
-
-        private int Hit()
-        {
-            return Physics.OverlapSphereNonAlloc(StartPoint(), _stats.DamageRadius, _hits, _layerMask);
-        }
-       
-
-        private Vector3 StartPoint()
-        {
-            return new Vector3(transform.position.x, _characterController.center.y, transform.position.z);
-        }
         public void LoadProgress(PlayerProgress progress)
         {
             _stats = progress.HeroStats;
         }
+
+        private bool ReadyAttack()
+        {
+            return  /*_isAttacking &&*/ CanAttack && CooldownIsUp();
+        }
+
+
+
+        private void UpdateCooldown()
+        {
+            if (!CooldownIsUp())
+            {
+                _attackCooldown -= Time.deltaTime;
+            }
+
+        }
+        private bool CooldownIsUp()
+        {
+            return _attackCooldown <= 0f;
+        }
+
 
     }
 }

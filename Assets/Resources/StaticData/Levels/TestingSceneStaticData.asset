@@ -20,7 +20,7 @@ MonoBehaviour:
   - Id: TestingScene_2718ff2a-c1bd-4a14-a4fa-09e4914429c9
     MonsterTypeId: 1
     Position: {x: -63.625473, y: 16, z: 35.145195}
-  InitialHeroPosition: {x: 4.130684, y: 14, z: 26.454863}
+  InitialHeroPosition: {x: 4.130684, y: 16, z: 26.454863}
   LevelTransfer:
     TransferTo: TestingScene2
     Position: {x: -106.504196, y: 17.3, z: 41.283966}

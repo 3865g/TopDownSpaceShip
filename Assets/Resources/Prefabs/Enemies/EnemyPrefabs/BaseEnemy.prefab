@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 7937512951539875594}
   m_Layer: 16
   m_Name: HurtBox
-  m_TagString: Untagged
+  m_TagString: CanHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 8908097638269532785}
   - component: {fileID: 6656451049966108590}
   - component: {fileID: 8793936828675594145}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: AgroZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,9 +355,10 @@ GameObject:
   - component: {fileID: 5599257748722715310}
   - component: {fileID: 6867412711167110712}
   - component: {fileID: 6978631495115145654}
+  - component: {fileID: 3059798646825150599}
   m_Layer: 0
   m_Name: BaseEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -395,7 +396,7 @@ NavMeshAgent:
   m_Speed: 10
   m_Acceleration: 15
   avoidancePriority: 50
-  m_AngularSpeed: 1600
+  m_AngularSpeed: 300
   m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
@@ -504,6 +505,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HpBar: {fileID: 7142117457188517392}
+--- !u!114 &3059798646825150599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5989523357293080675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f23dd877d822344b34eb0bf7acd331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 15
 --- !u!1 &6482403378231441332
 GameObject:
   m_ObjectHideFlags: 0

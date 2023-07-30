@@ -50,6 +50,7 @@ namespace Scripts.Enemy
         {
             if(Hit(out Collider hit))
             {
+                if (hit.CompareTag("Player"))
                 hit.transform.GetComponent<IHealth>().TakeDamage(Damage);
                 _attackCooldown = AttackCooldown;
                 //Debug.Log("AttackHero");
@@ -67,6 +68,7 @@ namespace Scripts.Enemy
             {              
                 _attackCooldown -= Time.deltaTime;
             }
+
         }
         private void StartAttack()
         {

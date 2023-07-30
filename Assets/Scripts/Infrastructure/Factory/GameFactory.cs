@@ -16,6 +16,7 @@ using Scripts.UI.Services.Windows;
 using Scripts.Infrastructure.States;
 using System.Threading.Tasks;
 using UnityEngine.AddressableAssets;
+using Assets.Scripts.Hero;
 
 namespace Scripts.Infrastructure.Factory
 {
@@ -111,6 +112,7 @@ namespace Scripts.Infrastructure.Factory
             monster.GetComponent<ActorUI>().Construct(health);
             monster.GetComponent<AgentMoveToPlayer>().Construct(_heroGameObject.transform);
             monster.GetComponent<NavMeshAgent>().speed = monsterStaticData.MoveSpeed;
+            monster.GetComponent<RotateToHero>()?.Construct(_heroGameObject.transform);
 
             
 
@@ -120,7 +122,6 @@ namespace Scripts.Infrastructure.Factory
             attack.Cleavage = monsterStaticData.Cleavage;
             attack.EffectiveDistane = monsterStaticData.EffectiveDistane;
 
-            monster.GetComponent<RotateToHero>()?.Construct(_heroGameObject.transform);
 
             LootSpawner lootSpawner = monster.GetComponentInChildren<LootSpawner>();
             lootSpawner.SetLoot(monsterStaticData.MinLoot, monsterStaticData.MaxLoot);

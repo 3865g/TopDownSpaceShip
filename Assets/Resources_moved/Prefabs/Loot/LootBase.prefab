@@ -356,6 +356,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_Sparks1
       objectReference: {fileID: 0}
+    - target: {fileID: 3475387905439212809, guid: 12c53247dd4df4e4e9200c635ec64ff5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6720213447630607562, guid: 12c53247dd4df4e4e9200c635ec64ff5, type: 3}
       propertyPath: looping
       value: 0

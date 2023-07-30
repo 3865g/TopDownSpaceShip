@@ -14,12 +14,12 @@ namespace CodeBase.Services.Ads
 
         public void Initialize()
         {
-            Debug.Log("AsService Initialize");
+            //Debug.Log("AsService Initialize");
         }
 
         public void ShowRewardedVideo(Action onVideoFinished)
         {
-            Debug.Log("AsService Show Video");
+            //Debug.Log("AsService Show Video");
         }
     }
 }
