@@ -7,21 +7,25 @@ using UnityEngine;
 
 namespace Scripts.Enemy
 {
-    public class Attack : MonoBehaviour, IAttack
+    public class AttackMlee : MonoBehaviour, IAttack
     {
 
         public float AttackCooldown = 1.5f;
         public float Damage = 10f;
         public float Cleavage = 10f;
         public float EffectiveDistane = 10f;
-        public Transform[] ShootStartTransforms;
-        public GameObject Laserprefab;
+        public float Radius;
+        public bool Kamikaze;
+        public LayerMask LayerMask;
 
+        private EnemyDeath _enemyDeath;
         private Transform _heroTransform;
         private float _attackCooldown;
         private bool _isAttacking;
         private bool _attackIsActive;
-        int i = 0;
+        private float _radius;
+        private Collider[] _hits = new Collider[3];
+        private int _layerMask;
 
         public void Construct(Transform heroTransform, float damage)
         {
@@ -30,7 +34,12 @@ namespace Scripts.Enemy
         }
 
 
-
+        private void Awake()
+        {
+            _radius = Radius;
+            _layerMask = LayerMask;
+            _enemyDeath = gameObject.GetComponent<EnemyDeath>();
+        }
 
 
         private void Update()
@@ -46,31 +55,30 @@ namespace Scripts.Enemy
 
         private void OnAttack()
         {
-            Transform shootStartTransform = ShootStartPosition();
+            if(Hit(out Collider hit))
+            {
+                switch (Kamikaze)
+                {
+                    case false:
+                        hit.transform.GetComponent<IHealth>().TakeDamage(Damage);
+                        break;
+                    case true:
+                        hit.transform.GetComponent<IHealth>().TakeDamage(Damage);
+                        _enemyDeath.Die();
+                        break;
+                }
 
-            GameObject laserPrefab = Instantiate(Laserprefab, shootStartTransform.position, Quaternion.identity);
-            EnemyLaser laser = laserPrefab.GetComponent<EnemyLaser>();
-            Vector3 laserDirection = (_heroTransform.position - shootStartTransform.position).normalized;
-            laser.Construct(laserDirection, Damage);
-
-            _attackCooldown = AttackCooldown;
-
+                
+            }
 
         }
 
-        private Transform ShootStartPosition()
+        private bool Hit(out Collider hit)
         {
+            var hitAmount = Physics.OverlapSphereNonAlloc(transform.position, _radius, _hits, _layerMask);
+            hit = _hits.FirstOrDefault();
 
-            Transform startTransform = ShootStartTransforms[i];
-            i++;
-
-            if (i == ShootStartTransforms.Length)
-            {
-                i = 0;
-            }
-
-
-            return startTransform;
+            return hitAmount > 0;
         }
 
         private void UpdateCooldown()
@@ -83,7 +91,7 @@ namespace Scripts.Enemy
         }
         private void StartAttack()
         {
-            //transform.LookAt(_heroTransform);
+            transform.LookAt(_heroTransform);
             OnAttack();
         }
 
@@ -105,6 +113,12 @@ namespace Scripts.Enemy
         private bool CooldownIsUp()
         {
             return _attackCooldown <= 0f;
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, Radius);
         }
 
 

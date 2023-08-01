@@ -15,11 +15,13 @@ namespace Scripts.Hero
 
         private HeroAttack _heroAttack;
         private bool _isDead =false;
+        private Rigidbody _rigidbody;
 
 
         private void Awake()
         {
-            _heroAttack = GetComponent<HeroAttack>();   
+            _heroAttack = GetComponent<HeroAttack>();
+            _rigidbody = GetComponent<Rigidbody>();
         }
 
         private void Start()
@@ -47,7 +49,7 @@ namespace Scripts.Hero
             shipMove.enabled = false;
             _heroAttack.enabled = false;
             //Animator.Play(Die);
-
+            Destroy(gameObject);
             Instantiate(DeathFx, transform.position, Quaternion.identity);
 
             //Debug.Log(heroHealth.CurrentHP);

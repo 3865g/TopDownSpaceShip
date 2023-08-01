@@ -11,6 +11,7 @@ namespace Assets.Scripts.Hero
         public GameObject _enemy;
         private Vector3 _positionToLook;
         private ShipMove _shipMove;
+        private Rigidbody _rigidbody;
 
         public void GetTarget(GameObject enemyTransform)
         {
@@ -20,6 +21,7 @@ namespace Assets.Scripts.Hero
         private void Awake()
         {
             _shipMove = GetComponent<ShipMove>();
+            _rigidbody = GetComponent<Rigidbody>();
         }
 
         void Update()
@@ -27,17 +29,13 @@ namespace Assets.Scripts.Hero
             if (Initialized())
             {
                 RotateTowardsEnemy();
-            }
-
-            if (_enemy == null)
-            {
-                _shipMove.RotateToEnemy = false;
+                //_shipMove.RotateToEnemy = true;
             }
             else
             {
-                _shipMove.RotateToEnemy = true;
+                transform.forward = _shipMove.MovementVector;
             }
-
+           
             //Debug.Log(_enemyTransform.gameObject.SetActive == true);
 
         }

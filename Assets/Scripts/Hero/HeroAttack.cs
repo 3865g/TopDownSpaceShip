@@ -1,26 +1,21 @@
-﻿using System;
-using Scripts.Data;
-using Scripts.Services;
+﻿using Scripts.Data;
 using Scripts.Services.PersistentProgress;
-using Scripts.Logic;
-using Scripts.Services.Input;
 using UnityEngine;
 using Scripts.Hero;
-using Scripts.Infrastructure.AssetManagement;
 using Assets.Scripts.Hero;
-using UnityEngine.EventSystems;
 
 namespace Scripts.Enemy
 {
     public class HeroAttack : MonoBehaviour, ISavedProgressReader
     {
-        public float AttackCooldown = 0.1f;
+
+        public float AttackCooldown = 0.5f;
         public float LaserSpeed = 500f;
-        public bool CanAttack;
         public Transform LaserStartTransform;
         public GameObject Laserprefab;
 
 
+        public bool canAttack;
         private Stats _stats;
         private float _attackCooldown;
         private RotateForAttack _roatateForAttack;
@@ -41,17 +36,18 @@ namespace Scripts.Enemy
                 OnAttack();
             }
 
-            //Debug.Log(_attackCooldown);
+            
         }
 
         public void OnAttack()
         {
             GameObject laserPrefab = Instantiate(Laserprefab, LaserStartTransform.position, Quaternion.identity);
-            Laser laser = laserPrefab.GetComponent<Laser>();
+            PlayerLaser laser = laserPrefab.GetComponent<PlayerLaser>();
             Vector3 laserDirection = (_roatateForAttack._enemy.transform.position - LaserStartTransform.position).normalized;            
             laser.Construct(laserDirection, _stats.Damage);
             
             _attackCooldown = AttackCooldown;
+            //Debug.Log(_attackCooldown);
         }
 
         public void LoadProgress(PlayerProgress progress)
@@ -59,9 +55,11 @@ namespace Scripts.Enemy
             _stats = progress.HeroStats;
         }
 
+        
+
         private bool ReadyAttack()
         {
-            return  /*_isAttacking &&*/ CanAttack && CooldownIsUp();
+            return  /*_isAttacking &&*/ canAttack && CooldownIsUp();
         }
 
 
@@ -72,7 +70,7 @@ namespace Scripts.Enemy
             {
                 _attackCooldown -= Time.deltaTime;
             }
-
+            Debug.Log(_attackCooldown);
         }
         private bool CooldownIsUp()
         {

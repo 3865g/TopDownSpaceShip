@@ -110,17 +110,24 @@ namespace Scripts.Infrastructure.Factory
             health.MaxHP = monsterStaticData.Hp;
 
             monster.GetComponent<ActorUI>().Construct(health);
-            monster.GetComponent<AgentMoveToPlayer>().Construct(_heroGameObject.transform);
-            monster.GetComponent<NavMeshAgent>().speed = monsterStaticData.MoveSpeed;
+            monster.GetComponent<AgentMoveToPlayer>()?.Construct(_heroGameObject.transform);
+            monster.GetComponent<AgentSearchPlayer>()?.Construct(_heroGameObject.transform);
             monster.GetComponent<RotateToHero>()?.Construct(_heroGameObject.transform);
+            monster.GetComponentInChildren<RotateToHero>()?.Construct(_heroGameObject.transform);
+
+            NavMeshAgent navMeshAgent = monster.GetComponent<NavMeshAgent>();
+            if(navMeshAgent != null)
+            {
+                navMeshAgent.speed = monsterStaticData.MoveSpeed;
+            }
 
             
 
-            Attack attack = monster.GetComponent<Attack>();
-            attack.Construct(_heroGameObject.transform);
-            attack.Damage = monsterStaticData.Damage;
-            attack.Cleavage = monsterStaticData.Cleavage;
-            attack.EffectiveDistane = monsterStaticData.EffectiveDistane;
+            IAttack attack = monster.GetComponent<IAttack>();
+            attack.Construct(_heroGameObject.transform, monsterStaticData.Damage);
+            //attack.Damage = monsterStaticData.Damage;
+            //attack.Cleavage = monsterStaticData.Cleavage;
+            //attack.EffectiveDistane = monsterStaticData.EffectiveDistane;
 
 
             LootSpawner lootSpawner = monster.GetComponentInChildren<LootSpawner>();

@@ -13,7 +13,8 @@ namespace Scripts.Hero
     {
 
         public float MovementSpeed = 35f;
-        public bool RotateToEnemy = false;
+        //public bool RotateToEnemy = false;
+        public Vector3 MovementVector;
 
         private CharacterController _characterController;
         private IInputService _inputService;
@@ -38,10 +39,11 @@ namespace Scripts.Hero
                 movementVector = Camera.main.transform.TransformDirection(_inputService.Axis);
                 movementVector.y = 0;
                 movementVector.Normalize();
-                if (!RotateToEnemy)
-                {
-                    transform.forward = movementVector;
-                }
+
+                
+
+                MovementVector = movementVector;
+
             }
 
             _characterController.Move(movementVector * Time.deltaTime * MovementSpeed);

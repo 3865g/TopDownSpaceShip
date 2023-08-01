@@ -9,7 +9,6 @@ namespace Scripts.Hero
     public class TargetSearch : MonoBehaviour
     {
         private const string UpdateTargetString = "UpdateTarget";
-        private const string CanHit = "Enemy";
         public Transform target;
         public float range = 40f;
         public LayerMask LayerMask;
@@ -62,12 +61,12 @@ namespace Scripts.Hero
             {
                 target = _nearestEnemy.transform;
                 _rotateForAttack.GetTarget(_nearestEnemy);
-                _heroAttack.CanAttack = true;
+                _heroAttack.canAttack = true;
             }
             else
             {
                 _rotateForAttack.GetTarget(null);
-                _heroAttack.CanAttack = false;
+                _heroAttack.canAttack = false;
             }
         }
         private int Hit()
@@ -77,7 +76,7 @@ namespace Scripts.Hero
 
         private void OnDrawGizmosSelected()
         {
-            Gizmos.color = Color.green;
+            Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, range);
         }
 

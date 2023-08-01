@@ -324,7 +324,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 40
+  m_Radius: 80
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8793936828675594145
 MonoBehaviour:
@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 6978631495115145654}
   - component: {fileID: 3059798646825150599}
   m_Layer: 0
-  m_Name: BaseEnemy
+  m_Name: BaseEnemyRange
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -443,13 +443,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 228c989edb36f7b4d956a095527dd16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackCooldown: 3
+  AttackCooldown: 1.5
   LayerMask:
     serializedVersion: 2
     m_Bits: 4096
   Damage: 5
   Cleavage: 10
   EffectiveDistane: 10
+  ShootStartTransforms: []
+  Laserprefab: {fileID: 0}
 --- !u!114 &724903914523089135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,6 +520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  IsCollided: 0
 --- !u!1 &6482403378231441332
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,7 +573,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 20
+  m_Radius: 50
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2308309978127652792
 MonoBehaviour:

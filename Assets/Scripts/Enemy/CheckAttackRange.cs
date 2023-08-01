@@ -4,10 +4,16 @@ using UnityEngine;
 
 namespace Scripts.Enemy
 {
+    //[RequireComponent(typeof(IAttack))]
     public class CheckAttackRange : MonoBehaviour
     {
-        public Attack Attack;
+        public IAttack Attack;
         public TriggerObserver TriggerObserver;
+
+        private void Awake()
+        {
+            Attack = GetComponent<IAttack>();
+        }
 
         private void Start()
         {

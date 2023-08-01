@@ -11,15 +11,23 @@ namespace Scripts.Enemy
 
         private TriggerObserver _triggerObserver;
         private Follow _follow;
-        private Coroutine _aggrpCooutine;
+        private Coroutine _aggroCooutine;
+        private RotateToHero _rotateToHero;
 
         private bool _hasAggroTargget;
 
-
-        private void Start()
+        private void Awake()
         {
             _triggerObserver = GetComponentInChildren<TriggerObserver>();
             _follow = GetComponentInChildren<Follow>();
+            _rotateToHero = GetComponentInChildren<RotateToHero>();
+            
+
+
+        }
+
+        private void Start()
+        {
 
             _triggerObserver.TriggerEnter += TriggerEnter;
             _triggerObserver.TriggerExit += TriggerExit;
@@ -33,6 +41,7 @@ namespace Scripts.Enemy
             if (!_hasAggroTargget)
             {
                 _hasAggroTargget = true;
+                _rotateToHero.IsCollided = _hasAggroTargget;
 
                 StopAggroCorutine();
                 SwitchFollowOn();
@@ -44,7 +53,9 @@ namespace Scripts.Enemy
             if (_hasAggroTargget)
             {
                 _hasAggroTargget = false;
-                _aggrpCooutine =  StartCoroutine(SwitchFollowOffAfterCooldown());
+                _rotateToHero.IsCollided = _hasAggroTargget;
+
+                _aggroCooutine =  StartCoroutine(SwitchFollowOffAfterCooldown());
             }
         }
 
@@ -65,7 +76,7 @@ namespace Scripts.Enemy
         }
         private void StopAggroCorutine()
         {
-            _aggrpCooutine = null;
+            _aggroCooutine = null;
         }
 
     }

@@ -4,10 +4,9 @@ using UnityEngine;
 
 namespace Scripts.Hero
 {
-    public class Laser : MonoBehaviour
+    public class PlayerLaser : MonoBehaviour
     {
         public float Speed = 500f;
-        public Transform StartPoint;
         public Transform Target;
 
         private bool _isCollidet;
@@ -16,31 +15,10 @@ namespace Scripts.Hero
         private void Start()
         {
             transform.LookAt(Target);
-            //gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, Speed);
         }
 
 
-        
-
-        
-
-        private void OnTriggerEnter(Collider collision)
-        {
-
-            if (!_isCollidet && collision.gameObject.CompareTag("CanHit"))
-            {
-                collision.transform.parent.GetComponent<IHealth>()?.TakeDamage(_damage);
-                Destroy(gameObject);
-                _isCollidet = true;
-            }
-        }
-
-        private void SelfDestroy()
-        {
-
-        }
-
-        internal void Construct(Vector3 laserDirection, float damage)
+        public void Construct(Vector3 laserDirection, float damage)
         {
             _damage = damage;
             Rigidbody rigibody = GetComponent<Rigidbody>();
@@ -49,6 +27,18 @@ namespace Scripts.Hero
             transform.forward = laserDirection;
 
             Destroy(gameObject, 2f);
+        }
+
+
+
+        private void OnTriggerEnter(Collider collision)
+        {
+            if (!_isCollidet && collision.gameObject.CompareTag("CanHit"))
+            {
+                collision.transform.parent.GetComponent<IHealth>()?.TakeDamage(_damage);
+                Destroy(gameObject);
+                _isCollidet = true;
+            }
         }
     }
 }

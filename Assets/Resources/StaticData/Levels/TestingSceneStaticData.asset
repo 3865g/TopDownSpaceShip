@@ -14,13 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelKey: TestingScene
   EnemySpawnerData:
-  - Id: TestingScene_6fb0fd2d-2903-4e75-823a-a886dba9c21c
-    MonsterTypeId: 2
-    Position: {x: -64.6, y: 16, z: 76.2}
+  - Id: TestingScene_8bffac50-9f2c-4943-bd3e-4ce76159442a
+    MonsterTypeId: 3
+    Position: {x: -10.5, y: 16, z: 93.9}
   - Id: TestingScene_2718ff2a-c1bd-4a14-a4fa-09e4914429c9
     MonsterTypeId: 1
     Position: {x: -63.625473, y: 16, z: 35.145195}
-  InitialHeroPosition: {x: 4.130684, y: 16, z: 26.454863}
+  - Id: TestingScene_8926b784-1a65-4480-979d-2dffc2cda4a4
+    MonsterTypeId: 4
+    Position: {x: -10.5, y: 16, z: -3.3}
+  - Id: TestingScene_6fb0fd2d-2903-4e75-823a-a886dba9c21c
+    MonsterTypeId: 2
+    Position: {x: -64.6, y: 16, z: 76.2}
+  - Id: TestingScene_c8e399b6-6515-409c-9b13-aed9739229f1
+    MonsterTypeId: 5
+    Position: {x: -90.1, y: -1.8, z: 64.8}
+  - Id: TestingScene_b6abe46d-47ea-4ae4-bea8-fe8362386444
+    MonsterTypeId: 5
+    Position: {x: -92.5, y: -1.8, z: 24.8}
+  InitialHeroPosition: {x: 121.2, y: 16, z: 52.9}
   LevelTransfer:
     TransferTo: TestingScene2
     Position: {x: -106.504196, y: 17.3, z: 41.283966}

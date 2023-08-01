@@ -29,7 +29,7 @@ namespace Scripts.Enemy
             }
         }
 
-        private void Die()
+        public void Die()
         {
             //Animator.PlayDeath();
             Health.HealthChanged -= HealthChanged;
@@ -47,7 +47,7 @@ namespace Scripts.Enemy
 
         private IEnumerator DestroyTimer()
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(.1f);
             Destroy(gameObject);
         }
     }

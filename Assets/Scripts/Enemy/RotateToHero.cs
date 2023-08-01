@@ -9,6 +9,7 @@ namespace Scripts.Enemy
     public class RotateToHero : Follow
     {
         public float speed = 15f;
+        public bool IsCollided;
 
         private Transform _heroTransform;
         private Vector3 _positionToLook;
@@ -18,9 +19,11 @@ namespace Scripts.Enemy
             _heroTransform = heroTransform;
         }
 
+
+
         void Update()
         {
-            if(Initialized())
+            if(Initialized() && IsCollided)
             {
                 RotateTowardshero();
             }
