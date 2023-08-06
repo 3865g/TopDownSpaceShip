@@ -13,15 +13,19 @@ namespace Scripts.Services.StaticData
     public class StaticDataService : IStaticDataService
     {
         private const string _staticDataLevelPath = "StaticData/Levels";
+        private const string _staticDataSceneAssetsPath = "StaticData/SceneAssets";
         private const string _staticDataenemyPath = "StaticData/Enemy";
         private const string _staticDataWindowPath = "StaticData/UI/WindowStaticData";
         private Dictionary<MonsterTypeId, MonsterStaticData> _monsters;
+        private Dictionary<GateTypeId, GateStaticData> _gate;
         private Dictionary<string, LevelStaticData> _levels;
         private Dictionary<WindowId, WindowConfig> _windowConfigs;
 
         public void Load()
         {
             _monsters = Resources.LoadAll<MonsterStaticData>(_staticDataenemyPath).ToDictionary(x => x.MonsterTypeId, x => x);
+
+            _gate = Resources.LoadAll<GateStaticData>(_staticDataSceneAssetsPath).ToDictionary(x => x.GateTypeId, x => x);
         
             _levels = Resources.LoadAll<LevelStaticData>(_staticDataLevelPath).ToDictionary(x => x.LevelKey, x => x);
 
@@ -33,6 +37,15 @@ namespace Scripts.Services.StaticData
             if (_monsters.TryGetValue(typeId, out MonsterStaticData monsterStaticData))
             {
                 return monsterStaticData;
+            }
+            return null;
+        }
+
+        public GateStaticData ForGate(GateTypeId typeId)
+        {
+            if (_gate.TryGetValue(typeId, out GateStaticData gateStaticData))
+            {
+                return gateStaticData;
             }
             return null;
         }
@@ -55,5 +68,7 @@ namespace Scripts.Services.StaticData
             }
             return null;
         }
+
+       
     }
 }

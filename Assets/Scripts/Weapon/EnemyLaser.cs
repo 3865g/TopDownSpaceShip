@@ -40,6 +40,10 @@ namespace Scripts.Hero
                 Destroy(gameObject);
                 _isCollidet = true;
             }
+            else if(!_isCollidet && collision.gameObject.CompareTag("Enviroment"))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -38,7 +38,7 @@ namespace Scripts.Enemy
         private void UpdatePositionLookAt()
         {
             Vector3 positionDiff = _heroTransform.position - transform.position;
-            _positionToLook = new Vector3(positionDiff.x, transform.position.y, positionDiff.z);
+            _positionToLook = new Vector3(positionDiff.x, positionDiff.y, positionDiff.z);
         }
 
         private Quaternion SmoothedRotation(Quaternion rotation, Vector3 positionToLook)

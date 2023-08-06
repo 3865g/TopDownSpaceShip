@@ -17,6 +17,7 @@ using Scripts.Infrastructure.States;
 using System.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 using Assets.Scripts.Hero;
+using Scripts.Logic.Gates;
 
 namespace Scripts.Infrastructure.Factory
 {
@@ -24,6 +25,8 @@ namespace Scripts.Infrastructure.Factory
     {
         public List<ISavedProgressReader> ProgressReaders { get; } = new List<ISavedProgressReader>();
         public List<ISavedProgress> ProgressWriters { get; } = new List<ISavedProgress>();
+
+
 
         private readonly IAssetProvider _assetsProvider;
         private readonly IStaticDataService _staticDataService;
@@ -33,6 +36,9 @@ namespace Scripts.Infrastructure.Factory
         private readonly IGameStateMachine _gameStateMachine;
 
         private GameObject _heroGameObject;
+        private GameObject _gameManager;
+        private GameObject _gate;
+        
 
         public GameFactory(IAssetProvider assetsProvider,
             IStaticDataService staticDataService,
@@ -55,7 +61,16 @@ namespace Scripts.Infrastructure.Factory
             await _assetsProvider.Load<GameObject>(AssetsAddress.Spawner);
         }
 
-      
+
+        public async Task CreateGameManager()
+        {
+            GameObject prefab = await _assetsProvider.Load<GameObject>(AssetsAddress.GameManager);
+            GameObject gameManager = Object.Instantiate(prefab, new Vector3(0,0,0), Quaternion.identity);
+            EnemyCount enemyCount = gameManager.GetComponent<EnemyCount>();
+            enemyCount.Construct(this, _gate);
+
+            _gameManager = gameManager;
+        }
 
         public async Task<GameObject> CreateHero(Vector3 playerInitialPoint)
         {
@@ -86,6 +101,18 @@ namespace Scripts.Infrastructure.Factory
             levelTransferTrigger.TransferTo = transferTo;
             //LevelTransferStaticData levelTransferStaticData = _staticDataService.
             levelTransferTrigger.Construct(_gameStateMachine);
+        }
+
+        public async Task CreateLevelGate(Vector3 position, Quaternion rotation, GateTypeId gateTypeId)
+        {
+            GateStaticData gateStaticData = _staticDataService.ForGate(gateTypeId);
+            GameObject prefab = await _assetsProvider.Load<GameObject>(gateStaticData.PrefabGateReference);
+            GameObject gate = Object.Instantiate(prefab, position, rotation);
+
+            GatesStatus gateStatus = prefab.GetComponent<GatesStatus>();
+            _gate = gate;
+            gateStatus.Construct(this);
+
         }
 
         public async Task<LootPiece> CreateLoot()
@@ -142,11 +169,15 @@ namespace Scripts.Infrastructure.Factory
         {
             GameObject prefab = await _assetsProvider.Load<GameObject>(AssetsAddress.Spawner);
 
-            SpawnPoint spawner = InstantiateRegistered(prefab, position).GetComponent<SpawnPoint>();
+            GameObject spawner = InstantiateRegistered(prefab, position);
+            SpawnPoint spawnPoint = spawner.GetComponent<SpawnPoint>();
 
-            spawner.Construct(this);
-            spawner.Id = spawnerId;
-            spawner.MonsterTypeId = monsterTypeId;
+            spawnPoint.Construct(this);
+            spawnPoint.Id = spawnerId;
+            spawnPoint.MonsterTypeId = monsterTypeId;
+            spawnPoint.EnemyCount = _gameManager.GetComponent<EnemyCount>();
+
+
         }
 
 

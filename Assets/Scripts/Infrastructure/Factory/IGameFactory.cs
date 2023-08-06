@@ -1,4 +1,5 @@
 ﻿using Scripts.Enemy;
+using Scripts.Logic.EnemySpawners;
 using Scripts.Services;
 using Scripts.Services.PersistentProgress;
 using Scripts.StaticData;
@@ -14,6 +15,7 @@ namespace Scripts.Infrastructure.Factory
         List<ISavedProgressReader> ProgressReaders { get; }
         List<ISavedProgress> ProgressWriters { get; }
 
+
         Task<GameObject> CreateHero(Vector3 playerInitialPoint);
         Task<GameObject> CreateHud();
         Task<GameObject> CreateEnemy(MonsterTypeId monsterTypeId, Transform parent);
@@ -22,5 +24,7 @@ namespace Scripts.Infrastructure.Factory
         void Cleanup();
         Task WarmUp();
         Task CreateLevelTransfer(Vector3 transferInitialPoint, string transferTo);
+        Task CreateLevelGate(Vector3 position, Quaternion rotation, GateTypeId gateTypeId);
+        Task CreateGameManager();
     }
 }

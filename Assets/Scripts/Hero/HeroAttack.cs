@@ -27,6 +27,7 @@ namespace Scripts.Enemy
 
         private void Update()
         {
+            //Debug.Log(_stats.Damage);
 
             UpdateCooldown();
 
@@ -35,24 +36,22 @@ namespace Scripts.Enemy
             {
                 OnAttack();
             }
-
-            
         }
 
         public void OnAttack()
         {
+            _attackCooldown = AttackCooldown;
             GameObject laserPrefab = Instantiate(Laserprefab, LaserStartTransform.position, Quaternion.identity);
             PlayerLaser laser = laserPrefab.GetComponent<PlayerLaser>();
             Vector3 laserDirection = (_roatateForAttack._enemy.transform.position - LaserStartTransform.position).normalized;            
             laser.Construct(laserDirection, _stats.Damage);
             
-            _attackCooldown = AttackCooldown;
             //Debug.Log(_attackCooldown);
         }
 
         public void LoadProgress(PlayerProgress progress)
         {
-            _stats = progress.HeroStats;
+             _stats = progress.HeroStats;            
         }
 
         
@@ -70,7 +69,6 @@ namespace Scripts.Enemy
             {
                 _attackCooldown -= Time.deltaTime;
             }
-            Debug.Log(_attackCooldown);
         }
         private bool CooldownIsUp()
         {

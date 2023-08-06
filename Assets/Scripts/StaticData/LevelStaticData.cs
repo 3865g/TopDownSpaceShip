@@ -13,5 +13,6 @@ namespace Scripts.StaticData
 
         public Vector3 InitialHeroPosition;
         public LevelTransferStaticData LevelTransfer;
+        public GateSpawnerData LevelGate;
     }
 }

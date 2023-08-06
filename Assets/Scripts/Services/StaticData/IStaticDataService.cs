@@ -8,6 +8,8 @@ namespace Scripts.Services.StaticData
     {
         void Load();
         MonsterStaticData ForMonster(MonsterTypeId typeId);
+
+        GateStaticData ForGate(GateTypeId typeId);
         LevelStaticData ForLevel(string sceneKey);
         WindowConfig ForWindow(WindowId windowId);
     }

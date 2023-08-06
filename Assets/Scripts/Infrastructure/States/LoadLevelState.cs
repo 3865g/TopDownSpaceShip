@@ -31,7 +31,13 @@ namespace Scripts.Infrastructure.States
         private readonly IStaticDataService _staticDataService;
         private readonly IUIFactory _uiFactory;
 
-        public LoadLevelState(GameStateMachine stateMachine, SceneLoader sceneLoader, LoadingCurtain curtain, IGameFactory gameFactory, IPersistentProgressService progressService, IStaticDataService staticDataService, IUIFactory uiFactory)
+        public LoadLevelState(GameStateMachine stateMachine, 
+            SceneLoader sceneLoader, 
+            LoadingCurtain curtain, 
+            IGameFactory gameFactory, 
+            IPersistentProgressService progressService, 
+            IStaticDataService staticDataService, 
+            IUIFactory uiFactory)
         {
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
@@ -79,7 +85,8 @@ namespace Scripts.Infrastructure.States
         private async Task InitGameWorld()
         {
             LevelStaticData levelStaticData = LevelStaticData();
-
+            await InitGate(levelStaticData);
+            await InitGameManager();
             await InitSpawners(levelStaticData);
             await InitLootPieces();
             GameObject hero = await InitHero(levelStaticData);
@@ -87,6 +94,16 @@ namespace Scripts.Infrastructure.States
             await InitHud(hero);
             CameraFollow(hero);
 
+        }
+
+        private async Task InitGameManager()
+        {
+            await _gameFactory.CreateGameManager();
+        }
+
+        private async Task InitGate(LevelStaticData levelStaticData)
+        {
+            await _gameFactory.CreateLevelGate(levelStaticData.LevelGate.Position, levelStaticData.LevelGate.Rotation, levelStaticData.LevelGate.GateTypeId);
         }
 
         private async Task InitLevelTransfer(LevelStaticData levelStaticData)

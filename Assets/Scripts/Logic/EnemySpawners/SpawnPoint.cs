@@ -11,14 +11,22 @@ namespace Scripts.Logic.EnemySpawners
     public class SpawnPoint : MonoBehaviour, ISavedProgress
     {
         public MonsterTypeId MonsterTypeId;
+        public EnemyCount EnemyCount;
         public string Id { get; set; }
         private IGameFactory _gameFactory;
-        private bool _slain;
+        public bool _slain;
         private EnemyDeath _enemyDeath;
 
         public void Construct(IGameFactory gameFactory)
         {
             _gameFactory = gameFactory;
+        }
+
+        
+
+        private void Start()
+        {
+            EnemyCount.SpawnPoints.Add(this);
         }
 
         private void OnDestroy()
@@ -67,6 +75,8 @@ namespace Scripts.Logic.EnemySpawners
                 _enemyDeath.Happened -= Slay;
             }
             _slain = true;
+            EnemyCount.UpdateEnemyList(this);
         }
     }
+
 }

@@ -29,11 +29,10 @@ namespace Assets.Scripts.Hero
             if (Initialized())
             {
                 RotateTowardsEnemy();
-                //_shipMove.RotateToEnemy = true;
             }
             else
             {
-                transform.forward = _shipMove.MovementVector;
+                RotateTowards();
             }
            
             //Debug.Log(_enemyTransform.gameObject.SetActive == true);
@@ -44,6 +43,11 @@ namespace Assets.Scripts.Hero
         {
             UpdatePositionLookAt();
             transform.rotation = SmoothedRotation(transform.rotation, _positionToLook);
+        }
+
+        private void RotateTowards()
+        {
+            transform.rotation = SmoothedRotation(transform.rotation, _shipMove.MovementVector);
         }
 
         private void UpdatePositionLookAt()

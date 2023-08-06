@@ -37,7 +37,7 @@ namespace Scripts.Infrastructure.States
 
         private PlayerProgress NewProgress()
         {
-            var progress = new PlayerProgress(initialLevel : "TestingScene");
+            var progress = new PlayerProgress(initialLevel : "L1P1");
 
             progress.HeroStats.Damage = 5;
             progress.HeroStats.DamageRadius = 20;

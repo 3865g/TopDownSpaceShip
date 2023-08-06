@@ -11,6 +11,8 @@ TagManager:
   - CanHit
   - BlockingScene
   - Enemy
+  - Enviroment
+  - Gate
   layers:
   - Default
   - TransparentFX
@@ -32,7 +34,7 @@ TagManager:
   - Pickup
   - HeroAttackZone
   - Laser
-  - 
+  - Camera
   - 
   - 
   - 

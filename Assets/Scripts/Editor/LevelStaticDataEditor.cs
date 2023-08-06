@@ -1,5 +1,6 @@
 ﻿using Scripts.Logic;
 using Scripts.Logic.EnemySpawners;
+using Scripts.Logic.Gates;
 using Scripts.StaticData;
 using System.Linq;
 using UnityEditor;
@@ -14,6 +15,7 @@ namespace Scripts.Editor
     {
         private const string PlayerInitialPointTag = "PlayerInitialPoint";
         private const string LevelTransferInitialPoint = "LevelTransferInitialPoint";
+        private const string LevelGateInitialPoint = "Gate";
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
@@ -31,6 +33,10 @@ namespace Scripts.Editor
                 levelData.LevelTransfer.Position = GameObject.FindWithTag(LevelTransferInitialPoint).transform.position;
 
                 levelData.LevelTransfer.TransferTo = GameObject.FindWithTag(LevelTransferInitialPoint).GetComponent<LevelTransferInitialPoint>().TransferTo;
+
+                levelData.LevelGate.Position = GameObject.FindWithTag(LevelGateInitialPoint).transform.position;
+                levelData.LevelGate.Rotation = GameObject.FindWithTag(LevelGateInitialPoint).transform.rotation;
+                levelData.LevelGate.GateTypeId = GameObject.FindWithTag(LevelGateInitialPoint).GetComponent<GateSpawnMarker>().GateTypeId;
             }
 
             EditorUtility.SetDirty(target);

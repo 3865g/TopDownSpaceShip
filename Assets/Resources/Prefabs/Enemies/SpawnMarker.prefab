@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2992940588863413027
 MonoBehaviour:
@@ -58,4 +58,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910e0999a9113f14f80951023a715713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: TestingScene_2718ff2a-c1bd-4a14-a4fa-09e4914429c9
+  Id: SpawnMarker_5a002b4e-7054-4e6b-9e73-dde7030945db
