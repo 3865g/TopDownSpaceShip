@@ -93,6 +93,7 @@ namespace Scripts.Infrastructure.States
             await InitLevelTransfer(levelStaticData);
             await InitHud(hero);
             CameraFollow(hero);
+            FollowPlayer(hero);
 
         }
 
@@ -103,7 +104,10 @@ namespace Scripts.Infrastructure.States
 
         private async Task InitGate(LevelStaticData levelStaticData)
         {
-            await _gameFactory.CreateLevelGate(levelStaticData.LevelGate.Position, levelStaticData.LevelGate.Rotation, levelStaticData.LevelGate.GateTypeId);
+            if(levelStaticData.LevelGate != null)
+            {
+                await _gameFactory.CreateLevelGate(levelStaticData.LevelGate.Position, levelStaticData.LevelGate.Rotation, levelStaticData.LevelGate.GateTypeId);
+            }
         }
 
         private async Task InitLevelTransfer(LevelStaticData levelStaticData)
@@ -152,11 +156,16 @@ namespace Scripts.Infrastructure.States
 
         private void CameraFollow(GameObject hero)
         {
-            Camera.main.GetComponent<CameraFollow>().FollowObject(hero);
+            Camera.main.GetComponent<CameraFollow>()!.FollowObject(hero);
+        }
+        
+        private void FollowPlayer(GameObject hero)
+        {
+            Camera.main.GetComponent<FollowPlayer>()!.FollowObject(hero);
         }
 
-        
-       
+
+
     }
 }
 

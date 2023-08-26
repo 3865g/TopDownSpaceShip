@@ -106,12 +106,15 @@ namespace Scripts.Infrastructure.Factory
         public async Task CreateLevelGate(Vector3 position, Quaternion rotation, GateTypeId gateTypeId)
         {
             GateStaticData gateStaticData = _staticDataService.ForGate(gateTypeId);
-            GameObject prefab = await _assetsProvider.Load<GameObject>(gateStaticData.PrefabGateReference);
-            GameObject gate = Object.Instantiate(prefab, position, rotation);
+            if(gateStaticData != null)
+            {
+                GameObject prefab = await _assetsProvider.Load<GameObject>(gateStaticData.PrefabGateReference);
+                GameObject gate = Object.Instantiate(prefab, position, rotation);
 
-            GatesStatus gateStatus = prefab.GetComponent<GatesStatus>();
-            _gate = gate;
-            gateStatus.Construct(this);
+                GatesStatus gateStatus = prefab.GetComponent<GatesStatus>();
+                _gate = gate;
+                gateStatus.Construct(this);
+            }
 
         }
 
