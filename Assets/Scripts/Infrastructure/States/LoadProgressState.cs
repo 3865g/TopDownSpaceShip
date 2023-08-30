@@ -7,6 +7,8 @@ namespace Scripts.Infrastructure.States
 {
     public class LoadProgressState : IState
     {
+        //private const string InitialLevel = "L1P1";
+        public string InitialLevel = "L1P1";
         private readonly GameStateMachine _gameStateMachine;
         private readonly IPersistentProgressService _progressService;
         private readonly ISaveLoadService _saveLoadService;
@@ -37,9 +39,9 @@ namespace Scripts.Infrastructure.States
 
         private PlayerProgress NewProgress()
         {
-            var progress = new PlayerProgress(initialLevel : "L1P1");
+            var progress = new PlayerProgress(initialLevel : InitialLevel);
 
-            progress.HeroStats.Damage = 5;
+            progress.HeroStats.Damage = 10;
             progress.HeroStats.DamageRadius = 20;
             progress.HeroState.MaxHP = 50;
             progress.HeroState.ResetHP();

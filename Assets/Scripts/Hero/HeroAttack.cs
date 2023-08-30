@@ -10,7 +10,7 @@ namespace Scripts.Enemy
     {
 
         public float AttackCooldown = 0.5f;
-        public float LaserSpeed = 500f;
+        //public float LaserSpeed = 500f;
         public Transform LaserStartTransform;
         public GameObject Laserprefab;
 

@@ -1,3 +1,4 @@
+using Scripts.Infrastructure.States;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,5 +12,12 @@ namespace Scripts.Editor
             PlayerPrefs.DeleteAll();
             PlayerPrefs.Save();
         }
+        //[MenuItem("Tools/Level/L1P1")]
+        //public static void ChangeStartLevel()
+        //{
+        //    IState.LoadProgresState.InitialLevel = "L1P1"; 
+        //}
+
+
     }
 }

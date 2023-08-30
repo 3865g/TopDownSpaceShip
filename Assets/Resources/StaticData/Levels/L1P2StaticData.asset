@@ -10,19 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41019a0b91b818e42adb3bd3ffa3a005, type: 3}
-  m_Name: L1P1StaticData
+  m_Name: L1P2StaticData
   m_EditorClassIdentifier: 
-  LevelKey: L1P1
+  LevelKey: L1P2
   EnemySpawnerData:
-  - Id: TestingScene_c8e399b6-6515-409c-9b13-aed9739229f1
-    MonsterTypeId: 5
-    Position: {x: -16.388006, y: 25.3, z: -17.055504}
   - Id: TestingScene_b6abe46d-47ea-4ae4-bea8-fe8362386444
     MonsterTypeId: 5
-    Position: {x: 128.53198, y: 15.971462, z: 19.564499}
-  - Id: L1P1_8345771e-f9cd-49ff-875e-d39cbe3ff6a9
+    Position: {x: -37.65, y: 20.279999, z: -38.58}
+  - Id: SpawnMarker_5a002b4e-7054-4e6b-9e73-dde7030945db
+    MonsterTypeId: 1
+    Position: {x: -23.6, y: 16, z: -22.7}
+  - Id: TestingScene_8926b784-1a65-4480-979d-2dffc2cda4a4
+    MonsterTypeId: 4
+    Position: {x: 77.9, y: 16, z: -33.8}
+  - Id: TestingScene_8bffac50-9f2c-4943-bd3e-4ce76159442a
+    MonsterTypeId: 3
+    Position: {x: 122.9, y: 16, z: 13.5}
+  - Id: TestingScene_c8e399b6-6515-409c-9b13-aed9739229f1
     MonsterTypeId: 5
-    Position: {x: 128.53198, y: 2.821434, z: -25.857162}
+    Position: {x: -28.99, y: 25.3, z: 10.239998}
+  - Id: TestingScene_6fb0fd2d-2903-4e75-823a-a886dba9c21c
+    MonsterTypeId: 2
+    Position: {x: 2.5, y: 16, z: -1.199997}
   InitialHeroPosition: {x: -165.2, y: 16, z: -14.4}
   LevelTransfer:
     TransferTo: L1P2

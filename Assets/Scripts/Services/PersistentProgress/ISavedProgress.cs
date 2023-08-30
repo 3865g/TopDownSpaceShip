@@ -7,9 +7,4 @@ namespace Scripts.Services.PersistentProgress
     {
         void UpdateProgress(PlayerProgress progress);
     }
-
-    public interface ISavedProgressReader
-    {
-        void LoadProgress(PlayerProgress progress);
-    }
 }

@@ -36,3 +36,7 @@ MonoBehaviour:
   LevelTransfer:
     TransferTo: TestingScene2
     Position: {x: -106.504196, y: 17.3, z: 41.283966}
+  LevelGate:
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+    GateTypeId: 0

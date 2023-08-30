@@ -11,7 +11,7 @@ namespace Scripts.Hero
         public GameObject Impact;
 
         private bool _isCollidet;
-        private float _damage = 20f;
+        private float _damage;
 
         private void Start()
         {
@@ -22,7 +22,8 @@ namespace Scripts.Hero
         public void Construct(Vector3 laserDirection, float damage)
         {
             
-            //_damage = damage;
+            _damage = damage;
+            Debug.Log(_damage);
             Rigidbody rigibody = GetComponent<Rigidbody>();
             rigibody.AddForce(laserDirection * Speed, ForceMode.Impulse);
 
