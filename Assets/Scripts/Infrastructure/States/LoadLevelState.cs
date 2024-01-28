@@ -85,15 +85,23 @@ namespace Scripts.Infrastructure.States
         private async Task InitGameWorld()
         {
             LevelStaticData levelStaticData = LevelStaticData();
-            await InitGate(levelStaticData);
-            await InitGameManager();
-            await InitSpawners(levelStaticData);
-            await InitLootPieces();
-            GameObject hero = await InitHero(levelStaticData);
-            await InitLevelTransfer(levelStaticData);
-            await InitHud(hero);
-            CameraFollow(hero);
-            FollowPlayer(hero);
+            if(levelStaticData.LevelKey != "MainMenu")
+            {
+                await InitGate(levelStaticData);
+                await InitGameManager();
+                await InitSpawners(levelStaticData);
+                await InitLootPieces();
+                GameObject hero = await InitHero(levelStaticData);
+                await InitLevelTransfer(levelStaticData);
+                await InitHud(hero, levelStaticData);
+                CameraFollow(hero);
+                FollowPlayer(hero);
+            }
+            else
+            {
+                await InitGameManager();
+                await InitHud(null, levelStaticData);
+            }
 
         }
 
@@ -142,11 +150,18 @@ namespace Scripts.Infrastructure.States
             return await _gameFactory.CreateHero(levelStaticData.InitialHeroPosition);
         }
 
-        private async Task InitHud(GameObject hero)
+        private async Task InitHud(GameObject hero, LevelStaticData levelStaticData)
         {
-            GameObject hud = await _gameFactory.CreateHud();
-
-            hud.GetComponentInChildren<ActorUI>().Construct(hero.GetComponent<HeroHealth>());
+           
+            if(levelStaticData.LevelKey != "MainMenu")
+            {
+                GameObject hud = await _gameFactory.CreateHud();
+                hud.GetComponentInChildren<ActorUI>().Construct(hero.GetComponent<HeroHealth>());
+            }
+            else
+            {
+                GameObject menu = await _gameFactory.CreateMenu();
+            }
         }
 
         private LevelStaticData LevelStaticData()

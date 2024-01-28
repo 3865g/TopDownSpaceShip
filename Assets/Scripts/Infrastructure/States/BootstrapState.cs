@@ -54,7 +54,8 @@ namespace Scripts.Infrastructure.States
             _services.RegisterSingle<IUIFactory>(new UIFactory(_services.Single<IAssetProvider>(), 
                 _services.Single<IStaticDataService>(), 
                 _services.Single<IPersistentProgressService>(),
-                _services.Single<IAdsService>()));
+                _services.Single<IAdsService>(),
+                _services.Single<IGameStateMachine>()));
 
             _services.RegisterSingle<IWindowService>(new WindowService(_services.Single<IUIFactory>()));
 

@@ -20,6 +20,9 @@ namespace Scripts.UI.Services.Windows
                 case WindowId.Shop:
                     _uiFactory.CreateShop();
                     break;
+                case WindowId.LevelsMenu:
+                    _uiFactory.CreatePlanetsMenu();
+                    break;
             }
 
         }

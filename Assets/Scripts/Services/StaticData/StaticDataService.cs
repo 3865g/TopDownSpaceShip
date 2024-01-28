@@ -15,11 +15,11 @@ namespace Scripts.Services.StaticData
         private const string _staticDataLevelPath = "StaticData/Levels";
         private const string _staticDataSceneAssetsPath = "StaticData/SceneAssets";
         private const string _staticDataenemyPath = "StaticData/Enemy";
-        private const string _staticDataWindowPath = "StaticData/UI/WindowStaticData";
+        private const string _staticDataWindowPath = "StaticData/UI";
         private Dictionary<MonsterTypeId, MonsterStaticData> _monsters;
         private Dictionary<GateTypeId, GateStaticData> _gate;
         private Dictionary<string, LevelStaticData> _levels;
-        private Dictionary<WindowId, WindowConfig> _windowConfigs;
+        private Dictionary<WindowId, WindowStaticData> _windowConfigs;
 
         public void Load()
         {
@@ -29,7 +29,9 @@ namespace Scripts.Services.StaticData
         
             _levels = Resources.LoadAll<LevelStaticData>(_staticDataLevelPath).ToDictionary(x => x.LevelKey, x => x);
 
-            _windowConfigs = Resources.Load<WindowStaticData>(_staticDataWindowPath).Configs.ToDictionary(x => x.WindowId, x => x);
+            _windowConfigs = Resources.LoadAll<WindowStaticData>(_staticDataWindowPath).ToDictionary(x => x.WindowId, x => x);
+
+            Debug.Log(_windowConfigs);
         }
 
         public MonsterStaticData ForMonster(MonsterTypeId typeId)
@@ -60,11 +62,11 @@ namespace Scripts.Services.StaticData
         }
 
 
-        public WindowConfig ForWindow(WindowId windowId)
+        public WindowStaticData ForWindow(WindowId windowId)
         {
-            if (_windowConfigs.TryGetValue(windowId, out WindowConfig windowConfig))
+            if (_windowConfigs.TryGetValue(windowId, out WindowStaticData windowStaticData))
             {
-                return windowConfig;
+                return windowStaticData;
             }
             return null;
         }

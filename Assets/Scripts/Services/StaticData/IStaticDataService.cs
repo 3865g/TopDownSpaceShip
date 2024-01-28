@@ -11,6 +11,6 @@ namespace Scripts.Services.StaticData
 
         GateStaticData ForGate(GateTypeId typeId);
         LevelStaticData ForLevel(string sceneKey);
-        WindowConfig ForWindow(WindowId windowId);
+        WindowStaticData ForWindow(WindowId windowId);
     }
 }

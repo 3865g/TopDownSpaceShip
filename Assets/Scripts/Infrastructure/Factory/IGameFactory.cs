@@ -18,6 +18,7 @@ namespace Scripts.Infrastructure.Factory
 
         Task<GameObject> CreateHero(Vector3 playerInitialPoint);
         Task<GameObject> CreateHud();
+        Task<GameObject> CreateMenu();
         Task<GameObject> CreateEnemy(MonsterTypeId monsterTypeId, Transform parent);
         Task<LootPiece> CreateLoot();
         Task CreateSpawner(string spawnerId,Vector3 position, MonsterTypeId monsterTypeId);

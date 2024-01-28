@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 using Assets.Scripts.Hero;
 using Scripts.Logic.Gates;
+using Assets.Scripts.UI.Menu;
 
 namespace Scripts.Infrastructure.Factory
 {
@@ -82,6 +83,7 @@ namespace Scripts.Infrastructure.Factory
 
         public async Task<GameObject> CreateHud()
         {
+
             GameObject hud = await InstantiateRegisteredAsync(AssetsAddress.HudPath);
 
             hud.GetComponentInChildren<LootCounter>().Construct(_persistentProgressService.Progress.WorldData);
@@ -92,6 +94,20 @@ namespace Scripts.Infrastructure.Factory
             }
 
             return hud;
+        }
+        public async Task<GameObject> CreateMenu()
+        {
+
+            GameObject menu = await InstantiateRegisteredAsync(AssetsAddress.MenuPath);
+
+           menu.GetComponentInChildren<MainMenu>().Construct(_gameStateMachine, _windowService);
+
+            foreach(OpenWindowButton openWindowButton in menu.GetComponentsInChildren<OpenWindowButton>())
+            {
+                openWindowButton.Construct(_windowService);
+            }
+
+            return menu;
         }
 
         public async Task CreateLevelTransfer(Vector3 transferInitialPoint, string transferTo)

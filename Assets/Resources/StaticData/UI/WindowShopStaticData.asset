@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a625af9ec7f1ae74d8ca01ed3287e2e7, type: 3}
-  m_Name: WindowStaticData
+  m_Name: WindowShopStaticData
   m_EditorClassIdentifier: 
-  Configs:
-  - WindowId: 1
-    Prefab: {fileID: 2022774886892346543, guid: ccd8c97d43d98e94d84d07bc03112b02, type: 3}
+  WindowId: 1
+  Prefab: {fileID: 2022774886892346543, guid: ccd8c97d43d98e94d84d07bc03112b02, type: 3}

@@ -8,6 +8,8 @@ using UnityEngine;
 using CodeBase.Services.Ads;
 using System.Threading.Tasks;
 using Scripts.UI.Windows.Shop;
+using Scripts.UI.Windows.Menu;
+using Scripts.Infrastructure.States;
 
 namespace Scripts.UI.Services.Factory
 {
@@ -18,20 +20,29 @@ namespace Scripts.UI.Services.Factory
         private readonly IStaticDataService _staticDataService;
         private readonly IPersistentProgressService _persistantProgressService;
         private readonly IAdsService _adsService;
+        private readonly IGameStateMachine _gameStateMachine;
 
         private Transform _uiRoot;
 
-        public UIFactory(IAssetProvider assetProvider, IStaticDataService staticDataService, IPersistentProgressService persistantProgressService, IAdsService adsService)
+        public UIFactory(IAssetProvider assetProvider, IStaticDataService staticDataService, IPersistentProgressService persistantProgressService, IAdsService adsService, IGameStateMachine gameStateMachine )
         {
             _assetProvider = assetProvider;
             _staticDataService = staticDataService;
             _persistantProgressService = persistantProgressService;
             _adsService = adsService;
+            _gameStateMachine = gameStateMachine;
+        }
+
+        public void CreatePlanetsMenu()
+        {
+            WindowStaticData config = _staticDataService.ForWindow(WindowId.LevelsMenu);
+            LevelsMenu levlesmenu = Object.Instantiate(config.Prefab) as LevelsMenu;
+            levlesmenu.Construct(_gameStateMachine);
         }
 
         public void CreateShop()
         {
-            WindowConfig config = _staticDataService.ForWindow(WindowId.Shop);
+            WindowStaticData config = _staticDataService.ForWindow(WindowId.Shop);
             ShopWindow shopWondow = Object.Instantiate(config.Prefab, _uiRoot) as ShopWindow;
             shopWondow.Construct(_adsService, _persistantProgressService);
         }

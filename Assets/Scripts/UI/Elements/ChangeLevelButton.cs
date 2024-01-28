@@ -1,14 +1,16 @@
 ﻿using Scripts.Infrastructure.States;
 using Scripts.UI.Services.Windows;
+using Scripts.UI.Windows.Menu;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.UI.Elements
 {
-    public class OpenWindowButton : MonoBehaviour
+    public class ChangeLevelButton : MonoBehaviour
     {
-        public WindowId WindowId;
         public Button Button;
+        public string TransferTo;
+        public LevelsMenu Levelmenu;
         private IWindowService _windowService;
         private IGameStateMachine _gameStateMachine;
 
@@ -19,13 +21,15 @@ namespace Assets.Scripts.UI.Elements
 
         private void Awake()
         {
-            Button.onClick.AddListener(Open);
-            //Button = GetComponent<Button>();
+            Button.onClick.AddListener(ChangeLevel);
+            
         }
 
-        private void Open()
+        public void ChangeLevel()
         {
-            _windowService.Open(WindowId);
+            _gameStateMachine = Levelmenu._gameStateMachine;
+            Debug.Log(_gameStateMachine);
+            _gameStateMachine.Enter<LoadLevelState, string>(TransferTo);
         }
     }
 }

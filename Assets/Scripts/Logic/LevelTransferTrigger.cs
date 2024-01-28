@@ -28,7 +28,7 @@ namespace Scripts.Logic
 
             if (other.CompareTag(PlayerTag))
             {
-                    Debug.Log("Transfer");
+                    //Debug.Log("Transfer");
                     _gameStateMachine.Enter<LoadLevelState, string>(TransferTo);
                     _isTransfering = true;
              }

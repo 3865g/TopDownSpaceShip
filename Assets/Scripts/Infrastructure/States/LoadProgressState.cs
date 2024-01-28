@@ -8,7 +8,7 @@ namespace Scripts.Infrastructure.States
     public class LoadProgressState : IState
     {
         //private const string InitialLevel = "L1P1";
-        public string InitialLevel = "L1P1";
+        public string InitialLevel = "MainMenu";
         private readonly GameStateMachine _gameStateMachine;
         private readonly IPersistentProgressService _progressService;
         private readonly ISaveLoadService _saveLoadService;
