@@ -10,13 +10,11 @@ namespace Assets.Scripts.UI.Elements
     {
         public Button Button;
         public string TransferTo;
-        public LevelsMenu Levelmenu;
-        private IWindowService _windowService;
         private IGameStateMachine _gameStateMachine;
 
-        public void Construct(IWindowService windowService)
+        public void Construct(IGameStateMachine gameStateMachine)
         {
-            _windowService = windowService;
+            _gameStateMachine = gameStateMachine;
         }
 
         private void Awake()
@@ -27,7 +25,6 @@ namespace Assets.Scripts.UI.Elements
 
         public void ChangeLevel()
         {
-            _gameStateMachine = Levelmenu._gameStateMachine;
             Debug.Log(_gameStateMachine);
             _gameStateMachine.Enter<LoadLevelState, string>(TransferTo);
         }
