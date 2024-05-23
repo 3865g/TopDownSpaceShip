@@ -39,6 +39,8 @@ namespace Scripts.UI.Services.Factory
             LevelsMenu levlesmenu = Object.Instantiate(config.Prefab) as LevelsMenu;
             levlesmenu.Construct(_gameStateMachine);
         }
+        
+
 
         public void CreateShop()
         {
@@ -46,11 +48,12 @@ namespace Scripts.UI.Services.Factory
             ShopWindow shopWondow = Object.Instantiate(config.Prefab, _uiRoot) as ShopWindow;
             shopWondow.Construct(_adsService, _persistantProgressService);
         }
-
         public async Task CreateUIRoot()
         {
             GameObject root = await _assetProvider.Instantiate(UIRootPath);
             _uiRoot = root.transform;
         }
+
+        
     }
 }

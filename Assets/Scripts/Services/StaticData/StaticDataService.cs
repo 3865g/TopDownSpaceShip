@@ -31,7 +31,7 @@ namespace Scripts.Services.StaticData
 
             _windowConfigs = Resources.LoadAll<WindowStaticData>(_staticDataWindowPath).ToDictionary(x => x.WindowId, x => x);
 
-            Debug.Log(_windowConfigs);
+            //Debug.Log(_windowConfigs);
         }
 
         public MonsterStaticData ForMonster(MonsterTypeId typeId)

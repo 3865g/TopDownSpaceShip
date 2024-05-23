@@ -26,6 +26,7 @@ namespace Assets.Scripts.UI.Elements
         private void Open()
         {
             _windowService.Open(WindowId);
+            Debug.Log(WindowId);
         }
     }
 }

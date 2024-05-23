@@ -14,19 +14,19 @@ namespace Scripts.UI.Windows.Menu
     public class LevelsMenu : WindowBase
     {
 
-        private IGameStateMachine _gameStateMachine;
+        public IGameStateMachine _gameStateMachine;
 
         public void Construct(IGameStateMachine gameStateMachine)
         {
             _gameStateMachine = gameStateMachine;
         }
 
-        private void Start()
-        {
-            foreach (ChangeLevelButton changeLevelButton in GetComponentsInChildren<ChangeLevelButton>())
-            {
-                changeLevelButton.Construct(_gameStateMachine);
-            }
-        }
+        //private void Start()
+        //{
+        //    foreach (ChangeLevelButton changeLevelButton in GetComponentsInChildren<ChangeLevelButton>())
+        //    {
+        //        changeLevelButton.Construct(_gameStateMachine);
+        //    }
+        //}
     }
 }

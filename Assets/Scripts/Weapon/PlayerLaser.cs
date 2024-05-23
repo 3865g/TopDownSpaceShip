@@ -23,7 +23,7 @@ namespace Scripts.Hero
         {
             
             _damage = damage;
-            Debug.Log(_damage);
+           // Debug.Log(_damage);
             Rigidbody rigibody = GetComponent<Rigidbody>();
             rigibody.AddForce(laserDirection * Speed, ForceMode.Impulse);
 

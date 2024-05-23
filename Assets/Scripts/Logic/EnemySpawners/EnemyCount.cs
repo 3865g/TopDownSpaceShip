@@ -29,7 +29,7 @@ namespace Scripts.Logic.EnemySpawners
         private void KillingEnemy()
         {
             //_gate.GetComponent<GatesStatus>().UpdateStatus();
-            Debug.LogError(SpawnPoints.Count);
+            //Debug.LogError(SpawnPoints.Count);
             if (SpawnPoints.Count <= 0)
             {
                 _gate.GetComponent<GatesStatus>().UpdateStatus();

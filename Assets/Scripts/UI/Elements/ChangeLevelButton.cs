@@ -12,13 +12,20 @@ namespace Assets.Scripts.UI.Elements
         public string TransferTo;
         private IGameStateMachine _gameStateMachine;
 
-        public void Construct(IGameStateMachine gameStateMachine)
-        {
-            _gameStateMachine = gameStateMachine;
-        }
+        //public void Construct(IGameStateMachine gameStateMachine)
+        //{
+        //    _gameStateMachine = gameStateMachine;
+        //}
 
-        private void Awake()
+        //private void Awake()
+        //{
+        //    Button.onClick.AddListener(ChangeLevel);
+            
+        //}
+
+        private void OnEnable()
         {
+            _gameStateMachine = GetComponentInParent<LevelsMenu>()._gameStateMachine;
             Button.onClick.AddListener(ChangeLevel);
             
         }
@@ -27,6 +34,7 @@ namespace Assets.Scripts.UI.Elements
         {
             Debug.Log(_gameStateMachine);
             _gameStateMachine.Enter<LoadLevelState, string>(TransferTo);
+            Debug.Log(TransferTo);
         }
     }
 }
