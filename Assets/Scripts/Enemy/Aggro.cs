@@ -1,6 +1,4 @@
-﻿using Scripts.CameraLogic;
-using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace Scripts.Enemy
@@ -13,6 +11,7 @@ namespace Scripts.Enemy
         private Follow _follow;
         private Coroutine _aggroCooutine;
         private RotateToHero _rotateToHero;
+        private Ray _ray;
 
         private bool _hasAggroTargget;
 
@@ -21,7 +20,7 @@ namespace Scripts.Enemy
             _triggerObserver = GetComponentInChildren<TriggerObserver>();
             _follow = GetComponentInChildren<Follow>();
             _rotateToHero = GetComponentInChildren<RotateToHero>();
-            
+
 
 
         }
@@ -40,13 +39,23 @@ namespace Scripts.Enemy
         {
             if (!_hasAggroTargget)
             {
+                //_ray = new Ray(transform.position, obj.transform.position);
+                //Physics.Raycast(_ray, out RaycastHit hit);
+
+
+                //if (hit.collider.tag != "Enviroment")
+                //{
+                //    Debug.Log(hit.collider.gameObject.name);
+                //}
+
+                // if (hit == Player) {}
                 _hasAggroTargget = true;
                 _rotateToHero.IsCollided = _hasAggroTargget;
 
                 StopAggroCorutine();
                 SwitchFollowOn();
             }
-        }        
+        }
 
         private void TriggerExit(Collider obj)
         {
@@ -55,7 +64,7 @@ namespace Scripts.Enemy
                 _hasAggroTargget = false;
                 _rotateToHero.IsCollided = _hasAggroTargget;
 
-                _aggroCooutine =  StartCoroutine(SwitchFollowOffAfterCooldown());
+                _aggroCooutine = StartCoroutine(SwitchFollowOffAfterCooldown());
             }
         }
 

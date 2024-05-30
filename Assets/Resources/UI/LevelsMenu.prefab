@@ -713,9 +713,9 @@ RectTransform:
   m_Father: {fileID: 1806197243063568996}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 230.40001, y: -230}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4197269816003730016
@@ -847,9 +847,9 @@ RectTransform:
   m_Father: {fileID: 1806197243063568996}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 230.40001, y: -80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &166819179443331893
@@ -1476,9 +1476,9 @@ RectTransform:
   m_Father: {fileID: 1806197243063568996}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 230.40001, y: -380}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7942451674136745471
@@ -2060,6 +2060,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Planet 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3405889130200498895, guid: c583141576ae5f945be260be28be4d61, type: 3}
+      propertyPath: Button
+      value: 
+      objectReference: {fileID: 4552000474003013232}
+    - target: {fileID: 3405889130200498895, guid: c583141576ae5f945be260be28be4d61, type: 3}
+      propertyPath: TransferTo
+      value: P1L3
+      objectReference: {fileID: 0}
     - target: {fileID: 3750679687463930900, guid: c583141576ae5f945be260be28be4d61, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2187,13 +2195,57 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 797391965163310928, guid: c583141576ae5f945be260be28be4d61, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1776614838935305829}
   m_SourcePrefab: {fileID: 100100000, guid: c583141576ae5f945be260be28be4d61, type: 3}
+--- !u!114 &4552000474003013232 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8854286091531938046, guid: c583141576ae5f945be260be28be4d61, type: 3}
+  m_PrefabInstance: {fileID: 5029194882525861518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5541414296836762412 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 660979012617862562, guid: c583141576ae5f945be260be28be4d61, type: 3}
+  m_PrefabInstance: {fileID: 5029194882525861518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5682326523607374302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5556960257482686572 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 636419251889149666, guid: c583141576ae5f945be260be28be4d61, type: 3}
   m_PrefabInstance: {fileID: 5029194882525861518}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5682326523607374302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 797391965163310928, guid: c583141576ae5f945be260be28be4d61, type: 3}
+  m_PrefabInstance: {fileID: 5029194882525861518}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1776614838935305829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5682326523607374302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb3c1630aa674144a587bbb0422e951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 5541414296836762412}
+  TransferTo: P1L4
 --- !u!1 &7414914940389731963 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2534501586508462325, guid: c583141576ae5f945be260be28be4d61, type: 3}
