@@ -22,9 +22,21 @@ EditorBuildSettings:
     guid: 0d4970cadbfbe9b44baab341ba879e4f
   - enabled: 1
     path: Assets/Scenes/Planets/Planet1/P1L2.unity
-    guid: aff26bade4a83824691c30961e245bf5
+    guid: 57604ba80eaa72247aa5a70f74b50388
   - enabled: 1
     path: Assets/Scenes/Planets/Planet1/P1L3.unity
     guid: 14a75a310cedd5649acce1c109a7862b
+  - enabled: 1
+    path: Assets/Scenes/Planets/Planet1/P1L4.unity
+    guid: 4cbf5c0cad0284546938b37623065b4a
+  - enabled: 1
+    path: Assets/Scenes/Planets/Planet1/P1L5.unity
+    guid: aff26bade4a83824691c30961e245bf5
+  - enabled: 1
+    path: Assets/Scenes/Planets/Planet1/P1L6.unity
+    guid: 15ae4bfbed4a23a4c89dc3fc020310e6
+  - enabled: 1
+    path: Assets/Scenes/Planets/Planet1/P1L7.unity
+    guid: 42a3314cebc83184a96bedea4de44254
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: fb18f790348ad8246b80f8de5288e490, type: 2}

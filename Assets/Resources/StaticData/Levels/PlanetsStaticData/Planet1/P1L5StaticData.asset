@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41019a0b91b818e42adb3bd3ffa3a005, type: 3}
+  m_Name: P1L5StaticData
+  m_EditorClassIdentifier: 
+  LevelKey: P1L5
+  EnemySpawnerData:
+  - Id: P1L5_2eed4fd2-4629-430b-b1c7-c18316ad9165
+    MonsterTypeId: 2
+    Position: {x: 44.485397, y: 16, z: 15.842834}
+  - Id: P1L5_820a09fe-4ef4-435d-8640-40c7b3028fd8
+    MonsterTypeId: 3
+    Position: {x: 66.585396, y: 16, z: 2.042839}
+  - Id: P1L5_aef0b7d2-0454-496f-a424-6e69ef1804c6
+    MonsterTypeId: 5
+    Position: {x: 132.3854, y: 25.3, z: 10.239998}
+  - Id: P1L5_4b1b3e75-a0ab-4888-92a8-4a7cc9bdc9c6
+    MonsterTypeId: 1
+    Position: {x: -64.5146, y: 16, z: -22.7}
+  - Id: P1L5_fc087d2a-309a-4123-9410-648bcac380b4
+    MonsterTypeId: 4
+    Position: {x: 49.185394, y: 16, z: -20.157166}
+  - Id: P1L5_bafafe04-a980-4586-89ff-0d776cc17e65
+    MonsterTypeId: 5
+    Position: {x: 130.48538, y: 20.279999, z: -38.58}
+  InitialHeroPosition: {x: -165.2, y: 16, z: -14.4}
+  LevelTransfer:
+    TransferTo: P1L6
+    Position: {x: 227.7, y: 17.3, z: -1.5}
+  LevelGate:
+    Position: {x: 176.1, y: 0, z: 0}
+    Rotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+    GateTypeId: 1
