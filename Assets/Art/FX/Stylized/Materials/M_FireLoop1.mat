@@ -9,26 +9,32 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: M_FireLoop1
   m_Shader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
+  m_Parent: {fileID: 2100000, guid: 6ab3972ca48a1f14b8d41c675e38ac8a, type: 2}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _ALPHATEST_ON
+  - _COLORADDSUBDIFF_ON
+  - _FLIPBOOKBLENDING_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
+  stringTagMap:
+    RenderType: TransparentCutout
+  disabledShaderPasses:
+  - GRABPASS
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d4396d53fb3933449a82b480478f9d7b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7e22d8a690c185e48b212bfde45281b9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats:
-    - _InvFade: 0.01
-    m_Colors:
-    - _TintColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0.5}
+    m_Floats: []
+    m_Colors: []
   m_BuildTextureStacks: []
 --- !u!1002 &2100001
 EditorExtensionImpl:
