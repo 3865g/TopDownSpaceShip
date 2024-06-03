@@ -87,6 +87,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: faf558d2cea07474586f975f87f88e3b
+    m_Address: Prefabs/Enemies/EnemyPrefabs/LowBoss1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f2f41985b8a4e254fa1c4f9ca021e517, type: 2}
   m_SchemaSet:

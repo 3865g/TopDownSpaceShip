@@ -8,5 +8,6 @@
         enemy4 = 4,
         enemy5Turel = 5,
         enemy6 = 6,
+        lowBoss1 = 7,
     }
 }

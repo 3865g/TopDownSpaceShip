@@ -18,11 +18,11 @@ MonoBehaviour:
     MonsterTypeId: 5
     Position: {x: 99.3854, y: 25.3, z: 39.242836}
   - Id: P1L4_c9684742-2a14-47b0-bf8b-63b21ceb8b90
-    MonsterTypeId: 1
-    Position: {x: 1.5853958, y: 16, z: 9.742836}
+    MonsterTypeId: 7
+    Position: {x: 1.5853958, y: 24.661434, z: 9.742836}
   InitialHeroPosition: {x: -7.7, y: 16, z: -95.1}
   LevelTransfer:
-    TransferTo: P1L5
+    TransferTo: P1L3
     Position: {x: 227.7, y: 17.3, z: -1.5}
   LevelGate:
     Position: {x: 128.7, y: 0, z: 15.6}
