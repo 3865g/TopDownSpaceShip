@@ -57,11 +57,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 918ca5708e070bc4fb5bf1b2a558bb78
-    m_Address: EnemyTurel1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fdf071bb00aeaee4a8c455031b403dde
     m_Address: Enemy3Mlee
     m_ReadOnly: 0
