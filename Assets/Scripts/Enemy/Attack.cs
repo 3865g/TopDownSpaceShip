@@ -17,7 +17,8 @@ namespace Scripts.Enemy
         public Transform[] ShootStartTransforms;
         public GameObject Laserprefab;
 
-        private Transform _heroTransform;
+        public Transform _heroTransform;
+
         private float _attackCooldown;
         private bool _isAttacking;
         private bool _attackIsActive;
