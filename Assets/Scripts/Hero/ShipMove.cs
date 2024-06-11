@@ -16,7 +16,7 @@ namespace Scripts.Hero
         //public bool RotateToEnemy = false;
         public Vector3 MovementVector;
 
-        private CharacterController _characterController;
+        public CharacterController _characterController;
         public IInputService _inputService;
 
 

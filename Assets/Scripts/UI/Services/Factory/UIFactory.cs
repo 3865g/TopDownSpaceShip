@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Scripts.UI.Windows.Shop;
 using Scripts.UI.Windows.Menu;
 using Scripts.Infrastructure.States;
+using Scripts.Infrastructure.Factory;
 
 namespace Scripts.UI.Services.Factory
 {
@@ -24,7 +25,11 @@ namespace Scripts.UI.Services.Factory
 
         private Transform _uiRoot;
 
-        public UIFactory(IAssetProvider assetProvider, IStaticDataService staticDataService, IPersistentProgressService persistantProgressService, IAdsService adsService, IGameStateMachine gameStateMachine )
+        public UIFactory(IAssetProvider assetProvider,
+            IStaticDataService staticDataService,
+            IPersistentProgressService persistantProgressService,
+            IAdsService adsService,
+            IGameStateMachine gameStateMachine)
         {
             _assetProvider = assetProvider;
             _staticDataService = staticDataService;
@@ -33,7 +38,7 @@ namespace Scripts.UI.Services.Factory
             _gameStateMachine = gameStateMachine;
         }
 
-        public void CreatePlanetsMenu()
+        public void CreatePlanetsMenu( )
         {
             WindowStaticData config = _staticDataService.ForWindow(WindowId.LevelsMenu);
             LevelsMenu levlesmenu = Object.Instantiate(config.Prefab) as LevelsMenu;

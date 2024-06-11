@@ -10,7 +10,7 @@ namespace Scripts.Services.Input
 
         public abstract Vector2 Axis { get; }
               
-        public bool IsAttackButtonUP() => 
+        public bool IsAttackButtonUp() => 
             SimpleInput.GetButtonUp(Button);
 
         protected static Vector2 SimpleInputAxis()

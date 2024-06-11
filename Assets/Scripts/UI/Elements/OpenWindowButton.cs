@@ -1,4 +1,5 @@
-﻿using Scripts.Infrastructure.States;
+﻿using Scripts.Hero.Ability;
+using Scripts.Infrastructure.States;
 using Scripts.UI.Services.Windows;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,7 +27,13 @@ namespace Assets.Scripts.UI.Elements
         private void Open()
         {
             _windowService.Open(WindowId);
-            Debug.Log(WindowId);
+
+            if(WindowId == WindowId.LevelsMenu)
+            {
+
+            }
+
+            //Debug.Log(WindowId);
         }
     }
 }

@@ -19,6 +19,7 @@ using UnityEngine.AddressableAssets;
 using Assets.Scripts.Hero;
 using Scripts.Logic.Gates;
 using Assets.Scripts.UI.Menu;
+using Scripts.Hero.Ability;
 
 namespace Scripts.Infrastructure.Factory
 {
@@ -39,6 +40,8 @@ namespace Scripts.Infrastructure.Factory
         private GameObject _heroGameObject;
         private GameObject _gameManager;
         private GameObject _gate;
+        //Need refactoring
+        private GameObject _abilityManager;
         
 
         public GameFactory(IAssetProvider assetsProvider,
@@ -73,11 +76,24 @@ namespace Scripts.Infrastructure.Factory
             _gameManager = gameManager;
         }
 
+     
+
         public async Task<GameObject> CreateHero(Vector3 playerInitialPoint)
         {
 
             _heroGameObject = await InstantiateRegisteredAsync(AssetsAddress.HeroPath, playerInitialPoint);
+            _abilityManager.GetComponent<AbilityManager>().InitPlayer(_heroGameObject);
             return _heroGameObject;
+        }
+
+        public async Task CreateAbilityManager()
+        {
+            GameObject prefab = await _assetsProvider.Load<GameObject>(AssetsAddress.AbilityManager);
+            GameObject abilityManagerPrefab = Object.Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
+            AbilityManager abilityManager = abilityManagerPrefab.GetComponent<AbilityManager>();
+            abilityManager.Construct(this, _staticDataService);
+
+            _abilityManager = abilityManagerPrefab;
         }
 
 

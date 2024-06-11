@@ -83,12 +83,22 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: faf558d2cea07474586f975f87f88e3b
-    m_Address: Prefabs/Enemies/EnemyPrefabs/LowBoss1
+    m_Address: LowBoss1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 542e8379b5cce1e45b26d4e2673b5f29
-    m_Address: Prefabs/Enemies/EnemyPrefabs/Boss1
+    m_Address: Boss1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12d8b145b1fbd6940bc5632ab2c6cfe7
+    m_Address: AbilityManager
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f3ef6297292a12f4db848e56bcee70d8
+    m_Address: Enemy5Turel
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

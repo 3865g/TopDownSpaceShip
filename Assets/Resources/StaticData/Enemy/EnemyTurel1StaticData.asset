@@ -21,7 +21,7 @@ MonoBehaviour:
   Cleavage: 23.2
   MoveSpeed: 30
   PrefabEnemyReference:
-    m_AssetGUID: 918ca5708e070bc4fb5bf1b2a558bb78
+    m_AssetGUID: f3ef6297292a12f4db848e56bcee70d8
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

@@ -7,6 +7,6 @@ namespace Scripts.Services.Input
     {
         Vector2 Axis { get; }
 
-        bool IsAttackButtonUP();
+        bool IsAttackButtonUp();
     }
 }

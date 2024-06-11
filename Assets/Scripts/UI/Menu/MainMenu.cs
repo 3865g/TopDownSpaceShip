@@ -1,4 +1,5 @@
-﻿using Scripts.Infrastructure.States;
+﻿using Scripts.Hero.Ability;
+using Scripts.Infrastructure.States;
 using Scripts.Services;
 using Scripts.Services.Input;
 using Scripts.UI.Services.Windows;
@@ -11,6 +12,8 @@ namespace Assets.Scripts.UI.Menu
     public class MainMenu : MonoBehaviour
     {
         public Button Button;
+
+        public GameObject AbilityManager;
         private IWindowService _windowService;
 
         private IGameStateMachine _gameStateMachine;
@@ -20,23 +23,5 @@ namespace Assets.Scripts.UI.Menu
             _gameStateMachine = gameStateMachine;
             _windowService = windowService;
         }
-
-        //private void Awake()
-        //{
-        //    Button.onClick.AddListener(ChangeLevel);
-        //}
-
-
-        //public void StartLevel()
-        //{
-        //    Button.onClick.AddListener(ChangeLevel);
-        //        //_gameStateMachine.Enter<LoadLevelState, string>(TransferTo);
-        //}
-
-        //public void ChangeLevel()
-        //{
-        //    Debug.Log("ChangeLevel");
-        //    _gameStateMachine.Enter<LoadLevelState, string>("L1P1");
-        //}
     }
 }

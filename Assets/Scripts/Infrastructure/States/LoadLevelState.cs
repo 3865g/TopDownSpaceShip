@@ -89,6 +89,7 @@ namespace Scripts.Infrastructure.States
             {
                 await InitGate(levelStaticData);
                 await InitGameManager();
+                await InitAbilityManager();
                 await InitSpawners(levelStaticData);
                 await InitLootPieces();
                 GameObject hero = await InitHero(levelStaticData);
@@ -100,6 +101,7 @@ namespace Scripts.Infrastructure.States
             else
             {
                 await InitGameManager();
+                await InitAbilityManager();
                 await InitHud(null, levelStaticData);
             }
 
@@ -108,6 +110,11 @@ namespace Scripts.Infrastructure.States
         private async Task InitGameManager()
         {
             await _gameFactory.CreateGameManager();
+        }
+
+        private async Task InitAbilityManager()
+        {
+            await _gameFactory.CreateAbilityManager();
         }
 
         private async Task InitGate(LevelStaticData levelStaticData)

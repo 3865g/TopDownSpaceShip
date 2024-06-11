@@ -27,5 +27,6 @@ namespace Scripts.Infrastructure.Factory
         Task CreateLevelTransfer(Vector3 transferInitialPoint, string transferTo);
         Task CreateLevelGate(Vector3 position, Quaternion rotation, GateTypeId gateTypeId);
         Task CreateGameManager();
+        Task CreateAbilityManager();
     }
 }

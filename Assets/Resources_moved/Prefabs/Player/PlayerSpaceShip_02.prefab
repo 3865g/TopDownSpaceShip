@@ -471,6 +471,7 @@ GameObject:
   - component: {fileID: 8967763076268185012}
   - component: {fileID: 6055599367333048330}
   - component: {fileID: 4990889280285228702}
+  - component: {fileID: 4047275578881234805}
   m_Layer: 12
   m_Name: PlayerSpaceShip_02
   m_TagString: Player
@@ -533,7 +534,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 35
-  RotateToEnemy: 0
+  MovementVector: {x: 0, y: 0, z: 0}
+  _characterController: {fileID: 0}
 --- !u!54 &4493251844961922401
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -622,10 +624,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackCooldown: 0.5
-  LaserSpeed: 500
-  CanAttack: 0
   LaserStartTransform: {fileID: 1607851520391202898}
   Laserprefab: {fileID: 8737532056342513294, guid: 25e604096b4f7d54d8696159f0e44765, type: 3}
+  canAttack: 0
 --- !u!114 &6055599367333048330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,6 +658,20 @@ MonoBehaviour:
   LayerMask:
     serializedVersion: 2
     m_Bits: 65536
+--- !u!114 &4047275578881234805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4047270724007549241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfd9f58eaa6e7014492cb3a94ee3e299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 0}
+  activeTime: 0
 --- !u!1 &6938440191575588317
 GameObject:
   m_ObjectHideFlags: 0

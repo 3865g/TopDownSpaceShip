@@ -1,4 +1,5 @@
-﻿using Scripts.Services.StaticData;
+﻿using Scripts.Hero.Ability;
+using Scripts.Services.StaticData;
 using Scripts.StaticData;
 using Scripts.StaticData.Windows;
 using Scripts.UI.Services.Windows;
@@ -16,10 +17,12 @@ namespace Scripts.Services.StaticData
         private const string _staticDataSceneAssetsPath = "StaticData/SceneAssets";
         private const string _staticDataenemyPath = "StaticData/Enemy";
         private const string _staticDataWindowPath = "StaticData/UI";
+        private const string _staticDataAbilityPath = "ScriptableObjects/Skills";
         private Dictionary<MonsterTypeId, MonsterStaticData> _monsters;
         private Dictionary<GateTypeId, GateStaticData> _gate;
         private Dictionary<string, LevelStaticData> _levels;
         private Dictionary<WindowId, WindowStaticData> _windowConfigs;
+        private Dictionary<AbilityTypeId, Ability> _ability;
 
         public void Load()
         {
@@ -30,6 +33,8 @@ namespace Scripts.Services.StaticData
             _levels = Resources.LoadAll<LevelStaticData>(_staticDataLevelPath).ToDictionary(x => x.LevelKey, x => x);
 
             _windowConfigs = Resources.LoadAll<WindowStaticData>(_staticDataWindowPath).ToDictionary(x => x.WindowId, x => x);
+
+            _ability = Resources.LoadAll<Ability>(_staticDataAbilityPath).ToDictionary(x => x.abilityTypeId, x => x);
 
             //Debug.Log(_windowConfigs);
         }
@@ -71,6 +76,13 @@ namespace Scripts.Services.StaticData
             return null;
         }
 
-       
+        public Ability ForAbility(AbilityTypeId abilityTypeId)
+        {
+            if (_ability.TryGetValue(abilityTypeId, out Ability abilityStaticData))
+            {
+                return abilityStaticData;
+            }
+            return null;
+        }
     }
 }
