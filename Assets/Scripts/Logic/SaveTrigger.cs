@@ -19,7 +19,7 @@ namespace Scripts.Logic
         {
             _saveLoadService.SaveProgress();
 
-            Debug.Log("Saved");
+            //Debug.Log("Saved");
 
             gameObject.SetActive(false);
         }

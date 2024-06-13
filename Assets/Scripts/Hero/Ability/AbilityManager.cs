@@ -4,6 +4,8 @@ using Scripts.StaticData;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Scripts.Hero.Ability.ConfigurationStattes;
+using UnityEditor.Playables;
 
 namespace Scripts.Hero.Ability
 {
@@ -11,13 +13,21 @@ namespace Scripts.Hero.Ability
 
     public class AbilityManager : MonoBehaviour
     {
-        public AbilityTypeId abilityTypeId;
+        //public AbilityTypeId abilityTypeId;
         public Ability activeAbility;
 
         public SkillType _skillType;
+
+
         private IGameFactory _gameFactory;
-        private GameObject _player;
+        public GameObject _player;
         private IStaticDataService _staticDataService;
+
+        private int _attackPoints;
+        private int _movementPoints;
+        private int _defencePoints;
+
+        private ConfigurationState _currentConfiguration;
 
 
 
@@ -32,7 +42,7 @@ namespace Scripts.Hero.Ability
         public void InitPlayer(GameObject player)
         {
             _player = player;
-            SetActiveAbility();
+            ChangeConfiguration(_skillType);
         }
 
 
@@ -44,17 +54,20 @@ namespace Scripts.Hero.Ability
             {
                 case SkillType.Attack:
                     {
-                        activeAbility = _staticDataService.ForAbility(AbilityTypeId.DoubleShootTier1);
+                        _currentConfiguration = new AttackConfiguration();
+                        InitializeConfiguration();
                     }
                     break;
                 case SkillType.Movement:
                     {
-                        activeAbility = _staticDataService.ForAbility(AbilityTypeId.DashTier1);
+                        _currentConfiguration = new MovementConfiguration();
+                        InitializeConfiguration();
                     }
                     break;
                 case SkillType.Defence:
                     {
-                        activeAbility = _staticDataService.ForAbility(AbilityTypeId.ShieldTier1);
+                        _currentConfiguration = new DefenceConfiguration();
+                        InitializeConfiguration();
                     }
                     break;
             }
@@ -62,16 +75,45 @@ namespace Scripts.Hero.Ability
         }
 
 
-        public void SetActiveAbility()
+        public void InitializeConfiguration()
         {
 
-            
+            _currentConfiguration.Construct(_staticDataService, _player);
+            _currentConfiguration.InitActiveAbility();
+        }
 
-            if (_player != null)
+
+
+        public void AddedAbility(Ability ability)
+        {
+           CalculatePoints(ability);
+
+        }
+
+        public void CalculatePoints(Ability ability)
+        {
+            switch (ability.skillType)
             {
-                _player.GetComponent<AbilityHolder>().activeAbility = activeAbility;
-                //Debug.LogError(_player.GetComponent<AbilityHolder>().activeAbility);
+                case SkillType.Attack:
+                    {
+                        _attackPoints = _attackPoints + ability.Point;
+                        _currentConfiguration.ChangePoints(_attackPoints, _movementPoints , _defencePoints);
+                    }
+                    break;
+                case SkillType.Movement:
+                    {
+                        _movementPoints = _movementPoints + ability.Point;
+                        _currentConfiguration.ChangePoints(_attackPoints, _movementPoints, _defencePoints);
+                    }
+                    break;
+                case SkillType.Defence:
+                    {
+                        _defencePoints = _defencePoints + ability.Point;
+                        _currentConfiguration.ChangePoints(_attackPoints, _movementPoints, _defencePoints);
+                    }
+                    break;
             }
         }
+
     }
 }

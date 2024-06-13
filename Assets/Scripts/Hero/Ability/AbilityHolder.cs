@@ -11,11 +11,12 @@ namespace Scripts.Hero.Ability
 
     public class AbilityHolder : MonoBehaviour
     {
-        public Ability activeAbility;
         public IInputService _inputService;
 
         public float cooldownTime;
         public float activeTime;
+
+        public Ability activeAbility;
 
         enum AbilityState
         {
@@ -69,6 +70,12 @@ namespace Scripts.Hero.Ability
                     }
                     break;
             }
+        }
+
+        public void ChangeAbility(Ability ability)
+        {
+            activeAbility = ability;
+            state = AbilityState.ready;
         }
     }
 }

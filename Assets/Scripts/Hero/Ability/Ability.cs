@@ -17,6 +17,7 @@ namespace Scripts.Hero.Ability
         public float ColdownTime;
         public float ActiveTime;
         public int Cost;
+        public int Point;
 
         public virtual void Activate(GameObject parent)
         {
