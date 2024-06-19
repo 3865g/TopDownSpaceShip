@@ -1,4 +1,6 @@
 ﻿using Scripts.Infrastructure.States;
+using Scripts.Services.SaveLoad;
+using Scripts.Services;
 using Scripts.UI.Services.Windows;
 using Scripts.UI.Windows.Menu;
 using UnityEngine;
@@ -11,23 +13,20 @@ namespace Assets.Scripts.UI.Elements
         public Button Button;
         public string TransferTo;
         private IGameStateMachine _gameStateMachine;
+        private ISaveLoadService _saveLoadService;
 
-        //public void Construct(IGameStateMachine gameStateMachine)
-        //{
-        //    _gameStateMachine = gameStateMachine;
-        //}
 
-        //private void Awake()
-        //{
-        //    Button.onClick.AddListener(ChangeLevel);
-            
-        //}
+        private void Awake()
+        {
+            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
+        }
+
 
         private void OnEnable()
         {
             _gameStateMachine = GetComponentInParent<LevelsMenu>()._gameStateMachine;
             Button.onClick.AddListener(ChangeLevel);
-            
+
         }
 
         public void ChangeLevel()

@@ -1,10 +1,13 @@
-﻿namespace Scripts.Hero.Ability
+﻿using System;
+using Scripts.Hero.Ability;
+
+namespace Scripts.Hero.Ability
 {
-    public enum SkillType 
+    public  enum  SkillType
     {
-        Attack,
-        Movement,
-        Defence
+        Attack = 0,
+        Movement = 1,
+        Defence = 2
     }
 
 }

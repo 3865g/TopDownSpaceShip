@@ -9,8 +9,10 @@ namespace Scripts.Hero
     public class HeroHealth : MonoBehaviour, ISavedProgress, IHealth
     {
 
-        private State _state;
         public event Action HealthChanged;
+        private State _state;
+
+        
         public float CurrentHP 
 
         { 
@@ -42,10 +44,13 @@ namespace Scripts.Hero
 
         public void UpdateProgress(PlayerProgress progress)
         {
-            progress.HeroState.CurrentHP = CurrentHP;
-            progress.HeroState.MaxHP = MaxHP;
+            if(!gameObject)
+            {
+                progress.HeroState.CurrentHP = CurrentHP;
+                progress.HeroState.MaxHP = MaxHP;
+            }
+            
 
-            //Debug.Log(CurrentHP);
         }
 
         public void TakeDamage(float damage)

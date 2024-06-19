@@ -10,6 +10,7 @@ namespace Scripts.Data
         public WorldData WorldData;
         public Stats HeroStats;
         public KillData KillData;
+        public AbilityData AbilityProgress;
 
         public PlayerProgress(string initialLevel)
         {
@@ -17,6 +18,7 @@ namespace Scripts.Data
             HeroState = new State();
             HeroStats = new Stats();
             KillData = new KillData();
+            AbilityProgress = new AbilityData();
         }
 
         

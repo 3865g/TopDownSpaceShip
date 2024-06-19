@@ -9,7 +9,7 @@ using UnityEngine;
 namespace Scripts.Hero.Ability.ConfigurationStattes
 {
 
-    public class ConfigurationState : MonoBehaviour
+    public class ConfigurationState 
     {
 
         public virtual void Construct(IStaticDataService staticDataService, GameObject player)

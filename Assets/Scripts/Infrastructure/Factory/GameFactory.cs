@@ -80,16 +80,23 @@ namespace Scripts.Infrastructure.Factory
 
         public async Task<GameObject> CreateHero(Vector3 playerInitialPoint)
         {
+            HeroStaticData heroStaticData = _staticDataService.ForHero(HeroTyoeId.Hero1);
 
             _heroGameObject = await InstantiateRegisteredAsync(AssetsAddress.HeroPath, playerInitialPoint);
-            _abilityManager.GetComponent<AbilityManager>().InitPlayer(_heroGameObject);
+
+            IHealth health = _heroGameObject.GetComponent<IHealth>();
+            //health.CurrentHP = heroStaticData.CurrentHP;
+            //health.MaxHP = heroStaticData.MaxHP;
+            
+            //Debug.Log(heroStaticData.ToString());
+            _abilityManager.GetComponent<AbilityManager>().InitPlayer(_heroGameObject, _persistentProgressService.Progress.AbilityProgress.SkillTypeId);
             return _heroGameObject;
         }
 
         public async Task CreateAbilityManager()
         {
             GameObject prefab = await _assetsProvider.Load<GameObject>(AssetsAddress.AbilityManager);
-            GameObject abilityManagerPrefab = Object.Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
+            GameObject abilityManagerPrefab = InstantiateRegistered(prefab);
             AbilityManager abilityManager = abilityManagerPrefab.GetComponent<AbilityManager>();
             abilityManager.Construct(this, _staticDataService);
 

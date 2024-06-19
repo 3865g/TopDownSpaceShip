@@ -64,7 +64,7 @@ namespace Scripts.Infrastructure.States
         {
             await InitUIRoot();
             await InitGameWorld();
-            InformProgressReaders();
+             InformProgressReaders();
 
             _stateMachine.Enter<GameLoopState>();
         }

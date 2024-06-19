@@ -14,6 +14,9 @@ namespace Scripts.Services.StaticData
         LevelStaticData ForLevel(string sceneKey);
         WindowStaticData ForWindow(WindowId windowId);
 
+        HeroStaticData ForHero(HeroTyoeId heroTypeId);
+
+
         Ability ForAbility(AbilityTypeId abilityTypeId);
     }
 }

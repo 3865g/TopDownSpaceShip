@@ -5,29 +5,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Scripts.Hero.Ability.ConfigurationStattes;
-using UnityEditor.Playables;
+using Scripts.Services.PersistentProgress;
+using Scripts.Data;
+using Unity.VisualScripting;
+using System;
+using Scripts.Services.SaveLoad;
+using Scripts.Services;
 
 namespace Scripts.Hero.Ability
 {
 
 
-    public class AbilityManager : MonoBehaviour
+    public class AbilityManager : MonoBehaviour, ISavedProgress
     {
         //public AbilityTypeId abilityTypeId;
         public Ability activeAbility;
 
-        public SkillType _skillType;
 
+        public GameObject _player;
 
         private IGameFactory _gameFactory;
-        public GameObject _player;
         private IStaticDataService _staticDataService;
 
         private int _attackPoints;
         private int _movementPoints;
         private int _defencePoints;
 
+        public AbilityData _abilityData { get; private set; }
+
+        public string test;
+
         private ConfigurationState _currentConfiguration;
+
+        private SkillType _skillType;
+
+        private ISaveLoadService _saveLoadService;
+
+        public int _skillTypeId;
+        //{
+        //    get; private set;
+
+        //}
+
 
 
 
@@ -39,16 +58,27 @@ namespace Scripts.Hero.Ability
             _staticDataService = staticDataService;
         }
 
-        public void InitPlayer(GameObject player)
+        private void Awake()
+        {
+            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
+        }
+
+        public void InitPlayer(GameObject player, int skilltypeId)
         {
             _player = player;
-            ChangeConfiguration(_skillType);
+            //Need Refactoring?
+            _skillTypeId = skilltypeId;
+            ChangeConfiguration(_skillTypeId);
         }
 
 
-        public void ChangeConfiguration(SkillType skillType)
+        public void ChangeConfiguration(int skillTypeId)
         {
-            _skillType = skillType;
+            _skillTypeId = skillTypeId;
+            _skillType = (SkillType)Enum.ToObject(typeof(SkillType), _skillTypeId);
+            test = _skillType.ToString();
+            _saveLoadService.SaveProgress();
+
 
             switch (_skillType)
             {
@@ -115,5 +145,18 @@ namespace Scripts.Hero.Ability
             }
         }
 
+        public void UpdateProgress(PlayerProgress progress)
+        {
+            progress.AbilityProgress.SkillTypeId = _skillTypeId;
+            progress.AbilityProgress.skillType = _skillType;
+        }
+
+        public void LoadProgress(PlayerProgress progress)
+        {
+            _abilityData = progress.AbilityProgress;
+            _skillType = progress.AbilityProgress.skillType;
+            _skillTypeId = progress.AbilityProgress.SkillTypeId;
+            ChangeConfiguration(_skillTypeId);
+        }
     }
 }

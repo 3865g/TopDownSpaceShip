@@ -8,5 +8,6 @@ namespace Scripts.Data
         public float Damage;
         public float DamageRadius;
         public float AttackColdown;
+        public float Speed;
     }
 }
