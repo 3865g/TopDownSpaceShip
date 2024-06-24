@@ -3,6 +3,7 @@ using Scripts.Services;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 
 namespace Scripts.Hero.Ability
@@ -17,6 +18,9 @@ namespace Scripts.Hero.Ability
         public float activeTime;
 
         public Ability activeAbility;
+        private Ability _passiveAbility;
+
+        public List<Ability> passiveAbilities;
 
         enum AbilityState
         {
@@ -40,7 +44,7 @@ namespace Scripts.Hero.Ability
             switch (state)
             {
                 case AbilityState.ready:
-                    if (Input.GetKey(KeyCode.LeftShift))
+                    if (Input.GetKey(KeyCode.LeftShift) && activeAbility != null)
                     {
                         activeAbility.Activate(gameObject);
                         state = AbilityState.active;
@@ -56,6 +60,7 @@ namespace Scripts.Hero.Ability
                     else
                     {
                         state = AbilityState.cooldown;
+                        activeAbility.Deactivate(gameObject);
                         cooldownTime = activeAbility.ColdownTime;
                     }
                     break;
@@ -71,6 +76,21 @@ namespace Scripts.Hero.Ability
                     break;
             }
         }
+
+
+        public void ActivatePassiveAbility(Ability passiveAbility)
+        {
+            if (!passiveAbilities.Contains(passiveAbility))
+            {
+                _passiveAbility = passiveAbility;
+                _passiveAbility.ActivatePassive(gameObject);
+                passiveAbilities.Add(_passiveAbility);
+            }
+            
+            
+
+        }
+
 
         public void ChangeAbility(Ability ability)
         {

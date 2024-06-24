@@ -19,3 +19,5 @@ MonoBehaviour:
   ColdownTime: 0
   ActiveTime: 0
   Cost: 0
+  Point: 0
+  IsPassive: 1

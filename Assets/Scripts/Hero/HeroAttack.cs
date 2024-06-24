@@ -3,6 +3,7 @@ using Scripts.Services.PersistentProgress;
 using UnityEngine;
 using Scripts.Hero;
 using Assets.Scripts.Hero;
+using System.Collections;
 
 namespace Scripts.Enemy
 {
@@ -10,9 +11,12 @@ namespace Scripts.Enemy
     {
 
         public float AttackCooldown = 0.5f;
+        public int BurstAmount = 1;
         //public float LaserSpeed = 500f;
         public Transform LaserStartTransform;
         public GameObject Laserprefab;
+
+        public int shootcount;
 
 
         public bool canAttack;
@@ -32,29 +36,44 @@ namespace Scripts.Enemy
             UpdateCooldown();
 
 
-            if (ReadyAttack())
+            if (ReadyAttack() && _roatateForAttack._enemy != null)
             {
-                OnAttack();
+                StartCoroutine(OnAttack());
             }
         }
 
-        public void OnAttack()
+
+
+        public IEnumerator OnAttack()
         {
-            _attackCooldown = AttackCooldown;
-            GameObject laserPrefab = Instantiate(Laserprefab, LaserStartTransform.position, Quaternion.identity);
-            PlayerLaser laser = laserPrefab.GetComponent<PlayerLaser>();
-            Vector3 laserDirection = (_roatateForAttack._enemy.transform.position - LaserStartTransform.position).normalized;            
-            laser.Construct(laserDirection, _stats.Damage);
-            
+            shootcount = BurstAmount;
+
+            while (shootcount > 0)
+            {
+
+                _attackCooldown = AttackCooldown;
+                GameObject laserPrefab = Instantiate(Laserprefab, LaserStartTransform.position, Quaternion.identity);
+                PlayerLaser laser = laserPrefab.GetComponent<PlayerLaser>();
+                Vector3 laserDirection = (_roatateForAttack._enemy.transform.position - LaserStartTransform.position).normalized;
+                laser.Construct(laserDirection, _stats.Damage);
+
+                shootcount--;
+
+                yield return new WaitForSeconds(0.1f);
+
+
+
+            }
+
             //Debug.Log(_attackCooldown);
         }
 
         public void LoadProgress(PlayerProgress progress)
         {
-             _stats = progress.HeroStats;            
+            _stats = progress.HeroStats;
         }
 
-        
+
 
         private bool ReadyAttack()
         {

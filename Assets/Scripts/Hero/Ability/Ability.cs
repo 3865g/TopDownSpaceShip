@@ -18,10 +18,17 @@ namespace Scripts.Hero.Ability
         public float ActiveTime;
         public int Cost;
         public int Point;
+        public bool IsPassive;
 
         public virtual void Activate(GameObject parent)
         {
+        }
 
+        public virtual void Deactivate(GameObject parent) 
+        {
+        }
+        public virtual void ActivatePassive(GameObject parent)
+        {
         }
 
     }

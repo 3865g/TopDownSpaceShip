@@ -33,6 +33,10 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
         {
         }
 
+        public virtual void SetPassiveAbility()
+        {
+
+        }
     }
 
 }

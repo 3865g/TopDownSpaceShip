@@ -16,6 +16,10 @@ MonoBehaviour:
   abilityTypeId: 7
   description: 
   skillType: 2
-  ColdownTime: 0
-  ActiveTime: 0
+  ColdownTime: 10
+  ActiveTime: 4
   Cost: 0
+  Point: 0
+  IsPassive: 0
+  shieldPrefab: {fileID: 146389794037421487, guid: e70998772a7271046aadce16441b6cb5, type: 3}
+  spawnedShield: {fileID: 0}

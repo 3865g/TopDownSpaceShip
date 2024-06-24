@@ -37,7 +37,6 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
 
         public override void InitActiveAbility()
         {
-            base.InitActiveAbility();
 
             _abilityTier1 = _staticDataService.ForAbility(AbilityTypeId.DoubleShootTier1);
 
@@ -58,7 +57,6 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
 
         public override void UnlockAbility()
         {
-            base.UnlockAbility();
 
             if (_attackPoints < 3)
             {
@@ -80,13 +78,18 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
 
         public override void SetActiveAbility()
         {
-            base.SetActiveAbility();
 
 
-            if (_player != null)
+            if (_player != null && _activeAbility.IsPassive == false)
             {
                 _player.GetComponent<AbilityHolder>().ChangeAbility(_activeAbility);
             }
+            else if (_player != null && _activeAbility.IsPassive)
+            {
+                _player.GetComponent<AbilityHolder>().ActivatePassiveAbility(_activeAbility);
+            }
         }
+
+
     }
 }
