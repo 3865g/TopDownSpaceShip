@@ -16,7 +16,10 @@ MonoBehaviour:
   abilityTypeId: 4
   description: 
   skillType: 1
-  ColdownTime: 4
+  ColdownTime: 3
   ActiveTime: 1
   Cost: 0
+  Point: 0
+  IsPassive: 0
   DashVelocity: 30
+  Trail: {fileID: 9006669913224211608, guid: 57c8f7be704d83d49886e0e36dffe7f6, type: 3}
