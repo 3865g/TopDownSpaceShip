@@ -9,12 +9,14 @@ namespace Scripts.StaticData
         public string Id;
         public MonsterTypeId MonsterTypeId;
         public Vector3 Position;
+        public int GroupId;
 
-        public EnemySpawnerStaticData(string id, MonsterTypeId monsterTypeId, Vector3 position)
+        public EnemySpawnerStaticData(string id, MonsterTypeId monsterTypeId, Vector3 position, int groupId)
         {
             Id = id;
             MonsterTypeId = monsterTypeId;
             Position = position;
+            GroupId = groupId;
         }
     }
 }

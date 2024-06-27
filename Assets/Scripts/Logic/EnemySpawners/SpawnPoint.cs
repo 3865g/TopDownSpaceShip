@@ -12,10 +12,14 @@ namespace Scripts.Logic.EnemySpawners
     {
         public MonsterTypeId MonsterTypeId;
         public EnemyCount EnemyCount;
+        public RewardsManager RewardsManager;
         public string Id { get; set; }
-        private IGameFactory _gameFactory;
         public bool _slain;
+        public int GroupId;
+
+        private IGameFactory _gameFactory;
         private EnemyDeath _enemyDeath;
+
 
         public void Construct(IGameFactory gameFactory)
         {
@@ -27,6 +31,7 @@ namespace Scripts.Logic.EnemySpawners
         private void Start()
         {
             EnemyCount.SpawnPoints.Add(this);
+            RewardsManager.RegisterEnemy(GroupId);
         }
 
         private void OnDestroy()
@@ -76,6 +81,7 @@ namespace Scripts.Logic.EnemySpawners
             }
             _slain = true;
             EnemyCount.UpdateEnemyList(this);
+            RewardsManager.UpdateEnemyCount(GroupId);
         }
     }
 

@@ -27,8 +27,7 @@ public class TrailController : MonoBehaviour
         visualEffect.initialEventID = 0;
         visualEffect.SendEvent("EnableTrail");
         visualEffect.resetSeedOnPlay = true;
-
-        Debug.LogError(visualEffect.initialEventID.GetHashCode().ToString());
+        
     }
 
   
