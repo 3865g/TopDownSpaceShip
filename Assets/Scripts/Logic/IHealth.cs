@@ -8,6 +8,10 @@ namespace Scripts.Logic
         float CurrentHP { get; set; }
         float MaxHP { get; set; }
 
+        float ReturnedDamage { get; set; }  
+
+        bool ReturnDamage { get; set; }
+
         void TakeDamage(float damage);
     }
 }

@@ -20,6 +20,7 @@ using Assets.Scripts.Hero;
 using Scripts.Logic.Gates;
 using Assets.Scripts.UI.Menu;
 using Scripts.Hero.Ability;
+using Scripts.Hero;
 
 namespace Scripts.Infrastructure.Factory
 {
@@ -84,7 +85,8 @@ namespace Scripts.Infrastructure.Factory
 
             _heroGameObject = await InstantiateRegisteredAsync(AssetsAddress.HeroPath, playerInitialPoint);
 
-            IHealth health = _heroGameObject.GetComponent<IHealth>();
+            HeroHealth health = _heroGameObject.GetComponent<HeroHealth>();
+            health.Construct(_randomService);
             //health.CurrentHP = heroStaticData.CurrentHP;
             //health.MaxHP = heroStaticData.MaxHP;
             

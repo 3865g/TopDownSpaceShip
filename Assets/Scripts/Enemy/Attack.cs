@@ -52,7 +52,7 @@ namespace Scripts.Enemy
             GameObject laserPrefab = Instantiate(Laserprefab, shootStartTransform.position, Quaternion.identity);
             EnemyLaser laser = laserPrefab.GetComponent<EnemyLaser>();
             Vector3 laserDirection = (_heroTransform.position - shootStartTransform.position).normalized;
-            laser.Construct(laserDirection, Damage);
+            laser.Construct(laserDirection, Damage, gameObject);
 
             _attackCooldown = AttackCooldown;
 

@@ -3,6 +3,7 @@ using Scripts.Services.PersistentProgress;
 using Scripts.Logic;
 using System;
 using UnityEngine;
+using Scripts.Services.Randomizer;
 
 namespace Scripts.Hero
 {
@@ -10,7 +11,13 @@ namespace Scripts.Hero
     {
 
         public event Action HealthChanged;
+
+        public bool CanDodge;
+        public int DodgeChance;
+
         private State _state;
+        private IRandomService _randomService;
+        private int _randomValue;
 
         
         public float CurrentHP 
@@ -34,6 +41,15 @@ namespace Scripts.Hero
             set => _state.MaxHP = value;
         }
 
+        public bool ReturnDamage { get; set; }
+        public float ReturnedDamage { get; set; }
+
+
+        public void Construct(IRandomService randomService)
+        {
+            _randomService = randomService;
+        }
+
         public void LoadProgress(PlayerProgress progress)
         {
            _state = progress.HeroState;
@@ -55,12 +71,58 @@ namespace Scripts.Hero
 
         public void TakeDamage(float damage)
         {
-            if(CurrentHP <= 0)
+
+            if (CanDodge)
+            {
+                CalculateRandomValue();
+
+                if (CurrentHP <= 0)
+                {
+                    return;
+                }
+                else if (DodgeChance <= _randomValue)
+                {
+                    //Play Dodge Effect
+                    return;
+                }
+                CurrentHP -= damage;
+
+            }
+            else
+            {
+                if (CurrentHP <= 0)
+                {
+                    return;
+                }
+                CurrentHP -= damage;
+                //Animator.PlayHit();
+            }
+
+        }
+
+        public void RestoreHP(float Hp)
+        {
+            if (CurrentHP <= 0)
             {
                 return;
             }
-            CurrentHP -= damage;
-            //Animator.PlayHit();
+            CurrentHP += Hp;
+        }
+
+        public void AddedBonusMaxHP(float bonusHP)
+        {
+            MaxHP += bonusHP;
+            CurrentHP += bonusHP;
+        }
+
+        public void UpdateDodgeChance(int dodgeChance)
+        {
+            DodgeChance += dodgeChance;
+        }
+
+        public void CalculateRandomValue()
+        {
+            _randomValue = _randomService.Next(0,100);
         }
     }
 }

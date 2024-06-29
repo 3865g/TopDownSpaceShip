@@ -12,6 +12,7 @@ namespace Scripts.Hero
 
         private bool _isCollidet;
         private float _damage;
+        private GameObject _enemy;
 
         //private void Start()
         //{
@@ -19,7 +20,7 @@ namespace Scripts.Hero
         //}
 
 
-        public void Construct(Vector3 laserDirection, float damage)
+        public void Construct(Vector3 laserDirection, float damage, GameObject parentEmeny)
         {
             _damage = damage;
             Rigidbody rigibody = GetComponent<Rigidbody>();
@@ -27,16 +28,31 @@ namespace Scripts.Hero
 
             transform.forward = laserDirection;
 
+            _enemy = parentEmeny;
+
             Destroy(gameObject, 2f);
         }
 
+
+        public void ReturnDamage(float damage)
+        {
+            _enemy.GetComponent<IHealth>()?.TakeDamage(damage);
+        }
 
 
         private void OnTriggerEnter(Collider collision)
         {
             if (!_isCollidet && collision.gameObject.CompareTag("Player"))
             {
-                collision.transform.GetComponent<IHealth>()?.TakeDamage(_damage);
+                IHealth health = collision.transform.GetComponent<IHealth>();
+
+                health?.TakeDamage(_damage);
+
+                if (health.ReturnDamage)
+                {
+                    ReturnDamage(health.ReturnedDamage);
+                }
+
                 Destroy(gameObject);
                 _isCollidet = true;
             }

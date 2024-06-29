@@ -10,7 +10,9 @@ namespace Scripts.Enemy
     public class HeroAttack : MonoBehaviour, ISavedProgressReader
     {
 
-        public float AttackCooldown = 0.5f;
+        public float AttackCooldown = 1.25f;
+        public int BonuseDamage;
+
         public int BurstAmount = 1;
         //public float LaserSpeed = 500f;
         public Transform LaserStartTransform;
@@ -42,7 +44,15 @@ namespace Scripts.Enemy
             }
         }
 
+        public void UptadeBonuseDamage(int addedDamage)
+        {
+            BonuseDamage = BonuseDamage + addedDamage;
+        }
 
+        public void UpdateAtackCooloduwn(float changedCooldown)
+        {
+            AttackCooldown = AttackCooldown - changedCooldown;
+        }
 
         public IEnumerator OnAttack()
         {
@@ -55,7 +65,7 @@ namespace Scripts.Enemy
                 GameObject laserPrefab = Instantiate(Laserprefab, LaserStartTransform.position, Quaternion.identity);
                 PlayerLaser laser = laserPrefab.GetComponent<PlayerLaser>();
                 Vector3 laserDirection = (_roatateForAttack._enemy.transform.position - LaserStartTransform.position).normalized;
-                laser.Construct(laserDirection, _stats.Damage);
+                laser.Construct(laserDirection, _stats.Damage + BonuseDamage);
 
                 shootcount--;
 
@@ -93,7 +103,6 @@ namespace Scripts.Enemy
         {
             return _attackCooldown <= 0f;
         }
-
 
     }
 }

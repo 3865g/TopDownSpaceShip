@@ -23,6 +23,9 @@ namespace Scripts.Enemy
             set => maxHP = value; 
         }
 
+        public bool ReturnDamage { get; set; }
+        public float ReturnedDamage { get; set; }
+
 
         public void TakeDamage(float damage)
         {

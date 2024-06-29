@@ -13,6 +13,7 @@ namespace Scripts.Hero
     {
 
         public float MovementSpeed = 35f;
+        public float BonuseSpeed;
         //public bool RotateToEnemy = false;
         public Vector3 MovementVector;
 
@@ -46,7 +47,7 @@ namespace Scripts.Hero
 
             }
 
-            _characterController.Move(movementVector * Time.deltaTime * MovementSpeed);
+            _characterController.Move(movementVector * Time.deltaTime * (MovementSpeed + BonuseSpeed));
         }
 
         public void UpdateProgress(PlayerProgress progress)
@@ -65,6 +66,11 @@ namespace Scripts.Hero
             //        Warp(savedPosition: savedPosition);
             //    }
             //}
+        }
+
+        public void UpdateBonuseSpeed(float bonuseSpeed)
+        {
+            BonuseSpeed = BonuseSpeed + bonuseSpeed;
         }
 
         private void Warp(Vector3Data savedPosition)
