@@ -1,10 +1,5 @@
-using Scripts.Enemy;
-using Scripts.Hero.Ability;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using Scripts.Logic;
 using UnityEngine;
-using System.Threading.Tasks;
 
 
 namespace Scripts.Hero.Ability
@@ -14,27 +9,22 @@ namespace Scripts.Hero.Ability
     public class HPRegenerationAbility : PassiveAbility
     {
         public int RegenerationAmount;
+        public int RegenerationInterval;
+        public GameObject RegenerationPrefab;
 
-        private HeroHealth _heroHealth;
+        private GameObject _regenerationPrefab;
+        private HPRegeneration _hpRegeneration;
 
         public override void ActivatePassive(GameObject parent)
         {
-            _heroHealth = parent.GetComponent<HeroHealth>();
+            _regenerationPrefab = Instantiate(RegenerationPrefab, parent.transform);
+            _regenerationPrefab.transform.SetParent(parent.transform);
 
-            //???
-            _heroHealth.StartCoroutine(StartRegeneration()); 
-            
+            _hpRegeneration = _regenerationPrefab.GetComponent<HPRegeneration>();
+            _hpRegeneration.Construct(parent);
+            _hpRegeneration.RegenerationAmount = RegenerationAmount;
+            _hpRegeneration.RegenerationInterval = RegenerationInterval;
 
-        }
-
-        private IEnumerator StartRegeneration()
-        {
-            while (true)
-            {
-                _heroHealth.CurrentHP += RegenerationAmount;
-
-                yield return new WaitForSeconds(5);
-            }
 
         }
     }

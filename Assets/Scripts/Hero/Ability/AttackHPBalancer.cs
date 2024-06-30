@@ -32,7 +32,7 @@ namespace Scripts.Hero.Ability
         {
             if (_heroHealth.CurrentHP < (_heroHealth.MaxHP / 2))
             {
-                _heroHealth.RestoreHP(RestoreHP);
+                _heroHealth.TakeHP(RestoreHP);
             }
             else
             {

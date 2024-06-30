@@ -87,10 +87,9 @@ namespace Scripts.Infrastructure.Factory
 
             HeroHealth health = _heroGameObject.GetComponent<HeroHealth>();
             health.Construct(_randomService);
-            //health.CurrentHP = heroStaticData.CurrentHP;
-            //health.MaxHP = heroStaticData.MaxHP;
+            HeroAttack heroAttack = _heroGameObject.GetComponent<HeroAttack>();
+            heroAttack.Construct(_randomService);
             
-            //Debug.Log(heroStaticData.ToString());
             _abilityManager.GetComponent<AbilityManager>().InitPlayer(_heroGameObject, _persistentProgressService.Progress.AbilityProgress.SkillTypeId);
             return _heroGameObject;
         }

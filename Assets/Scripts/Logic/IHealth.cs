@@ -13,5 +13,6 @@ namespace Scripts.Logic
         bool ReturnDamage { get; set; }
 
         void TakeDamage(float damage);
+        void TakeHP(float HP);
     }
 }

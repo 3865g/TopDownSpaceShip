@@ -34,5 +34,9 @@ namespace Scripts.Enemy
             HealthChanged?.Invoke();
         }
 
+        public void TakeHP(float HP)
+        {
+            HealthChanged?.Invoke();
+        }
     }
 }

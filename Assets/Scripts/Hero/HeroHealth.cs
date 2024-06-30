@@ -98,11 +98,13 @@ namespace Scripts.Hero
                 //Animator.PlayHit();
             }
 
+
+
         }
 
-        public void RestoreHP(float Hp)
+        public void TakeHP(float Hp)
         {
-            if (CurrentHP <= 0)
+            if (CurrentHP <= 0 || CurrentHP >= MaxHP)
             {
                 return;
             }
