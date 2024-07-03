@@ -26,6 +26,9 @@ namespace Scripts.UI.Services.Windows
                 case WindowId.LevelsMenu:
                     _uiFactory.CreatePlanetsMenu();
                     break;
+                case WindowId.Rewards:
+                    _uiFactory.CreateRewardsMenu();
+                    break;
             }
 
         }

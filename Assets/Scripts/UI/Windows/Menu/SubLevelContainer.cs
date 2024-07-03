@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Scripts.UI.Windows.Menu
 {
-    public class SubLevelContainer : MonoBehaviour
+    public class SubLevelContainer : WindowBase
     {
 
 

@@ -4,6 +4,7 @@
     {
         Unknown = 0,
         Shop = 1,
-        LevelsMenu = 2
+        LevelsMenu = 2,
+        Rewards = 3
     }
 }

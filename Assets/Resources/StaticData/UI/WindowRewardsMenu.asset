@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a625af9ec7f1ae74d8ca01ed3287e2e7, type: 3}
-  m_Name: WindowSubLevelContainer
+  m_Name: WindowRewardsMenu
   m_EditorClassIdentifier: 
   WindowId: 3
-  Prefab: {fileID: 1187455715247719299, guid: c583141576ae5f945be260be28be4d61, type: 3}
+  Prefab: {fileID: 287708757386967885, guid: 4cb48fe106aa3414e9f6cbd73b3e0fe2, type: 3}

@@ -44,8 +44,12 @@ namespace Scripts.UI.Services.Factory
             LevelsMenu levlesmenu = Object.Instantiate(config.Prefab) as LevelsMenu;
             levlesmenu.Construct(_gameStateMachine);
         }
-        
 
+        public void CreateRewardsMenu()
+        {
+            WindowStaticData config = _staticDataService.ForWindow(WindowId.Rewards);
+            ShopWindow shopWondow = Object.Instantiate(config.Prefab, _uiRoot) as ShopWindow;
+        }
 
         public void CreateShop()
         {

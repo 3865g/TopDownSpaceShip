@@ -1,9 +1,7 @@
 
-using Scripts.Logic.EnemySpawners;
-using System;
+using Scripts.UI.Services.Windows;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Scripts.Logic
@@ -11,6 +9,13 @@ namespace Scripts.Logic
     public class RewardsManager : MonoBehaviour
     {
         public List<Rewards> rewardList = new List<Rewards>();
+
+        private IWindowService _windowService;
+
+        public void Construct(IWindowService windowService)
+        {
+            _windowService = windowService;
+        }
 
         public void RegisterEnemy(int groupId)
         {
@@ -33,7 +38,7 @@ namespace Scripts.Logic
 
             if (element.EnemyCount == 0)
             {
-                SendReward();
+                SendReward(groupid);
             }
         }
 
@@ -43,9 +48,25 @@ namespace Scripts.Logic
 
         }
 
-        public void SendReward()
+        public void SendReward(int groupid)
         {
-            Debug.LogError("SendReward");
+            if (groupid < 10)
+            {
+                FillingAwards();
+
+                Debug.LogError("Send simple Reward");
+            }
+            else
+            {
+                Debug.LogError("Send boss Reward");
+            }
+        }
+
+        public void FillingAwards()
+        {
+            Time.timeScale = 0f;
+            Debug.LogError(Time.timeScale.ToString());
+            _windowService.Open(WindowId.Rewards);
         }
     }
 }

@@ -7,6 +7,7 @@ namespace Scripts.UI.Services.Factory
     public interface IUIFactory : IService
     {
         void CreatePlanetsMenu();
+        void CreateRewardsMenu();
         void CreateShop();
         Task CreateUIRoot();
     }
