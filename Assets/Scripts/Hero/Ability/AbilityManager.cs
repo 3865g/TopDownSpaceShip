@@ -1,13 +1,9 @@
 using Scripts.Infrastructure.Factory;
 using Scripts.Services.StaticData;
-using Scripts.StaticData;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Scripts.Hero.Ability.ConfigurationStattes;
 using Scripts.Services.PersistentProgress;
 using Scripts.Data;
-using Unity.VisualScripting;
 using System;
 using Scripts.Services.SaveLoad;
 using Scripts.Services;

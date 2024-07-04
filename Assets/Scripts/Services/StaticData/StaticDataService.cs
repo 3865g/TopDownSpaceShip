@@ -19,12 +19,14 @@ namespace Scripts.Services.StaticData
         private const string _staticDataWindowPath = "StaticData/UI";
         private const string _staticDataHeroPath = "StaticData/Hero";
         private const string _staticDataMainAbilityPath = "ScriptableObjects/Skills/ConfigurationSkills";
+        private const string _staticDataSecondaryAbilityPath = "ScriptableObjects/Skills/SecondarySkills";
         private Dictionary<MonsterTypeId, MonsterStaticData> _monsters;
         private Dictionary<GateTypeId, GateStaticData> _gate;
         private Dictionary<string, LevelStaticData> _levels;
         private Dictionary<WindowId, WindowStaticData> _windowConfigs;
         private Dictionary<HeroTyoeId,  HeroStaticData> _heroConfigs;
-        private Dictionary<AbilityTypeId, Ability> _mainAbility;
+        private Dictionary<AbilityTypeId, Ability> _mainAbilities;
+        private Dictionary<SecondaryAbilityTypeId, SecondaryAbility> _secondaryAbilities;
 
         public void Load()
         {
@@ -38,7 +40,9 @@ namespace Scripts.Services.StaticData
 
             _heroConfigs = Resources.LoadAll<HeroStaticData>(_staticDataHeroPath).ToDictionary(x => x.HeroTyoeId, x => x);
 
-            _mainAbility = Resources.LoadAll<Ability>(_staticDataMainAbilityPath).ToDictionary(x => x.abilityTypeId, x => x);
+            _mainAbilities = Resources.LoadAll<Ability>(_staticDataMainAbilityPath).ToDictionary(x => x.abilityTypeId, x => x);
+
+            _secondaryAbilities = Resources.LoadAll<SecondaryAbility>(_staticDataSecondaryAbilityPath).ToDictionary(x => x.abilityTypeId, x => x);
 
             //Debug.Log(_windowConfigs);
         }
@@ -82,7 +86,7 @@ namespace Scripts.Services.StaticData
 
         public Ability ForAbility(AbilityTypeId abilityTypeId)
         {
-            if (_mainAbility.TryGetValue(abilityTypeId, out Ability abilityStaticData))
+            if (_mainAbilities.TryGetValue(abilityTypeId, out Ability abilityStaticData))
             {
                 return abilityStaticData;
             }
@@ -94,6 +98,15 @@ namespace Scripts.Services.StaticData
             if (_heroConfigs.TryGetValue(heroTypeId, out HeroStaticData heroStaticData))
             {
                 return heroStaticData;
+            }
+            return null;
+        }
+
+        public SecondaryAbility ForSecondaryAbility(SecondaryAbilityTypeId abilityTypeId)
+        {
+            if (_secondaryAbilities.TryGetValue(abilityTypeId, out SecondaryAbility secondaryAbilityStaticData))
+            {
+                return secondaryAbilityStaticData;
             }
             return null;
         }

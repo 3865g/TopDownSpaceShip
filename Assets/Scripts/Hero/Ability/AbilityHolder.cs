@@ -1,6 +1,5 @@
 using Scripts.Services.Input;
 using Scripts.Services;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -19,8 +18,10 @@ namespace Scripts.Hero.Ability
 
         public Ability activeAbility;
         private Ability _passiveAbility;
+        private SecondaryAbility _secondaryAbility;
 
         public List<Ability> passiveAbilities;
+        public List<SecondaryAbility> secondaryAbilities;
 
         enum AbilityState
         {
@@ -85,10 +86,16 @@ namespace Scripts.Hero.Ability
                 _passiveAbility = passiveAbility;
                 _passiveAbility.ActivatePassive(gameObject);
                 passiveAbilities.Add(_passiveAbility);
-            }
-            
-            
-
+            }         
+        }  
+        public void ActivateSecondaryAbility(SecondaryAbility secondaryAbility)
+        {
+            if (!secondaryAbilities.Contains(secondaryAbility))
+            {
+                _secondaryAbility = secondaryAbility;
+                _secondaryAbility.ActivatePassive(gameObject);
+                secondaryAbilities.Add(_secondaryAbility);
+            }         
         }
 
 

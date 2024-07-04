@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5533b24296e1c43499cd5f09f1658370, type: 3}
+  m_Name: HPRegeneration
+  m_EditorClassIdentifier: 
+  name: HPRegeneration
+  abilityTypeId: 50
+  description: Restores 5 health every 5 seconds
+  skillType: 2
+  Point: 3
+  RegenerationAmount: 5
+  RegenerationInterval: 5
+  RegenerationPrefab: {fileID: 7663839601122326022, guid: 63054acb9e9eea0438382d1ebdebccf3, type: 3}

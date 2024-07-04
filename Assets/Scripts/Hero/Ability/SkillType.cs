@@ -1,6 +1,4 @@
-﻿using System;
-using Scripts.Hero.Ability;
-
+﻿
 namespace Scripts.Hero.Ability
 {
     public  enum  SkillType
