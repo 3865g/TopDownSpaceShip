@@ -49,6 +49,7 @@ namespace Scripts.UI.Services.Factory
         {
             WindowStaticData config = _staticDataService.ForWindow(WindowId.Rewards);
             ShopWindow shopWondow = Object.Instantiate(config.Prefab, _uiRoot) as ShopWindow;
+
         }
 
         public void CreateShop()

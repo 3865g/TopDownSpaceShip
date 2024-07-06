@@ -75,7 +75,7 @@ namespace Scripts.Infrastructure.Factory
             enemyCount.Construct(this, _gate);
 
             RewardsManager rewardsManager = gameManager.GetComponent<RewardsManager>();
-            rewardsManager.Construct(_windowService);
+            rewardsManager.Construct(_windowService, _staticDataService);
 
             _gameManager = gameManager;
         }
