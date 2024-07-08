@@ -7,10 +7,12 @@ namespace Scripts.Data
     {
         public PositionOnLevel PositionOnLevel;
         public LootData LootData;
+        public SecondaryAbilityData SecondaryAbilityData;
         public WorldData(string initialLevel)
         {
             PositionOnLevel = new PositionOnLevel(initialLevel);
             LootData = new LootData();
+            SecondaryAbilityData = new SecondaryAbilityData();
         }
 
     }

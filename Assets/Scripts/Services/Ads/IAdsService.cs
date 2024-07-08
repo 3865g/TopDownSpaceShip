@@ -1,7 +1,6 @@
-﻿using Scripts.Services;
-using System;
+﻿using System;
 
-namespace CodeBase.Services.Ads
+namespace Scripts.Services.Ads
 {
     public interface IAdsService : IService
     {

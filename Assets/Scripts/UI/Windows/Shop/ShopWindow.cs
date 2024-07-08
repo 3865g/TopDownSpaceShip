@@ -1,4 +1,4 @@
-﻿using CodeBase.Services.Ads;
+﻿using Scripts.Services.Ads;
 using TMPro;
 using Scripts.Services.PersistentProgress;
 

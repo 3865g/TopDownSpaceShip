@@ -1,5 +1,6 @@
 
 using Scripts.Hero.Ability;
+using Scripts.Services.SecondaryAbilityService;
 using Scripts.Services.StaticData;
 using Scripts.StaticData;
 using Scripts.UI.Services.Windows;
@@ -12,34 +13,29 @@ namespace Scripts.Logic
 {
     public class RewardsManager : MonoBehaviour
     {
+        public List<SecondaryAbility> SecondaryAbilities = new List<SecondaryAbility>();
         public List<Rewards> rewardList = new List<Rewards>();
-        public List<SecondaryAbility> secondaryAbilities = new List<SecondaryAbility>();
 
         private IWindowService _windowService;
+        private ISecondaryAbilityService _secondaryAbilityService;
         private IStaticDataService _staticDataService;
-        private SecondaryAbilityTypeId _secondaryAbilityTypeId;
-        private SecondaryAbility _secondaryAbility;
 
-        public void Construct(IWindowService windowService, IStaticDataService staticDataService)
+        public void Construct(IWindowService windowService, ISecondaryAbilityService secondaryAbilityService, IStaticDataService staticDataService)
         {
             _windowService = windowService;
+            _secondaryAbilityService = secondaryAbilityService;
             _staticDataService = staticDataService;
-            CreateAbilityList();
+            CreateList();
         }
 
-        public void CreateWidget()
+        public void CreateList()
         {
-
-        }
-
-
-        public void CreateAbilityList()
-        {
-
             foreach (SecondaryAbilityTypeId abilityKey in Enum.GetValues(typeof(SecondaryAbilityTypeId)))
             {
-                secondaryAbilities.Add(_staticDataService.ForSecondaryAbility(abilityKey));
+                SecondaryAbilities.Add(_staticDataService.ForSecondaryAbility(abilityKey));
             }
+
+            _secondaryAbilityService.Initialize(SecondaryAbilities);
         }
 
         public void RegisterEnemy(int groupId)
@@ -80,53 +76,19 @@ namespace Scripts.Logic
 
         public void FillingAwards(int groupId)
         {
-            Time.timeScale = 0f;
-             _windowService.Open(WindowId.Rewards);
-
+            
+             
             if (groupId < 10)
             {
-                RandomChoosingSkill();
+                _secondaryAbilityService.BoosLoot = false;
             }
             else
             {
-                BoossRandomChoosingSkill();
-            }
-        }
-
-        public void RandomChoosingSkill()
-        {
-            int randomIndex = new System.Random().Next(0, secondaryAbilities.Count);
-            _secondaryAbility = secondaryAbilities[randomIndex];
-            secondaryAbilities.Remove(_secondaryAbility);
-        }
-
-        public void BoossRandomChoosingSkill()
-        {
-
-            int points = 3;
-            //var valuableAbilities = secondaryAbilities.Where(x => x.Point == points);
-
-            var valuableAbilities = secondaryAbilities.Where(x => x.Point == points).ToList();
-
-            if (valuableAbilities.Count() == 0 || points != 0)
-            {
-                points -= 1;
-                valuableAbilities = secondaryAbilities.Where(x => x.Point == points).ToList();
-            }
-            else
-            {
-                Debug.LogError("You have all secondaryAbilities");
+                _secondaryAbilityService.BoosLoot = true;
             }
 
-
-            int randomValue = new System.Random().Next(0, valuableAbilities.Count());
-
-            _secondaryAbility = valuableAbilities[randomValue];
-
-            valuableAbilities.Remove(_secondaryAbility);
-            secondaryAbilities.Remove(_secondaryAbility);
-
-
+            _windowService.Open(WindowId.Rewards);
+            //Time.timeScale = 0f;
         }
 
     }

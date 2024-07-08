@@ -31,9 +31,7 @@ namespace Assets.Scripts.UI.Elements
 
         public void ChangeLevel()
         {
-            Debug.Log(_gameStateMachine);
             _gameStateMachine.Enter<LoadLevelState, string>(TransferTo);
-            Debug.Log(TransferTo);
         }
     }
 }

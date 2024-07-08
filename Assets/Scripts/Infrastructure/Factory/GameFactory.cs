@@ -21,6 +21,7 @@ using Scripts.Logic.Gates;
 using Assets.Scripts.UI.Menu;
 using Scripts.Hero.Ability;
 using Scripts.Hero;
+using Scripts.Services.SecondaryAbilityService;
 
 namespace Scripts.Infrastructure.Factory
 {
@@ -37,6 +38,7 @@ namespace Scripts.Infrastructure.Factory
         private readonly IPersistentProgressService _persistentProgressService;
         private readonly IWindowService _windowService;
         private readonly IGameStateMachine _gameStateMachine;
+        private readonly ISecondaryAbilityService _secondaryAbilityService;
 
         private GameObject _heroGameObject;
         private GameObject _gameManager;
@@ -50,7 +52,8 @@ namespace Scripts.Infrastructure.Factory
             IRandomService randomService,
             IPersistentProgressService persistentProgressService,
             IWindowService windowService,
-            IGameStateMachine gameStateMachine)
+            IGameStateMachine gameStateMachine,
+            ISecondaryAbilityService secondaryAbilityService)
         {
             _assetsProvider = assetsProvider;
             _staticDataService = staticDataService;
@@ -58,6 +61,7 @@ namespace Scripts.Infrastructure.Factory
             _persistentProgressService = persistentProgressService;
             _windowService = windowService;
             _gameStateMachine = gameStateMachine;
+            _secondaryAbilityService = secondaryAbilityService;
         }
 
         public async Task WarmUp()
@@ -75,7 +79,7 @@ namespace Scripts.Infrastructure.Factory
             enemyCount.Construct(this, _gate);
 
             RewardsManager rewardsManager = gameManager.GetComponent<RewardsManager>();
-            rewardsManager.Construct(_windowService, _staticDataService);
+            rewardsManager.Construct(_windowService, _secondaryAbilityService, _staticDataService);
 
             _gameManager = gameManager;
         }

@@ -1,16 +1,15 @@
-﻿using Scripts.UI.Windows;
-using Scripts.Infrastructure.AssetManagement;
+﻿using Scripts.Infrastructure.AssetManagement;
 using Scripts.Services.PersistentProgress;
 using Scripts.Services.StaticData;
 using Scripts.StaticData.Windows;
 using Scripts.UI.Services.Windows;
 using UnityEngine;
-using CodeBase.Services.Ads;
+using Scripts.Services.Ads;
 using System.Threading.Tasks;
 using Scripts.UI.Windows.Shop;
 using Scripts.UI.Windows.Menu;
 using Scripts.Infrastructure.States;
-using Scripts.Infrastructure.Factory;
+using Scripts.Services.SecondaryAbilityService;
 
 namespace Scripts.UI.Services.Factory
 {
@@ -22,6 +21,7 @@ namespace Scripts.UI.Services.Factory
         private readonly IPersistentProgressService _persistantProgressService;
         private readonly IAdsService _adsService;
         private readonly IGameStateMachine _gameStateMachine;
+        private readonly ISecondaryAbilityService _secondaryAbilityService;
 
         private Transform _uiRoot;
 
@@ -29,13 +29,15 @@ namespace Scripts.UI.Services.Factory
             IStaticDataService staticDataService,
             IPersistentProgressService persistantProgressService,
             IAdsService adsService,
-            IGameStateMachine gameStateMachine)
+            IGameStateMachine gameStateMachine,
+            ISecondaryAbilityService secondaryAbilityService)
         {
             _assetProvider = assetProvider;
             _staticDataService = staticDataService;
             _persistantProgressService = persistantProgressService;
             _adsService = adsService;
             _gameStateMachine = gameStateMachine;
+            _secondaryAbilityService = secondaryAbilityService; 
         }
 
         public void CreatePlanetsMenu( )
@@ -48,7 +50,9 @@ namespace Scripts.UI.Services.Factory
         public void CreateRewardsMenu()
         {
             WindowStaticData config = _staticDataService.ForWindow(WindowId.Rewards);
-            ShopWindow shopWondow = Object.Instantiate(config.Prefab, _uiRoot) as ShopWindow;
+            RewardWindow rewardWindow = Object.Instantiate(config.Prefab, _uiRoot) as RewardWindow;
+            rewardWindow.Construct(_secondaryAbilityService);
+            rewardWindow.FillingItem();
 
         }
 

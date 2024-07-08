@@ -1,8 +1,6 @@
 ﻿using System;
-using UnityEngine;
-using UnityEngine.Advertisements;
 
-namespace CodeBase.Services.Ads
+namespace Scripts.Services.Ads
 {
     public class AdsService : IAdsService /* IUnityAdsListener */
     {

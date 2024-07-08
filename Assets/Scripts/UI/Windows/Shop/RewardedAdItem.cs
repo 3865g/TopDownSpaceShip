@@ -1,7 +1,6 @@
 ﻿
-using CodeBase.Services.Ads;
+using Scripts.Services.Ads;
 using Scripts.Services.PersistentProgress;
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -22,13 +22,5 @@ namespace Scripts.UI.Windows.Menu
         {
             _gameStateMachine = gameStateMachine;
         }
-
-        //private void Start()
-        //{
-        //    foreach (ChangeLevelButton changeLevelButton in GetComponentsInChildren<ChangeLevelButton>())
-        //    {
-        //        changeLevelButton.Construct(_gameStateMachine);
-        //    }
-        //}
     }
 }
