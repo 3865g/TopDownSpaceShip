@@ -7,27 +7,46 @@ namespace Scripts.UI.Windows.Shop
 {
     public class RewardWindow: WindowBase
     {
+        
         private SecondaryAbility secondaryAbility;
         private ISecondaryAbilityService _secondaryAbilityService;
         private RewardItem[] _rewardItem;
+        private GameObject _player;
+
         public void Construct(ISecondaryAbilityService secondaryAbilityService)
         {
             _secondaryAbilityService = secondaryAbilityService;
+            _player = _secondaryAbilityService.Player;
             
         }
 
+        private void Awake()
+        {
+            _rewardItem = GetComponentsInChildren<RewardItem>();
+        }
 
+        public void TakeAbility(SecondaryAbility secondaryAbility)
+        {
+            _player.GetComponent<AbilityHolder>().ActivateSecondaryAbility(secondaryAbility);
+
+            Destroy(gameObject);
+
+            if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            }
+        }
 
         public void FillingItem()
         {
-            _rewardItem = GetComponentsInChildren<RewardItem>();
+            
 
             for(int i = 0; i < _rewardItem.Length; i++)
             {
                 _secondaryAbilityService.GetRandomSkill();
-                secondaryAbility = _secondaryAbilityService.secondaryAbility;
                 _rewardItem[i].NameAbility.SetText(_secondaryAbilityService.secondaryAbility.name);
                 _rewardItem[i].DescriptionAbility.SetText(_secondaryAbilityService.secondaryAbility.description);
+                _rewardItem[i].SecondaryAbility = _secondaryAbilityService.secondaryAbility;
             }
         }
 

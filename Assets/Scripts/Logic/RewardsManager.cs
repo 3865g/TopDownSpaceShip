@@ -15,6 +15,7 @@ namespace Scripts.Logic
     {
         public List<SecondaryAbility> SecondaryAbilities = new List<SecondaryAbility>();
         public List<Rewards> rewardList = new List<Rewards>();
+       
 
         private IWindowService _windowService;
         private ISecondaryAbilityService _secondaryAbilityService;
@@ -25,9 +26,11 @@ namespace Scripts.Logic
             _windowService = windowService;
             _secondaryAbilityService = secondaryAbilityService;
             _staticDataService = staticDataService;
+            
             CreateList();
         }
 
+       
         public void CreateList()
         {
             foreach (SecondaryAbilityTypeId abilityKey in Enum.GetValues(typeof(SecondaryAbilityTypeId)))
@@ -35,7 +38,7 @@ namespace Scripts.Logic
                 SecondaryAbilities.Add(_staticDataService.ForSecondaryAbility(abilityKey));
             }
 
-            _secondaryAbilityService.Initialize(SecondaryAbilities);
+            _secondaryAbilityService.SetAvailableAbilityList(SecondaryAbilities);
         }
 
         public void RegisterEnemy(int groupId)
@@ -88,7 +91,7 @@ namespace Scripts.Logic
             }
 
             _windowService.Open(WindowId.Rewards);
-            //Time.timeScale = 0f;
+            Time.timeScale = 0f;
         }
 
     }

@@ -1,13 +1,16 @@
 using System.Collections.Generic;
 using Scripts.Hero.Ability;
+using UnityEngine;
 
 namespace Scripts.Services.SecondaryAbilityService
 {
     public interface ISecondaryAbilityService : IService
     {
         bool BoosLoot { get; set; }
+
+        GameObject Player { get; set; }
         SecondaryAbility secondaryAbility { get; set; }
-        void Initialize(List<SecondaryAbility> secondaryAbilities);
+        void SetAvailableAbilityList(List<SecondaryAbility> secondaryAbilities);
         void GetRandomSkill();
     }
 }

@@ -116,6 +116,8 @@ MonoBehaviour:
   SelectAbilityButton: {fileID: 8828663964004596221}
   NameAbility: {fileID: 3202160513011283476}
   DescriptionAbility: {fileID: 7375527103371605913}
+  SecondaryAbility: {fileID: 0}
+  TakeAbilityButton: {fileID: 8828663964004596221}
 --- !u!114 &8828663964004596221
 MonoBehaviour:
   m_ObjectHideFlags: 0

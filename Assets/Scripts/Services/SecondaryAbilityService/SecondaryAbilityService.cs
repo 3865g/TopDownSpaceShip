@@ -15,11 +15,9 @@ namespace Scripts.Services.SecondaryAbilityService
         public SecondaryAbility secondaryAbility { get; set; }
 
         public bool BoosLoot { get; set; }
+        public UnityEngine.GameObject Player { get ; set ; }
 
-
-
-
-        public void Initialize(List<SecondaryAbility> secondaryAbility)
+        public void SetAvailableAbilityList(List<SecondaryAbility> secondaryAbility)
         {
             SecondaryAbilities = secondaryAbility;
         }

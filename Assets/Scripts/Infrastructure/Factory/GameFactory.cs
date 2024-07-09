@@ -98,6 +98,9 @@ namespace Scripts.Infrastructure.Factory
             heroAttack.Construct(_randomService);
             
             _abilityManager.GetComponent<AbilityManager>().InitPlayer(_heroGameObject, _persistentProgressService.Progress.AbilityProgress.SkillTypeId);
+
+            _secondaryAbilityService.Player = _heroGameObject;
+
             return _heroGameObject;
         }
 
