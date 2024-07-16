@@ -1,4 +1,5 @@
 using Scripts.Hero.Ability;
+using Scripts.Hero.Ability.ConfigurationStattes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,6 +10,10 @@ namespace Scripts.Data
     [Serializable]
     public class AbilityData
     {
+        public Ability ability;
+        public SecondaryAbility secondaryAbility;
+        public List<SecondaryAbility> secondaryAbilities;
+
         public SkillType skillType;
         public int SkillTypeId;
         public int AttackPoints;

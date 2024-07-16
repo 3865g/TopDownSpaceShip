@@ -1,5 +1,7 @@
 
+using Scripts.Data;
 using Scripts.Hero.Ability;
+using Scripts.Services.PersistentProgress;
 using Scripts.Services.SecondaryAbilityService;
 using Scripts.Services.StaticData;
 using Scripts.StaticData;
@@ -11,7 +13,7 @@ using UnityEngine;
 
 namespace Scripts.Logic
 {
-    public class RewardsManager : MonoBehaviour
+    public class RewardsManager : MonoBehaviour /* , ISavedProgress */ 
     {
         public List<SecondaryAbility> SecondaryAbilities = new List<SecondaryAbility>();
         public List<Rewards> rewardList = new List<Rewards>();
@@ -94,6 +96,21 @@ namespace Scripts.Logic
             Time.timeScale = 0f;
         }
 
+        public void UpdateList(SecondaryAbility secondaryAbility)
+        {
+            SecondaryAbilities.Remove(secondaryAbility);
+            _secondaryAbilityService.SetAvailableAbilityList(SecondaryAbilities);
+        }
+
+        //    public void UpdateProgress(PlayerProgress progress)
+        //    {
+        //        //progress.AbilityProgress.secondaryAbilities = SecondaryAbilities;
+        //    }
+
+        //    public void LoadProgress(PlayerProgress progress)
+        //    {
+        //        SecondaryAbilities = progress.AbilityProgress.secondaryAbilities;
+        //    }
     }
 }
 

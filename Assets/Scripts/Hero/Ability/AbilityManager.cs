@@ -29,13 +29,11 @@ namespace Scripts.Hero.Ability
 
         public AbilityData _abilityData { get; private set; }
 
-        public string test;
+        //public string test;
 
         private ConfigurationState _currentConfiguration;
 
         private SkillType _skillType;
-
-        private ISaveLoadService _saveLoadService;
 
         public int _skillTypeId;
         //{
@@ -54,10 +52,6 @@ namespace Scripts.Hero.Ability
             _staticDataService = staticDataService;
         }
 
-        private void Awake()
-        {
-            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
-        }
 
         public void InitPlayer(GameObject player, int skilltypeId)
         {
@@ -72,8 +66,7 @@ namespace Scripts.Hero.Ability
         {
             _skillTypeId = skillTypeId;
             _skillType = (SkillType)Enum.ToObject(typeof(SkillType), _skillTypeId);
-            test = _skillType.ToString();
-            _saveLoadService.SaveProgress();
+           
 
 
             switch (_skillType)
@@ -122,19 +115,19 @@ namespace Scripts.Hero.Ability
             {
                 case SkillType.Attack:
                     {
-                        _attackPoints = _attackPoints + ability.Point;
+                        _attackPoints +=  ability.Point;
                         _currentConfiguration.ChangePoints(_attackPoints, _movementPoints , _defencePoints);
                     }
                     break;
                 case SkillType.Movement:
                     {
-                        _movementPoints = _movementPoints + ability.Point;
+                        _movementPoints += ability.Point;
                         _currentConfiguration.ChangePoints(_attackPoints, _movementPoints, _defencePoints);
                     }
                     break;
                 case SkillType.Defence:
                     {
-                        _defencePoints = _defencePoints + ability.Point;
+                        _defencePoints += ability.Point;
                         _currentConfiguration.ChangePoints(_attackPoints, _movementPoints, _defencePoints);
                     }
                     break;
@@ -145,14 +138,23 @@ namespace Scripts.Hero.Ability
         {
             progress.AbilityProgress.SkillTypeId = _skillTypeId;
             progress.AbilityProgress.skillType = _skillType;
+            progress.AbilityProgress.AttackPoints = _attackPoints;
+            progress.AbilityProgress.MovementPoints = _movementPoints;
+            progress.AbilityProgress.DefencePoints = _defencePoints;
         }
 
         public void LoadProgress(PlayerProgress progress)
         {
+            
             _abilityData = progress.AbilityProgress;
             _skillType = progress.AbilityProgress.skillType;
             _skillTypeId = progress.AbilityProgress.SkillTypeId;
-            ChangeConfiguration(_skillTypeId);
+            _attackPoints = progress.AbilityProgress.AttackPoints;
+            _movementPoints = progress.AbilityProgress.MovementPoints;
+            _defencePoints = progress.AbilityProgress.DefencePoints;
+
+            //InitializeConfiguration();
+            //ChangeConfiguration(_skillTypeId);
         }
     }
 }

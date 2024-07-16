@@ -9,7 +9,8 @@ namespace Scripts.Services.SecondaryAbilityService
         bool BoosLoot { get; set; }
 
         GameObject Player { get; set; }
-        SecondaryAbility secondaryAbility { get; set; }
+        SecondaryAbility SecondaryAbility { get; set; }
+        AbilityManager AbilityManager { get; set; }
         void SetAvailableAbilityList(List<SecondaryAbility> secondaryAbilities);
         void GetRandomSkill();
     }

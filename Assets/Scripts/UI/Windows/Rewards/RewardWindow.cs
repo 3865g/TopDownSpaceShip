@@ -44,9 +44,9 @@ namespace Scripts.UI.Windows.Shop
             for(int i = 0; i < _rewardItem.Length; i++)
             {
                 _secondaryAbilityService.GetRandomSkill();
-                _rewardItem[i].NameAbility.SetText(_secondaryAbilityService.secondaryAbility.name);
-                _rewardItem[i].DescriptionAbility.SetText(_secondaryAbilityService.secondaryAbility.description);
-                _rewardItem[i].SecondaryAbility = _secondaryAbilityService.secondaryAbility;
+                _rewardItem[i].NameAbility.SetText(_secondaryAbilityService.SecondaryAbility.name);
+                _rewardItem[i].DescriptionAbility.SetText(_secondaryAbilityService.SecondaryAbility.description);
+                _rewardItem[i].SecondaryAbility = _secondaryAbilityService.SecondaryAbility;
             }
         }
 

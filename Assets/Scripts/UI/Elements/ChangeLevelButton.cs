@@ -1,7 +1,6 @@
 ﻿using Scripts.Infrastructure.States;
 using Scripts.Services.SaveLoad;
 using Scripts.Services;
-using Scripts.UI.Services.Windows;
 using Scripts.UI.Windows.Menu;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,7 +23,7 @@ namespace Assets.Scripts.UI.Elements
 
         private void OnEnable()
         {
-            _gameStateMachine = GetComponentInParent<LevelsMenu>()._gameStateMachine;
+            _gameStateMachine = GetComponentInParent<LevelsMenu>().GameStateMachine;
             Button.onClick.AddListener(ChangeLevel);
 
         }

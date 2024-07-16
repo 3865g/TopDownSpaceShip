@@ -1,7 +1,5 @@
 
 using Scripts.Hero.Ability;
-using Scripts.Services.StaticData;
-using Scripts.StaticData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +10,8 @@ namespace Scripts.Services.SecondaryAbilityService
     {
 
         public List<SecondaryAbility> SecondaryAbilities { get; set; }
-        public SecondaryAbility secondaryAbility { get; set; }
+        public SecondaryAbility SecondaryAbility { get; set; }
+        public AbilityManager AbilityManager { get; set; }
 
         public bool BoosLoot { get; set; }
         public UnityEngine.GameObject Player { get ; set ; }
@@ -28,8 +27,8 @@ namespace Scripts.Services.SecondaryAbilityService
             {
                 case false:
                     int randomIndex = new Random().Next(0, SecondaryAbilities.Count);
-                    secondaryAbility = SecondaryAbilities[randomIndex];
-                    SecondaryAbilities.Remove(secondaryAbility);
+                    SecondaryAbility = SecondaryAbilities[randomIndex];
+                    SecondaryAbilities.Remove(SecondaryAbility);
                     break;
 
                 case true:
@@ -48,9 +47,9 @@ namespace Scripts.Services.SecondaryAbilityService
                     }
 
                     int randomValue = new System.Random().Next(0, valuableAbilities.Count());
-                    secondaryAbility = valuableAbilities[randomValue];
-                    valuableAbilities.Remove(secondaryAbility);
-                    SecondaryAbilities.Remove(secondaryAbility);
+                    SecondaryAbility = valuableAbilities[randomValue];
+                    valuableAbilities.Remove(SecondaryAbility);
+                    SecondaryAbilities.Remove(SecondaryAbility);
 
                     break;
 

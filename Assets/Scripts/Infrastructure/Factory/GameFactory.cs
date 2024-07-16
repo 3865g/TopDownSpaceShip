@@ -96,6 +96,8 @@ namespace Scripts.Infrastructure.Factory
             health.Construct(_randomService);
             HeroAttack heroAttack = _heroGameObject.GetComponent<HeroAttack>();
             heroAttack.Construct(_randomService);
+            AbilityHolder abilityHolder = _heroGameObject.GetComponent<AbilityHolder>();
+            abilityHolder.RewardsManager = _gameManager.GetComponent<RewardsManager>();
             
             _abilityManager.GetComponent<AbilityManager>().InitPlayer(_heroGameObject, _persistentProgressService.Progress.AbilityProgress.SkillTypeId);
 
@@ -110,6 +112,8 @@ namespace Scripts.Infrastructure.Factory
             GameObject abilityManagerPrefab = InstantiateRegistered(prefab);
             AbilityManager abilityManager = abilityManagerPrefab.GetComponent<AbilityManager>();
             abilityManager.Construct(this, _staticDataService);
+
+            _secondaryAbilityService.AbilityManager = abilityManager;
 
             _abilityManager = abilityManagerPrefab;
         }

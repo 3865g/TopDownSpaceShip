@@ -3,13 +3,17 @@ using Scripts.Services;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Scripts.Logic;
+using Scripts.Services.SaveLoad;
+using Scripts.Data;
+using Scripts.Services.PersistentProgress;
 
 
 namespace Scripts.Hero.Ability
 {
 
 
-    public class AbilityHolder : MonoBehaviour
+    public class AbilityHolder : MonoBehaviour, ISavedProgress
     {
         public IInputService _inputService;
 
@@ -22,6 +26,7 @@ namespace Scripts.Hero.Ability
 
         public List<Ability> passiveAbilities;
         public List<SecondaryAbility> secondaryAbilities;
+        public RewardsManager RewardsManager;
 
         enum AbilityState
         {
@@ -95,14 +100,46 @@ namespace Scripts.Hero.Ability
                 _secondaryAbility = secondaryAbility;
                 _secondaryAbility.ActivatePassive(gameObject);
                 secondaryAbilities.Add(_secondaryAbility);
+                RewardsManager.UpdateList(secondaryAbility);
             }         
         }
+
+
 
 
         public void ChangeAbility(Ability ability)
         {
             activeAbility = ability;
             state = AbilityState.ready;
+        }
+
+      public void ActivateAbilitiesAfterLoad()
+        {
+            foreach (SecondaryAbility element in secondaryAbilities)
+            {
+                _secondaryAbility = element;
+                _secondaryAbility.ActivatePassive(gameObject);
+                RewardsManager.UpdateList(_secondaryAbility);
+            }
+        }
+
+        public void UpdateProgress(PlayerProgress progress)
+        {
+            //progress.AbilityProgress.secondaryAbility = _secondaryAbility;
+             progress.AbilityProgress.secondaryAbilities = secondaryAbilities;
+        }
+
+        public void LoadProgress(PlayerProgress progress)
+        {
+            //activeAbility = progress.AbilityProgress.ability;
+            //_secondaryAbility = progress.AbilityProgress.secondaryAbility;
+            secondaryAbilities = progress.AbilityProgress.secondaryAbilities;
+
+            if (secondaryAbilities.Count > 0)
+            {
+                ActivateAbilitiesAfterLoad();
+            }
+
         }
     }
 }

@@ -1,7 +1,6 @@
-using Assets.Scripts.UI.Menu;
 using Scripts.Hero.Ability;
-using Scripts.Infrastructure.States;
-using Scripts.UI.Services.Windows;
+using Scripts.Services.SaveLoad;
+using Scripts.Services;
 using Scripts.UI.Windows.Menu;
 using System;
 using UnityEngine;
@@ -12,23 +11,27 @@ namespace Assets.Scripts.UI.Elements
     public class ChangeConfiguration : MonoBehaviour
     {
         public Button Button;
-        private GameObject _abilityManager;
         public SkillType skillType;
+
+        private AbilityManager _abilityManager;
+        private ISaveLoadService _saveLoadService;
 
         
 
         private void OnEnable()
         {
-            Button.onClick.AddListener(ChangeShipConfiguration);
+            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
 
+            Button.onClick.AddListener(ChangeShipConfiguration);
+            LevelsMenu levelsMenu = GetComponentInParent<LevelsMenu>();
+            _abilityManager = levelsMenu.AbilityManager;
         }
 
         public void ChangeShipConfiguration()
         {
-            //Need Refactoring
-            _abilityManager = GameObject.FindWithTag("AbilityManager");
-            _abilityManager.GetComponent<AbilityManager>().ChangeConfiguration(Convert.ToInt32(skillType));
-            //Debug.Log(skillType);
+            _abilityManager.ChangeConfiguration(Convert.ToInt32(skillType)); 
+            
+            _saveLoadService.SaveProgress();
         }
     }
 }

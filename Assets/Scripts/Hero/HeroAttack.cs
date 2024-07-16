@@ -58,7 +58,7 @@ namespace Scripts.Enemy
 
         public void UptadeBonuseDamage(int addedDamage)
         {
-            BonuseDamage = BonuseDamage + addedDamage;
+            BonuseDamage += addedDamage;
         }
 
         public void CalculateCriticalChance()
@@ -78,7 +78,7 @@ namespace Scripts.Enemy
 
         public void UpdateAtackCooloduwn(float changedCooldown)
         {
-            AttackCooldown = AttackCooldown - changedCooldown;
+            AttackCooldown -= changedCooldown;
         }
 
         public IEnumerator OnAttack()
