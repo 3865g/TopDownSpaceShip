@@ -1,6 +1,7 @@
 ﻿using Scripts.Hero;
 using Scripts.Logic;
 using System;
+using TMPro;
 using UnityEngine;
 
 namespace Scripts.UI.Elements
@@ -8,6 +9,7 @@ namespace Scripts.UI.Elements
     public class ActorUI : MonoBehaviour
     {
         public HpBar HpBar;
+        public TextMeshProUGUI TextMeshProUGUI;
 
         private IHealth _heroHealth;
 
@@ -21,12 +23,12 @@ namespace Scripts.UI.Elements
 
         private void Start()
         {
-            IHealth health = GetComponent<IHealth>();
+            //IHealth health = GetComponent<IHealth>();
 
-            if(health != null)
-            {
-                Construct(health);
-            }
+            //if(health != null)
+            //{
+            //    Construct(health);
+            //}
         }
         private void OnDestroy()
         {
@@ -39,6 +41,7 @@ namespace Scripts.UI.Elements
         private void UpdateHpBar()
         {
             HpBar.SetValue(_heroHealth.CurrentHP, _heroHealth.MaxHP);
+            TextMeshProUGUI.SetText(_heroHealth.CurrentHP.ToString());
         }
 
         

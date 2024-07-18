@@ -13,9 +13,9 @@ using UnityEngine;
 
 namespace Scripts.Logic
 {
-    public class RewardsManager : MonoBehaviour /* , ISavedProgress */ 
+    public class RewardsManager : MonoBehaviour /*, ISavedProgress*/ 
     {
-        public List<SecondaryAbility> SecondaryAbilities = new List<SecondaryAbility>();
+        public List<SecondaryAbility> RewardSecondaryAbilities;
         public List<Rewards> rewardList = new List<Rewards>();
        
 
@@ -32,15 +32,32 @@ namespace Scripts.Logic
             CreateList();
         }
 
-       
+
+        private void Update()
+        {
+            if(Input.GetKeyUp(KeyCode.M))
+            {
+                SendReward(2);
+            }
+        }
+
         public void CreateList()
         {
-            foreach (SecondaryAbilityTypeId abilityKey in Enum.GetValues(typeof(SecondaryAbilityTypeId)))
+            if (RewardSecondaryAbilities != null)
             {
-                SecondaryAbilities.Add(_staticDataService.ForSecondaryAbility(abilityKey));
+                RewardSecondaryAbilities.Clear();
+            }
+            else
+            {
+                RewardSecondaryAbilities = new List<SecondaryAbility>();
             }
 
-            _secondaryAbilityService.SetAvailableAbilityList(SecondaryAbilities);
+            foreach (SecondaryAbilityTypeId abilityKey in Enum.GetValues(typeof(SecondaryAbilityTypeId)))
+            {
+                RewardSecondaryAbilities.Add(_staticDataService.ForSecondaryAbility(abilityKey));
+            }
+
+            _secondaryAbilityService.SetAvailableAbilityList(RewardSecondaryAbilities);
         }
 
         public void RegisterEnemy(int groupId)
@@ -98,19 +115,20 @@ namespace Scripts.Logic
 
         public void UpdateList(SecondaryAbility secondaryAbility)
         {
-            SecondaryAbilities.Remove(secondaryAbility);
-            _secondaryAbilityService.SetAvailableAbilityList(SecondaryAbilities);
+            RewardSecondaryAbilities.Remove(secondaryAbility);
+            _secondaryAbilityService.SetAvailableAbilityList(RewardSecondaryAbilities);
         }
 
-        //    public void UpdateProgress(PlayerProgress progress)
-        //    {
-        //        //progress.AbilityProgress.secondaryAbilities = SecondaryAbilities;
-        //    }
+        //public void UpdateProgress(PlayerProgress progress)
+        //{
+        //    //progress.AbilityProgress.secondaryAbilitiesData = RewardSecondaryAbilities;
+        //    //Debug.LogError("Saved");
+        //}
 
-        //    public void LoadProgress(PlayerProgress progress)
-        //    {
-        //        SecondaryAbilities = progress.AbilityProgress.secondaryAbilities;
-        //    }
+        //public void LoadProgress(PlayerProgress progress)
+        //{
+        //    //RewardSecondaryAbilities = progress.AbilityProgress.secondaryAbilitiesData;
+        //}
     }
 }
 

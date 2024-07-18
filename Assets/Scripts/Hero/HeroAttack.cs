@@ -5,6 +5,8 @@ using Scripts.Hero;
 using Assets.Scripts.Hero;
 using System.Collections;
 using Scripts.Services.Randomizer;
+using Scripts.Weapon;
+using System;
 
 namespace Scripts.Enemy
 {
@@ -13,11 +15,14 @@ namespace Scripts.Enemy
 
         public float AttackCooldown = 1.25f;
         public int BonuseDamage;
+        public Action Shooting;
 
         public int BurstAmount = 1;
         //public float LaserSpeed = 500f;
         public Transform LaserStartTransform;
         public GameObject Laserprefab;
+        public Color CurrentColor;
+        public Color DefaultColor = new Color(0, 255, 255, 255);
 
         public int shootcount;
         public bool CanCrit;
@@ -68,11 +73,12 @@ namespace Scripts.Enemy
             if(CriticalChance <= _randomValue)
             {
                 _criticalDamge = CriticalDamage;
-                //Change Color
+                CurrentColor = new Color(255, 104, 0, 255);
             }
             else
             {
                 _criticalDamge = 0;
+                CurrentColor = DefaultColor;
             }
         }
 
@@ -91,11 +97,12 @@ namespace Scripts.Enemy
 
                 _attackCooldown = AttackCooldown;
                 GameObject laserPrefab = Instantiate(Laserprefab, LaserStartTransform.position, Quaternion.identity);
-                PlayerLaser laser = laserPrefab.GetComponent<PlayerLaser>();
+                IProjectile laser = laserPrefab.GetComponent<IProjectile>();
                 Vector3 laserDirection = (_roatateForAttack._enemy.transform.position - LaserStartTransform.position).normalized;
-                laser.Construct(laserDirection, _stats.Damage + BonuseDamage + _criticalDamge);
+                laser.Construct(laserDirection, _stats.Damage + BonuseDamage + _criticalDamge, CurrentColor);
 
                 shootcount--;
+                Shooting?.Invoke();
 
                 yield return new WaitForSeconds(0.1f);
 

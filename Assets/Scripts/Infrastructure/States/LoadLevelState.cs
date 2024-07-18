@@ -163,7 +163,7 @@ namespace Scripts.Infrastructure.States
             if(levelStaticData.LevelKey != "MainMenu")
             {
                 GameObject hud = await _gameFactory.CreateHud();
-                hud.GetComponentInChildren<ActorUI>().Construct(hero.GetComponent<HeroHealth>());
+                hud.GetComponentInChildren<ActorUI>().Construct(hero.GetComponent<IHealth>());
             }
             else
             {

@@ -1,14 +1,16 @@
 ﻿using Scripts.Logic;
-using System;
+using Scripts.Weapon;
 using UnityEngine;
 
 namespace Scripts.Hero
 {
-    public class PlayerLaser : MonoBehaviour
+    public class PlayerLaser : MonoBehaviour, IProjectile
     {
         public float Speed = 500f;
         public Transform Target;
         public GameObject Impact;
+
+        public Color Color {  get; set; }
 
         private bool _isCollidet;
         private float _damage;
@@ -19,13 +21,16 @@ namespace Scripts.Hero
         }
 
 
-        public void Construct(Vector3 laserDirection, float damage)
+        public void Construct(Vector3 laserDirection, float damage, Color color)
         {
             
             _damage = damage;
            // Debug.Log(_damage);
             Rigidbody rigibody = GetComponent<Rigidbody>();
             rigibody.AddForce(laserDirection * Speed, ForceMode.Impulse);
+
+            Renderer render = gameObject.GetComponent<Renderer>();
+            render.material.SetColor("color", color);
 
             transform.forward = laserDirection;
 

@@ -12,7 +12,7 @@ namespace Scripts.Data
     {
         public Ability ability;
         public SecondaryAbility secondaryAbility;
-        public List<SecondaryAbility> secondaryAbilities;
+        public List<SecondaryAbility> secondaryAbilitiesData;
 
         public SkillType skillType;
         public int SkillTypeId;

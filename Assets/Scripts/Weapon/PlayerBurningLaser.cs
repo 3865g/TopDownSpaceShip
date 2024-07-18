@@ -1,15 +1,19 @@
 ﻿using Scripts.Logic;
+using Scripts.Weapon;
 using UnityEngine;
 
 namespace Scripts.Hero
 {
-    public class PlayerBurningLaser : MonoBehaviour
+    public class PlayerBurningLaser : MonoBehaviour, IProjectile
     {
         public float Speed = 500f;
 
         public float DamageAmount;
         public float DamageInterval;
         public int DamgaeDuration;
+
+        public Color Color { get; set; }
+
 
         public Transform Target;
         public GameObject Impact;
@@ -25,15 +29,14 @@ namespace Scripts.Hero
         }
 
 
-        public void Construct(Vector3 laserDirection, float damage)
+        public void Construct(Vector3 Direction, float damage, Color color)
         {
-            
             _damage = damage;
-           // Debug.Log(_damage);
+            // Debug.Log(_damage);
             Rigidbody rigibody = GetComponent<Rigidbody>();
-            rigibody.AddForce(laserDirection * Speed, ForceMode.Impulse);
+            rigibody.AddForce(Direction * Speed, ForceMode.Impulse);
 
-            transform.forward = laserDirection;
+            transform.forward = Direction;
 
             Destroy(gameObject, 2f);
         }
@@ -48,7 +51,7 @@ namespace Scripts.Hero
             {
                 collision.transform.parent.GetComponent<IHealth>()?.TakeDamage(_damage);
 
-                if(collision.gameObject.GetComponentInChildren<BurningDamage>() == null)
+                if (collision.gameObject.GetComponentInChildren<BurningDamage>() == null)
                 {
                     _burningModule = Instantiate(BurningModule, collision.transform);
                     _burningModule.transform.SetParent(collision.transform);
@@ -59,7 +62,7 @@ namespace Scripts.Hero
                 {
                     _burningModule.GetComponent<BurningDamage>().DamgaeDuration = DamgaeDuration;
                 }
-                
+
 
 
                 Destroy(gameObject);
@@ -75,9 +78,11 @@ namespace Scripts.Hero
 
         private void ImpactFX(Vector3 transform)
         {
-          GameObject impact =  Instantiate(Impact, transform , Quaternion.identity);
+            GameObject impact = Instantiate(Impact, transform, Quaternion.identity);
             Destroy(impact, 0.5f);
 
         }
+
+
     }
 }

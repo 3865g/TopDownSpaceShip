@@ -43,6 +43,7 @@ namespace Scripts.Infrastructure.Factory
         private GameObject _heroGameObject;
         private GameObject _gameManager;
         private GameObject _gate;
+        private GameObject _hud;
         //Need refactoring
         private GameObject _abilityManager;
         
@@ -102,6 +103,7 @@ namespace Scripts.Infrastructure.Factory
             _abilityManager.GetComponent<AbilityManager>().InitPlayer(_heroGameObject, _persistentProgressService.Progress.AbilityProgress.SkillTypeId);
 
             _secondaryAbilityService.Player = _heroGameObject;
+            //_hud.GetComponent<ActorUI>().Construct(_heroGameObject.GetComponent<IHealth>());
 
             return _heroGameObject;
         }
@@ -122,16 +124,16 @@ namespace Scripts.Infrastructure.Factory
         public async Task<GameObject> CreateHud()
         {
 
-            GameObject hud = await InstantiateRegisteredAsync(AssetsAddress.HudPath);
+            _hud = await InstantiateRegisteredAsync(AssetsAddress.HudPath);
 
-            hud.GetComponentInChildren<LootCounter>().Construct(_persistentProgressService.Progress.WorldData);
+            _hud.GetComponentInChildren<LootCounter>().Construct(_persistentProgressService.Progress.WorldData);
 
-            foreach(OpenWindowButton openWindowButton in hud.GetComponentsInChildren<OpenWindowButton>())
+            foreach(OpenWindowButton openWindowButton in _hud.GetComponentsInChildren<OpenWindowButton>())
             {
                 openWindowButton.Construct(_windowService);
             }
 
-            return hud;
+            return _hud;
         }
         public async Task<GameObject> CreateMenu()
         {
@@ -193,7 +195,7 @@ namespace Scripts.Infrastructure.Factory
             health.CurrentHP = monsterStaticData.Hp;
             health.MaxHP = monsterStaticData.Hp;
 
-            monster.GetComponent<ActorUI>().Construct(health);
+            //monster.GetComponent<ActorUI>().Construct(health);
             monster.GetComponent<AgentMoveToPlayer>()?.Construct(_heroGameObject.transform);
             monster.GetComponent<AgentSearchPlayer>()?.Construct(_heroGameObject.transform);
             monster.GetComponent<RotateToHero>()?.Construct(_heroGameObject.transform);

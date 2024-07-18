@@ -27,10 +27,17 @@ namespace Scripts.UI.Windows.Shop
 
         public void TakeAbility(SecondaryAbility secondaryAbility)
         {
-            _player.GetComponent<AbilityHolder>().ActivateSecondaryAbility(secondaryAbility);
+
+            if (secondaryAbility != null) 
+            {
+                _player.GetComponent<AbilityHolder>().ActivateSecondaryAbility(secondaryAbility);                
+            }
+            else
+            {
+                //Send coin
+            }
 
             Destroy(gameObject);
-
             if (Time.timeScale == 0)
             {
                 Time.timeScale = 1;
@@ -39,15 +46,26 @@ namespace Scripts.UI.Windows.Shop
 
         public void FillingItem()
         {
-            
 
-            for(int i = 0; i < _rewardItem.Length; i++)
+            for (int i = 0; i < _rewardItem.Length; i++)
             {
-                _secondaryAbilityService.GetRandomSkill();
-                _rewardItem[i].NameAbility.SetText(_secondaryAbilityService.SecondaryAbility.name);
-                _rewardItem[i].DescriptionAbility.SetText(_secondaryAbilityService.SecondaryAbility.description);
-                _rewardItem[i].SecondaryAbility = _secondaryAbilityService.SecondaryAbility;
+                if (_secondaryAbilityService.ServiceSecondaryAbilities.Count > 0)
+                {
+                    _secondaryAbilityService.GetRandomSkill();
+                    _rewardItem[i].NameAbility.SetText(_secondaryAbilityService.SecondaryAbility.name);
+                    _rewardItem[i].DescriptionAbility.SetText(_secondaryAbilityService.SecondaryAbility.description);
+                    _rewardItem[i].SecondaryAbility = _secondaryAbilityService.SecondaryAbility;
+                }
+                else
+                {
+                    _rewardItem[i].NameAbility.SetText("Take Coin");
+                    _rewardItem[i].DescriptionAbility.SetText("Abilities done");
+                    _rewardItem[i].SecondaryAbility = null;
+                }
+                
             }
+
+
         }
 
 

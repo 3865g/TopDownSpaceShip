@@ -26,6 +26,7 @@ namespace Scripts.Enemy
             if(Health.CurrentHP <= 0)
             {
                 Die();
+                Debug.LogError("Turel Die");
             }
         }
 

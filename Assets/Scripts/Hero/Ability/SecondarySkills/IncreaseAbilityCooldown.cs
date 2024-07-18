@@ -14,7 +14,7 @@ namespace Scripts.Hero.Ability
         public override void ActivatePassive(GameObject parent)
         {
             _abilityHolder = parent.GetComponent<AbilityHolder>();
-            _abilityHolder.activeAbility.ColdownTime *=  CooldownMultyplayer; 
+            _abilityHolder.cooldownMultiplayer =  CooldownMultyplayer; 
         }
     }
 }

@@ -18,8 +18,9 @@ namespace Scripts.Hero.Ability
         public override void ActivatePassive(GameObject parent)
         {
             _heroHealth = parent.GetComponent<HeroHealth>();
+            _heroAttack = parent.GetComponent<HeroAttack>();
 
-            _heroHealth.HealthChanged += HPBalance;
+            _heroAttack.Shooting += HPBalance;
             
 
         }

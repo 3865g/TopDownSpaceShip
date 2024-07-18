@@ -18,6 +18,7 @@ namespace Scripts.Hero.Ability
         public IInputService _inputService;
 
         public float cooldownTime;
+        public float cooldownMultiplayer;
         public float activeTime;
 
         public Ability activeAbility;
@@ -43,6 +44,7 @@ namespace Scripts.Hero.Ability
         private void Awake()
         {
             _inputService = AllServices.Container.Single<IInputService>();
+            cooldownMultiplayer = 1;
         }
 
         private void Update()
@@ -55,7 +57,7 @@ namespace Scripts.Hero.Ability
                         activeAbility.Activate(gameObject);
                         state = AbilityState.active;
                         activeTime = activeAbility.ActiveTime;
-                        cooldownTime = activeAbility.ColdownTime;
+                        cooldownTime = activeAbility.ColdownTime * cooldownMultiplayer;
                     }
                     break;
                 case AbilityState.active:
@@ -67,7 +69,7 @@ namespace Scripts.Hero.Ability
                     {
                         state = AbilityState.cooldown;
                         activeAbility.Deactivate(gameObject);
-                        cooldownTime = activeAbility.ColdownTime;
+                        cooldownTime = activeAbility.ColdownTime * cooldownMultiplayer;
                     }
                     break;
                 case AbilityState.cooldown:
@@ -100,7 +102,7 @@ namespace Scripts.Hero.Ability
                 _secondaryAbility = secondaryAbility;
                 _secondaryAbility.ActivatePassive(gameObject);
                 secondaryAbilities.Add(_secondaryAbility);
-                RewardsManager.UpdateList(secondaryAbility);
+                RewardsManager.UpdateList(_secondaryAbility);
             }         
         }
 
@@ -126,14 +128,21 @@ namespace Scripts.Hero.Ability
         public void UpdateProgress(PlayerProgress progress)
         {
             //progress.AbilityProgress.secondaryAbility = _secondaryAbility;
-             progress.AbilityProgress.secondaryAbilities = secondaryAbilities;
+             //progress.AbilityProgress.secondaryAbilitiesData = secondaryAbilities;
         }
 
         public void LoadProgress(PlayerProgress progress)
         {
             //activeAbility = progress.AbilityProgress.ability;
             //_secondaryAbility = progress.AbilityProgress.secondaryAbility;
-            secondaryAbilities = progress.AbilityProgress.secondaryAbilities;
+            if (progress.AbilityProgress.secondaryAbilitiesData != null)
+            {
+                secondaryAbilities = progress.AbilityProgress.secondaryAbilitiesData;
+            }
+            else
+            {
+                secondaryAbilities = new List<SecondaryAbility>();
+            }
 
             if (secondaryAbilities.Count > 0)
             {
