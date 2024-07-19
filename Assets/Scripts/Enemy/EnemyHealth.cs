@@ -6,10 +6,8 @@ namespace Scripts.Enemy
 {
     public class EnemyHealth : MonoBehaviour, IHealth
     {
-        [SerializeField]
-        private float currentHP;
-        [SerializeField]
-        private float maxHP;
+        [SerializeField] private float currentHP;
+        [SerializeField] private float maxHP;
 
         public event Action HealthChanged;
         public float CurrentHP 

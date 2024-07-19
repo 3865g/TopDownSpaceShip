@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyTurel1StaticData
   m_EditorClassIdentifier: 
   MonsterTypeId: 5
-  Hp: 60
+  Hp: 200
   Damage: 5
   MaxLoot: 7
   MinLoot: 14

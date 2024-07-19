@@ -6,15 +6,16 @@ namespace Scripts.Logic
 {
     public class BurningDamage : MonoBehaviour
     {
-        public float DamageAmount;
-        public float DamageInterval;
-        public int DamgaeDuration;
+        public float DamageAmount = 5;
+        public float DamageInterval = 1;
+        public int DamgaeDuration = 5;
 
         private IHealth _health;
 
         public void Construct(GameObject parent)
         {
-            _health = parent.GetComponent<IHealth>();
+            _health = parent.transform.parent.GetComponentInParent<IHealth>();
+            Debug.Log(_health);
             StartCoroutine(Burning());
         }
 

@@ -4,6 +4,9 @@ using Scripts.Logic;
 using System;
 using UnityEngine;
 using Scripts.Services.Randomizer;
+using UnityEngine.Rendering.Universal;
+using TMPro;
+using System.Collections;
 
 namespace Scripts.Hero
 {
@@ -14,6 +17,7 @@ namespace Scripts.Hero
 
         public bool CanDodge;
         public int DodgeChance;
+        public GameObject TextPrefab;
 
         private State _state;
         private IRandomService _randomService;
@@ -86,6 +90,7 @@ namespace Scripts.Hero
                     return;
                 }
                 CurrentHP -= damage;
+                
 
             }
             else
@@ -98,6 +103,8 @@ namespace Scripts.Hero
                 //Animator.PlayHit();
             }
 
+            ShowText(damage.ToString(), Color.red);
+
 
 
         }
@@ -109,6 +116,7 @@ namespace Scripts.Hero
                 return;
             }
             CurrentHP += Hp;
+            ShowText(Hp.ToString(), Color.green);
         }
 
         public void AddedBonusMaxHP(float bonusHP)
@@ -126,5 +134,23 @@ namespace Scripts.Hero
         {
             _randomValue = _randomService.Next(0,100);
         }
+
+
+        
+        private void ShowText(string textHP, Color color)
+        {
+            GameObject textPrefab = Instantiate(TextPrefab, gameObject.transform.position, Quaternion.identity);
+            textPrefab.transform.SetParent(gameObject.transform);
+            textPrefab.GetComponent<TMP_Text>().SetText(textHP);
+            textPrefab.GetComponent<TMP_Text>().color = color;
+
+            StartCoroutine(StartDestroyTimer(textPrefab));
+        }
+        private IEnumerator StartDestroyTimer(GameObject textPrefab)
+        {
+            yield return new WaitForSeconds(0.5f);
+            Destroy(textPrefab);
+        }
+
     }
 }

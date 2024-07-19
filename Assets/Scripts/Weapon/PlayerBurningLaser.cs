@@ -51,10 +51,11 @@ namespace Scripts.Hero
             {
                 collision.transform.parent.GetComponent<IHealth>()?.TakeDamage(_damage);
 
-                if (collision.gameObject.GetComponentInChildren<BurningDamage>() == null)
+                if (collision.transform.parent.GetComponentInChildren<BurningDamage>() == null)
                 {
-                    _burningModule = Instantiate(BurningModule, collision.transform);
+                    _burningModule = Instantiate(BurningModule, collision.transform.parent);
                     _burningModule.transform.SetParent(collision.transform);
+                    Debug.Log(_burningModule);
                     BurningDamage burningDamage = _burningModule.GetComponent<BurningDamage>();
                     burningDamage.Construct(collision.gameObject);
                 }
@@ -78,8 +79,12 @@ namespace Scripts.Hero
 
         private void ImpactFX(Vector3 transform)
         {
-            GameObject impact = Instantiate(Impact, transform, Quaternion.identity);
-            Destroy(impact, 0.5f);
+            if(Impact != null)
+            {
+                GameObject impact = Instantiate(Impact, transform, Quaternion.identity);
+                Destroy(impact, 0.5f);
+            }
+            
 
         }
 

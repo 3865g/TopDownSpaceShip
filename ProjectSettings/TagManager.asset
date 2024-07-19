@@ -35,10 +35,10 @@ TagManager:
   - CanHit
   - Pickup
   - HeroAttackZone
-  - Laser
+  - PlayerLaser
+  - EnemyLaser
+  - 
   - Camera
-  - 
-  - 
   - 
   - 
   - 

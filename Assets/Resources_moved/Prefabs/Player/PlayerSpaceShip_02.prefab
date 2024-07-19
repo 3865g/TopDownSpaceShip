@@ -599,6 +599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanDodge: 0
   DodgeChance: 0
+  TextPrefab: {fileID: 8679063883614264696, guid: 93c9b2672be7f8347b56d1f10ac41119, type: 3}
 --- !u!114 &4448857839822134430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -631,7 +632,12 @@ MonoBehaviour:
   BurstAmount: 1
   LaserStartTransform: {fileID: 1607851520391202898}
   Laserprefab: {fileID: 8737532056342513294, guid: 25e604096b4f7d54d8696159f0e44765, type: 3}
+  CurrentColor: {r: 0, g: 0, b: 0, a: 0}
+  DefaultColor: {r: 0, g: 255, b: 255, a: 255}
   shootcount: 0
+  CanCrit: 0
+  CriticalChance: 0
+  CriticalDamage: 0
   canAttack: 0
 --- !u!114 &6055599367333048330
 MonoBehaviour:
@@ -677,9 +683,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownTime: 0
+  cooldownMultiplayer: 0
   activeTime: 0
   activeAbility: {fileID: 0}
   passiveAbilities: []
+  secondaryAbilities: []
+  RewardsManager: {fileID: 0}
 --- !u!1 &6938440191575588317
 GameObject:
   m_ObjectHideFlags: 0

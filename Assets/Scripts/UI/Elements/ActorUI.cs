@@ -21,14 +21,15 @@ namespace Scripts.UI.Elements
             _heroHealth.HealthChanged += UpdateHpBar;
         }
 
-        private void Start()
+        private void Awake()
         {
-            //IHealth health = GetComponent<IHealth>();
+            // Logic for enemies
+            IHealth health = GetComponent<IHealth>();
 
-            //if(health != null)
-            //{
-            //    Construct(health);
-            //}
+            if (health != null)
+            {
+                Construct(health);
+            }
         }
         private void OnDestroy()
         {
@@ -41,7 +42,11 @@ namespace Scripts.UI.Elements
         private void UpdateHpBar()
         {
             HpBar.SetValue(_heroHealth.CurrentHP, _heroHealth.MaxHP);
-            TextMeshProUGUI.SetText(_heroHealth.CurrentHP.ToString());
+            if(TextMeshProUGUI != null)
+            {
+                TextMeshProUGUI.SetText(_heroHealth.CurrentHP.ToString());
+            }
+            
         }
 
         

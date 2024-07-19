@@ -290,6 +290,10 @@ PrefabInstance:
       propertyPath: ShootStartTransforms.Array.data[0]
       value: 
       objectReference: {fileID: -3126679974498255724}
+    - target: {fileID: 606605653449678427, guid: 5cdee236aee479a4db6e93a63d1f77a4, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 2756842078457870431, guid: 5cdee236aee479a4db6e93a63d1f77a4, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -312,7 +316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5989523357293080675, guid: 5cdee236aee479a4db6e93a63d1f77a4, type: 3}
       propertyPath: m_Name
-      value: EnemyTurel1
+      value: Enemy5Turel
       objectReference: {fileID: 0}
     - target: {fileID: 6154475502682113977, guid: 5cdee236aee479a4db6e93a63d1f77a4, type: 3}
       propertyPath: m_RootOrder
