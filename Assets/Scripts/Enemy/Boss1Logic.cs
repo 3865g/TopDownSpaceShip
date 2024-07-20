@@ -1,12 +1,6 @@
 using Scripts.Enemy;
 using Scripts.Logic;
-using Scripts.StaticData;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class Boss1Logic : MonoBehaviour
 {
@@ -30,11 +24,11 @@ public class Boss1Logic : MonoBehaviour
         foreach (GameObject gameObject in Turels)
         {
             IHealth health = gameObject.GetComponent<IHealth>();
-            health.CurrentHP = 60;
-            health.MaxHP = 60;
+            health.CurrentHP = 200;
+            health.MaxHP = 200;
             gameObject.GetComponent<Attack>().Construct(heroTransform, 10);
 
-            gameObject.GetComponent<IHealth>().MaxHP = 60;
+            gameObject.GetComponent<IHealth>().MaxHP = 200;
         }
 
         InvokeRepeating("CheckTurels", 1f, 1f);

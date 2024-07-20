@@ -1,3 +1,4 @@
+using Scripts.Logic;
 using UnityEngine;
 
 namespace Scripts.Hero.Ability
@@ -8,15 +9,20 @@ namespace Scripts.Hero.Ability
     {
         public GameObject shieldPrefab;
         public GameObject spawnedShield;
+        public HeroHealth health;
 
         public override void Activate(GameObject parent)
         {
             spawnedShield = Instantiate(shieldPrefab, parent.transform);
             spawnedShield.transform.SetParent(parent.transform);
+            health = parent.GetComponent<HeroHealth>();
+            health.enabled = false;
+
         }
 
         public override void Deactivate(GameObject parent)
         {
+            health.enabled = true;
             Destroy(spawnedShield);
         }
 

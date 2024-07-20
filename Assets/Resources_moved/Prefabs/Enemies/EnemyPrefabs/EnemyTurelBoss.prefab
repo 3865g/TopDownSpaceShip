@@ -310,9 +310,13 @@ PrefabInstance:
       propertyPath: currentHP
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5599257748722715310, guid: 5cdee236aee479a4db6e93a63d1f77a4, type: 3}
+      propertyPath: TextPrefab
+      value: 
+      objectReference: {fileID: 8679063883614264696, guid: 93c9b2672be7f8347b56d1f10ac41119, type: 3}
     - target: {fileID: 5989523357293080675, guid: 5cdee236aee479a4db6e93a63d1f77a4, type: 3}
       propertyPath: m_Name
-      value: EnemyTurel1
+      value: EnemyTurelBoss
       objectReference: {fileID: 0}
     - target: {fileID: 6154475502682113977, guid: 5cdee236aee479a4db6e93a63d1f77a4, type: 3}
       propertyPath: m_RootOrder

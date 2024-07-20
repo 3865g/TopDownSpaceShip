@@ -461,6 +461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 20
   maxHP: 20
+  TextPrefab: {fileID: 8679063883614264696, guid: 93c9b2672be7f8347b56d1f10ac41119, type: 3}
 --- !u!114 &6867412711167110712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,6 +489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HpBar: {fileID: 7142117457188517392}
+  TextMeshProUGUI: {fileID: 0}
 --- !u!114 &3059798646825150599
 MonoBehaviour:
   m_ObjectHideFlags: 0

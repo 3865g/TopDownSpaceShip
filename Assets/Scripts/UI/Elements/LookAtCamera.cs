@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace Scripts.UI.Elements
@@ -14,7 +15,8 @@ namespace Scripts.UI.Elements
         void Update()
         {
             Quaternion rotation = _camera.transform.rotation;
-            transform.LookAt(transform.position + rotation * Vector3.back, rotation * Vector3.up);
+            transform.LookAt(transform.position + rotation * Vector3.fwd, rotation * Vector3.up);
+
         }
     }
 }

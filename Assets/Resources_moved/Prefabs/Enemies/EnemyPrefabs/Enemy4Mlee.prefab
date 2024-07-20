@@ -95,6 +95,10 @@ PrefabInstance:
       propertyPath: Kamikaze
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5599257748722715310, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
+      propertyPath: TextPrefab
+      value: 
+      objectReference: {fileID: 8679063883614264696, guid: 93c9b2672be7f8347b56d1f10ac41119, type: 3}
     - target: {fileID: 5989523357293080675, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
       propertyPath: m_Name
       value: Enemy4Mlee

@@ -203,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 10
   maxHP: 10
+  TextPrefab: {fileID: 0}
 --- !u!114 &5398130432693652923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HpBar: {fileID: 8795911691643563377}
+  TextMeshProUGUI: {fileID: 0}
 --- !u!114 &695432694239837070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,6 +571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 20
   maxHP: 20
+  TextPrefab: {fileID: 8679063883614264696, guid: 93c9b2672be7f8347b56d1f10ac41119, type: 3}
 --- !u!114 &1409043926831190060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,6 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HpBar: {fileID: 1760412809839634005}
+  TextMeshProUGUI: {fileID: 0}
 --- !u!114 &7008744458906790920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1202,6 +1206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 10
   maxHP: 10
+  TextPrefab: {fileID: 0}
 --- !u!114 &1979313290107153534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1229,6 +1234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HpBar: {fileID: 4823400811296580017}
+  TextMeshProUGUI: {fileID: 0}
 --- !u!114 &1340465150844527874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2847,6 +2853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 10
   maxHP: 10
+  TextPrefab: {fileID: 0}
 --- !u!114 &1207589086525733260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2874,6 +2881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HpBar: {fileID: 7694069787591292055}
+  TextMeshProUGUI: {fileID: 0}
 --- !u!114 &6951150533714583579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5175,6 +5183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 10
   maxHP: 10
+  TextPrefab: {fileID: 0}
 --- !u!114 &5189843024150911162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5202,6 +5211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HpBar: {fileID: 3435746239238578701}
+  TextMeshProUGUI: {fileID: 0}
 --- !u!114 &8402445987166805594
 MonoBehaviour:
   m_ObjectHideFlags: 0

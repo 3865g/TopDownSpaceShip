@@ -16,7 +16,7 @@ MonoBehaviour:
   abilityTypeId: 7
   description: 
   skillType: 2
-  ColdownTime: 10
+  ColdownTime: 5
   ActiveTime: 4
   Cost: 0
   Point: 0
