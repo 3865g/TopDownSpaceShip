@@ -136,6 +136,8 @@ namespace Scripts.Hero
         }
 
 
+
+
         
         private void ShowText(string textHP, Color color)
         {

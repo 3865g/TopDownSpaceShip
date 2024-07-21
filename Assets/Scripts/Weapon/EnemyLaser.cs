@@ -56,9 +56,22 @@ namespace Scripts.Hero
                 Destroy(gameObject);
                 _isCollidet = true;
             }
-            else if(!_isCollidet && collision.gameObject.CompareTag("Enviroment"))
+            else if (!_isCollidet && collision.gameObject.CompareTag("Enviroment"))
             {
                 Destroy(gameObject);
+            }
+            else if (!_isCollidet && collision.gameObject.CompareTag("PlayerShield"))
+            {
+                ShieldPrefab shieldPrefab = collision.gameObject.GetComponentInChildren<ShieldPrefab>();
+
+                if (shieldPrefab.ReturnDamage)
+                {
+                    ReturnDamage(shieldPrefab.ReturnedDamage);
+                }
+
+                Destroy(gameObject);
+                _isCollidet = true;
+
             }
         }
     }

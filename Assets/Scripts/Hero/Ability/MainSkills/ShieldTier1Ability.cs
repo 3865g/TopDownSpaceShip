@@ -9,20 +9,30 @@ namespace Scripts.Hero.Ability
     {
         public GameObject shieldPrefab;
         public GameObject spawnedShield;
-        public HeroHealth health;
+
+        private BoxCollider _boxCollider;
+        private CharacterController _characterController;
 
         public override void Activate(GameObject parent)
         {
             spawnedShield = Instantiate(shieldPrefab, parent.transform);
             spawnedShield.transform.SetParent(parent.transform);
-            health = parent.GetComponent<HeroHealth>();
-            health.enabled = false;
+
+            IHealth playerHealth = parent.GetComponent<IHealth>();
+            spawnedShield.GetComponent<ShieldPrefab>().Construct(playerHealth.ReturnDamage, playerHealth.ReturnedDamage);
+
+
+            _boxCollider = parent.GetComponent<BoxCollider>();
+            _boxCollider.enabled = false;
+            _characterController = parent.GetComponent<CharacterController>();
+            _characterController.detectCollisions = false;
 
         }
 
         public override void Deactivate(GameObject parent)
         {
-            health.enabled = true;
+            _boxCollider.enabled = true;
+            _characterController.detectCollisions = true;
             Destroy(spawnedShield);
         }
 

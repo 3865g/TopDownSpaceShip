@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5724109048782006684}
   - component: {fileID: 237667351861550200}
   - component: {fileID: 6095896870547555641}
+  - component: {fileID: 3719271849628557869}
   m_Layer: 12
   m_Name: P_ShieldT1
-  m_TagString: HeroShield
+  m_TagString: PlayerShield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,3 +106,17 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3719271849628557869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146389794037421487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a1a400098e322a4ba6344cd79050bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReturnDamage: 0
+  ReturnedDamage: 0
