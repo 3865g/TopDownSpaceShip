@@ -1,4 +1,6 @@
+using Scripts.Data;
 using Scripts.Hero.Ability.ConfigurationStattes;
+using Scripts.Services.PersistentProgress;
 using Scripts.Services.StaticData;
 using Scripts.StaticData;
 using System.Collections;
@@ -36,20 +38,20 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
 
         public override void InitActiveAbility()
         {
-            base.InitActiveAbility();
 
             _abilityTier1 = _staticDataService.ForAbility(AbilityTypeId.DashTier1);
+            _abilityTier2 = _staticDataService.ForAbility(AbilityTypeId.DashTier2);
+            _abilityTier3 = _staticDataService.ForAbility(AbilityTypeId.DashTier3);
 
             UnlockAbility();
         }
 
         public override void ChangePoints(int attackPoints, int movementPoints, int defencePoints)
         {
-            base.ChangePoints(attackPoints, movementPoints, defencePoints);
 
-            _attackPoints = _attackPoints + attackPoints;
-            _movementPoints = _movementPoints + movementPoints;
-            _defencePoints = _defencePoints + defencePoints;
+            _attackPoints += attackPoints;
+            _movementPoints +=  movementPoints;
+            _defencePoints +=  defencePoints;
 
             UnlockAbility();
 
@@ -57,7 +59,6 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
 
         public override void UnlockAbility()
         {
-            base.UnlockAbility();
 
             if(_movementPoints < 3)
             {
@@ -78,12 +79,13 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
 
         public override void SetActiveAbility()
         {
-            base.SetActiveAbility();
 
             if (_player != null)
             {
+                //UnlockAbility();
                 _player.GetComponent<AbilityHolder>().ChangeAbility(_activeAbility);
             }
         }
+
     }
 }

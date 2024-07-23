@@ -80,7 +80,7 @@ namespace Scripts.Infrastructure.Factory
             enemyCount.Construct(this, _gate);
 
             RewardsManager rewardsManager = gameManager.GetComponent<RewardsManager>();
-            rewardsManager.Construct(_windowService, _secondaryAbilityService, _staticDataService);
+            rewardsManager.Construct(_windowService, _secondaryAbilityService, _staticDataService);            
 
             _gameManager = gameManager;
         }
@@ -99,6 +99,7 @@ namespace Scripts.Infrastructure.Factory
             heroAttack.Construct(_randomService);
             AbilityHolder abilityHolder = _heroGameObject.GetComponent<AbilityHolder>();
             abilityHolder.RewardsManager = _gameManager.GetComponent<RewardsManager>();
+            abilityHolder.Construct(_abilityManager.GetComponent<AbilityManager>());
             
             _abilityManager.GetComponent<AbilityManager>().InitPlayer(_heroGameObject, _persistentProgressService.Progress.AbilityProgress.SkillTypeId);
 
@@ -114,6 +115,7 @@ namespace Scripts.Infrastructure.Factory
             GameObject abilityManagerPrefab = InstantiateRegistered(prefab);
             AbilityManager abilityManager = abilityManagerPrefab.GetComponent<AbilityManager>();
             abilityManager.Construct(this, _staticDataService);
+
 
             _secondaryAbilityService.AbilityManager = abilityManager;
 

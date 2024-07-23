@@ -9,18 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77dd61f92b915c14c8754a00233114a9, type: 3}
-  m_Name: DashTier1
+  m_Script: {fileID: 11500000, guid: 25fb5bcb58fd97746a10c110b2e2038e, type: 3}
+  m_Name: DoubleShotTier2
   m_EditorClassIdentifier: 
-  name: DashTier1
-  abilityTypeId: 4
+  name: TripleShoot
+  abilityTypeId: 2
   description: 
-  skillType: 1
-  ColdownTime: 5
-  ActiveTime: 1
+  skillType: 0
+  ColdownTime: 0
+  ActiveTime: 0
   Cost: 0
   Point: 0
-  IsPassive: 0
-  DashRange: 30
-  BonusSpeed: 0
-  Trail: {fileID: 9006669913224211608, guid: 57c8f7be704d83d49886e0e36dffe7f6, type: 3}
+  IsPassive: 1
+  BurstAmount: 3
+  MaxHPMultiplyer: 0.4

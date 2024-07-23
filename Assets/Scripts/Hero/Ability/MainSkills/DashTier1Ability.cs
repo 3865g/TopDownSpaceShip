@@ -4,10 +4,12 @@ using UnityEngine;
 namespace Scripts.Hero.Ability
 {
 
-    [CreateAssetMenu(fileName = "New Skill", menuName = "Skill System / DashTier1", order = 0)]
+    [CreateAssetMenu(fileName = "New Skill", menuName = "MainSkills / DashTier1", order = 0)]
     public class DashTier1Ability : ActiveAbility
     {
-        public float DashVelocity;
+        public float DashRange;
+        public float BonusSpeed;
+
 
         private CharacterController _characterController;
         private ShipMove _shipMove;
@@ -43,7 +45,8 @@ namespace Scripts.Hero.Ability
 
             _startPosition = parent.transform.position;
 
-            _characterController.Move(_shipMove.MovementVector * DashVelocity);
+            _characterController.Move(_shipMove.MovementVector * DashRange);
+
 
             _endPosition = parent.transform.position;
             _rotation = parent.transform.rotation.eulerAngles;
@@ -51,7 +54,9 @@ namespace Scripts.Hero.Ability
             _spawnedTrail = Instantiate(Trail, parent.transform) as GameObject;
             _effect = _spawnedTrail.GetComponent<TrailController>();
 
-            _effect.SetVariables(_startPosition, _endPosition, _rotation);           
+            _effect.SetVariables(_startPosition, _endPosition, _rotation);
+
+            _shipMove.UpdateBonuseSpeed(BonusSpeed);
 
             
         }
@@ -59,6 +64,7 @@ namespace Scripts.Hero.Ability
         public override void Deactivate(GameObject parent)
         {
             Destroy(_spawnedTrail);
+            _shipMove.UpdateBonuseSpeed(-BonusSpeed);
         }
 
     }

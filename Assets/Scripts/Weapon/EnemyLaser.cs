@@ -64,6 +64,8 @@ namespace Scripts.Hero
             {
                 ShieldPrefab shieldPrefab = collision.gameObject.GetComponentInChildren<ShieldPrefab>();
 
+                shieldPrefab.HitShield();
+
                 if (shieldPrefab.ReturnDamage)
                 {
                     ReturnDamage(shieldPrefab.ReturnedDamage);

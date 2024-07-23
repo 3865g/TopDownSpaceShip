@@ -39,6 +39,8 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
             base.InitActiveAbility();
 
             _abilityTier1 = _staticDataService.ForAbility(AbilityTypeId.ShieldTier1);
+            _abilityTier2 = _staticDataService.ForAbility(AbilityTypeId.ShieldTier2);
+            _abilityTier3 = _staticDataService.ForAbility(AbilityTypeId.ShieldTier3);
 
 
             UnlockAbility();

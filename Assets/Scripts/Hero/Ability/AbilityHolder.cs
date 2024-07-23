@@ -22,12 +22,14 @@ namespace Scripts.Hero.Ability
         public float activeTime;
 
         public Ability activeAbility;
-        private Ability _passiveAbility;
-        private SecondaryAbility _secondaryAbility;
 
         public List<Ability> passiveAbilities;
         public List<SecondaryAbility> secondaryAbilities;
         public RewardsManager RewardsManager;
+
+        private Ability _passiveAbility;
+        private SecondaryAbility _secondaryAbility;
+        private AbilityManager _abilityManager; 
 
         enum AbilityState
         {
@@ -38,6 +40,10 @@ namespace Scripts.Hero.Ability
 
         AbilityState state = AbilityState.ready;
 
+        public void Construct(AbilityManager abilityManager)
+        {
+            _abilityManager = abilityManager;
+        }
 
         //Need Refactoring
 
@@ -103,6 +109,8 @@ namespace Scripts.Hero.Ability
                 _secondaryAbility.ActivatePassive(gameObject);
                 secondaryAbilities.Add(_secondaryAbility);
                 RewardsManager.UpdateList(_secondaryAbility);
+
+                _abilityManager.CalculatePoints(_secondaryAbility);
             }         
         }
 
@@ -122,13 +130,14 @@ namespace Scripts.Hero.Ability
                 _secondaryAbility = element;
                 _secondaryAbility.ActivatePassive(gameObject);
                 RewardsManager.UpdateList(_secondaryAbility);
+                _abilityManager.CalculatePoints(_secondaryAbility);
             }
         }
 
         public void UpdateProgress(PlayerProgress progress)
         {
             //progress.AbilityProgress.secondaryAbility = _secondaryAbility;
-             //progress.AbilityProgress.secondaryAbilitiesData = secondaryAbilities;
+             progress.AbilityProgress.secondaryAbilitiesData = secondaryAbilities;
         }
 
         public void LoadProgress(PlayerProgress progress)

@@ -4,22 +4,25 @@ using UnityEngine;
 namespace Scripts.Hero.Ability
 {
 
-    [CreateAssetMenu(fileName = "New Skill", menuName = "Skill System / ShieldTier1", order = 0)]
+    [CreateAssetMenu(fileName = "New Skill", menuName = "MainSkills / ShieldTier1", order = 0)]
     public class ShieldTier1Ability : ActiveAbility
     {
-        public GameObject shieldPrefab;
-        public GameObject spawnedShield;
+        public GameObject ShieldGameObject;
+        public GameObject SpawnedShield;
+        public bool DamageWave;
+        public int DamageWaveAmount;
 
         private BoxCollider _boxCollider;
         private CharacterController _characterController;
 
         public override void Activate(GameObject parent)
         {
-            spawnedShield = Instantiate(shieldPrefab, parent.transform);
-            spawnedShield.transform.SetParent(parent.transform);
+            SpawnedShield = Instantiate(ShieldGameObject, parent.transform);
+            SpawnedShield.transform.SetParent(parent.transform);
+            ShieldPrefab shieldPrefab = SpawnedShield.GetComponent<ShieldPrefab>();
 
             IHealth playerHealth = parent.GetComponent<IHealth>();
-            spawnedShield.GetComponent<ShieldPrefab>().Construct(playerHealth.ReturnDamage, playerHealth.ReturnedDamage);
+            shieldPrefab.Construct(playerHealth.ReturnDamage, DamageWave, playerHealth.ReturnedDamage,  DamageWaveAmount);
 
 
             _boxCollider = parent.GetComponent<BoxCollider>();
@@ -33,7 +36,7 @@ namespace Scripts.Hero.Ability
         {
             _boxCollider.enabled = true;
             _characterController.detectCollisions = true;
-            Destroy(spawnedShield);
+            Destroy(SpawnedShield);
         }
 
     }

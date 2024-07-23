@@ -39,6 +39,8 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
         {
 
             _abilityTier1 = _staticDataService.ForAbility(AbilityTypeId.DoubleShootTier1);
+            _abilityTier2 = _staticDataService.ForAbility(AbilityTypeId.DoubleShootTier2);
+            _abilityTier3 = _staticDataService.ForAbility(AbilityTypeId.DoubleShootTier3);
 
             UnlockAbility();
         }
