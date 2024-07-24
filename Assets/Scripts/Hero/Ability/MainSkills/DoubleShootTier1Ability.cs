@@ -11,7 +11,7 @@ namespace Scripts.Hero.Ability
 {
 
     [CreateAssetMenu(fileName = "New Skill", menuName = "MainSkills / DoubleShoot", order = 0)]
-    public class DoubleShootTier1Ability : PassiveAbility, ISavedProgress
+    public class DoubleShootTier1Ability : PassiveAbility/*, ISavedProgress*/
     {
         public int BurstAmount;
         public float MaxHPMultiplyer;
@@ -29,19 +29,19 @@ namespace Scripts.Hero.Ability
 
 
         }
-        public void UpdateMaxHP()
-        {
-            _health.MaxHP -= _playerProgress.HeroState.MaxHP * MaxHPMultiplyer;
-        }
+        //public void UpdateMaxHP()
+        //{
+        //    _health.MaxHP -= _playerProgress.HeroState.MaxHP * MaxHPMultiplyer;
+        //}
 
-        public void LoadProgress(PlayerProgress progress)
-        {
-            _playerProgress = progress;
-        }
+        //public void LoadProgress(PlayerProgress progress)
+        //{
+        //    _playerProgress = progress;
+        //}
 
-        public void UpdateProgress(PlayerProgress progress)
-        {
-        }
+        //public void UpdateProgress(PlayerProgress progress)
+        //{
+        //}
     }
 }
 

@@ -98,8 +98,8 @@ namespace Scripts.Hero.Ability
         {
 
             _currentConfiguration.Construct(_staticDataService, _player);
-            _currentConfiguration.ChangePoints(_attackPoints, _movementPoints, _defencePoints);
             _currentConfiguration.InitActiveAbility();
+            _currentConfiguration.ChangePoints(_attackPoints, _movementPoints, _defencePoints);
         }
 
 

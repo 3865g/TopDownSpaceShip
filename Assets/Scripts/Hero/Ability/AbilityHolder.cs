@@ -2,9 +2,7 @@ using Scripts.Services.Input;
 using Scripts.Services;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 using Scripts.Logic;
-using Scripts.Services.SaveLoad;
 using Scripts.Data;
 using Scripts.Services.PersistentProgress;
 
@@ -23,7 +21,7 @@ namespace Scripts.Hero.Ability
 
         public Ability activeAbility;
 
-        public List<Ability> passiveAbilities;
+        //public List<Ability> passiveAbilities;
         public List<SecondaryAbility> secondaryAbilities;
         public RewardsManager RewardsManager;
 
@@ -94,12 +92,14 @@ namespace Scripts.Hero.Ability
 
         public void ActivatePassiveAbility(Ability passiveAbility)
         {
-            if (!passiveAbilities.Contains(passiveAbility))
-            {
-                _passiveAbility = passiveAbility;
-                _passiveAbility.ActivatePassive(gameObject);
-                passiveAbilities.Add(_passiveAbility);
-            }         
+            _passiveAbility = passiveAbility;
+
+            //if (!passiveAbilities.Contains(passiveAbility))
+            //{
+            //    _passiveAbility = passiveAbility;
+            //    _passiveAbility.ActivatePassive(gameObject);
+            //    passiveAbilities.Add(_passiveAbility);
+            //}         
         }  
         public void ActivateSecondaryAbility(SecondaryAbility secondaryAbility)
         {

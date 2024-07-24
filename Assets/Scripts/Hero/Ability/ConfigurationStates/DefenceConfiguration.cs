@@ -29,14 +29,12 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
 
         public override void Construct(IStaticDataService staticDataService, GameObject player)
         {
-            base.Construct(staticDataService, player);
             _staticDataService =staticDataService;
             _player = player;
         }
 
         public override void InitActiveAbility()
         {
-            base.InitActiveAbility();
 
             _abilityTier1 = _staticDataService.ForAbility(AbilityTypeId.ShieldTier1);
             _abilityTier2 = _staticDataService.ForAbility(AbilityTypeId.ShieldTier2);

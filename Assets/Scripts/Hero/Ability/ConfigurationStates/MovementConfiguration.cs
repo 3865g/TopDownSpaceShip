@@ -31,7 +31,6 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
 
         public override void Construct(IStaticDataService staticDataService, GameObject player)
         {
-            base.Construct(staticDataService, player);
             _staticDataService =staticDataService;
             _player = player;
         }

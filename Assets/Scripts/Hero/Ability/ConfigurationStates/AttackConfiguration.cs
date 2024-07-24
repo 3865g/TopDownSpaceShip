@@ -29,7 +29,6 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
 
         public override void Construct(IStaticDataService staticDataService, GameObject player)
         {
-            base.Construct(staticDataService, player);
 
             _staticDataService = staticDataService;
             _player = player;
@@ -47,11 +46,10 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
 
         public override void ChangePoints(int attackPoints, int movementPoints, int defencePoints)
         {
-            base.ChangePoints(attackPoints, movementPoints, defencePoints);
 
-            _attackPoints = attackPoints;
-            _movementPoints = movementPoints;
-            _defencePoints = defencePoints;
+            _attackPoints += attackPoints;
+            _movementPoints += movementPoints;
+            _defencePoints =+ defencePoints;
 
             UnlockAbility();
 
@@ -86,7 +84,7 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
             {
                 _player.GetComponent<AbilityHolder>().ChangeAbility(_activeAbility);
             }
-            else if (_player != null && _activeAbility.IsPassive)
+            else if (_player != null && _activeAbility.IsPassive == true)
             {
                 _player.GetComponent<AbilityHolder>().ActivatePassiveAbility(_activeAbility);
             }
