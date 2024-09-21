@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -18,15 +16,17 @@ public class TrailController : MonoBehaviour
         visualEffect.SetVector3("EndPosition_position", endPosition);
         visualEffect.SetVector3("Rotation", rotation);
 
-        visualEffect.initialEventName = "EnableTrail";
+        //visualEffect.initialEventName = "EnableTrail";
 
 
-        visualEffect.Reinit();
+        //visualEffect.Reinit();
 
-        visualEffect.Play();
-        visualEffect.initialEventID = 0;
+        //visualEffect.Play();
+        //visualEffect.enabled = true;
+        //visualEffect.initialEventID = 0;
         visualEffect.SendEvent("EnableTrail");
-        visualEffect.resetSeedOnPlay = true;
+        //visualEffect.SendEvent("OnPlay");
+        //visualEffect.resetSeedOnPlay = true;
         
     }
 

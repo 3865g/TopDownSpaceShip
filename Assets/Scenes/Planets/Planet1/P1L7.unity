@@ -697,7 +697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 598877989}
   - component: {fileID: 598877990}
-  m_Layer: 20
+  m_Layer: 22
   m_Name: VCamBound
   m_TagString: Untagged
   m_Icon: {fileID: 0}

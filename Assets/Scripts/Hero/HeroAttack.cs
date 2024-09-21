@@ -17,7 +17,7 @@ namespace Scripts.Enemy
         public int BonuseDamage;
         public Action Shooting;
 
-        public int BurstAmount = 1;
+        public int BurstAmount;
         //public float LaserSpeed = 500f;
         public Transform LaserStartTransform;
         public GameObject Laserprefab;
@@ -89,6 +89,10 @@ namespace Scripts.Enemy
 
         public IEnumerator OnAttack()
         {
+            if(BurstAmount == 0)
+            {
+                BurstAmount = 1;
+            }
             shootcount = BurstAmount;
 
             while (shootcount > 0)

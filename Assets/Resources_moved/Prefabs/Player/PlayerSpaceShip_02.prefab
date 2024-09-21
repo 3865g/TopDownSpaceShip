@@ -629,7 +629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackCooldown: 0.5
   BonuseDamage: 0
-  BurstAmount: 1
+  BurstAmount: 0
   LaserStartTransform: {fileID: 1607851520391202898}
   Laserprefab: {fileID: 8737532056342513294, guid: 25e604096b4f7d54d8696159f0e44765, type: 3}
   CurrentColor: {r: 0, g: 0, b: 0, a: 0}
@@ -686,7 +686,6 @@ MonoBehaviour:
   cooldownMultiplayer: 0
   activeTime: 0
   activeAbility: {fileID: 0}
-  passiveAbilities: []
   secondaryAbilities: []
   RewardsManager: {fileID: 0}
 --- !u!1 &6938440191575588317

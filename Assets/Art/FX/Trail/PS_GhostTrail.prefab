@@ -44,9 +44,9 @@ VisualEffect:
   m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: dc0bd92137f01aa4ea5eaac42259298b, type: 3}
   m_InitialEventName: EnableTrail
-  m_InitialEventNameOverriden: 1
+  m_InitialEventNameOverriden: 0
   m_StartSeed: 0
-  m_ResetSeedOnPlay: 1
+  m_ResetSeedOnPlay: 0
   m_AllowInstancing: 1
   m_ResourceVersion: 1
   m_PropertySheet:
@@ -58,13 +58,13 @@ VisualEffect:
       m_Array:
       - m_Value: {x: 0, y: 0, z: 0}
         m_Name: EndPosition_position
-        m_Overridden: 1
+        m_Overridden: 0
       - m_Value: {x: 0, y: 0, z: 0}
         m_Name: StartPosition_position
-        m_Overridden: 1
+        m_Overridden: 0
       - m_Value: {x: 0, y: 0, z: 0}
         m_Name: Rotation
-        m_Overridden: 1
+        m_Overridden: 0
     m_Vector4f:
       m_Array: []
     m_Uint:
@@ -134,3 +134,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualEffect: {fileID: 6183747937317291130}
+  test: 0

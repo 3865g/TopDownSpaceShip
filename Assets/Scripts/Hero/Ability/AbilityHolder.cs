@@ -93,15 +93,16 @@ namespace Scripts.Hero.Ability
         public void ActivatePassiveAbility(Ability passiveAbility)
         {
             _passiveAbility = passiveAbility;
+            _passiveAbility.ActivatePassive(gameObject);
 
-            //if (!passiveAbilities.Contains(passiveAbility))
-            //{
-            //    _passiveAbility = passiveAbility;
-            //    _passiveAbility.ActivatePassive(gameObject);
-            //    passiveAbilities.Add(_passiveAbility);
-            //}         
+            //    if (!passiveAbilities.Contains(passiveAbility))
+            //    {
+            //        _passiveAbility = passiveAbility;
+            //        _passiveAbility.ActivatePassive(gameObject);
+            //        passiveAbilities.Add(_passiveAbility);
+            //    }
         }  
-        public void ActivateSecondaryAbility(SecondaryAbility secondaryAbility)
+            public void ActivateSecondaryAbility(SecondaryAbility secondaryAbility)
         {
             if (!secondaryAbilities.Contains(secondaryAbility))
             {
