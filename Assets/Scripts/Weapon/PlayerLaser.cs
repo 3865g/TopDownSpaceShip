@@ -17,13 +17,16 @@ namespace Scripts.Hero
 
         private void Start()
         {
-            transform.LookAt(Target);
+            transform.LookAt(Target);            
         }
 
 
         public void Construct(Vector3 laserDirection, float damage, Color color)
         {
-            
+            if(laserDirection == null)
+            {
+                laserDirection = transform.forward;
+            }
             _damage = damage;
            // Debug.Log(_damage);
             Rigidbody rigibody = GetComponent<Rigidbody>();

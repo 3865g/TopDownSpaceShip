@@ -17,6 +17,7 @@ MonoBehaviour:
   - Id: P1L7_298d3a79-f3aa-479c-ba58-e9823000c85a
     MonsterTypeId: 8
     Position: {x: 1.5853958, y: 16, z: -47.557163}
+    GroupId: 0
   InitialHeroPosition: {x: 11.112255, y: 15.999998, z: 93.61133}
   LevelTransfer:
     TransferTo: MainMenu

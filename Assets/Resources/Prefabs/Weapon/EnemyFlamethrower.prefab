@@ -47,6 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 2856687922539682627}
+  DamageAmount: 10
+  DamageInterval: 1
+  DamgaeDuration: 3
+  BurningModule: {fileID: 6808077533544478112, guid: 447d1efac09526843956af8042bcacad, type: 3}
 --- !u!65 &978955709076031455
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -66,8 +70,8 @@ BoxCollider:
   m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 10, z: 20}
-  m_Center: {x: 0, y: 0, z: 10}
+  m_Size: {x: 2, y: 40, z: 40}
+  m_Center: {x: 0, y: 0, z: 20}
 --- !u!1001 &6220467977404930751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -125,6 +129,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1009003278747751260, guid: 6c6fae02afc87a0469900ce15806c9b9, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009003278747751260, guid: 6c6fae02afc87a0469900ce15806c9b9, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009003278747751260, guid: 6c6fae02afc87a0469900ce15806c9b9, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 200
       objectReference: {fileID: 0}
@@ -144,6 +156,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5442954301586520000, guid: 6c6fae02afc87a0469900ce15806c9b9, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6559602103886927713, guid: 6c6fae02afc87a0469900ce15806c9b9, type: 3}
       propertyPath: m_Name
       value: PS_FireThrower1
@@ -151,6 +167,10 @@ PrefabInstance:
     - target: {fileID: 6559602103886927713, guid: 6c6fae02afc87a0469900ce15806c9b9, type: 3}
       propertyPath: m_Layer
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212160180960985596, guid: 6c6fae02afc87a0469900ce15806c9b9, type: 3}
+      propertyPath: lengthInSec
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8212160180960985596, guid: 6c6fae02afc87a0469900ce15806c9b9, type: 3}
       propertyPath: moveWithTransform
@@ -165,8 +185,36 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8212160180960985596, guid: 6c6fae02afc87a0469900ce15806c9b9, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212160180960985596, guid: 6c6fae02afc87a0469900ce15806c9b9, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212160180960985596, guid: 6c6fae02afc87a0469900ce15806c9b9, type: 3}
       propertyPath: TriggerModule.primitives.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212160180960985596, guid: 6c6fae02afc87a0469900ce15806c9b9, type: 3}
+      propertyPath: ClampVelocityModule.magnitude.scalar
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063090235986951416, guid: 6c6fae02afc87a0469900ce15806c9b9, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063090235986951416, guid: 6c6fae02afc87a0469900ce15806c9b9, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063090235986951416, guid: 6c6fae02afc87a0469900ce15806c9b9, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063090235986951416, guid: 6c6fae02afc87a0469900ce15806c9b9, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

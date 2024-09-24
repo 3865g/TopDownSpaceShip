@@ -5,20 +5,23 @@ namespace Scripts.Hero
 {
     public class EnemyFlamethrower : MonoBehaviour
     {
-        private const string PlayerTag = "Player";
-        //public float Speed = 150f;
-        //public Transform Target;
         public ParticleSystem particleSystem;
-        //public List<ParticleCollisionEvent> collisionEvents;
+
+
+        public float DamageAmount;
+        public float DamageInterval;
+        public int DamgaeDuration;
+
+
+        public GameObject BurningModule;
+
+        private bool _canDamage;
+        private const string PlayerTag = "Player";
+
+        private GameObject _burningModule;
 
         private bool _isCollidet;
         private float _damage;
-
-        //private void Start()
-        //{
-        //    transform.LookAt(Target);
-        //}
-
 
         public void Construct(Vector3 laserDirection, float damage)
         {
@@ -28,7 +31,6 @@ namespace Scripts.Hero
         void Start()
         {
            particleSystem = GetComponentInChildren<ParticleSystem>();
-            //collisionEvents = new List<ParticleCollisionEvent>();
         }
 
         public void Enable()
@@ -36,6 +38,7 @@ namespace Scripts.Hero
             if (!particleSystem.isPlaying)
             {
                 particleSystem.Play();
+                _canDamage = true;
             }
         }
 
@@ -44,27 +47,27 @@ namespace Scripts.Hero
             if (particleSystem.isPlaying)
             {
                 particleSystem.Stop();
+                _canDamage = false;
             }
         }
-
-        //private void OnParticleCollision(GameObject other)
-        //{
-        //    if (other.tag == PlayerTag)
-        //    {
-        //        other.transform.GetComponent<IHealth>()?.TakeDamage(_damage);
-        //        Debug.Log("fire damage");
-        //    }
-        //}
 
 
         private void OnTriggerEnter(Collider collision)
         {
-            if (!_isCollidet && collision.gameObject.CompareTag("Player"))
+            if (_canDamage && collision.gameObject.CompareTag("Player"))
             {
-                collision.transform.GetComponent<IHealth>()?.TakeDamage(_damage);
-                //Destroy(gameObject);
-                _isCollidet = true;
-                Debug.Log("FireCollision");
+                if (collision.transform.parent.GetComponentInChildren<BurningDamage>() == null)
+                {
+                    _burningModule = Instantiate(BurningModule, collision.transform.parent);
+                    _burningModule.transform.SetParent(collision.transform);
+                    //Debug.Log(_burningModule);
+                    BurningDamage burningDamage = _burningModule.GetComponent<BurningDamage>();
+                    burningDamage.Construct(collision.gameObject);
+                }
+                else
+                {
+                    collision.transform.parent.GetComponentInChildren<BurningDamage>().DamgaeDuration = DamgaeDuration;
+                }
             }
         }
     }

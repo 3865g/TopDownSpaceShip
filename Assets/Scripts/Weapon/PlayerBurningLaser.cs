@@ -26,11 +26,17 @@ namespace Scripts.Hero
         private void Start()
         {
             transform.LookAt(Target);
+
         }
 
 
         public void Construct(Vector3 Direction, float damage, Color color)
         {
+            if (Direction == null)
+            {
+                Direction = transform.forward;
+            }
+
             _damage = damage;
             // Debug.Log(_damage);
             Rigidbody rigibody = GetComponent<Rigidbody>();
@@ -55,13 +61,15 @@ namespace Scripts.Hero
                 {
                     _burningModule = Instantiate(BurningModule, collision.transform.parent);
                     _burningModule.transform.SetParent(collision.transform);
-                    Debug.Log(_burningModule);
+                    //Debug.Log(_burningModule);
                     BurningDamage burningDamage = _burningModule.GetComponent<BurningDamage>();
                     burningDamage.Construct(collision.gameObject);
+                    Destroy(gameObject);
                 }
                 else
                 {
-                    _burningModule.GetComponent<BurningDamage>().DamgaeDuration = DamgaeDuration;
+                    collision.transform.parent.GetComponentInChildren<BurningDamage>().DamgaeDuration = DamgaeDuration;
+                    Destroy(gameObject);
                 }
 
 
