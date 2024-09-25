@@ -50,7 +50,7 @@ namespace Scripts.Hero
             {
                 collision.transform.parent.GetComponent<IHealth>()?.TakeDamage(_damage);
                 IHealth health = collision.transform.parent.GetComponent<IHealth>();
-                Debug.Log(health);
+                //Debug.Log(health);
                 Destroy(gameObject);
                 _isCollidet = true;
                 ImpactFX(impactTransform);

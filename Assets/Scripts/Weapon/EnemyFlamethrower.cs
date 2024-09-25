@@ -56,7 +56,7 @@ namespace Scripts.Hero
         {
             if (_canDamage && collision.gameObject.CompareTag("Player"))
             {
-                if (collision.transform.parent.GetComponentInChildren<BurningDamage>() == null)
+                if (collision.transform.GetComponentInChildren<BurningDamage>() == null)
                 {
                     _burningModule = Instantiate(BurningModule, collision.transform.parent);
                     _burningModule.transform.SetParent(collision.transform);
@@ -66,7 +66,7 @@ namespace Scripts.Hero
                 }
                 else
                 {
-                    collision.transform.parent.GetComponentInChildren<BurningDamage>().DamgaeDuration = DamgaeDuration;
+                    collision.transform.GetComponentInChildren<BurningDamage>().DamgaeDuration = DamgaeDuration;
                 }
             }
         }

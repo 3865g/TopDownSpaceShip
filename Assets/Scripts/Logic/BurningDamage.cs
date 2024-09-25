@@ -14,7 +14,7 @@ namespace Scripts.Logic
 
         public void Construct(GameObject parent)
         {
-            _health = parent.transform.parent.GetComponentInParent<IHealth>();
+            _health = parent.transform.GetComponentInParent<IHealth>();
             Debug.Log(_health);
             StartCoroutine(Burning());
         }
