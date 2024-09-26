@@ -518,6 +518,7 @@ GameObject:
   - component: {fileID: 8473626079068468625}
   - component: {fileID: 8372790560429328186}
   - component: {fileID: 6027198691610882083}
+  - component: {fileID: 5869712103468650522}
   m_Layer: 0
   m_Name: Hud
   m_TagString: Untagged
@@ -628,6 +629,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HpBar: {fileID: 1105433166372743002}
   TextMeshProUGUI: {fileID: 1718959323808590155}
+--- !u!114 &5869712103468650522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3698519809868698660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 431a7f9190d48b247bec85d677b34939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HpBar: {fileID: 0}
+  TextMeshProUGUI: {fileID: 0}
 --- !u!1 &4886232062229708109
 GameObject:
   m_ObjectHideFlags: 0

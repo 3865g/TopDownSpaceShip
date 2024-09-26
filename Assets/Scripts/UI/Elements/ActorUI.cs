@@ -1,6 +1,4 @@
-﻿using Scripts.Hero;
-using Scripts.Logic;
-using System;
+﻿using Scripts.Logic;
 using TMPro;
 using UnityEngine;
 

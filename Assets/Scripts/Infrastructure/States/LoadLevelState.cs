@@ -14,6 +14,7 @@ using System;
 using Scripts.UI.Services.Factory;
 using System.Threading.Tasks;
 using Scripts.Data;
+using Scripts.Hero.Ability;
 
 namespace Scripts.Infrastructure.States
 {
@@ -164,6 +165,7 @@ namespace Scripts.Infrastructure.States
             {
                 GameObject hud = await _gameFactory.CreateHud();
                 hud.GetComponentInChildren<ActorUI>().Construct(hero.GetComponent<IHealth>());
+                hud.GetComponentInChildren<AbilityUI>().Construct(hero.GetComponent<AbilityHolder>());
             }
             else
             {
