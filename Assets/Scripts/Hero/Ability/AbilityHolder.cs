@@ -1,10 +1,12 @@
 using Scripts.Services.Input;
 using Scripts.Services;
 using System.Collections.Generic;
+
 using UnityEngine;
 using Scripts.Logic;
 using Scripts.Data;
 using Scripts.Services.PersistentProgress;
+using Unity.VisualScripting;
 
 
 namespace Scripts.Hero.Ability
@@ -19,7 +21,13 @@ namespace Scripts.Hero.Ability
         public float cooldownMultiplayer;
         public float activeTime;
 
+        public int CurrentAbilityState;
+
+        public bool IsAbilityUse;
+
         public Ability activeAbility;
+        
+
 
         //public List<Ability> passiveAbilities;
         public List<SecondaryAbility> secondaryAbilities;
@@ -27,7 +35,10 @@ namespace Scripts.Hero.Ability
 
         private Ability _passiveAbility;
         private SecondaryAbility _secondaryAbility;
-        private AbilityManager _abilityManager; 
+        private AbilityManager _abilityManager;
+
+        //Need Refactoring
+        private bool _isAbilityUseKeyboard;
 
         enum AbilityState
         {
@@ -35,6 +46,7 @@ namespace Scripts.Hero.Ability
             active,
             cooldown
         }
+
 
         AbilityState state = AbilityState.ready;
 
@@ -51,35 +63,55 @@ namespace Scripts.Hero.Ability
             cooldownMultiplayer = 1;
         }
 
+        
+
         private void Update()
         {
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                _isAbilityUseKeyboard = true;
+            }
+            else
+            {
+                _isAbilityUseKeyboard = false;
+            }
+
+
             switch (state)
             {
                 case AbilityState.ready:
-                    if (Input.GetKey(KeyCode.LeftShift) && activeAbility != null)
+                    if ((IsAbilityUse || _isAbilityUseKeyboard) && activeAbility)
                     {
                         activeAbility.Activate(gameObject);
                         state = AbilityState.active;
                         activeTime = activeAbility.ActiveTime;
                         cooldownTime = activeAbility.ColdownTime * cooldownMultiplayer;
+                        CurrentAbilityState = 0;
+                        IsAbilityUse = false;
                     }
                     break;
                 case AbilityState.active:
                     if (activeTime > 0)
                     {
                         activeTime -= Time.deltaTime;
+                        CurrentAbilityState = 1;
+                        IsAbilityUse = false;
                     }
                     else
                     {
                         state = AbilityState.cooldown;
                         activeAbility.Deactivate(gameObject);
                         cooldownTime = activeAbility.ColdownTime * cooldownMultiplayer;
+                        IsAbilityUse = false;
                     }
                     break;
                 case AbilityState.cooldown:
                     if (cooldownTime > 0)
                     {
                         cooldownTime -= Time.deltaTime;
+                        CurrentAbilityState = 2;
+                        IsAbilityUse = false;
                     }
                     else
                     {
@@ -87,6 +119,13 @@ namespace Scripts.Hero.Ability
                     }
                     break;
             }
+
+        }
+
+
+        public void UseAbility()
+        {
+
         }
 
 
