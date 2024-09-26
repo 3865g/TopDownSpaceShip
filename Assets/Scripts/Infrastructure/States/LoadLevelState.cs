@@ -165,7 +165,7 @@ namespace Scripts.Infrastructure.States
             {
                 GameObject hud = await _gameFactory.CreateHud();
                 hud.GetComponentInChildren<ActorUI>().Construct(hero.GetComponent<IHealth>());
-                hud.GetComponentInChildren<AbilityUI>().Construct(hero.GetComponent<AbilityHolder>());
+               // hud.GetComponentInChildren<AbilityUI>().Construct(hero.GetComponent<AbilityHolder>());
             }
             else
             {
