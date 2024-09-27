@@ -9,6 +9,7 @@ namespace Scripts.Logic
         public string TransferTo;
 
         private const string PlayerTag = "Player";
+        private const string ShieldTag = "PlayerShield";
         private IGameStateMachine _gameStateMachine;
         private bool _isTransfering = false;
                
@@ -26,7 +27,7 @@ namespace Scripts.Logic
                 return;
             }
 
-            if (other.CompareTag(PlayerTag))
+            if (other.CompareTag(PlayerTag) || (other.CompareTag(ShieldTag)))
             {
                     //Debug.Log("Transfer");
                     _gameStateMachine.Enter<LoadLevelState, string>(TransferTo);

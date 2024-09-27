@@ -7,6 +7,7 @@ using Scripts.Logic;
 using Scripts.Data;
 using Scripts.Services.PersistentProgress;
 using Unity.VisualScripting;
+using UnityEditor;
 
 
 namespace Scripts.Hero.Ability
@@ -36,6 +37,12 @@ namespace Scripts.Hero.Ability
         private Ability _passiveAbility;
         private SecondaryAbility _secondaryAbility;
         private AbilityManager _abilityManager;
+
+        private float _pausedCooldownTime;
+        private float _pausedActiveTime;
+        private bool _saveAfterPause = false;
+        private bool _loadAfterPause = false;
+        private AbilityState _pauseState;
 
         //Need Refactoring
         private bool _isAbilityUseKeyboard;
@@ -67,6 +74,19 @@ namespace Scripts.Hero.Ability
 
         private void Update()
         {
+
+            //Need refactoring (custom pause?)
+
+            if(Time.timeScale == 0 && !_saveAfterPause)
+            {
+                SavePause();
+                return;
+            }
+            else if (Time.timeScale != 0 && !_loadAfterPause)
+            {
+                LoadAfterPause();
+            }
+
 
             if (Input.GetKey(KeyCode.LeftShift))
             {
@@ -123,9 +143,22 @@ namespace Scripts.Hero.Ability
         }
 
 
-        public void UseAbility()
+        public void SavePause()
         {
+            _pauseState = state;
+            _pausedCooldownTime = cooldownTime;
+            _pausedActiveTime = activeTime;
+            _saveAfterPause = true;
+            _loadAfterPause = false;
+        }
 
+        public void LoadAfterPause()
+        {
+            state = _pauseState;
+            cooldownTime = _pausedCooldownTime;
+            activeTime = _pausedActiveTime;
+            _saveAfterPause = false;
+            _loadAfterPause = true;
         }
 
 
@@ -133,14 +166,8 @@ namespace Scripts.Hero.Ability
         {
             _passiveAbility = passiveAbility;
             _passiveAbility.ActivatePassive(gameObject);
-
-            //    if (!passiveAbilities.Contains(passiveAbility))
-            //    {
-            //        _passiveAbility = passiveAbility;
-            //        _passiveAbility.ActivatePassive(gameObject);
-            //        passiveAbilities.Add(_passiveAbility);
-            //    }
         }  
+
             public void ActivateSecondaryAbility(SecondaryAbility secondaryAbility)
         {
             if (!secondaryAbilities.Contains(secondaryAbility))

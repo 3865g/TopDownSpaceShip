@@ -119,17 +119,6 @@ namespace Scripts.Logic
             RewardSecondaryAbilities.Remove(secondaryAbility);
             _secondaryAbilityService.SetAvailableAbilityList(RewardSecondaryAbilities);
         }
-
-        //public void UpdateProgress(PlayerProgress progress)
-        //{
-        //    //progress.AbilityProgress.secondaryAbilitiesData = RewardSecondaryAbilities;
-        //    //Debug.LogError("Saved");
-        //}
-
-        //public void LoadProgress(PlayerProgress progress)
-        //{
-        //    //RewardSecondaryAbilities = progress.AbilityProgress.secondaryAbilitiesData;
-        //}
     }
 }
 
