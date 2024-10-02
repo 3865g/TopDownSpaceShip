@@ -1,9 +1,6 @@
-﻿using Scripts.Hero.Ability;
+﻿using Scripts.Infrastructure.Factory;
 using Scripts.Infrastructure.States;
-using Scripts.Services;
-using Scripts.Services.Input;
 using Scripts.UI.Services.Windows;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,11 +14,16 @@ namespace Assets.Scripts.UI.Menu
         private IWindowService _windowService;
 
         private IGameStateMachine _gameStateMachine;
+        private IGameFactory _gameFactory;
 
         public void Construct(IGameStateMachine gameStateMachine, IWindowService windowService)
         {
             _gameStateMachine = gameStateMachine;
             _windowService = windowService;
+
+            GetComponentInChildren<StartLevelButton>().Construct(_gameStateMachine, _windowService);
         }
+
+
     }
 }

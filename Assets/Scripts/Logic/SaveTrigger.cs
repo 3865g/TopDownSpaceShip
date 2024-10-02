@@ -1,4 +1,5 @@
-﻿using Scripts.Services;
+﻿using Scripts.Data;
+using Scripts.Services;
 using Scripts.Services.SaveLoad;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ namespace Scripts.Logic
         private void OnTriggerEnter(Collider other)
         {
             _saveLoadService.SaveProgress();
+
 
             //Debug.Log("Saved");
 

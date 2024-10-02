@@ -1,7 +1,6 @@
 ﻿using Scripts.Infrastructure;
 using Scripts.UI.Services.Factory;
-using System.Diagnostics;
-using UnityEngine;
+using Scripts.UI.Windows.Menu;
 
 namespace Scripts.UI.Services.Windows
 {
@@ -13,6 +12,9 @@ namespace Scripts.UI.Services.Windows
         {
             _uiFactory = uiFactory;
         }
+
+        //I want to get a link to this window so that I can use it in different places, but am I doing the right thing??
+        public ChoiceWindow ChoiceWindow { get; set; }
 
         public void Open(WindowId windowId)
         {
@@ -28,6 +30,9 @@ namespace Scripts.UI.Services.Windows
                     break;
                 case WindowId.Rewards:
                     _uiFactory.CreateRewardsMenu();
+                    break;
+                case WindowId.ChoiceWindow:
+                    _uiFactory.CreateChoiceWindow(this);
                     break;
             }
 

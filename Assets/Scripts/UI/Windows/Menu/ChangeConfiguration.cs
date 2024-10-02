@@ -20,6 +20,8 @@ namespace Assets.Scripts.UI.Elements
 
         private void OnEnable()
         {
+
+            //Need move to gameFactory?
             _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
 
             Button.onClick.AddListener(ChangeShipConfiguration);

@@ -15,6 +15,7 @@ namespace Scripts.UI.Services.Factory
 {
     public class UIFactory : IUIFactory
     {
+
         private const string UIRootPath = "UIRoot";
         private readonly IAssetProvider _assetProvider;
         private readonly IStaticDataService _staticDataService;
@@ -61,6 +62,15 @@ namespace Scripts.UI.Services.Factory
             WindowStaticData config = _staticDataService.ForWindow(WindowId.Shop);
             ShopWindow shopWondow = Object.Instantiate(config.Prefab, _uiRoot) as ShopWindow;
             shopWondow.Construct(_adsService, _persistantProgressService);
+        }
+
+        public void CreateChoiceWindow(IWindowService windowService)
+        {
+            WindowStaticData config = _staticDataService.ForWindow(WindowId.ChoiceWindow);
+            ChoiceWindow choiceWindow = Object.Instantiate(config.Prefab, _uiRoot) as ChoiceWindow;
+            windowService.ChoiceWindow = choiceWindow;
+
+
         }
         public async Task CreateUIRoot()
         {
