@@ -1,9 +1,4 @@
 ﻿using Scripts.Infrastructure.Factory;
-using Scripts.Logic.EnemySpawners;
-using Scripts.StaticData;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Scripts.Logic.Gates

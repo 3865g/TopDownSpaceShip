@@ -6,8 +6,6 @@ using UnityEngine;
 using Scripts.Logic;
 using Scripts.Data;
 using Scripts.Services.PersistentProgress;
-using Unity.VisualScripting;
-using UnityEditor;
 
 
 namespace Scripts.Hero.Ability

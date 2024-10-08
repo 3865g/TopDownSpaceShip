@@ -1,8 +1,6 @@
 ﻿using Assets.Scripts.Hero;
 using Scripts.Enemy;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace Scripts.Hero
 {
