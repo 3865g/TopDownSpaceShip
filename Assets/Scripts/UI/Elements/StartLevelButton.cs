@@ -52,13 +52,22 @@ namespace Assets.Scripts.UI.Menu
 
         public void ClickStart()
         {
+
             if (_saveLoadService.LoadProgress() == null)
             {
                 NewGame();
             }
             else
             {
-                CreateChoiseWindow();
+                if (_saveLoadService.LoadProgress().WorldData.PositionOnLevel.SavedLevel == InitialLevel)
+                {
+                    NewGame();
+                }
+                else
+                {
+                    CreateChoiseWindow();
+                }
+                    
             }
             
 

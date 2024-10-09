@@ -22,7 +22,7 @@ namespace Scripts.UI.Elements
 
         private void UpdateCounter()
         {
-            Counter.text = $"{_worldData.LootData.Collected}";
+            //Counter.text = $"{_worldData.LootData.Collected}";
         }
     }
 }

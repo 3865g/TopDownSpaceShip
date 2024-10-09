@@ -59,5 +59,11 @@ namespace Scripts.UI.Windows.Menu
             Destroy(gameObject);
 
         }
+
+        //Have close window on parent class but not work
+        public void Destroy()
+        {
+            Destroy(gameObject);
+        }
     }
 }
