@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Scripts.Logic
 {
@@ -11,6 +12,8 @@ namespace Scripts.Logic
         float ReturnedDamage { get; set; }  
 
         bool ReturnDamage { get; set; }
+
+        GameObject TextPrefab { get; set; }
 
         void TakeDamage(float damage);
         void TakeHP(float HP);

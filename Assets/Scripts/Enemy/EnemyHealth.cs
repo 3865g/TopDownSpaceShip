@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using TMPro;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Scripts.Enemy
@@ -12,7 +13,6 @@ namespace Scripts.Enemy
         [SerializeField] private float maxHP;
 
         public event Action HealthChanged;
-        public GameObject TextPrefab;
         public float CurrentHP 
         { 
             get => currentHP; 
@@ -24,9 +24,13 @@ namespace Scripts.Enemy
             set => maxHP = value; 
         }
 
+        public GameObject TextPrefab { get; set; }
+
         public bool ReturnDamage { get; set; }
         public float ReturnedDamage { get; set; }
 
+
+       
 
         public void TakeDamage(float damage)
         {
@@ -34,13 +38,22 @@ namespace Scripts.Enemy
 
             HealthChanged?.Invoke();
 
-            ShowText(damage.ToString(), Color.red);
+            if (TextPrefab)
+            {
+                ShowText(damage.ToString(), Color.red);
+            }
+            
         }
 
         public void TakeHP(float HP)
         {
             HealthChanged?.Invoke();
-            ShowText(HP.ToString(), Color.green);
+
+            if (TextPrefab)
+            {
+                ShowText(HP.ToString(), Color.green);
+            }
+            
         }
 
         private void ShowText(string textHP, Color color)

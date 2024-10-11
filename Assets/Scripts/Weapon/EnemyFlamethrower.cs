@@ -5,7 +5,7 @@ namespace Scripts.Hero
 {
     public class EnemyFlamethrower : MonoBehaviour
     {
-        public ParticleSystem particleSystem;
+        public new ParticleSystem particleSystem;
 
 
         public float DamageAmount;

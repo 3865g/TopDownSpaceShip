@@ -95,6 +95,7 @@ namespace Scripts.Infrastructure.Factory
 
             HeroHealth health = _heroGameObject.GetComponent<HeroHealth>();
             health.Construct(_randomService);
+            health.TextPrefab = await _assetsProvider.Load<GameObject>(AssetsAddress.HpText);
             HeroAttack heroAttack = _heroGameObject.GetComponent<HeroAttack>();
             heroAttack.Construct(_randomService);
             AbilityHolder abilityHolder = _heroGameObject.GetComponent<AbilityHolder>();
@@ -196,8 +197,10 @@ namespace Scripts.Infrastructure.Factory
             IHealth health = monster.GetComponent<IHealth>();
             health.CurrentHP = monsterStaticData.Hp;
             health.MaxHP = monsterStaticData.Hp;
+            health.TextPrefab = await _assetsProvider.Load<GameObject>(AssetsAddress.HpText);
 
-            //monster.GetComponent<ActorUI>().Construct(health);
+
+            //Need refactoring need hero transform from trigger?
             monster.GetComponent<AgentMoveToPlayer>()?.Construct(_heroGameObject.transform);
             monster.GetComponent<AgentSearchPlayer>()?.Construct(_heroGameObject.transform);
             monster.GetComponent<RotateToHero>()?.Construct(_heroGameObject.transform);

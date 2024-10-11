@@ -190,15 +190,23 @@ namespace Scripts.Hero.Ability
 
       public void ActivateAbilitiesAfterLoad()
         {
+
+
             foreach (SecondaryAbility element in secondaryAbilities)
             {
-                if (_secondaryAbility)
-                {
-                    _secondaryAbility = element;
-                    _secondaryAbility.ActivatePassive(gameObject);
-                    RewardsManager.UpdateList(_secondaryAbility);
-                    _abilityManager.CalculatePoints(_secondaryAbility);
-                }
+
+                _secondaryAbility = element;
+                _secondaryAbility.ActivatePassive(gameObject);
+                RewardsManager.UpdateList(_secondaryAbility);
+                _abilityManager.CalculatePoints(_secondaryAbility);
+
+                //if (_secondaryAbility)
+                //{
+                //    _secondaryAbility = element;
+                //    _secondaryAbility.ActivatePassive(gameObject);
+                //    RewardsManager.UpdateList(_secondaryAbility);
+                //    _abilityManager.CalculatePoints(_secondaryAbility);
+                //}
                 
             }
         }

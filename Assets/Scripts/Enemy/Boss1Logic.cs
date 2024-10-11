@@ -1,5 +1,7 @@
 using Scripts.Enemy;
+using Scripts.Infrastructure.AssetManagement;
 using Scripts.Logic;
+using System.Threading;
 using UnityEngine;
 
 public class Boss1Logic : MonoBehaviour
@@ -21,14 +23,14 @@ public class Boss1Logic : MonoBehaviour
         HurtBox.SetActive(false);
         CollisionBox.SetActive(true);
 
-        foreach (GameObject gameObject in Turels)
+
+        foreach (GameObject turel in Turels)
         {
-            IHealth health = gameObject.GetComponent<IHealth>();
+            IHealth health = turel.GetComponent<IHealth>();
             health.CurrentHP = 200;
             health.MaxHP = 200;
-            gameObject.GetComponent<Attack>().Construct(heroTransform, 10);
+            health.TextPrefab = gameObject.GetComponent<IHealth>().TextPrefab;
 
-            gameObject.GetComponent<IHealth>().MaxHP = 200;
         }
 
         InvokeRepeating("CheckTurels", 1f, 1f);

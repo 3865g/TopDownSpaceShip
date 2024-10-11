@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955196291824441247}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7294919121700679087}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3577409303181001344
 MeshFilter:
@@ -94,6 +94,14 @@ PrefabInstance:
     - target: {fileID: -5661950946802466497, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
       propertyPath: Kamikaze
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750075406532380847, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750075406532380847, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5599257748722715310, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
       propertyPath: TextPrefab

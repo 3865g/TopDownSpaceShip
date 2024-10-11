@@ -14,24 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelKey: P1L2
   EnemySpawnerData:
-  - Id: TestingScene_6fb0fd2d-2903-4e75-823a-a886dba9c21c
-    MonsterTypeId: 2
-    Position: {x: 2.5, y: 16, z: -1.199997}
-  - Id: SpawnMarker_5a002b4e-7054-4e6b-9e73-dde7030945db
-    MonsterTypeId: 1
-    Position: {x: -23.6, y: 16, z: -22.7}
-  - Id: TestingScene_8926b784-1a65-4480-979d-2dffc2cda4a4
-    MonsterTypeId: 4
-    Position: {x: 77.9, y: 16, z: -33.8}
-  - Id: TestingScene_b6abe46d-47ea-4ae4-bea8-fe8362386444
-    MonsterTypeId: 5
-    Position: {x: -37.65, y: 20.279999, z: -38.58}
-  - Id: TestingScene_8bffac50-9f2c-4943-bd3e-4ce76159442a
-    MonsterTypeId: 3
-    Position: {x: 122.9, y: 16, z: 13.5}
   - Id: TestingScene_c8e399b6-6515-409c-9b13-aed9739229f1
     MonsterTypeId: 5
     Position: {x: -28.99, y: 25.3, z: 10.239998}
+    GroupId: 0
+  - Id: TestingScene_8926b784-1a65-4480-979d-2dffc2cda4a4
+    MonsterTypeId: 4
+    Position: {x: 66.9854, y: 16, z: -30.657166}
+    GroupId: 1
+  - Id: TestingScene_b6abe46d-47ea-4ae4-bea8-fe8362386444
+    MonsterTypeId: 5
+    Position: {x: -37.65, y: 20.279999, z: -38.58}
+    GroupId: 0
+  - Id: P1L2_4ac56a38-969b-4f7d-a768-c6a61883c225
+    MonsterTypeId: 5
+    Position: {x: -56.514603, y: 21.421436, z: -9.247166}
+    GroupId: 0
+  - Id: TestingScene_6fb0fd2d-2903-4e75-823a-a886dba9c21c
+    MonsterTypeId: 2
+    Position: {x: 121.8854, y: 16, z: 1.8428345}
+    GroupId: 1
+  - Id: SpawnMarker_5a002b4e-7054-4e6b-9e73-dde7030945db
+    MonsterTypeId: 1
+    Position: {x: 121.48539, y: 16, z: -25.457165}
+    GroupId: 1
+  - Id: TestingScene_8bffac50-9f2c-4943-bd3e-4ce76159442a
+    MonsterTypeId: 4
+    Position: {x: 71.085396, y: 16, z: 8.042839}
+    GroupId: 1
   InitialHeroPosition: {x: -165.2, y: 16, z: -14.4}
   LevelTransfer:
     TransferTo: P1L3

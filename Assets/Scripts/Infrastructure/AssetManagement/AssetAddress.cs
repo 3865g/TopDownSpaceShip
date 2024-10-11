@@ -10,5 +10,6 @@
         public const string LevelTransferTrigger = "TransferTrigger";
         public const string GameManager = "GameManager";
         public const string AbilityManager = "AbilityManager";
+        public const string HpText = "HpText";
     }
 }

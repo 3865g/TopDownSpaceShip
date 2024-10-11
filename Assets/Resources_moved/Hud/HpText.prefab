@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8412548622192217458}
   - component: {fileID: 3353586726007605711}
   m_Layer: 17
-  m_Name: HpChange
+  m_Name: HpText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -17,21 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 402a7a650643628448971554fce698be
   m_SerializeEntries:
-  - m_GUID: 33bcbe36c97120f45800b710de08eaa1
-    m_Address: Enemy2
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fc4fb269bf1748249af62cae6fae3e07
-    m_Address: Enemy1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e2f3b71aaf9b06947811ccdcca4abe8d
-    m_Address: LootBase
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 06d94c702c808374c9b4d11ed70a9729
     m_Address: SpawnPoint
     m_ReadOnly: 0
@@ -42,23 +27,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12d8b145b1fbd6940bc5632ab2c6cfe7
+    m_Address: AbilityManager
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33bcbe36c97120f45800b710de08eaa1
+    m_Address: Enemy2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 36a74f45f6338e84e833438309b25c04
     m_Address: Hud
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 62a29b961f562994a910898c07fe5845
-    m_Address: PlayerSpaceShip_02
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9f59963447298fa4f92bdb426a1e1aa5
-    m_Address: UIRoot
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fdf071bb00aeaee4a8c455031b403dde
-    m_Address: Enemy3Mlee
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -67,23 +47,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 90d6541e52c36844ba84a651be133dc4
-    m_Address: Gate1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e2588a6c3bfd1c24aa383cd060cbd391
-    m_Address: GameManager
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 535a981581f49c84081216c7f8c5cc8c
     m_Address: MainMenu
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: faf558d2cea07474586f975f87f88e3b
-    m_Address: LowBoss1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -92,8 +57,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 12d8b145b1fbd6940bc5632ab2c6cfe7
-    m_Address: AbilityManager
+  - m_GUID: 62a29b961f562994a910898c07fe5845
+    m_Address: PlayerSpaceShip_02
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90d6541e52c36844ba84a651be133dc4
+    m_Address: Gate1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 93c9b2672be7f8347b56d1f10ac41119
+    m_Address: HpText
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f59963447298fa4f92bdb426a1e1aa5
+    m_Address: UIRoot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2588a6c3bfd1c24aa383cd060cbd391
+    m_Address: GameManager
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2f3b71aaf9b06947811ccdcca4abe8d
+    m_Address: LootBase
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -102,9 +92,24 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: faf558d2cea07474586f975f87f88e3b
+    m_Address: LowBoss1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc4fb269bf1748249af62cae6fae3e07
+    m_Address: Enemy1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdf071bb00aeaee4a8c455031b403dde
+    m_Address: Enemy3Mlee
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f2f41985b8a4e254fa1c4f9ca021e517, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 03d082ecffef9f441bdaf335f436359d, type: 2}
     - {fileID: 11400000, guid: 8e2fa9279535b1b49b580b917e0ead13, type: 2}
+    - {fileID: 11400000, guid: 03d082ecffef9f441bdaf335f436359d, type: 2}

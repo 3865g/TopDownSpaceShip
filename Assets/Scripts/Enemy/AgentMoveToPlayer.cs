@@ -23,6 +23,7 @@ namespace Scripts.Enemy
 
         private void SetDestinationForAgent()
         {
+
             if (_heroTransfom)
             {
                 _agent.destination = _heroTransfom.position;

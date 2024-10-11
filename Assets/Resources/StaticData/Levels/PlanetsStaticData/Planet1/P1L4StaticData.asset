@@ -14,13 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelKey: P1L4
   EnemySpawnerData:
-  - Id: P1L4_c9684742-2a14-47b0-bf8b-63b21ceb8b90
-    MonsterTypeId: 7
-    Position: {x: 1.5853958, y: 24.661434, z: 9.742836}
-    GroupId: 0
+  - Id: P1L4_79608e10-1d0e-4b6e-a93e-3b79d1f3c2f0
+    MonsterTypeId: 5
+    Position: {x: 97.3854, y: 20.511436, z: -15.157166}
+    GroupId: 1
   - Id: P1L4_95bb6e94-5092-4470-a525-843d6b229981
     MonsterTypeId: 5
     Position: {x: 99.3854, y: 25.3, z: 39.242836}
+    GroupId: 1
+  - Id: P1L4_c9684742-2a14-47b0-bf8b-63b21ceb8b90
+    MonsterTypeId: 7
+    Position: {x: -38.614605, y: 24.661434, z: -3.557167}
     GroupId: 0
   InitialHeroPosition: {x: -7.7, y: 16, z: -95.1}
   LevelTransfer:

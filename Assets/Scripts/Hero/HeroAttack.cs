@@ -38,6 +38,8 @@ namespace Scripts.Enemy
         private RotateForAttack _roatateForAttack;
         private IRandomService _randomService;
 
+        private Vector3 laserDirection;
+
         public void Construct(IRandomService randomService)
         {
             _randomService = randomService;
@@ -55,7 +57,7 @@ namespace Scripts.Enemy
             UpdateCooldown();
 
 
-            if (ReadyAttack() && _roatateForAttack._enemy != null)
+            if (ReadyAttack())
             {
                 StartCoroutine(OnAttack());
             }
@@ -103,19 +105,31 @@ namespace Scripts.Enemy
                 CalculateCriticalChance();
 
                 _attackCooldown = AttackCooldown;
-                Vector3 laserDirection = (_roatateForAttack._enemy.transform.position - LaserStartTransform.position).normalized;
-                if (laserDirection != null)
+
+                if (_roatateForAttack._enemy)
                 {
-                    GameObject laserPrefab = Instantiate(Laserprefab, LaserStartTransform.position, Quaternion.identity);
-                    IProjectile laser = laserPrefab.GetComponent<IProjectile>();
-                    laser.Construct(laserDirection, _stats.Damage + BonuseDamage + _criticalDamge, CurrentColor);
+                     laserDirection = (_roatateForAttack._enemy.transform.position - LaserStartTransform.position).normalized;
                 }
+                else
+                {
+                     laserDirection = gameObject.transform.forward;
+                }
+
+                GameObject laserPrefab = Instantiate(Laserprefab, LaserStartTransform.position, Quaternion.identity);
+                IProjectile laser = laserPrefab.GetComponent<IProjectile>();
+                laser.Construct(laserDirection, _stats.Damage + BonuseDamage + _criticalDamge, CurrentColor);
+
+                //if (laserDirection != null)
+                //{
+                //    GameObject laserPrefab = Instantiate(Laserprefab, LaserStartTransform.position, Quaternion.identity);
+                //    IProjectile laser = laserPrefab.GetComponent<IProjectile>();
+                //    laser.Construct(laserDirection, _stats.Damage + BonuseDamage + _criticalDamge, CurrentColor);
+                //}
 
                 shootcount--;
                 Shooting?.Invoke();
 
                 yield return new WaitForSeconds(0.1f);
-
 
 
             }
@@ -132,7 +146,7 @@ namespace Scripts.Enemy
 
         private bool ReadyAttack()
         {
-            return  /*_isAttacking &&*/ canAttack && CooldownIsUp();
+            return  /*_isAttacking &&*/ canAttack && CooldownIsUp() /* && _roatateForAttack._enemy != null */;
         }
 
 

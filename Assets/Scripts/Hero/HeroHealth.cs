@@ -17,7 +17,6 @@ namespace Scripts.Hero
 
         public bool CanDodge;
         public int DodgeChance;
-        public GameObject TextPrefab;
 
         private State _state;
         private IRandomService _randomService;
@@ -45,6 +44,8 @@ namespace Scripts.Hero
             set => _state.MaxHP = value;
         }
 
+        public GameObject TextPrefab { get; set; }
+
         public bool ReturnDamage { get; set; }
         public float ReturnedDamage { get; set; }
 
@@ -67,7 +68,7 @@ namespace Scripts.Hero
             if(!gameObject)
             {
                 progress.HeroState.CurrentHP = CurrentHP;
-                progress.HeroState.MaxHP = MaxHP;
+               // progress.HeroState.MaxHP = MaxHP;
             }
             
 
@@ -84,7 +85,7 @@ namespace Scripts.Hero
                 {
                     return;
                 }
-                else if (DodgeChance <= _randomValue)
+                else if (DodgeChance >= _randomValue)
                 {
                     //Play Dodge Effect
                     return;

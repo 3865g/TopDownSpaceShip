@@ -14,46 +14,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelKey: P1L3
   EnemySpawnerData:
+  - Id: P1L3_ecacd46e-aab4-4bf8-953a-bf9fbc09c23b
+    MonsterTypeId: 5
+    Position: {x: 59.8854, y: 25.3, z: 152.94284}
+    GroupId: 2
+  - Id: P1L3_6fe52ecc-fc38-4738-8979-dc4e9ea761d0
+    MonsterTypeId: 1
+    Position: {x: 61.985397, y: 16, z: -73.85716}
+    GroupId: 1
+  - Id: P1L3_e49b07ac-dc67-4a0c-bf97-f709d248fca2
+    MonsterTypeId: 4
+    Position: {x: 51.485397, y: 16.361435, z: 63.54284}
+    GroupId: 2
+  - Id: P1L3_fb59e916-209e-4e6c-87b2-2d3a38cfb5f7
+    MonsterTypeId: 2
+    Position: {x: 132.1854, y: 16, z: 47.442833}
+    GroupId: 2
+  - Id: P1L3_d0c0e467-562b-4838-87ed-789e204215cb
+    MonsterTypeId: 3
+    Position: {x: 41.8854, y: 16, z: 51.942833}
+    GroupId: 2
   - Id: P1L3_cc6d7369-0928-4de8-bd31-094192021ded
     MonsterTypeId: 3
     Position: {x: 108.3854, y: 16, z: -109.55716}
-    GroupId: 0
-  - Id: P1L3_fb59e916-209e-4e6c-87b2-2d3a38cfb5f7
-    MonsterTypeId: 2
-    Position: {x: 100.78539, y: 16, z: 102.44283}
-    GroupId: 0
+    GroupId: 1
   - Id: P1L3_0ec52e26-3228-4724-ad6d-9efdd906d4b0
     MonsterTypeId: 5
     Position: {x: -15.414604, y: 25.3, z: 152.94284}
+    GroupId: 2
+  - Id: P1L3_f71deed7-18dc-4d71-9c01-11c8e4255a17
+    MonsterTypeId: 5
+    Position: {x: -69.314606, y: 20.279999, z: -88.35716}
+    GroupId: 0
+  - Id: P1L3_2eaaae95-6eab-4a10-847c-bf98db624d90
+    MonsterTypeId: 5
+    Position: {x: 78.9854, y: 20.279999, z: -105.35716}
+    GroupId: 1
+  - Id: P1L3_45742986-79a1-43a6-88f1-54877fae0f06
+    MonsterTypeId: 5
+    Position: {x: -65.814606, y: 20.279999, z: -137.05716}
     GroupId: 0
   - Id: P1L3_31c0f50f-30de-49e0-945e-e6aed2d9f30e
     MonsterTypeId: 4
     Position: {x: 58.185394, y: 16, z: -124.157166}
-    GroupId: 0
-  - Id: P1L3_ecacd46e-aab4-4bf8-953a-bf9fbc09c23b
-    MonsterTypeId: 5
-    Position: {x: 59.8854, y: 25.3, z: 152.94284}
-    GroupId: 0
-  - Id: P1L3_d0c0e467-562b-4838-87ed-789e204215cb
-    MonsterTypeId: 3
-    Position: {x: 79.8854, y: 16, z: 94.34283}
-    GroupId: 0
-  - Id: P1L3_f71deed7-18dc-4d71-9c01-11c8e4255a17
-    MonsterTypeId: 5
-    Position: {x: -83.0146, y: 20.279999, z: -100.657166}
-    GroupId: 0
-  - Id: P1L3_2eaaae95-6eab-4a10-847c-bf98db624d90
-    MonsterTypeId: 5
-    Position: {x: 66.3854, y: 20.279999, z: -52.157166}
-    GroupId: 0
-  - Id: P1L3_6fe52ecc-fc38-4738-8979-dc4e9ea761d0
-    MonsterTypeId: 1
-    Position: {x: 115.085396, y: 16, z: -65.157166}
-    GroupId: 0
-  - Id: P1L3_e49b07ac-dc67-4a0c-bf97-f709d248fca2
-    MonsterTypeId: 4
-    Position: {x: 86.4854, y: 16.361435, z: 119.44283}
-    GroupId: 0
+    GroupId: 1
   InitialHeroPosition: {x: -165.2, y: 16, z: -14.4}
   LevelTransfer:
     TransferTo: P1L4
