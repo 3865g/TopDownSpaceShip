@@ -1,4 +1,4 @@
-﻿using Scripts.Infrastructure.Factory;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,26 +7,49 @@ namespace Scripts.Enemy
     public class AgentMoveToPlayer : Follow
     {
         public  NavMeshAgent _agent;
-        private Transform _heroTransfom;
+        private GameObject _heroTransfom;
+        private float _updateTime;
+
+        public Vector3 HeroTransform;
 
 
-        internal void Construct(Transform heroTransform)
+        internal void Construct(GameObject heroTransform)
         {
             _heroTransfom = heroTransform;
         }
 
+        
+
+        private void Start()
+        {
+            StartCoroutine(SetDestinationForAgent());
+        }
+
+
 
         private void Update()
         {
-            SetDestinationForAgent();
-        }
-
-        private void SetDestinationForAgent()
-        {
-
             if (_heroTransfom)
             {
-                _agent.destination = _heroTransfom.position;
+                _agent.SetDestination(_heroTransfom.transform.position);
+            }
+            HeroTransform = _heroTransfom.transform.position;
+        }
+
+
+
+        private IEnumerator SetDestinationForAgent()
+        {
+            WaitForSeconds wait = new WaitForSeconds(_updateTime);
+
+            while (enabled)
+            {
+                //if (_heroTransfom)
+                //{
+                //    _agent.SetDestination(_heroTransfom.transform.position);
+                //}
+                //    HeroTransform = _heroTransfom.transform.position;
+                yield return wait;
             }
         }        
     }

@@ -8,7 +8,7 @@ namespace Scripts.Enemy
         public float cooldown = 1f;
 
         private TriggerObserver _triggerObserver;
-        private Follow _follow;
+        private AgentMoveToPlayer _follow;
         private Coroutine _aggroCooutine;
         private RotateToHero _rotateToHero;
         private Ray _ray;
@@ -18,10 +18,8 @@ namespace Scripts.Enemy
         private void Awake()
         {
             _triggerObserver = GetComponentInChildren<TriggerObserver>();
-            _follow = GetComponentInChildren<Follow>();
+            _follow = GetComponentInChildren<AgentMoveToPlayer>();
             _rotateToHero = GetComponentInChildren<RotateToHero>();
-
-
 
         }
 
@@ -77,11 +75,17 @@ namespace Scripts.Enemy
 
         private void SwitchFollowOn()
         {
-            _follow.enabled = true;
+            if (_follow)
+            {  
+                _follow.enabled = true;
+            }
         }
         private void SwitchFollowOff()
         {
+            if (_follow)
+            {
                 _follow.enabled = false;
+            }
                         
         }
         private void StopAggroCorutine()

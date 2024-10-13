@@ -201,7 +201,7 @@ namespace Scripts.Infrastructure.Factory
 
 
             //Need refactoring need hero transform from trigger?
-            monster.GetComponent<AgentMoveToPlayer>()?.Construct(_heroGameObject.transform);
+            monster.GetComponent<AgentMoveToPlayer>()?.Construct(_heroGameObject);
             monster.GetComponent<AgentSearchPlayer>()?.Construct(_heroGameObject.transform);
             monster.GetComponent<RotateToHero>()?.Construct(_heroGameObject.transform);
             monster.GetComponentInChildren<RotateToHero>()?.Construct(_heroGameObject.transform);

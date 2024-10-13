@@ -112,6 +112,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3750075406532380847, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
+      propertyPath: m_BaseOffset
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750075406532380847, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
       propertyPath: m_AngularSpeed
       value: 1000
       objectReference: {fileID: 0}
