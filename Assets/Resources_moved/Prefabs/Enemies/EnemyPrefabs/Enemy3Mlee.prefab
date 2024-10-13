@@ -95,12 +95,36 @@ PrefabInstance:
       propertyPath: Radius
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: -5661950946802466497, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
+      propertyPath: Kamikaze
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769360111835078316, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
+      propertyPath: Stalking
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1769360111835078316, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
       propertyPath: cooldown
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750075406532380847, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
+      propertyPath: m_AutoRepath
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750075406532380847, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 3750075406532380847, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
       propertyPath: m_StoppingDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750075406532380847, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750075406532380847, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
+      propertyPath: m_AutoTraverseOffMeshLink
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5599257748722715310, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
@@ -163,13 +187,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6656451049966108590, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
+      propertyPath: m_Radius
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 6799890350045862545, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
       propertyPath: m_Radius
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7379153979611125946, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7379153979611125946, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
       propertyPath: m_Mass
-      value: 100
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7379153979611125946, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7379153979611125946, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7379153979611125946, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

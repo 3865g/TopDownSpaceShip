@@ -81,7 +81,8 @@ namespace Scripts.Enemy
         }
         private void SwitchFollowOff()
         {
-            _follow.enabled = false;
+                _follow.enabled = false;
+                        
         }
         private void StopAggroCorutine()
         {

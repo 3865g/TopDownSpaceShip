@@ -2,7 +2,6 @@
 using System;
 using System.Collections;
 using TMPro;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Scripts.Enemy
