@@ -14,11 +14,6 @@ namespace Scripts.Hero
         private float _damage;
         private GameObject _enemy;
 
-        //private void Start()
-        //{
-        //    transform.LookAt(Target);
-        //}
-
 
         public void Construct(Vector3 laserDirection, float damage, GameObject parentEmeny)
         {

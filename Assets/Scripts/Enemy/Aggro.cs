@@ -37,19 +37,11 @@ namespace Scripts.Enemy
         {
             if (!_hasAggroTargget)
             {
-                //_ray = new Ray(transform.position, obj.transform.position);
-                //Physics.Raycast(_ray, out RaycastHit hit);
-
-
-                //if (hit.collider.tag != "Enviroment")
-                //{
-                //    Debug.Log(hit.collider.gameObject.name);
-                //}
-
-                // if (hit == Player) {}
                 _hasAggroTargget = true;
                 _rotateToHero.IsCollided = _hasAggroTargget;
 
+                
+                
                 StopAggroCorutine();
                 SwitchFollowOn();
             }
@@ -62,6 +54,7 @@ namespace Scripts.Enemy
                 _hasAggroTargget = false;
                 _rotateToHero.IsCollided = _hasAggroTargget;
 
+                
                 _aggroCooutine = StartCoroutine(SwitchFollowOffAfterCooldown());
             }
         }
@@ -90,7 +83,11 @@ namespace Scripts.Enemy
         }
         private void StopAggroCorutine()
         {
-            _aggroCooutine = null;
+            if ( _aggroCooutine != null)
+            {
+                StopCoroutine(_aggroCooutine);
+                _aggroCooutine = null;
+            }
         }
 
     }

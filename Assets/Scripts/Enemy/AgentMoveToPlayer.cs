@@ -7,50 +7,49 @@ namespace Scripts.Enemy
     public class AgentMoveToPlayer : Follow
     {
         public  NavMeshAgent _agent;
-        private GameObject _heroTransfom;
-        private float _updateTime;
-
-        public Vector3 HeroTransform;
+        private GameObject _player;
+        private Transform _heroTransfom;
+        private Vector3 _position;
+        private float _updateTime = 0.1f;
 
 
         internal void Construct(GameObject heroTransform)
         {
-            _heroTransfom = heroTransform;
+            _player = heroTransform;
         }
 
-        
-
-        private void Start()
+        private void OnEnable()
         {
-            StartCoroutine(SetDestinationForAgent());
+            StartCoroutine(FollowTarget());
         }
-
-
 
         private void Update()
         {
-            if (_heroTransfom)
+            if (_player)
             {
-                _agent.SetDestination(_heroTransfom.transform.position);
+                _heroTransfom = _player.transform;
+                _position = new Vector3(_player.transform.position.x, 0, _player.transform.position.z);
             }
-            HeroTransform = _heroTransfom.transform.position;
+            
+           
         }
 
 
 
-        private IEnumerator SetDestinationForAgent()
+        private IEnumerator FollowTarget()
         {
             WaitForSeconds wait = new WaitForSeconds(_updateTime);
 
+
             while (enabled)
             {
-                //if (_heroTransfom)
-                //{
-                //    _agent.SetDestination(_heroTransfom.transform.position);
-                //}
-                //    HeroTransform = _heroTransfom.transform.position;
+                if (_heroTransfom != null)
+                {
+                    _agent.SetDestination(_position);
+                }
+
                 yield return wait;
             }
-        }        
+        }
     }
 }

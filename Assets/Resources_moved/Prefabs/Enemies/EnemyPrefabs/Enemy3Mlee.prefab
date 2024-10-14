@@ -129,7 +129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3750075406532380847, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
       propertyPath: m_AutoTraverseOffMeshLink
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5599257748722715310, guid: 49b94adba80800644a6f729f2c422b25, type: 3}
       propertyPath: maxHP

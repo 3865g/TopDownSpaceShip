@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy3mleeStaticData
   m_EditorClassIdentifier: 
   MonsterTypeId: 3
-  Hp: 1000
+  Hp: 60
   Damage: 5
   MaxLoot: 7
   MinLoot: 14
