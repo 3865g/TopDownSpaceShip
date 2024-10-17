@@ -16,5 +16,6 @@ MonoBehaviour:
   abilityTypeId: 40
   description: increace max hp by 10
   skillType: 2
+  ReActivateAfterLoad: 0
   Point: 1
   AddedMaxHP: 10

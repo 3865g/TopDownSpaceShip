@@ -25,7 +25,7 @@ namespace Scripts.Hero.Ability
         public bool IsAbilityUse;
 
         public Ability activeAbility;
-        
+
 
 
         //public List<Ability> passiveAbilities;
@@ -68,14 +68,14 @@ namespace Scripts.Hero.Ability
             cooldownMultiplayer = 1;
         }
 
-        
+
 
         private void Update()
         {
 
             //Need refactoring (custom pause?)
 
-            if(Time.timeScale == 0 && !_saveAfterPause)
+            if (Time.timeScale == 0 && !_saveAfterPause)
             {
                 SavePause();
                 return;
@@ -164,9 +164,9 @@ namespace Scripts.Hero.Ability
         {
             _passiveAbility = passiveAbility;
             _passiveAbility.ActivatePassive(gameObject);
-        }  
+        }
 
-            public void ActivateSecondaryAbility(SecondaryAbility secondaryAbility)
+        public void ActivateSecondaryAbility(SecondaryAbility secondaryAbility)
         {
             if (!secondaryAbilities.Contains(secondaryAbility))
             {
@@ -176,7 +176,7 @@ namespace Scripts.Hero.Ability
                 RewardsManager.UpdateList(_secondaryAbility);
 
                 _abilityManager.CalculatePoints(_secondaryAbility);
-            }         
+            }
         }
 
 
@@ -188,33 +188,28 @@ namespace Scripts.Hero.Ability
             state = AbilityState.ready;
         }
 
-      public void ActivateAbilitiesAfterLoad()
+        public void ActivateAbilitiesAfterLoad()
         {
 
 
             foreach (SecondaryAbility element in secondaryAbilities)
             {
-
                 _secondaryAbility = element;
-                _secondaryAbility.ActivatePassive(gameObject);
                 RewardsManager.UpdateList(_secondaryAbility);
                 _abilityManager.CalculatePoints(_secondaryAbility);
 
-                //if (_secondaryAbility)
-                //{
-                //    _secondaryAbility = element;
-                //    _secondaryAbility.ActivatePassive(gameObject);
-                //    RewardsManager.UpdateList(_secondaryAbility);
-                //    _abilityManager.CalculatePoints(_secondaryAbility);
-                //}
-                
+                if (_secondaryAbility.ReActivateAfterLoad)
+                {                    
+                    _secondaryAbility.ActivatePassive(gameObject);
+                }
+
             }
         }
 
         public void UpdateProgress(PlayerProgress progress)
         {
             //progress.AbilityProgress.secondaryAbility = _secondaryAbility;
-             progress.AbilityProgress.secondaryAbilitiesData = secondaryAbilities;
+            progress.AbilityProgress.secondaryAbilitiesData = secondaryAbilities;
         }
 
         public void LoadProgress(PlayerProgress progress)

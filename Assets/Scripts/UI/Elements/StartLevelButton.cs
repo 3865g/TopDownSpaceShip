@@ -105,6 +105,8 @@ namespace Assets.Scripts.UI.Menu
         {
             var progress = new PlayerProgress(initialLevel: InitialLevel);
 
+            //Need Refactoring, load vcalues from SO
+
             progress.HeroStats.Damage = 10;
             progress.HeroStats.DamageRadius = 20;
             progress.HeroState.MaxHP = 50;

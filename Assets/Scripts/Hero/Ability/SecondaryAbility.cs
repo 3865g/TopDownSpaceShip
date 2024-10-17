@@ -11,10 +11,12 @@ namespace Scripts.Hero.Ability
         public string description;
         public SkillType skillType;
 
+        public bool ReActivateAfterLoad = true;
 
       
         public int Point;
 
+       // public bool NotReActivate;
         
         public virtual void ActivatePassive(GameObject parent)
         {

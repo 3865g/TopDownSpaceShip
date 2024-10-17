@@ -4,7 +4,6 @@ using Scripts.Logic;
 using System;
 using UnityEngine;
 using Scripts.Services.Randomizer;
-using UnityEngine.Rendering.Universal;
 using TMPro;
 using System.Collections;
 
@@ -57,7 +56,9 @@ namespace Scripts.Hero
 
         public void LoadProgress(PlayerProgress progress)
         {
+
            _state = progress.HeroState;
+            
 
             HealthChanged?.Invoke();
 

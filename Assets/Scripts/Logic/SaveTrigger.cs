@@ -1,5 +1,4 @@
-﻿using Scripts.Data;
-using Scripts.Services;
+﻿using Scripts.Services;
 using Scripts.Services.SaveLoad;
 using UnityEngine;
 
@@ -7,6 +6,8 @@ namespace Scripts.Logic
 {
     public class SaveTrigger : MonoBehaviour
     {
+
+        //deprecated
         private ISaveLoadService _saveLoadService;
 
         public BoxCollider boxCollider;

@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelKey: P1L1
   EnemySpawnerData:
-  - Id: P1L1_f6d4531f-11ec-4314-9d8c-22cdf589d5c8
-    MonsterTypeId: 5
-    Position: {x: -16.388006, y: 25.3, z: -17.055504}
-    GroupId: 0
   - Id: P1L1_2df0a455-e019-4207-a717-754ae6691b8f
     MonsterTypeId: 5
     Position: {x: 128.53198, y: 2.821434, z: -25.857162}
     GroupId: 1
+  - Id: P1L1_f6d4531f-11ec-4314-9d8c-22cdf589d5c8
+    MonsterTypeId: 5
+    Position: {x: -16.388006, y: 25.3, z: -17.055504}
+    GroupId: 0
   - Id: P1L1_12a71543-110b-4ad4-aeb9-b7937a35e222
     MonsterTypeId: 5
     Position: {x: 128.53198, y: 15.971462, z: 19.564499}

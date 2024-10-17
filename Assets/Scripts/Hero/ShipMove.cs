@@ -52,7 +52,7 @@ namespace Scripts.Hero
 
         public void UpdateProgress(PlayerProgress progress)
         {
-            progress.WorldData.PositionOnLevel = new PositionOnLevel(CurrentLevel(), transform.position.AsVectorData());
+            //progress.WorldData.PositionOnLevel = new PositionOnLevel(CurrentLevel(), transform.position.AsVectorData());
         }
 
 
@@ -61,10 +61,10 @@ namespace Scripts.Hero
             if (CurrentLevel() == progress.WorldData.PositionOnLevel.SavedLevel)
             {
                 Vector3Data savedPosition = progress.WorldData.PositionOnLevel.Position;
-                if (savedPosition != null)
-                {
-                    Warp(savedPosition: savedPosition);
-                }
+                //if (savedPosition != null)
+                //{
+                //    Warp(savedPosition: savedPosition);
+                //}
             }
         }
 
