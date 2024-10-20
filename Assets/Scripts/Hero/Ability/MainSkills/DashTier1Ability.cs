@@ -21,15 +21,10 @@ namespace Scripts.Hero.Ability
         private Vector3 _rotation;
         private GameObject _spawnedTrail;
         private TrailController _effect;
+        private bool _abilityIsActive;
 
         public override void Activate(GameObject parent)
         {
-
-
-            if(Trail != null)
-            {
-                
-            }
 
             if (!_characterController)
             {
@@ -41,30 +36,36 @@ namespace Scripts.Hero.Ability
                 _shipMove = parent.GetComponent<ShipMove>();
             }
 
-            
 
-            _startPosition = parent.transform.position;
+            if (!_abilityIsActive)
+            {
+                _startPosition = parent.transform.position;
 
-            _characterController.Move(_shipMove.MovementVector * DashRange);
+                _characterController.Move(_shipMove.MovementVector * DashRange);
 
 
-            _endPosition = parent.transform.position;
-            _rotation = parent.transform.rotation.eulerAngles;
+                _endPosition = parent.transform.position;
+                _rotation = parent.transform.rotation.eulerAngles;
 
-            _spawnedTrail = Instantiate(Trail, parent.transform) as GameObject;
-            _effect = _spawnedTrail.GetComponent<TrailController>();
+                _spawnedTrail = Instantiate(Trail, parent.transform) as GameObject;
+                _effect = _spawnedTrail.GetComponent<TrailController>();
 
-            _effect.SetVariables(_startPosition, _endPosition, _rotation);
+                _effect.SetVariables(_startPosition, _endPosition, _rotation);
 
-            _shipMove.UpdateBonuseSpeed(BonusSpeed);
+                _shipMove.UpdateBonuseSpeed(BonusSpeed);
+            }
 
             
         }
 
         public override void Deactivate(GameObject parent)
         {
-            Destroy(_spawnedTrail);
-            _shipMove.UpdateBonuseSpeed(-BonusSpeed);
+
+            if (_abilityIsActive)
+            {
+                Destroy(_spawnedTrail);
+                _shipMove.UpdateBonuseSpeed(-BonusSpeed);
+            }
         }
 
     }

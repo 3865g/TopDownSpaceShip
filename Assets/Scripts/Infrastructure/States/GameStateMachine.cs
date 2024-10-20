@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Scripts.Infrastructure.Factory;
 using Scripts.Services.SaveLoad;
 using Scripts.Services.PersistentProgress;
-using Scripts.StaticData;
 using Scripts.Services.StaticData;
 using Scripts.UI.Services.Factory;
 

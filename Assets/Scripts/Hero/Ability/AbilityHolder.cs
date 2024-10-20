@@ -184,6 +184,16 @@ namespace Scripts.Hero.Ability
 
         public void ChangeAbility(Ability ability)
         {
+            if (CurrentAbilityState != 0 && activeAbility != ability)
+            {
+                activeAbility.Deactivate(gameObject);
+                activeTime = 0;
+                cooldownTime = 0;
+                _pausedCooldownTime =0;
+                _pausedActiveTime =0;
+                _pauseState = 0;
+    }
+
             activeAbility = ability;
             state = AbilityState.ready;
         }
@@ -208,14 +218,11 @@ namespace Scripts.Hero.Ability
 
         public void UpdateProgress(PlayerProgress progress)
         {
-            //progress.AbilityProgress.secondaryAbility = _secondaryAbility;
             progress.AbilityProgress.secondaryAbilitiesData = secondaryAbilities;
         }
 
         public void LoadProgress(PlayerProgress progress)
         {
-            //activeAbility = progress.AbilityProgress.ability;
-            //_secondaryAbility = progress.AbilityProgress.secondaryAbility;
             if (progress.AbilityProgress.secondaryAbilitiesData != null)
             {
                 secondaryAbilities = progress.AbilityProgress.secondaryAbilitiesData;

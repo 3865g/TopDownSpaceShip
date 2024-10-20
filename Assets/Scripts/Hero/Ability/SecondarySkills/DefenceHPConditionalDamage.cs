@@ -18,29 +18,24 @@ namespace Scripts.Hero.Ability
         {
             _heroHealth = parent.GetComponent<HeroHealth>();
             _heroAttack = parent.GetComponent<HeroAttack>();
+            ChangeDamage();
 
             _heroHealth.HealthChanged += ChangeDamage;
-            
+
 
         }
 
         public void ChangeDamage()
         {
-            if (_heroHealth.CurrentHP >= _heroHealth.MaxHP)
+            if (_heroHealth.CurrentHP >= _heroHealth.MaxHP && !_damageChanged)
             {
-                if(_damageChanged == false)
-                {
-                    _heroAttack.BonuseDamage += BonusDamage;
-                    _damageChanged = true;
-                }
+                _heroAttack.BonuseDamage += BonusDamage;
+                _damageChanged = true;
             }
-            else
+            else if (_heroHealth.CurrentHP < _heroHealth.MaxHP && _damageChanged)
             {
-                if (_damageChanged == true)
-                {
-                    _heroAttack.BonuseDamage -= BonusDamage;
-                    _damageChanged = false;
-                }
+                _heroAttack.BonuseDamage -= BonusDamage;
+                _damageChanged = false;
             }
         }
     }

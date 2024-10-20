@@ -1,4 +1,3 @@
-using Scripts;
 using Scripts.Services.PersistentProgress;
 using Scripts.Services;
 using Scripts.Services.Input;

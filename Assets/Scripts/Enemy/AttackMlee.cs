@@ -1,7 +1,4 @@
-﻿using Assets.Scripts.Hero;
-using Scripts.Hero;
-using Scripts.Infrastructure.AssetManagement;
-using Scripts.Logic;
+﻿using Scripts.Logic;
 using System.Linq;
 using UnityEngine;
 

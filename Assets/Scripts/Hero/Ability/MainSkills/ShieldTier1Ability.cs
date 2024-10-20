@@ -14,29 +14,38 @@ namespace Scripts.Hero.Ability
 
         private BoxCollider _boxCollider;
         private CharacterController _characterController;
+        private bool _abilityIsActive;
 
         public override void Activate(GameObject parent)
         {
-            SpawnedShield = Instantiate(ShieldGameObject, parent.transform);
-            SpawnedShield.transform.SetParent(parent.transform);
-            ShieldPrefab shieldPrefab = SpawnedShield.GetComponent<ShieldPrefab>();
+            if (!_abilityIsActive)
+            {
+                SpawnedShield = Instantiate(ShieldGameObject, parent.transform);
+                SpawnedShield.transform.SetParent(parent.transform);
+                ShieldPrefab shieldPrefab = SpawnedShield.GetComponent<ShieldPrefab>();
 
-            IHealth playerHealth = parent.GetComponent<IHealth>();
-            shieldPrefab.Construct(playerHealth.ReturnDamage, DamageWave, playerHealth.ReturnedDamage,  DamageWaveAmount);
+                IHealth playerHealth = parent.GetComponent<IHealth>();
+                shieldPrefab.Construct(playerHealth.ReturnDamage, DamageWave, playerHealth.ReturnedDamage, DamageWaveAmount);
 
 
-            _boxCollider = parent.GetComponent<BoxCollider>();
-            _boxCollider.enabled = false;
-            _characterController = parent.GetComponent<CharacterController>();
-            _characterController.detectCollisions = false;
+                _boxCollider = parent.GetComponent<BoxCollider>();
+                _boxCollider.enabled = false;
+                _characterController = parent.GetComponent<CharacterController>();
+                _characterController.detectCollisions = false;
+                _abilityIsActive = true;
+            }
 
         }
 
         public override void Deactivate(GameObject parent)
         {
-            _boxCollider.enabled = true;
-            _characterController.detectCollisions = true;
-            Destroy(SpawnedShield);
+            if (_abilityIsActive)
+            {
+                _boxCollider.enabled = true;
+                _characterController.detectCollisions = true;
+                Destroy(SpawnedShield);
+                _abilityIsActive = false;
+            }
         }
 
     }

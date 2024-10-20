@@ -5,8 +5,6 @@ using Scripts.Hero.Ability.ConfigurationStattes;
 using Scripts.Services.PersistentProgress;
 using Scripts.Data;
 using System;
-using Scripts.Services.SaveLoad;
-using Scripts.Services;
 
 namespace Scripts.Hero.Ability
 {
@@ -14,7 +12,6 @@ namespace Scripts.Hero.Ability
 
     public class AbilityManager : MonoBehaviour, ISavedProgress
     {
-        //public AbilityTypeId abilityTypeId;
         public Ability activeAbility;
 
 
@@ -29,17 +26,11 @@ namespace Scripts.Hero.Ability
 
         public AbilityData _abilityData { get; private set; }
 
-        //public string test;
-
         private ConfigurationState _currentConfiguration;
 
         private SkillType _skillType;
 
         public int _skillTypeId;
-        //{
-        //    get; private set;
-
-        //}
 
 
 
@@ -102,14 +93,6 @@ namespace Scripts.Hero.Ability
             _currentConfiguration.ChangePoints(_attackPoints, _movementPoints, _defencePoints);
         }
 
-
-
-        public void AddedAbility(Ability ability)
-        {
-          // CalculatePoints(ability);
-
-        }
-
         public void CalculatePoints(SecondaryAbility ability)
         {
             switch (ability.skillType)
@@ -139,9 +122,6 @@ namespace Scripts.Hero.Ability
         {
             progress.AbilityProgress.SkillTypeId = _skillTypeId;
             progress.AbilityProgress.skillType = _skillType;
-            //progress.AbilityProgress.AttackPoints = _attackPoints;
-            //progress.AbilityProgress.MovementPoints = _movementPoints;
-            //progress.AbilityProgress.DefencePoints = _defencePoints;
         }
 
         public void LoadProgress(PlayerProgress progress)
@@ -149,14 +129,6 @@ namespace Scripts.Hero.Ability
             _abilityData = progress.AbilityProgress;
             _skillType = progress.AbilityProgress.skillType;
             _skillTypeId = progress.AbilityProgress.SkillTypeId;
-            //_attackPoints = progress.AbilityProgress.AttackPoints;
-            //_movementPoints = progress.AbilityProgress.MovementPoints;
-            //_defencePoints = progress.AbilityProgress.DefencePoints;
-
-            //Debug.LogError(progress.AbilityProgress); 
-
-            //InitializeConfiguration();
-            //ChangeConfiguration(_skillTypeId);
         }
     }
 }

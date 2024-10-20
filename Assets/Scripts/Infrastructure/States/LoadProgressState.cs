@@ -1,8 +1,6 @@
 ﻿using Scripts.Services.PersistentProgress;
 using Scripts.Data;
 using Scripts.Services.SaveLoad;
-using System;
-using System.Diagnostics;
 
 namespace Scripts.Infrastructure.States
 {
