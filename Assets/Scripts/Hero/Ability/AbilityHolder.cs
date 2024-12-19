@@ -238,5 +238,10 @@ namespace Scripts.Hero.Ability
             }
 
         }
+
+        public void DeactivateAbility()
+        {
+            activeTime = 0;
+        }
     }
 }

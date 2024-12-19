@@ -12,9 +12,11 @@ namespace Scripts.Hero.Ability
         public bool DamageWave;
         public int DamageWaveAmount;
 
+        private AbilityHolder _abilityHolder;
+
         private BoxCollider _boxCollider;
         private CharacterController _characterController;
-        private bool _abilityIsActive;
+        private bool _abilityIsActive = false;
 
         public override void Activate(GameObject parent)
         {
@@ -24,8 +26,11 @@ namespace Scripts.Hero.Ability
                 SpawnedShield.transform.SetParent(parent.transform);
                 ShieldPrefab shieldPrefab = SpawnedShield.GetComponent<ShieldPrefab>();
 
+
+                _abilityHolder = parent.GetComponent<AbilityHolder>();
+
                 IHealth playerHealth = parent.GetComponent<IHealth>();
-                shieldPrefab.Construct(playerHealth.ReturnDamage, DamageWave, playerHealth.ReturnedDamage, DamageWaveAmount);
+                shieldPrefab.Construct(playerHealth.ReturnDamage, DamageWave, playerHealth.ReturnedDamage, DamageWaveAmount, _abilityHolder);
 
 
                 _boxCollider = parent.GetComponent<BoxCollider>();

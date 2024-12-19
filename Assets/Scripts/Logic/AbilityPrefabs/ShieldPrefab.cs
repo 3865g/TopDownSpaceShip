@@ -1,4 +1,4 @@
-using System;
+using Scripts.Hero.Ability;
 using UnityEngine;
 
 namespace Scripts.Logic
@@ -8,17 +8,20 @@ namespace Scripts.Logic
         public bool ReturnDamage;
         public float ReturnedDamage;
         public float DamageWaveRadius = 100f;
+        
+        public AbilityHolder AbilityHolder;
 
 
         private int _damageWaveAmount;
         private bool _damageWave;
 
-        internal void Construct( bool returnDamage, bool damageWave, float returnedDamage, int damageWaveAmount)
+        internal void Construct( bool returnDamage, bool damageWave, float returnedDamage, int damageWaveAmount, AbilityHolder abilityHolder)
         {
             ReturnDamage = returnDamage;
             ReturnedDamage = returnedDamage;
             _damageWave = damageWave;
             _damageWaveAmount = damageWaveAmount;
+            AbilityHolder = abilityHolder;
         }
 
         public void HitShield()

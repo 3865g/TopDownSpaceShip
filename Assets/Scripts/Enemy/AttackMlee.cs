@@ -1,4 +1,5 @@
-﻿using Scripts.Logic;
+﻿using Scripts.Hero.Ability;
+using Scripts.Logic;
 using System.Linq;
 using UnityEngine;
 
@@ -54,16 +55,18 @@ namespace Scripts.Enemy
         {
             if(Hit(out Collider hit))
             {
-                switch (Kamikaze)
+                _attackCooldown = AttackCooldown;
+                switch (hit.tag)
                 {
-                    case false:
+                    case "Player":
                         hit.transform.GetComponent<IHealth>().TakeDamage(Damage);
+                        CheckSelfDestroy();
                         break;
-                    case true:
-                        hit.transform.GetComponent<IHealth>().TakeDamage(Damage);
-                        _enemyDeath.Die();
+                    case "PlayerShield":
+                        hit.transform.GetComponent<ShieldPrefab>().AbilityHolder.DeactivateAbility();
+                        CheckSelfDestroy();
                         break;
-                }
+                }              
 
                 
             }
@@ -76,6 +79,18 @@ namespace Scripts.Enemy
             hit = _hits.FirstOrDefault();
 
             return hitAmount > 0;
+        }
+
+        public void CheckSelfDestroy()
+        {
+            switch (Kamikaze)
+            {
+                case false:
+                    break;
+                case true:
+                    _enemyDeath.Die();
+                    break;
+            }
         }
 
         private void UpdateCooldown()
