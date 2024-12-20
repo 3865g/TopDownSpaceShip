@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 7332042073547624613}
   - component: {fileID: 8118193631332069735}
   - component: {fileID: 175485638665800324}
+  - component: {fileID: 4959247482028123186}
   m_Layer: 12
   m_Name: SM_TurbineL
   m_TagString: Untagged
@@ -339,6 +340,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4959247482028123186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2983891704781786154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6f2795241db7f840acddbcbaf12919a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParentGameObject: {fileID: 4047270724007549241}
+  MovementVector: {x: 0, y: 0, z: 0}
 --- !u!1 &3068594825019521266
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,6 +798,7 @@ GameObject:
   - component: {fileID: 8941542516303708523}
   - component: {fileID: 6183588952546251554}
   - component: {fileID: 7535576634679796882}
+  - component: {fileID: 1126331008402284581}
   m_Layer: 12
   m_Name: SM_TurbineR
   m_TagString: Untagged
@@ -856,6 +872,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1126331008402284581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7766636958997444250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6f2795241db7f840acddbcbaf12919a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParentGameObject: {fileID: 4047270724007549241}
+  MovementVector: {x: 0, y: 0, z: 0}
 --- !u!1 &8014212537520492678
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,6 +981,7 @@ GameObject:
   - component: {fileID: 4644243106427429111}
   - component: {fileID: 4300163655178925024}
   - component: {fileID: 2062724692678420172}
+  - component: {fileID: 2337062963886883296}
   m_Layer: 12
   m_Name: SM_BackVint
   m_TagString: Untagged
@@ -1023,3 +1054,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2337062963886883296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8720676909585580102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b26a3d3a78c7f8f42b461b290541c7e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xAngle: 720
+  yAngle: 0
+  zAngle: 0
