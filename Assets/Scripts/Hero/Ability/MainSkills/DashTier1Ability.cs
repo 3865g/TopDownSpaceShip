@@ -52,7 +52,8 @@ namespace Scripts.Hero.Ability
 
                 _effect.SetVariables(_startPosition, _endPosition, _rotation);
 
-                _shipMove.UpdateBonuseSpeed(BonusSpeed);
+                _shipMove.UpdateBuffSpeed(BonusSpeed);
+                _abilityIsActive = true;
             }
 
             
@@ -64,7 +65,9 @@ namespace Scripts.Hero.Ability
             if (_abilityIsActive)
             {
                 Destroy(_spawnedTrail);
-                _shipMove.UpdateBonuseSpeed(-BonusSpeed);
+                _shipMove.UpdateBuffSpeed(-BonusSpeed);
+                _abilityIsActive = false;
+                Debug.LogError(" DashDeactivate" );
             }
         }
 
