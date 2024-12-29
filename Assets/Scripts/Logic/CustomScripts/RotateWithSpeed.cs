@@ -11,6 +11,7 @@ public class RotateWithSpeed : MonoBehaviour
     public float speed = 15f;
 
     private Quaternion _originalRotation = new Quaternion(0, 0, 0, 0);
+    private Quaternion _zeroSpeed;
 
 
 
@@ -25,8 +26,8 @@ public class RotateWithSpeed : MonoBehaviour
 
     private void Update()
     {
-
-        MovementVector = CharacterController.velocity;
+        _zeroSpeed = Quaternion.LookRotation(new Vector3(1, 0, 0), _originalRotation.eulerAngles);
+        MovementVector = Vector3.Lerp(CharacterController.velocity, _zeroSpeed.eulerAngles, 0.25f);
 
         if(MovementVector != Vector3.zero)
         {
@@ -51,11 +52,11 @@ public class RotateWithSpeed : MonoBehaviour
     {
         if(positionToLook != Vector3.zero)
         {
-            return Quaternion.LookRotation(new Vector3(0, 1, 0), positionToLook);
+            return Quaternion.LookRotation(positionToLook);
         }
         else
         {
-            return Quaternion.LookRotation(positionToLook);
+            return Quaternion.LookRotation(new Vector3(0, 1, 0), positionToLook);
         }
     }
 
