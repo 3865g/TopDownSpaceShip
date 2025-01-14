@@ -3,7 +3,8 @@ using UnityEngine;
 
 namespace Scripts.Logic
 {
-    public class ShieldPrefab : MonoBehaviour
+    public class 
+        ShieldPrefab : MonoBehaviour
     {
         public bool ReturnDamage;
         public float ReturnedDamage;
@@ -11,9 +12,14 @@ namespace Scripts.Logic
         
         public AbilityHolder AbilityHolder;
 
+        public GameObject ShockWaveFx;
+
 
         private int _damageWaveAmount;
         private bool _damageWave;
+
+
+      
 
         internal void Construct( bool returnDamage, bool damageWave, float returnedDamage, int damageWaveAmount, AbilityHolder abilityHolder)
         {
@@ -36,7 +42,10 @@ namespace Scripts.Logic
                         collider.transform.parent.GetComponent<IHealth>()?.TakeDamage(_damageWaveAmount);
                     }
                 }
-                Debug.LogError("Play DamageWave FX");
+                //Debug.LogError("Play DamageWave FX");
+
+                GameObject shockWave = Instantiate(ShockWaveFx, gameObject.transform);
+                Destroy(shockWave, 0.5f);
             }
         }
     }

@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146389794037421487}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1.99}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5724109048782006684
 MeshFilter:
@@ -120,3 +120,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ReturnDamage: 0
   ReturnedDamage: 0
+  DamageWaveRadius: 100
+  AbilityHolder: {fileID: 0}
+  ShockWaveFx: {fileID: 4903771879187898731, guid: de4ce42a576d7e64d8ec705e5500f8af, type: 3}

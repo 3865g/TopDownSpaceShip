@@ -42,7 +42,9 @@ namespace Scripts.Enemy
 
         private void SpawnDeathFx()
         {
-            Instantiate(DeathFx, transform.position, Quaternion.identity);
+            GameObject explosion = Instantiate(DeathFx, transform.position, Quaternion.identity);
+
+            Destroy(explosion, 2f);
         }
 
         private IEnumerator DestroyTimer()

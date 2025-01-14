@@ -47,9 +47,15 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - DistortLayer
   - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: CameraSortingLayer
+    uniqueID: 1065405113
+    locked: 0
+  - name: DistortingLayer
+    uniqueID: 1207411829
     locked: 0
