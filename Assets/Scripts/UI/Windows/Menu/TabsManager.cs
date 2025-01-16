@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class TabsManager : MonoBehaviour
 {
 
+    public GameObject ActiveTab;
     public GameObject[] Tabs;
     public Image[] TabButtons;
     public Sprite InactiveTabBG;
@@ -20,6 +21,8 @@ public class TabsManager : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
+        SetActiveTab();
     }
 
     public void SwitchToTab(int TabID)
@@ -39,6 +42,14 @@ public class TabsManager : MonoBehaviour
 
         TabButtons[TabID].sprite = ActiveTabBG;
         TabButtons[TabID].rectTransform.sizeDelta = ActiveTabButtonSize;
+    }
+
+    public void SetActiveTab()
+    {
+        if (ActiveTab)
+        {
+            ActiveTab.SetActive(true);
+        }
     }
 
    

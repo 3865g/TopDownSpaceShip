@@ -1,6 +1,5 @@
 using Scripts.Hero.Ability;
 using Scripts.UI.Windows.Shop;
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

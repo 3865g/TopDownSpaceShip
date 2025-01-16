@@ -62,7 +62,7 @@ namespace Scripts.Hero.Ability
 
             switch (_skillType)
             {
-                case SkillType.Attack:
+                case SkillType.Attacking:
                     {
                         _currentConfiguration = new AttackConfiguration();
                         InitializeConfiguration();
@@ -74,7 +74,7 @@ namespace Scripts.Hero.Ability
                         InitializeConfiguration();
                     }
                     break;
-                case SkillType.Defence:
+                case SkillType.Protective:
                     {
                         _currentConfiguration = new DefenceConfiguration();
                         InitializeConfiguration();
@@ -97,7 +97,7 @@ namespace Scripts.Hero.Ability
         {
             switch (ability.skillType)
             {
-                case SkillType.Attack:
+                case SkillType.Attacking:
                     {
                         _attackPoints +=  ability.Point;
                         _currentConfiguration.ChangePoints(_attackPoints, _movementPoints , _defencePoints);
@@ -109,7 +109,7 @@ namespace Scripts.Hero.Ability
                         _currentConfiguration.ChangePoints(_attackPoints, _movementPoints, _defencePoints);
                     }
                     break;
-                case SkillType.Defence:
+                case SkillType.Protective:
                     {
                         _defencePoints += ability.Point;
                         _currentConfiguration.ChangePoints(_attackPoints, _movementPoints, _defencePoints);

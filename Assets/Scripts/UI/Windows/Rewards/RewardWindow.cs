@@ -59,7 +59,7 @@ namespace Scripts.UI.Windows.Shop
                 else
                 {
                     _rewardItem[i].NameAbility.SetText("Take Coin");
-                    _rewardItem[i].DescriptionAbility.SetText("Abilities done");
+                    _rewardItem[i].DescriptionAbility.SetText("Abilities is over");
                     _rewardItem[i].SecondaryAbility = null;
                 }
                 

@@ -45,7 +45,7 @@ namespace Scripts.UI.Services.Factory
         {
             WindowStaticData config = _staticDataService.ForWindow(WindowId.LevelsMenu);
             LevelsMenu levlesmenu = Object.Instantiate(config.Prefab) as LevelsMenu;
-            levlesmenu.Construct(_secondaryAbilityService.AbilityManager, _gameStateMachine);
+            levlesmenu.Construct(_secondaryAbilityService.AbilityManager, _gameStateMachine, _staticDataService);
         }
 
         public void CreateRewardsMenu()

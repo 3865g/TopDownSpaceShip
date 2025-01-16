@@ -18,22 +18,24 @@ namespace Scripts.Services.StaticData
         private const string _staticDataenemyPath = "StaticData/Enemy";
         private const string _staticDataWindowPath = "StaticData/UI";
         private const string _staticDataHeroPath = "StaticData/Hero";
-        private const string _staticDataMainAbilityPath = "ScriptableObjects/Skills/ConfigurationSkills";
-        private const string _staticDataSecondaryAbilityPath = "ScriptableObjects/Skills/SecondarySkills";
+        private const string _staticDataMainAbilityPath = "StaticData/Hero/Skills/ConfigurationSkills";
+        private const string _staticDataSecondaryAbilityPath = "StaticData/Hero/Skills/SecondarySkills";
+        private const string _staticDataConfigurationPath = "StaticData/Hero/Configurations";
         private Dictionary<MonsterTypeId, MonsterStaticData> _monsters;
         private Dictionary<GateTypeId, GateStaticData> _gate;
         private Dictionary<string, LevelStaticData> _levels;
         private Dictionary<WindowId, WindowStaticData> _windowConfigs;
-        private Dictionary<HeroTyoeId,  HeroStaticData> _heroConfigs;
+        private Dictionary<HeroTyoeId, HeroStaticData> _heroConfigs;
         private Dictionary<AbilityTypeId, Ability> _mainAbilities;
         private Dictionary<SecondaryAbilityTypeId, SecondaryAbility> _secondaryAbilities;
+        private Dictionary<ConfigurationTypeId, ConfigurationDescription> _configurations;
 
         public void Load()
         {
             _monsters = Resources.LoadAll<MonsterStaticData>(_staticDataenemyPath).ToDictionary(x => x.MonsterTypeId, x => x);
 
             _gate = Resources.LoadAll<GateStaticData>(_staticDataSceneAssetsPath).ToDictionary(x => x.GateTypeId, x => x);
-        
+
             _levels = Resources.LoadAll<LevelStaticData>(_staticDataLevelPath).ToDictionary(x => x.LevelKey, x => x);
 
             _windowConfigs = Resources.LoadAll<WindowStaticData>(_staticDataWindowPath).ToDictionary(x => x.WindowId, x => x);
@@ -43,6 +45,8 @@ namespace Scripts.Services.StaticData
             _mainAbilities = Resources.LoadAll<Ability>(_staticDataMainAbilityPath).ToDictionary(x => x.abilityTypeId, x => x);
 
             _secondaryAbilities = Resources.LoadAll<SecondaryAbility>(_staticDataSecondaryAbilityPath).ToDictionary(x => x.abilityTypeId, x => x);
+
+            _configurations = Resources.LoadAll<ConfigurationDescription>(_staticDataConfigurationPath).ToDictionary(x => x.configurationTypeId, x => x);
 
             //Debug.Log(_windowConfigs);
         }
@@ -107,6 +111,15 @@ namespace Scripts.Services.StaticData
             if (_secondaryAbilities.TryGetValue(abilityTypeId, out SecondaryAbility secondaryAbilityStaticData))
             {
                 return secondaryAbilityStaticData;
+            }
+            return null;
+        }
+
+        public ConfigurationDescription ForConfiguration(ConfigurationTypeId configurationTypeId)
+        {
+            if (_configurations.TryGetValue(configurationTypeId, out ConfigurationDescription configurationStaticData))
+            {
+                return configurationStaticData;
             }
             return null;
         }
