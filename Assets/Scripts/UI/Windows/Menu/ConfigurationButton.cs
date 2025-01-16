@@ -22,19 +22,19 @@ namespace Scripts.UI.Windows.Rewards
         public ConfigurationTypeId ConfigurationTypeId;
 
 
+
         private AbilityManager _abilityManager;
         private ISaveLoadService _saveLoadService;
         private IStaticDataService _staticDataService;
 
 
 
-        private void OnEnable()
+        private void Awake()
         {
-
             //Need move to gameFactory?
+
             _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
 
-            Button.onClick.AddListener(ChangeShipConfiguration);
             LevelsMenu levelsMenu = GetComponentInParent<LevelsMenu>();
             _abilityManager = levelsMenu.AbilityManager;
             _staticDataService = levelsMenu.StaticDataService;
@@ -42,6 +42,7 @@ namespace Scripts.UI.Windows.Rewards
             Configuration = _staticDataService.ForConfiguration(ConfigurationTypeId);
             FillText(Configuration);
 
+            Button.onClick.AddListener(ChangeShipConfiguration);
         }
 
         public void FillText(ConfigurationDescription configuration)
@@ -52,10 +53,12 @@ namespace Scripts.UI.Windows.Rewards
 
         public void ChangeShipConfiguration()
         {
+
             _abilityManager.ChangeConfiguration(Convert.ToInt32(Configuration.skillType));
 
             _saveLoadService.SaveProgress();
         }
+
     }
 }
 

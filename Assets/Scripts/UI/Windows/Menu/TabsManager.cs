@@ -34,14 +34,18 @@ public class TabsManager : MonoBehaviour
 
         Tabs[TabID].SetActive(true);
 
-        foreach(Image image in TabButtons)
+        if (TabButtons.Length > 0)
         {
-            image.sprite = InactiveTabBG;
-            image.rectTransform.sizeDelta = InactiveTabButtonSize;
-        }
 
-        TabButtons[TabID].sprite = ActiveTabBG;
-        TabButtons[TabID].rectTransform.sizeDelta = ActiveTabButtonSize;
+            foreach (Image image in TabButtons)
+            {
+                image.sprite = InactiveTabBG;
+                image.rectTransform.sizeDelta = InactiveTabButtonSize;
+            }
+
+            TabButtons[TabID].sprite = ActiveTabBG;
+            TabButtons[TabID].rectTransform.sizeDelta = ActiveTabButtonSize;
+        }
     }
 
     public void SetActiveTab()
