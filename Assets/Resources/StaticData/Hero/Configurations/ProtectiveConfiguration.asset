@@ -12,8 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc20dcde31da77a429a9c11d3f059510, type: 3}
   m_Name: ProtectiveConfiguration
   m_EditorClassIdentifier: 
-  name: Protective
+  Name: Protective configuration
   configurationTypeId: 3
-  description: When you select this configuration, survivability increases and the
-    ship gains the ability to create a shield.
+  ShortDescription: When you select this configuration, survivability increases and
+    the ship gains the ability to create a shield.
   skillType: 2
+  ConfigurationIcon: {fileID: 0}
+  DetailedDescription: When you select this configuration, survivability increases
+    and the ship gains the ability to create a shield.
+  OpeningConditions: If you score 3 and 9 points of the current direction, you will
+    unlock the second and third ability levels.
+  AbilityTier1Icon: {fileID: 0}
+  AbilityTier1Name: Shield
+  AbilityTier1Description: can use shield
+  AbilityTier2Icon: {fileID: 0}
+  AbilityTier2Name: Shield shock wave
+  AbilityTier2Description: If an enemy hits the shield, the shield activates an electric
+    wave that causes damage to everyone in a certain radius.
+  AbilityTier3Icon: {fileID: 0}
+  AbilityTier3Name: Shield shock wave 2
+  AbilityTier3Description: If an enemy hits the shield, the shield activates an electric
+    wave that causes damage to everyone in a certain radius.  but stronger

@@ -1,8 +1,4 @@
-using Assets.Scripts.UI.Elements;
 using Scripts.Infrastructure.States;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace Scripts.UI.Windows.Menu
 {

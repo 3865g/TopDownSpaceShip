@@ -1,4 +1,5 @@
 using Scripts.StaticData;
+using TMPro;
 using UnityEngine;
 
 
@@ -9,11 +10,35 @@ namespace Scripts.Hero.Ability
 
     public class ConfigurationDescription : ScriptableObject
     {
-        public new string name;
+        public new string Name;
         public ConfigurationTypeId configurationTypeId;
         [TextArea(1, 4)]
-        public string description;
+        public string ShortDescription;
         public SkillType skillType;
+
+
+
+        public Sprite ConfigurationIcon;
+        [TextArea(1, 4)]
+        public string DetailedDescription;
+        [TextArea(1, 4)]
+        public string OpeningConditions;
+        public Sprite AbilityTier1Icon;
+        [TextArea(1, 4)]
+        public string AbilityTier1Name;
+        [TextArea(1, 4)]
+        public string AbilityTier1Description;
+        public Sprite AbilityTier2Icon;
+        [TextArea(1, 4)]
+        public string AbilityTier2Name;
+        [TextArea(1, 4)]
+        public string AbilityTier2Description;
+        public Sprite AbilityTier3Icon;
+        [TextArea(1, 4)]
+        public string AbilityTier3Name;
+        [TextArea(1, 4)]
+        public string AbilityTier3Description;
+
     }
 
 }

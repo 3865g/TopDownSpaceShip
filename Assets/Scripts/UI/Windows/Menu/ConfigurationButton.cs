@@ -18,6 +18,7 @@ namespace Scripts.UI.Windows.Rewards
         public TextMeshProUGUI DescriptionConfiguration;
 
         public ConfigurationDescription Configuration;
+        public ConfigurationConfirmation ConfigurationConfirmation;
 
         public ConfigurationTypeId ConfigurationTypeId;
 
@@ -47,8 +48,8 @@ namespace Scripts.UI.Windows.Rewards
 
         public void FillText(ConfigurationDescription configuration)
         {
-            NameConfiguration.SetText(configuration.name);
-            DescriptionConfiguration.SetText(configuration.description);
+            NameConfiguration.SetText(configuration.Name);
+            DescriptionConfiguration.SetText(configuration.ShortDescription);
         }
 
         public void ChangeShipConfiguration()
@@ -57,6 +58,8 @@ namespace Scripts.UI.Windows.Rewards
             _abilityManager.ChangeConfiguration(Convert.ToInt32(Configuration.skillType));
 
             _saveLoadService.SaveProgress();
+
+            ConfigurationConfirmation.FillData(Configuration);
         }
 
     }
