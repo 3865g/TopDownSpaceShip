@@ -34,6 +34,9 @@ namespace Scripts.UI.Services.Windows
                 case WindowId.ChoiceWindow:
                     _uiFactory.CreateChoiceWindow(this);
                     break;
+                case WindowId.PauseMenu:
+                    _uiFactory.CreatePauseMenu();
+                    break;
             }
 
         }

@@ -1,23 +1,27 @@
-using Scripts.Infrastructure.States;
-using Scripts.Services.SaveLoad;
-using Scripts.Services;
-using Scripts.UI.Services.Windows;
-using UnityEngine.UI;
-using Scripts.Services.PersistentProgress;
-using Scripts.UI.Windows;
-using Scripts.Data;
 
-namespace Assets.Scripts.UI.Menu
+using Scripts.Data;
+using Scripts.Infrastructure.States;
+using Scripts.Services;
+using Scripts.Services.PersistentProgress;
+using Scripts.Services.SaveLoad;
+using Scripts.UI.Services.Windows;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+namespace Scripts.UI.Windows.Menu
 {
-    public class StartLevelButton : WindowBase
+
+    public class RestartLevel : WindowBase
     {
         public Button Button;
 
 
-        public string ChoiseButton1 = "conture";
-        public string ChoiseButton2 = "new travel";
-        public string ChoiseHeadding = "Do you want to continue?";
-        public string ChoiseBody = "If you start a new playthrough, the progress of the current playthrough will disappear";
+        public string ChoiseButton1 = "Cancel";
+        public string ChoiseButton2 = "Confirm";
+        public string ChoiseHeadding = "Do you want to restart current level?";
+        public string ChoiseBody = " ";
+
+        private string _mainMenu = "MainMenu";
 
         private IWindowService _windowService;
 
@@ -28,47 +32,32 @@ namespace Assets.Scripts.UI.Menu
         private IPersistentProgressService _persistentProgressService;
 
 
-        public string InitialLevel = "MainMenu";
-
-
-        public void Construct(IGameStateMachine gameStateMachine, IWindowService windowService)
+        public void Construct(IGameStateMachine gameStateMachine)
         {
             _gameStateMachine = gameStateMachine;
-            _windowService = windowService;
         }
 
         private void Awake()
         {
             _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
             _persistentProgressService = AllServices.Container.Single<IPersistentProgressService>();
+            _windowService = AllServices.Container.Single<IWindowService>();
 
             Button.onClick.AddListener(ClickStart);
         }
 
+        private void Start()
+        {
+            if (_persistentProgressService.Progress.WorldData.PositionOnLevel.SavedLevel == "MainMenu")
+            {
+                gameObject.SetActive(false);
+            }
+        }
 
         public void ClickStart()
         {
-
-            if (_saveLoadService.LoadProgress() == null)
-            {
-                NewGame();
-            }
-            else
-            {
-                if (_saveLoadService.LoadProgress().WorldData.PositionOnLevel.SavedLevel == InitialLevel)
-                {
-                    NewGame();
-                }
-                else
-                {
-                    CreateChoiseWindow();
-                }
-                    
-            }
-            
-
+            CreateChoiseWindow();
         }
-
 
         public void CreateChoiseWindow()
         {
@@ -77,29 +66,37 @@ namespace Assets.Scripts.UI.Menu
             _windowService.ChoiceWindow.Button2Text.text = ChoiseButton2;
             _windowService.ChoiceWindow.MainTextHeading.text = ChoiseHeadding;
             _windowService.ChoiceWindow.MainTextBody.text = ChoiseBody;
-            _windowService.ChoiceWindow.Choice1 += ContinueGame;
-            _windowService.ChoiceWindow.Choice2 += NewGame;
+            _windowService.ChoiceWindow.Choice1 += Cancel;
+            _windowService.ChoiceWindow.Choice2 += Confirm;
             _windowService.ChoiceWindow.DestroyWindow += DestroyWindow;
         }
 
-        public void ContinueGame()
+
+        public void Cancel()
         {
+            DestroyWindow();
+        }
+
+        public void Confirm()
+        {
+
             _persistentProgressService.Progress = _saveLoadService.LoadProgress() ?? NewProgress();
 
             _gameStateMachine.Enter<LoadLevelState, string>(_persistentProgressService.Progress.WorldData.PositionOnLevel.SavedLevel);
+
+
         }
 
-        public void NewGame()
+        public void DestroyWindow()
         {
-            _persistentProgressService.Progress = NewProgress();
-            _windowService.Open(WindowId.LevelsMenu);
+            _windowService.ChoiceWindow.Choice1 -= Cancel;
+            _windowService.ChoiceWindow.Choice2 -= Confirm;
+            _windowService.ChoiceWindow.DestroyWindow -= DestroyWindow;
         }
 
-
-        //NeedRefactoring?
         public PlayerProgress NewProgress()
         {
-            var progress = new PlayerProgress(initialLevel: InitialLevel);
+            var progress = new PlayerProgress(initialLevel: _mainMenu);
 
             //Need Refactoring, load vcalues from SO
 
@@ -111,13 +108,6 @@ namespace Assets.Scripts.UI.Menu
 
 
             return progress;
-        }
-
-        public void DestroyWindow()
-        {
-            _windowService.ChoiceWindow.Choice1 -= ContinueGame;
-            _windowService.ChoiceWindow.Choice2 -= NewGame;
-            _windowService.ChoiceWindow.DestroyWindow -= DestroyWindow;
         }
     }
 }

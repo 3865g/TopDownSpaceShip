@@ -1,8 +1,6 @@
 ﻿using Scripts.Services;
 using Scripts.UI.Services.Windows;
-using Scripts.UI.Windows.Menu;
 using System.Threading.Tasks;
-using UnityEngine;
 
 namespace Scripts.UI.Services.Factory
 {
@@ -11,6 +9,7 @@ namespace Scripts.UI.Services.Factory
 
         void CreatePlanetsMenu();
         void CreateRewardsMenu();
+        void CreatePauseMenu();
         void CreateShop();
         void CreateChoiceWindow(IWindowService windowService);
         Task CreateUIRoot();

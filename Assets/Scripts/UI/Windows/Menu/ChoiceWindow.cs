@@ -1,5 +1,3 @@
-using Scripts.Hero.Ability;
-using Scripts.Infrastructure.States;
 using System;
 using TMPro;
 using UnityEngine.UI;
@@ -22,13 +20,6 @@ namespace Scripts.UI.Windows.Menu
         public TextMeshProUGUI MainTextBody;
 
 
-        //public void Construct(string button1Text, string button2Text, string headding, string body)
-        //{
-        //    _button1Text.text = button1Text;
-        //    _button2Text.text = button2Text;
-        //    _mainTextHeading.text = headding;
-        //    _mainTextBody.text = body;
-        //}
 
 
         private void Awake()

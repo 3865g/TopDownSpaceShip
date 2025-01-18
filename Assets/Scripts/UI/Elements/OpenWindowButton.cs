@@ -1,5 +1,4 @@
-﻿using Scripts.Hero.Ability;
-using Scripts.Infrastructure.States;
+﻿using Scripts.Infrastructure.States;
 using Scripts.UI.Services.Windows;
 using UnityEngine;
 using UnityEngine.UI;

@@ -7,5 +7,6 @@
         LevelsMenu = 2,
         Rewards = 3,
         ChoiceWindow = 4,
+        PauseMenu = 5
     }
 }
