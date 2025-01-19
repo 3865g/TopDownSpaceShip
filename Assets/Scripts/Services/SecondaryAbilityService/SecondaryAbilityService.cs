@@ -2,7 +2,6 @@
 using Scripts.Hero.Ability;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Scripts.Services.SecondaryAbilityService
 {
@@ -18,11 +17,7 @@ namespace Scripts.Services.SecondaryAbilityService
 
         public void SetAvailableAbilityList(List<SecondaryAbility> secondaryAbilities)
         {
-            ServiceSecondaryAbilities = secondaryAbilities;
-            
-
-          
-
+            ServiceSecondaryAbilities = secondaryAbilities;          
         }
 
         public void GetRandomSkill()

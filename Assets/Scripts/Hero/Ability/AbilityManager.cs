@@ -12,7 +12,7 @@ namespace Scripts.Hero.Ability
 
     public class AbilityManager : MonoBehaviour, ISavedProgress
     {
-        public Ability activeAbility;
+        public ConfigurationAbility activeAbility;
 
 
         public GameObject _player;

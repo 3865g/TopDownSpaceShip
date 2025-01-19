@@ -1,9 +1,6 @@
 using Scripts.Enemy;
 using Scripts.Logic;
-using Scripts.Services.SaveLoad;
-using Scripts.Services;
 using UnityEngine;
-using Scripts.Services.PersistentProgress;
 using Scripts.Data;
 
 
@@ -11,7 +8,7 @@ namespace Scripts.Hero.Ability
 {
 
     [CreateAssetMenu(fileName = "New Skill", menuName = "MainSkills / DoubleShoot", order = 0)]
-    public class DoubleShootTier1Ability : PassiveAbility/*, ISavedProgress*/
+    public class DoubleShootTier1Ability : ConfigurationAbility/*, ISavedProgress*/
     {
         public int BurstAmount;
         public float MaxHPMultiplyer;

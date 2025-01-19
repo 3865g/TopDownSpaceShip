@@ -5,7 +5,7 @@ namespace Scripts.Hero.Ability
 {
 
     [CreateAssetMenu(fileName = "New Skill", menuName = "MainSkills / ShieldTier1", order = 0)]
-    public class ShieldTier1Ability : ActiveAbility
+    public class ShieldTier1Ability : ConfigurationAbility
     {
         public GameObject ShieldGameObject;
         public GameObject SpawnedShield;

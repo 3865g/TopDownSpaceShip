@@ -10,7 +10,7 @@ namespace Scripts.Data
     [Serializable]
     public class AbilityData
     {
-        public Ability ability;
+        public ConfigurationAbility ability;
         public SecondaryAbility secondaryAbility;
         public List<SecondaryAbility> secondaryAbilitiesData;
 

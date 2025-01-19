@@ -14,10 +14,10 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
 
         public AbilityTypeId abilityTypeId;
         
-        private Ability _activeAbility;
-        private Ability _abilityTier1;
-        private Ability _abilityTier2;
-        private Ability _abilityTier3;
+        private ConfigurationAbility _activeAbility;
+        private ConfigurationAbility _abilityTier1;
+        private ConfigurationAbility _abilityTier2;
+        private ConfigurationAbility _abilityTier3;
 
         private GameObject _player;
         private IStaticDataService _staticDataService;

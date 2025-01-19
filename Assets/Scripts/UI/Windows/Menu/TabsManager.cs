@@ -1,14 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.Rendering.DebugUI;
 
 public class TabsManager : MonoBehaviour
 {
-
-    public GameObject ActiveTab;
-    public Image ActiveButton;
+    public bool SetActiveTab;
+    public int ActiveTab;
     public GameObject[] Tabs;
     public Image[] TabButtons;
     public Sprite InactiveTabBG;
@@ -24,13 +20,26 @@ public class TabsManager : MonoBehaviour
             gameObject.SetActive(false);
         }
 
-        SetActiveTab();
+        if (SetActiveTab)
+        {
+            SwitchToTab(ActiveTab);
+        }
     }
 
 
     private void OnEnable()
     {
-        SetActiveTab();
+        if (SetActiveTab)
+        {
+            SwitchToTab(ActiveTab);
+        }
+        else
+        {
+            foreach (GameObject gameObject in Tabs)
+            {
+                gameObject.SetActive(false);
+            }
+        }
     }
 
     public void SwitchToTab(int TabID)
@@ -54,21 +63,7 @@ public class TabsManager : MonoBehaviour
             TabButtons[TabID].sprite = ActiveTabBG;
             TabButtons[TabID].rectTransform.sizeDelta = ActiveTabButtonSize;
         }
-    }
-
-    public void SetActiveTab()
-    {
-        if (ActiveTab)
-        {
-            ActiveTab.SetActive(true);
-        }
-        if (ActiveButton)
-        {
-            ActiveButton.sprite = ActiveTabBG;
-            ActiveButton.rectTransform.sizeDelta = ActiveTabButtonSize;
-        }
-
-    }
+    }  
 
    
 }

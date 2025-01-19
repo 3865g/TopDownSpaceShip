@@ -26,7 +26,7 @@ namespace Scripts.Services.StaticData
         private Dictionary<string, LevelStaticData> _levels;
         private Dictionary<WindowId, WindowStaticData> _windowConfigs;
         private Dictionary<HeroTyoeId, HeroStaticData> _heroConfigs;
-        private Dictionary<AbilityTypeId, Ability> _mainAbilities;
+        private Dictionary<AbilityTypeId, ConfigurationAbility> _mainAbilities;
         private Dictionary<SecondaryAbilityTypeId, SecondaryAbility> _secondaryAbilities;
         private Dictionary<ConfigurationTypeId, ConfigurationDescription> _configurations;
 
@@ -42,7 +42,7 @@ namespace Scripts.Services.StaticData
 
             _heroConfigs = Resources.LoadAll<HeroStaticData>(_staticDataHeroPath).ToDictionary(x => x.HeroTyoeId, x => x);
 
-            _mainAbilities = Resources.LoadAll<Ability>(_staticDataMainAbilityPath).ToDictionary(x => x.abilityTypeId, x => x);
+            _mainAbilities = Resources.LoadAll<ConfigurationAbility>(_staticDataMainAbilityPath).ToDictionary(x => x.abilityTypeId, x => x);
 
             _secondaryAbilities = Resources.LoadAll<SecondaryAbility>(_staticDataSecondaryAbilityPath).ToDictionary(x => x.abilityTypeId, x => x);
 
@@ -88,9 +88,9 @@ namespace Scripts.Services.StaticData
             return null;
         }
 
-        public Ability ForAbility(AbilityTypeId abilityTypeId)
+        public ConfigurationAbility ForAbility(AbilityTypeId abilityTypeId)
         {
-            if (_mainAbilities.TryGetValue(abilityTypeId, out Ability abilityStaticData))
+            if (_mainAbilities.TryGetValue(abilityTypeId, out ConfigurationAbility abilityStaticData))
             {
                 return abilityStaticData;
             }

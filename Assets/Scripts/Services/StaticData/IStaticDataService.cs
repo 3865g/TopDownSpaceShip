@@ -17,7 +17,7 @@ namespace Scripts.Services.StaticData
         HeroStaticData ForHero(HeroTyoeId heroTypeId);
 
 
-        Ability ForAbility(AbilityTypeId abilityTypeId);
+        ConfigurationAbility ForAbility(AbilityTypeId abilityTypeId);
         SecondaryAbility ForSecondaryAbility(SecondaryAbilityTypeId abilityTypeId);
         ConfigurationDescription ForConfiguration(ConfigurationTypeId configurationTypeId);
 

@@ -8,46 +8,26 @@ namespace Scripts.UI.Windows.Menu
 
     public class ConfigurationConfirmation : MonoBehaviour
     {
-        public GameObject ConfigurationIcon;
+        public Image ConfigurationIcon;
         public TextMeshProUGUI ConfigurationDescription;
         public TextMeshProUGUI OpeningConditions;
-        public GameObject AbilityTier1Icon;
+        public Image AbilityTier1Icon;
         public TextMeshProUGUI AbilityTier1Name;
         public TextMeshProUGUI AbilityTier1Description;
-        public GameObject AbilityTier2Icon;
+        public Image AbilityTier2Icon;
         public TextMeshProUGUI AbilityTier2Name;
         public TextMeshProUGUI AbilityTier2Description;
-        public GameObject AbilityTier3Icon;
+        public Image AbilityTier3Icon;
         public TextMeshProUGUI AbilityTier3Name;
         public TextMeshProUGUI AbilityTier3Description;
-
-
-        private Sprite _configurationIcon;
-        private Sprite _abilityTier1Icon;
-        private Sprite _abilityTier2Icon;
-        private Sprite _abilityTier3Icon;
-
-        private void Awake()
-        {
-            SpriteVariable();
-        }
-
-
-        public void SpriteVariable()
-        {
-            _configurationIcon = ConfigurationIcon.GetComponent<Image>().sprite;
-            _abilityTier1Icon = AbilityTier1Icon.GetComponent<Image>().sprite;
-            _abilityTier2Icon = AbilityTier2Icon.GetComponent<Image>().sprite;
-            _abilityTier3Icon = AbilityTier3Icon.GetComponent<Image>().sprite;
-        }
         
 
         public void FillData(ConfigurationDescription configuration)
         {
-            //_configurationIcon = configuration.ConfigurationIcon;
-            //_abilityTier1Icon = configuration.AbilityTier1Icon;
-            //_abilityTier2Icon= configuration.AbilityTier2Icon;
-            //_abilityTier3Icon= configuration.AbilityTier3Icon;
+            ConfigurationIcon.sprite = configuration.ConfigurationIcon;
+            AbilityTier1Icon.sprite = configuration.AbilityTier1Icon;
+            AbilityTier2Icon.sprite = configuration.AbilityTier2Icon;
+            AbilityTier3Icon.sprite = configuration.AbilityTier3Icon;
 
             ConfigurationDescription.SetText(configuration.DetailedDescription);
             OpeningConditions.SetText(configuration.OpeningConditions);
@@ -58,13 +38,7 @@ namespace Scripts.UI.Windows.Menu
             AbilityTier3Name.SetText(configuration.AbilityTier3Name);
             AbilityTier3Description.SetText(configuration.AbilityTier3Description);
 
-
-
-
         }
-
-
-
 
     }
 }

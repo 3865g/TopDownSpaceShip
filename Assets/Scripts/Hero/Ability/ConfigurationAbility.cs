@@ -3,9 +3,11 @@ using Scripts.StaticData;
 
 namespace Scripts.Hero.Ability
 {
-    public class Ability : ScriptableObject
+    public class ConfigurationAbility : ScriptableObject
     {
+
         public new string name;
+        public Sprite Icon;
         public AbilityTypeId abilityTypeId;
         [TextArea (1, 4)]
         public string description;

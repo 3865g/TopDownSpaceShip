@@ -5,7 +5,7 @@ namespace Scripts.Hero.Ability
 {
 
     [CreateAssetMenu(fileName = "New Skill", menuName = "MainSkills / DashTier1", order = 0)]
-    public class DashTier1Ability : ActiveAbility
+    public class DashTier1Ability : ConfigurationAbility
     {
         public float DashRange;
         public float BonusSpeed;

@@ -37,8 +37,14 @@ namespace Scripts.UI.Windows.Menu
 
         public void SendLinks()
         {
-            _returnMainMenu.Construct(_gameStateMachine);
-            _restartLevel.Construct(_gameStateMachine);
+            if (_returnMainMenu != null)
+            {
+                _returnMainMenu.Construct(_gameStateMachine);
+            }
+            if (_restartLevel != null)
+            {
+                _restartLevel.Construct(_gameStateMachine);
+            }
         }
     }
 }

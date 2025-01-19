@@ -24,7 +24,7 @@ namespace Scripts.Hero.Ability
 
         public bool IsAbilityUse;
 
-        public Ability activeAbility;
+        public ConfigurationAbility activeAbility;
 
 
 
@@ -32,7 +32,7 @@ namespace Scripts.Hero.Ability
         public List<SecondaryAbility> secondaryAbilities;
         public RewardsManager RewardsManager;
 
-        private Ability _passiveAbility;
+        private ConfigurationAbility _passiveAbility;
         private SecondaryAbility _secondaryAbility;
         private AbilityManager _abilityManager;
 
@@ -160,7 +160,7 @@ namespace Scripts.Hero.Ability
         }
 
 
-        public void ActivatePassiveAbility(Ability passiveAbility)
+        public void ActivatePassiveAbility(ConfigurationAbility passiveAbility)
         {
             _passiveAbility = passiveAbility;
             _passiveAbility.ActivatePassive(gameObject);
@@ -182,7 +182,7 @@ namespace Scripts.Hero.Ability
 
 
 
-        public void ChangeAbility(Ability ability)
+        public void ChangeAbility(ConfigurationAbility ability)
         {
             if (CurrentAbilityState != 0 && activeAbility != ability)
             {

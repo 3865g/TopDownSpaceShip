@@ -14,6 +14,7 @@ namespace Scripts.UI.Windows.Rewards
     public class ConfigurationButton : MonoBehaviour
     {
         public Button Button;
+        public Image Icon;
         public TextMeshProUGUI NameConfiguration;
         public TextMeshProUGUI DescriptionConfiguration;
 
@@ -41,13 +42,14 @@ namespace Scripts.UI.Windows.Rewards
             _staticDataService = levelsMenu.StaticDataService;
 
             Configuration = _staticDataService.ForConfiguration(ConfigurationTypeId);
-            FillText(Configuration);
+            FillData(Configuration);
 
             Button.onClick.AddListener(ChangeShipConfiguration);
         }
 
-        public void FillText(ConfigurationDescription configuration)
+        public void FillData(ConfigurationDescription configuration)
         {
+            Icon.sprite = configuration.ConfigurationIcon;
             NameConfiguration.SetText(configuration.Name);
             DescriptionConfiguration.SetText(configuration.ShortDescription);
         }
