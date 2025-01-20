@@ -35,7 +35,11 @@ namespace Scripts.UI.Windows
 
         protected virtual void OnAwake()
         {
-            CloseButton.onClick.AddListener(() => Destroy(gameObject));
+            if (CloseButton)
+            {
+                CloseButton.onClick.AddListener(() => Destroy(gameObject));
+            }
+            
 
 
             if (Time.timeScale == 0)

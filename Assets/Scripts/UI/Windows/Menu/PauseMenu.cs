@@ -21,15 +21,19 @@ namespace Scripts.UI.Windows.Menu
 
         private ReturnToMainMenu _returnMainMenu;
         private RestartLevel _restartLevel;
+        private DetailsContent _detailsContent;
 
 
-        public void Construct(IGameStateMachine gameStateMachine, ISecondaryAbilityService secondaryAbilityService)
+        public void Construct(IGameStateMachine gameStateMachine, ISecondaryAbilityService secondaryAbilityService, IWindowService windowService)
         {
             _gameStateMachine = gameStateMachine;
             _secondaryAbilityService = secondaryAbilityService;
             _player = _secondaryAbilityService.Player;
+            _windowService = windowService;
             _returnMainMenu = GetComponentInChildren<ReturnToMainMenu>();
             _restartLevel = GetComponentInChildren<RestartLevel>();
+            _detailsContent = GetComponentInChildren<DetailsContent>();
+
 
             SendLinks();
 
@@ -37,13 +41,17 @@ namespace Scripts.UI.Windows.Menu
 
         public void SendLinks()
         {
-            if (_returnMainMenu != null)
+            if (_returnMainMenu)
             {
                 _returnMainMenu.Construct(_gameStateMachine);
             }
-            if (_restartLevel != null)
+            if (_restartLevel)
             {
                 _restartLevel.Construct(_gameStateMachine);
+            }
+            if (_detailsContent)
+            {
+                _detailsContent.Construct(_windowService, _player);
             }
         }
     }

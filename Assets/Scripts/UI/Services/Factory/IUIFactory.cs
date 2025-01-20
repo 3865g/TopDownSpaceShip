@@ -9,7 +9,8 @@ namespace Scripts.UI.Services.Factory
 
         void CreatePlanetsMenu();
         void CreateRewardsMenu();
-        void CreatePauseMenu();
+        void CreatePauseMenu(IWindowService windowService);
+        void CreateDetailedViewAbility(IWindowService windowService);
         void CreateShop();
         void CreateChoiceWindow(IWindowService windowService);
         Task CreateUIRoot();

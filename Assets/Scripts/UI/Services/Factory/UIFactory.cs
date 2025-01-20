@@ -57,11 +57,18 @@ namespace Scripts.UI.Services.Factory
 
         }
 
-        public void CreatePauseMenu()
+        public void CreatePauseMenu(IWindowService windowService)
         {
             WindowStaticData config = _staticDataService.ForWindow(WindowId.PauseMenu);
             PauseMenu pauseMenu = Object.Instantiate(config.Prefab, _uiRoot) as PauseMenu;
-            pauseMenu.Construct(_gameStateMachine, _secondaryAbilityService);
+            pauseMenu.Construct(_gameStateMachine, _secondaryAbilityService, windowService);
+        }
+
+        public void CreateDetailedViewAbility(IWindowService windowService)
+        {
+            WindowStaticData config = _staticDataService.ForWindow(WindowId.DetailedViewAbilities);
+            DetailedViewAbility detailedViewAbility = Object.Instantiate(config.Prefab, _uiRoot) as DetailedViewAbility;
+            windowService.DetailedViewAbility = detailedViewAbility;
         }
 
         public void CreateShop()

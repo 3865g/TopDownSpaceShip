@@ -1,6 +1,5 @@
 ﻿using Scripts.Services;
 using Scripts.UI.Windows.Menu;
-using UnityEngine;
 
 namespace Scripts.UI.Services.Windows
 {
@@ -10,5 +9,8 @@ namespace Scripts.UI.Services.Windows
 
         //Need here???
         ChoiceWindow ChoiceWindow { get; set; }
+
+        DetailedViewAbility DetailedViewAbility { get; set; }
+
     }
 }

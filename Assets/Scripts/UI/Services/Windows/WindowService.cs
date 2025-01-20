@@ -16,6 +16,9 @@ namespace Scripts.UI.Services.Windows
         //I want to get a link to this window so that I can use it in different places, but am I doing the right thing??
         public ChoiceWindow ChoiceWindow { get; set; }
 
+        public DetailedViewAbility DetailedViewAbility { get; set; }
+
+
         public void Open(WindowId windowId)
         {
             switch (windowId)
@@ -35,7 +38,10 @@ namespace Scripts.UI.Services.Windows
                     _uiFactory.CreateChoiceWindow(this);
                     break;
                 case WindowId.PauseMenu:
-                    _uiFactory.CreatePauseMenu();
+                    _uiFactory.CreatePauseMenu(this);
+                    break;
+                case WindowId.DetailedViewAbilities:
+                    _uiFactory.CreateDetailedViewAbility(this);
                     break;
             }
 
