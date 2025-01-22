@@ -15,8 +15,6 @@ using Assets.Scripts.UI.Elements;
 using Scripts.UI.Services.Windows;
 using Scripts.Infrastructure.States;
 using System.Threading.Tasks;
-using UnityEngine.AddressableAssets;
-using Assets.Scripts.Hero;
 using Scripts.Logic.Gates;
 using Assets.Scripts.UI.Menu;
 using Scripts.Hero.Ability;
@@ -101,6 +99,8 @@ namespace Scripts.Infrastructure.Factory
             AbilityHolder abilityHolder = _heroGameObject.GetComponent<AbilityHolder>();
             abilityHolder.RewardsManager = _gameManager.GetComponent<RewardsManager>();
             abilityHolder.Construct(_abilityManager.GetComponent<AbilityManager>());
+            HeroDeath heroDeath = _heroGameObject.GetComponent<HeroDeath>();
+            heroDeath.Construct(_windowService);
             
             _abilityManager.GetComponent<AbilityManager>().InitPlayer(_heroGameObject, _persistentProgressService.Progress.AbilityProgress.SkillTypeId);
 

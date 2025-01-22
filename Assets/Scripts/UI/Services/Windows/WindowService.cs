@@ -43,6 +43,9 @@ namespace Scripts.UI.Services.Windows
                 case WindowId.DetailedViewAbilities:
                     _uiFactory.CreateDetailedViewAbility(this);
                     break;
+                    case WindowId.GameOver:
+                    _uiFactory.CreateGameOverWindow();
+                        break;
             }
 
         }

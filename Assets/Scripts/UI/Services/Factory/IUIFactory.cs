@@ -13,6 +13,7 @@ namespace Scripts.UI.Services.Factory
         void CreateDetailedViewAbility(IWindowService windowService);
         void CreateShop();
         void CreateChoiceWindow(IWindowService windowService);
+        void CreateGameOverWindow();
         Task CreateUIRoot();
     }
 }

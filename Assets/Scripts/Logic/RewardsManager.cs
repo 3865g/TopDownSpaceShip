@@ -1,7 +1,4 @@
-
-using Scripts.Data;
 using Scripts.Hero.Ability;
-using Scripts.Services.PersistentProgress;
 using Scripts.Services.SecondaryAbilityService;
 using Scripts.Services.StaticData;
 using Scripts.StaticData;
@@ -9,7 +6,6 @@ using Scripts.UI.Services.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 namespace Scripts.Logic
@@ -17,6 +13,7 @@ namespace Scripts.Logic
     public class RewardsManager : MonoBehaviour /*, ISavedProgress*/ 
     {
         public List<SecondaryAbility> RewardSecondaryAbilities;
+        public List<SecondaryAbility> AllSecondaryAbilities;
         public List<Rewards> rewardList = new List<Rewards>();
        
 
@@ -58,6 +55,7 @@ namespace Scripts.Logic
                 RewardSecondaryAbilities.Add(_staticDataService.ForSecondaryAbility(abilityKey));
             }
 
+            AllSecondaryAbilities = RewardSecondaryAbilities;
             _secondaryAbilityService.SetAvailableAbilityList(RewardSecondaryAbilities);
         }
 

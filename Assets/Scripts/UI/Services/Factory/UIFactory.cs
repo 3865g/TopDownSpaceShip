@@ -83,8 +83,13 @@ namespace Scripts.UI.Services.Factory
             WindowStaticData config = _staticDataService.ForWindow(WindowId.ChoiceWindow);
             ChoiceWindow choiceWindow = Object.Instantiate(config.Prefab, _uiRoot) as ChoiceWindow;
             windowService.ChoiceWindow = choiceWindow;
+        }
 
-
+        public void CreateGameOverWindow()
+        {
+            WindowStaticData config = _staticDataService.ForWindow(WindowId.GameOver);
+            GameOverWindow gameOver = Object.Instantiate(config.Prefab, _uiRoot) as GameOverWindow;
+            gameOver.Construct(_gameStateMachine, _persistantProgressService);
         }
         public async Task CreateUIRoot()
         {

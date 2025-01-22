@@ -1,6 +1,6 @@
 ﻿using Scripts.Enemy;
-using System;
-using System.Collections;
+using Scripts.Infrastructure.States;
+using Scripts.UI.Services.Windows;
 using UnityEngine;
 
 namespace Scripts.Hero
@@ -13,10 +13,16 @@ namespace Scripts.Hero
 
         public GameObject DeathFx;
 
+
         private HeroAttack _heroAttack;
         private bool _isDead =false;
         private Rigidbody _rigidbody;
+        private IWindowService _windowService;
 
+        public void Construct(IWindowService windowService)
+        {
+            _windowService = windowService;
+        }
 
         private void Awake()
         {
@@ -52,7 +58,10 @@ namespace Scripts.Hero
             Destroy(gameObject);
             Instantiate(DeathFx, transform.position, Quaternion.identity);
 
+            _windowService.Open(WindowId.GameOver);
+
             //Debug.Log(heroHealth.CurrentHP);
         }
+
     }
 }
