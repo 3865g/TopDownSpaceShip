@@ -75,7 +75,7 @@ namespace Scripts.Infrastructure.Factory
             GameObject prefab = await _assetsProvider.Load<GameObject>(AssetsAddress.GameManager);
             GameObject gameManager = Object.Instantiate(prefab, new Vector3(0,0,0), Quaternion.identity);
             EnemyCount enemyCount = gameManager.GetComponent<EnemyCount>();
-            enemyCount.Construct(this, _gate);
+            enemyCount.Construct(_gate);
 
             RewardsManager rewardsManager = gameManager.GetComponent<RewardsManager>();
             rewardsManager.Construct(_windowService, _secondaryAbilityService, _staticDataService);            
@@ -100,7 +100,7 @@ namespace Scripts.Infrastructure.Factory
             abilityHolder.RewardsManager = _gameManager.GetComponent<RewardsManager>();
             abilityHolder.Construct(_abilityManager.GetComponent<AbilityManager>());
             HeroDeath heroDeath = _heroGameObject.GetComponent<HeroDeath>();
-            heroDeath.Construct(_windowService);
+            heroDeath.Construct(_gameStateMachine, _windowService, _persistentProgressService);
             
             _abilityManager.GetComponent<AbilityManager>().InitPlayer(_heroGameObject, _persistentProgressService.Progress.AbilityProgress.SkillTypeId);
 
@@ -170,9 +170,8 @@ namespace Scripts.Infrastructure.Factory
                 GameObject prefab = await _assetsProvider.Load<GameObject>(gateStaticData.PrefabGateReference);
                 GameObject gate = Object.Instantiate(prefab, position, rotation);
 
-                GatesStatus gateStatus = prefab.GetComponent<GatesStatus>();
+                IGatesStatus gateStatus = prefab.GetComponent<IGatesStatus>();
                 _gate = gate;
-                gateStatus.Construct(this);
             }
 
         }

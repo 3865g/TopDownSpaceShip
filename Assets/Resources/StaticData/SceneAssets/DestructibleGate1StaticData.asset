@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a625af9ec7f1ae74d8ca01ed3287e2e7, type: 3}
-  m_Name: WindowGameOverStaticData
+  m_Script: {fileID: 11500000, guid: f7c06140c50ab1f46919946a186d26cb, type: 3}
+  m_Name: DestructibleGate1StaticData
   m_EditorClassIdentifier: 
-  WindowId: 7
-  Prefab: {fileID: 987142132554585650, guid: 1ef444b498efdd448bd9fd3720e356aa, type: 3}
+  GateTypeId: 1
+  PrefabGateReference:
+    m_AssetGUID: 90d6541e52c36844ba84a651be133dc4
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

@@ -39,13 +39,6 @@ namespace Scripts.UI.Windows
             {
                 CloseButton.onClick.AddListener(() => Destroy(gameObject));
             }
-            
-
-
-            if (Time.timeScale == 0)
-            {
-                Time.timeScale = 1;
-            }
         }
 
         protected virtual void Initialize(){}

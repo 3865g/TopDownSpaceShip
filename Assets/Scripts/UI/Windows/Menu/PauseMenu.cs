@@ -1,8 +1,6 @@
-using Scripts.Hero.Ability;
 using Scripts.Infrastructure.States;
 using Scripts.Services.SecondaryAbilityService;
 using Scripts.UI.Services.Windows;
-using Scripts.UI.Windows.Rewards;
 using UnityEngine;
 
 namespace Scripts.UI.Windows.Menu
@@ -12,11 +10,9 @@ namespace Scripts.UI.Windows.Menu
     {
 
 
-        private SecondaryAbility secondaryAbility;
         private ISecondaryAbilityService _secondaryAbilityService;
         private IGameStateMachine _gameStateMachine;
         private IWindowService _windowService;
-        private RewardItem[] _rewardItem;
         private GameObject _player;
 
         private ReturnToMainMenu _returnMainMenu;
@@ -53,6 +49,18 @@ namespace Scripts.UI.Windows.Menu
             {
                 _detailsContent.Construct(_windowService, _player);
             }
+        }
+
+
+        //Need custom pause service
+        private void OnDestroy()
+        {
+            if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            }
+
+            Debug.LogError("OnDestroy");
         }
     }
 }

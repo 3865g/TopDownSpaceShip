@@ -8,7 +8,6 @@ namespace Scripts.UI.Windows.Shop
     public class RewardWindow: WindowBase
     {
         
-        private SecondaryAbility secondaryAbility;
         private ISecondaryAbilityService _secondaryAbilityService;
         private RewardItem[] _rewardItem;
         private GameObject _player;

@@ -63,7 +63,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 90d6541e52c36844ba84a651be133dc4
-    m_Address: Gate1
+    m_Address: DestructibleGate1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -84,6 +84,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e2f3b71aaf9b06947811ccdcca4abe8d
     m_Address: LootBase
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eecb6c1ab3f4fb54d9acde93e9582cf1
+    m_Address: FinishScreen1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 
 namespace Scripts.Hero.Ability
@@ -47,7 +48,7 @@ namespace Scripts.Hero.Ability
                 _endPosition = parent.transform.position;
                 _rotation = parent.transform.rotation.eulerAngles;
 
-                _spawnedTrail = Instantiate(Trail, parent.transform) as GameObject;
+                _spawnedTrail = Instantiate(Trail, parent.transform);
                 _effect = _spawnedTrail.GetComponent<TrailController>();
 
                 _effect.SetVariables(_startPosition, _endPosition, _rotation);
@@ -67,7 +68,7 @@ namespace Scripts.Hero.Ability
                 Destroy(_spawnedTrail);
                 _shipMove.UpdateBuffSpeed(-BonusSpeed);
                 _abilityIsActive = false;
-                Debug.LogError(" DashDeactivate" );
+                //Debug.LogError(" DashDeactivate" );
             }
         }
 

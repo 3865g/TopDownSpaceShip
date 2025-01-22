@@ -9,6 +9,6 @@
         ChoiceWindow = 4,
         PauseMenu = 5,
         DetailedViewAbilities = 6,
-        GameOver =7
+        Confim =7
     }
 }

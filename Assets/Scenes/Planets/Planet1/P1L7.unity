@@ -4941,6 +4941,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GateInitialPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 4755651111286915666, guid: d7efc464f33298146b4cc6cbcb1b996f, type: 3}
+      propertyPath: GateTypeId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5712153017696782767, guid: d7efc464f33298146b4cc6cbcb1b996f, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -4951,11 +4955,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5712153017696782767, guid: d7efc464f33298146b4cc6cbcb1b996f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 12.8
       objectReference: {fileID: 0}
     - target: {fileID: 5712153017696782767, guid: d7efc464f33298146b4cc6cbcb1b996f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -161.5
+      value: -38.7
       objectReference: {fileID: 0}
     - target: {fileID: 5712153017696782767, guid: d7efc464f33298146b4cc6cbcb1b996f, type: 3}
       propertyPath: m_LocalRotation.w

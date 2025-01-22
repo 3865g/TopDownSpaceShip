@@ -9,6 +9,7 @@ namespace Scripts.UI.Services.Windows
 
         //Need here???
         ChoiceWindow ChoiceWindow { get; set; }
+        ConfimWindow ConfimWindow { get; set; }
 
         DetailedViewAbility DetailedViewAbility { get; set; }
 

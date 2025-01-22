@@ -23,6 +23,6 @@ MonoBehaviour:
     TransferTo: MainMenu
     Position: {x: -3.1, y: 0, z: -161.5}
   LevelGate:
-    Position: {x: -3.1, y: 0, z: -161.5}
+    Position: {x: -3.1, y: 12.8, z: -38.7}
     Rotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-    GateTypeId: 1
+    GateTypeId: 2

@@ -85,11 +85,11 @@ namespace Scripts.UI.Services.Factory
             windowService.ChoiceWindow = choiceWindow;
         }
 
-        public void CreateGameOverWindow()
+        public void CreateConfimWindow(IWindowService windowService)
         {
-            WindowStaticData config = _staticDataService.ForWindow(WindowId.GameOver);
-            GameOverWindow gameOver = Object.Instantiate(config.Prefab, _uiRoot) as GameOverWindow;
-            gameOver.Construct(_gameStateMachine, _persistantProgressService);
+            WindowStaticData config = _staticDataService.ForWindow(WindowId.Confim);
+            ConfimWindow confimWindow = Object.Instantiate(config.Prefab, _uiRoot) as ConfimWindow;
+            windowService.ConfimWindow = confimWindow;
         }
         public async Task CreateUIRoot()
         {

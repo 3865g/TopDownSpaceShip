@@ -1,5 +1,4 @@
-﻿using Scripts.Infrastructure.States;
-using Scripts.UI.Services.Windows;
+﻿using Scripts.UI.Services.Windows;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,8 +8,8 @@ namespace Assets.Scripts.UI.Elements
     {
         public WindowId WindowId;
         public Button Button;
+        public bool NeedPause;
         private IWindowService _windowService;
-        private IGameStateMachine _gameStateMachine;
 
         public void Construct(IWindowService windowService)
         {
@@ -26,6 +25,11 @@ namespace Assets.Scripts.UI.Elements
         private void Open()
         {
             _windowService.Open(WindowId);
+
+            if(NeedPause)
+            {
+                Time.timeScale = 0f;
+            }
 
             if(WindowId == WindowId.LevelsMenu)
             {

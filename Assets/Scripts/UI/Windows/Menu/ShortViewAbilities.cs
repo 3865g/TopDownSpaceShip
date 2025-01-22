@@ -1,5 +1,4 @@
 using Scripts.UI.Services.Windows;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,11 +26,7 @@ namespace Scripts.UI.Windows.Menu
             Button.onClick.AddListener(OpenDetailedDescription);
 
         }
-
-        private void Awake()
-        {
-            
-        }
+        
 
         public void OpenDetailedDescription()
         {

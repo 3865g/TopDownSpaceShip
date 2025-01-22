@@ -9418,6 +9418,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GateInitialPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 4755651111286915666, guid: d7efc464f33298146b4cc6cbcb1b996f, type: 3}
+      propertyPath: GateTypeId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5712153017696782767, guid: d7efc464f33298146b4cc6cbcb1b996f, type: 3}
       propertyPath: m_RootOrder
       value: 7

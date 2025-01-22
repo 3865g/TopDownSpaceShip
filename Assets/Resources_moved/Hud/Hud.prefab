@@ -550,6 +550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WindowId: 1
   Button: {fileID: 1703446254366175023}
+  NeedPause: 0
 --- !u!1 &3459815961901743795
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,6 +739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WindowId: 5
   Button: {fileID: 6839052134451117445}
+  NeedPause: 1
 --- !u!1 &3698519809868698660
 GameObject:
   m_ObjectHideFlags: 0
