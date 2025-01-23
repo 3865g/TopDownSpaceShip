@@ -1,11 +1,8 @@
 ﻿using Scripts.Data;
 using Scripts.Services.PersistentProgress;
 using Scripts.Logic;
-using System;
 using System.Collections;
 using TMPro;
-using TMPro.Examples;
-using UnityEditor;
 using UnityEngine;
 
 namespace Scripts.Enemy
@@ -17,17 +14,20 @@ namespace Scripts.Enemy
         public GameObject PickupPopup;
         public TextMeshPro LootText;
 
+        private float _speed = 1.5f;
         private Loot _loot;
         private WorldData _worldData;
+        private Transform _player;
 
 
         private bool _pickedUp;
         private bool _loadedFromProgress;
         private string _id;
 
-        public void Construct(WorldData worldData)
+        public void Construct(WorldData worldData, GameObject player)
         {
             _worldData = worldData;
+            _player = player.transform;
         }
 
         public void LoadProgress(PlayerProgress progress)
@@ -51,6 +51,14 @@ namespace Scripts.Enemy
             if (!_loadedFromProgress)
             {
                 _id = GetComponent<UniqueId>().Id;
+            }
+        }
+
+        private void Update()
+        {
+            if (!_pickedUp && _player != null)
+            {
+                transform.position = Vector3.Lerp(transform.position, _player.position, _speed * Time.deltaTime);
             }
         }
 
@@ -81,7 +89,7 @@ namespace Scripts.Enemy
 
         private void Pickup()
         {
-            UpdateWorldData();
+            //UpdateWorldData();
             HideModel();
             PlayPickupFx();
             ShowText();

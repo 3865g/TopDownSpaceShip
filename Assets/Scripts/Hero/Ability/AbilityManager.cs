@@ -76,7 +76,7 @@ namespace Scripts.Hero.Ability
                     break;
                 case SkillType.Protective:
                     {
-                        _currentConfiguration = new DefenceConfiguration();
+                        _currentConfiguration = new ProtectiveConfiguration();
                         InitializeConfiguration();
                     }
                     break;

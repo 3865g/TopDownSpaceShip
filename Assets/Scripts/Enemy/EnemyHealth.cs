@@ -31,7 +31,7 @@ namespace Scripts.Enemy
 
        
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(float damage, Color color)
         {
             CurrentHP -= damage;
 
@@ -39,7 +39,7 @@ namespace Scripts.Enemy
 
             if (TextPrefab)
             {
-                ShowText(damage.ToString(), Color.red);
+                ShowText(damage.ToString(), color);
             }
             
         }

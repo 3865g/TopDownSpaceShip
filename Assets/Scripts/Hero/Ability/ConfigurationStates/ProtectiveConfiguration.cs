@@ -6,7 +6,7 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
 {
 
 
-    public class DefenceConfiguration : ConfigurationState
+    public class ProtectiveConfiguration : ConfigurationState
     {
 
         public AbilityTypeId abilityTypeId;
@@ -62,7 +62,7 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
                 _activeAbility = _abilityTier1;
                 SetActiveAbility();
             }
-            else if (_defencePoints >= 3 && _attackPoints < 9)
+            else if (_defencePoints >= 3 && _defencePoints < 9)
             {
                 _activeAbility = _abilityTier2;
                 SetActiveAbility();

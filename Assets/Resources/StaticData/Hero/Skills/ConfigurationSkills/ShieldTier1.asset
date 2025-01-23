@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ShieldTier1
   m_EditorClassIdentifier: 
   name: ShieldTier1
+  Icon: {fileID: 0}
   abilityTypeId: 7
   description: 
   skillType: 2
@@ -22,6 +23,5 @@ MonoBehaviour:
   Point: 0
   IsPassive: 0
   ShieldGameObject: {fileID: 146389794037421487, guid: e70998772a7271046aadce16441b6cb5, type: 3}
-  SpawnedShield: {fileID: 0}
   DamageWave: 0
   DamageWaveAmount: 0

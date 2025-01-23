@@ -33,7 +33,7 @@ namespace Scripts.Hero.Ability
             }
             else
             {
-                _heroHealth.TakeDamage(DamageHP);
+                _heroHealth.TakeDamage(DamageHP, Color.red);
             }
         }
     }

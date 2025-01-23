@@ -8,10 +8,10 @@ namespace Scripts.Hero.Ability
     public class ShieldTier1Ability : ConfigurationAbility
     {
         public GameObject ShieldGameObject;
-        public GameObject SpawnedShield;
         public bool DamageWave;
         public int DamageWaveAmount;
 
+        private GameObject _spawnedShield;
         private AbilityHolder _abilityHolder;
 
         private BoxCollider _boxCollider;
@@ -20,11 +20,12 @@ namespace Scripts.Hero.Ability
 
         public override void Activate(GameObject parent)
         {
+
             if (!_abilityIsActive)
             {
-                SpawnedShield = Instantiate(ShieldGameObject, parent.transform);
-                SpawnedShield.transform.SetParent(parent.transform);
-                ShieldPrefab shieldPrefab = SpawnedShield.GetComponent<ShieldPrefab>();
+                _spawnedShield = Instantiate(ShieldGameObject, parent.transform);
+                _spawnedShield.transform.SetParent(parent.transform);
+                ShieldPrefab shieldPrefab = _spawnedShield.GetComponent<ShieldPrefab>();
 
 
                 _abilityHolder = parent.GetComponent<AbilityHolder>();
@@ -39,18 +40,19 @@ namespace Scripts.Hero.Ability
                 _characterController.detectCollisions = false;
                 _abilityIsActive = true;
             }
-
         }
 
         public override void Deactivate(GameObject parent)
         {
+
             if (_abilityIsActive)
             {
                 _boxCollider.enabled = true;
                 _characterController.detectCollisions = true;
-                Destroy(SpawnedShield);
+                Destroy(_spawnedShield);
                 _abilityIsActive = false;
             }
+            
         }
 
     }

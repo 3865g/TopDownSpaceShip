@@ -180,7 +180,11 @@ namespace Scripts.Infrastructure.Factory
         {
             GameObject prefab = await _assetsProvider.Load<GameObject>(AssetsAddress.Loot);
             LootPiece lootPiece = InstantiateRegistered(prefab).GetComponent<LootPiece>();
-            lootPiece.Construct(_persistentProgressService.Progress.WorldData);
+            if (_heroGameObject != null)
+            {
+                lootPiece.Construct(_persistentProgressService.Progress.WorldData, _heroGameObject);
+            }
+                
 
             return lootPiece;
         }

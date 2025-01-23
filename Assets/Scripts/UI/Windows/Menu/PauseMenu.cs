@@ -59,8 +59,6 @@ namespace Scripts.UI.Windows.Menu
             {
                 Time.timeScale = 1;
             }
-
-            Debug.LogError("OnDestroy");
         }
     }
 }

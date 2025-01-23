@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class DistortWaveManager : MonoBehaviour
+public class ElectricShock : MonoBehaviour
 {
     [SerializeField] private float _shockWaveTime = 0.75f;
     private Coroutine _distortWaveCoroutine;

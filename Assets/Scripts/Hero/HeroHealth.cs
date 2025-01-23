@@ -75,7 +75,7 @@ namespace Scripts.Hero
 
         }
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(float damage, Color color)
         {
 
             if (CanDodge)

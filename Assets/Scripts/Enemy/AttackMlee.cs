@@ -59,7 +59,7 @@ namespace Scripts.Enemy
                 switch (hit.tag)
                 {
                     case "Player":
-                        hit.transform.GetComponent<IHealth>().TakeDamage(Damage);
+                        hit.transform.GetComponent<IHealth>().TakeDamage(Damage, Color.gray);
                         CheckSelfDestroy();
                         break;
                     case "PlayerShield":

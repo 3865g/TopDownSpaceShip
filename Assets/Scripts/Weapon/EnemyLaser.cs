@@ -31,7 +31,7 @@ namespace Scripts.Hero
 
         public void ReturnDamage(float damage)
         {
-            _enemy.GetComponent<IHealth>()?.TakeDamage(damage);
+            _enemy.GetComponent<IHealth>()?.TakeDamage(damage, Color.red);
         }
 
 
@@ -41,7 +41,7 @@ namespace Scripts.Hero
             {
                 IHealth health = collision.transform.GetComponent<IHealth>();
 
-                health?.TakeDamage(_damage);
+                health?.TakeDamage(_damage, Color.red);
 
                 if (health.ReturnDamage)
                 {

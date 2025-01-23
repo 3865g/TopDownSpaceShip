@@ -13,10 +13,14 @@ namespace Scripts.Logic
         public AbilityHolder AbilityHolder;
 
         public GameObject ShockWaveFx;
+        public GameObject LineRenderer;
 
+        private GameObject[] _lineRenderers;
 
         private int _damageWaveAmount;
         private bool _damageWave;
+        private float _radius;
+        private Vector3 _closestPointOnSphere;
 
 
       
@@ -30,6 +34,11 @@ namespace Scripts.Logic
             AbilityHolder = abilityHolder;
         }
 
+        private void Awake()
+        {
+            _radius = gameObject.GetComponent<SphereCollider>().radius;
+        }
+
         public void HitShield()
         {
             if (_damageWave)
@@ -39,7 +48,8 @@ namespace Scripts.Logic
                 {
                     if (collider.gameObject.CompareTag("CanHit"))
                     {
-                        collider.transform.parent.GetComponent<IHealth>()?.TakeDamage(_damageWaveAmount);
+                        CreateLineRenders(collider.gameObject);
+                        collider.transform.parent.GetComponent<IHealth>()?.TakeDamage(_damageWaveAmount, Color.blue);
                     }
                 }
                 //Debug.LogError("Play DamageWave FX");
@@ -47,6 +57,27 @@ namespace Scripts.Logic
                 GameObject shockWave = Instantiate(ShockWaveFx, gameObject.transform);
                 Destroy(shockWave, 0.5f);
             }
+        }
+
+        public void CreateLineRenders(GameObject enemy)
+        {
+            Vector3 targetPosition = enemy.transform.position;  
+            Vector3 direction = targetPosition - transform.position;
+            direction.Normalize();
+
+            _closestPointOnSphere = transform.position + direction * _radius;
+
+            GameObject hitShock = Instantiate(LineRenderer);
+            LineRenderer lineRenderer = hitShock.GetComponent<LineRenderer>();
+            lineRenderer.SetPosition(0, _closestPointOnSphere);
+            lineRenderer.SetPosition(1, targetPosition);
+
+
+            Destroy(hitShock, 0.2f);
+
+
+
+
         }
     }
 }

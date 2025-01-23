@@ -15,7 +15,7 @@ namespace Scripts.Logic
 
         GameObject TextPrefab { get; set; }
 
-        void TakeDamage(float damage);
+        void TakeDamage(float damage, Color color);
         void TakeHP(float HP);
     }
 }

@@ -23,7 +23,7 @@ namespace Scripts.Logic
         {
             while (DamgaeDuration > 0)
             {
-                _health.TakeDamage(DamageAmount);
+                _health.TakeDamage(DamageAmount, Color.yellow);
 
                 //Burn FX enable
 

@@ -55,7 +55,7 @@ namespace Scripts.Hero
 
             if (!_isCollidet && collision.gameObject.CompareTag("CanHit"))
             {
-                collision.transform.parent.GetComponent<IHealth>()?.TakeDamage(_damage);
+                collision.transform.parent.GetComponent<IHealth>()?.TakeDamage(_damage, Color.red);
 
                 if (collision.transform.parent.GetComponentInChildren<BurningDamage>() == null)
                 {

@@ -62,7 +62,7 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
                 _activeAbility = _abilityTier1;
                 SetActiveAbility();
             }
-            else if (_movementPoints >= 3 && _attackPoints < 9)
+            else if (_movementPoints >= 3 && _movementPoints < 9)
             {
                 _activeAbility = _abilityTier2;
                 SetActiveAbility();

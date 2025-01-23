@@ -122,4 +122,5 @@ MonoBehaviour:
   ReturnedDamage: 0
   DamageWaveRadius: 100
   AbilityHolder: {fileID: 0}
-  ShockWaveFx: {fileID: 4903771879187898731, guid: de4ce42a576d7e64d8ec705e5500f8af, type: 3}
+  ShockWaveFx: {fileID: 6829570102505212810, guid: 25cd9539139005540a69f41adb2895a2, type: 3}
+  LineRenderer: {fileID: 3764327809024468683, guid: da595c1b9f4f69946805960616a906fd, type: 3}

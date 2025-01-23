@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_LightingParticles 1
-  m_Shader: {fileID: -6465566751694194690, guid: 95ca211f76c890a40920544bfa971984, type: 3}
+  m_Name: M_LightingParticles2
+  m_Shader: {fileID: -6465566751694194690, guid: 98d4ac681f2a8c0468a1a5ccbd0fc9e2, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -58,12 +58,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Offset: -0.81
+    - _Offset: 1.22
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Speed: 0.72
-    - _Strengdt: 0.463
-    - _Stretch: 0.7
+    - _Speed: -2
+    - _Strengdt: 0.563
+    - _Stretch: -0.38
     m_Colors:
     - _Tint: {r: 2, g: 2, b: 2, a: 0}
   m_BuildTextureStacks: []
