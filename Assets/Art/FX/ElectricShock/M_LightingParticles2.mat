@@ -58,11 +58,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Offset: 1.22
+    - _Offset: 1.2
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Speed: -2
-    - _Strengdt: 0.563
+    - _Strengdt: 0.604
     - _Stretch: -0.38
     m_Colors:
     - _Tint: {r: 2, g: 2, b: 2, a: 0}

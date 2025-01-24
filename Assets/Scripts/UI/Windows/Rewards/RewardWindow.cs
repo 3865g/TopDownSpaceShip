@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace Scripts.UI.Windows.Shop
 {
-    public class RewardWindow: WindowBase
+    public class RewardWindow : WindowBase
     {
-        
+
         private ISecondaryAbilityService _secondaryAbilityService;
         private RewardItem[] _rewardItem;
         private GameObject _player;
@@ -16,7 +16,7 @@ namespace Scripts.UI.Windows.Shop
         {
             _secondaryAbilityService = secondaryAbilityService;
             _player = _secondaryAbilityService.Player;
-            
+
         }
 
         private void Awake()
@@ -27,9 +27,9 @@ namespace Scripts.UI.Windows.Shop
         public void TakeAbility(SecondaryAbility secondaryAbility)
         {
 
-            if (secondaryAbility != null) 
+            if (secondaryAbility != null)
             {
-                _player.GetComponent<AbilityHolder>().ActivateSecondaryAbility(secondaryAbility);                
+                _player.GetComponent<AbilityHolder>().ActivateSecondaryAbility(secondaryAbility);
             }
             else
             {
@@ -45,12 +45,18 @@ namespace Scripts.UI.Windows.Shop
 
         public void FillingItem()
         {
+            ProcessingItems();
+        }
 
+
+        //Need refactoring
+        public void ProcessingItems()
+        {
             for (int i = 0; i < _rewardItem.Length; i++)
             {
-                if (_secondaryAbilityService.ServiceSecondaryAbilities.Count > 0)
+                if (_secondaryAbilityService.CurrrentSecondaryAbilities.Count > 0)
                 {
-                    _secondaryAbilityService.GetRandomSkill();
+                    _secondaryAbilityService.GetRandomSkill(); 
                     _rewardItem[i].NameAbility.SetText(_secondaryAbilityService.SecondaryAbility.name);
                     _rewardItem[i].DescriptionAbility.SetText(_secondaryAbilityService.SecondaryAbility.description);
                     _rewardItem[i].SecondaryAbility = _secondaryAbilityService.SecondaryAbility;
@@ -61,10 +67,10 @@ namespace Scripts.UI.Windows.Shop
                     _rewardItem[i].DescriptionAbility.SetText("Abilities is over");
                     _rewardItem[i].SecondaryAbility = null;
                 }
-                
+
+                //Debug.LogError(_secondaryAbilityService.CurrrentSecondaryAbilities.Count);
+
             }
-
-
         }
 
 

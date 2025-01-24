@@ -13,7 +13,7 @@ namespace Scripts.Logic
     public class RewardsManager : MonoBehaviour /*, ISavedProgress*/ 
     {
         public List<SecondaryAbility> RewardSecondaryAbilities;
-        public List<SecondaryAbility> AllSecondaryAbilities;
+        public List<SecondaryAbility> AllSecondaryAbilities = new List<SecondaryAbility>();
         public List<Rewards> rewardList = new List<Rewards>();
        
 
@@ -55,7 +55,7 @@ namespace Scripts.Logic
                 RewardSecondaryAbilities.Add(_staticDataService.ForSecondaryAbility(abilityKey));
             }
 
-            AllSecondaryAbilities = RewardSecondaryAbilities;
+            AllSecondaryAbilities.AddRange(RewardSecondaryAbilities);
             _secondaryAbilityService.SetAvailableAbilityList(RewardSecondaryAbilities);
         }
 

@@ -15,8 +15,6 @@ namespace Scripts.Logic
         public GameObject ShockWaveFx;
         public GameObject LineRenderer;
 
-        private GameObject[] _lineRenderers;
-
         private int _damageWaveAmount;
         private bool _damageWave;
         private float _radius;
@@ -73,7 +71,7 @@ namespace Scripts.Logic
             lineRenderer.SetPosition(1, targetPosition);
 
 
-            Destroy(hitShock, 0.2f);
+            Destroy(hitShock, 0.1f);
 
 
 

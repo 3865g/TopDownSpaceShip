@@ -1,4 +1,3 @@
-
 using Scripts.Hero.Ability;
 using System;
 using System.Collections.Generic;
@@ -9,25 +8,39 @@ namespace Scripts.Services.SecondaryAbilityService
     {
 
         public List<SecondaryAbility> ServiceSecondaryAbilities { get; set; }
+        public List<SecondaryAbility> CurrrentSecondaryAbilities { get; set; }
         public SecondaryAbility SecondaryAbility { get; set; }
         public AbilityManager AbilityManager { get; set; }
 
         public bool BoosLoot { get; set; }
         public UnityEngine.GameObject Player { get ; set ; }
 
+
         public void SetAvailableAbilityList(List<SecondaryAbility> secondaryAbilities)
         {
-            ServiceSecondaryAbilities = secondaryAbilities;          
+            if (CurrrentSecondaryAbilities != null)
+            {
+                CurrrentSecondaryAbilities.Clear();
+            }
+            else
+            {
+                CurrrentSecondaryAbilities = new List<SecondaryAbility>();
+            }
+
+            
+            ServiceSecondaryAbilities = secondaryAbilities;
+            CurrrentSecondaryAbilities.AddRange(ServiceSecondaryAbilities);
         }
 
         public void GetRandomSkill()
         {
 
-            int randomIndex = new Random().Next(0, ServiceSecondaryAbilities.Count);
+            int randomIndex = new Random().Next(0, CurrrentSecondaryAbilities.Count);
 
-            if (ServiceSecondaryAbilities.Count > 0)
+            if (CurrrentSecondaryAbilities.Count != 0)
             {
-                SecondaryAbility = ServiceSecondaryAbilities[randomIndex];
+                SecondaryAbility = CurrrentSecondaryAbilities[randomIndex];
+                CurrrentSecondaryAbilities.RemoveAt(randomIndex);
             }
             else
             {
