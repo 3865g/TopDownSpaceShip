@@ -4,8 +4,8 @@ using UnityEngine;
 namespace Scripts.Hero.Ability
 {
 
-    [CreateAssetMenu(fileName = "New Skill", menuName = "Skill System / AttribChangeMaxHP", order = 0)]
-    public class IncreaseMaxHPAbility : SecondaryAbility
+    [CreateAssetMenu(fileName = "New Skill", menuName = "Skill System / ChangeMaxHP", order = 0)]
+    public class IncreaseAttribMaxHPAbility : SecondaryAbility
     {
         public int AddedMaxHP;
 
@@ -13,13 +13,9 @@ namespace Scripts.Hero.Ability
 
         public override void ActivatePassive(GameObject parent)
         {
-            
-
             _heroHealth = parent.GetComponent<HeroHealth>();
 
             _heroHealth.AddedBonusMaxHP(AddedMaxHP);
-
-
 
         }
     }

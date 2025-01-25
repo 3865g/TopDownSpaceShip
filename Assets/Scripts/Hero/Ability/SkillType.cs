@@ -5,7 +5,8 @@ namespace Scripts.Hero.Ability
     {
         Attacking = 0,
         Movement = 1,
-        Protective = 2
+        Protective = 2,
+        Attributes = 3
     }
 
 }

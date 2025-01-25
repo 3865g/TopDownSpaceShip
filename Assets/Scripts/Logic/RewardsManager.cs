@@ -15,6 +15,7 @@ namespace Scripts.Logic
         public List<SecondaryAbility> RewardSecondaryAbilities;
         public List<SecondaryAbility> AllSecondaryAbilities = new List<SecondaryAbility>();
         public List<Rewards> rewardList = new List<Rewards>();
+        public List<SecondaryAbility> AttributeAbilities;
        
 
         private IWindowService _windowService;
@@ -27,7 +28,7 @@ namespace Scripts.Logic
             _secondaryAbilityService = secondaryAbilityService;
             _staticDataService = staticDataService;
             
-            CreateList();
+            CreateLists();
         }
 
 
@@ -39,7 +40,13 @@ namespace Scripts.Logic
             }
         }
 
-        public void CreateList()
+        public void CreateLists()
+        {
+            CreateSecondAbilityList();
+            CreateAttributeAbilityList();
+        }
+
+        public void CreateSecondAbilityList()
         {
             if (RewardSecondaryAbilities != null)
             {
@@ -51,12 +58,39 @@ namespace Scripts.Logic
             }
 
             foreach (SecondaryAbilityTypeId abilityKey in Enum.GetValues(typeof(SecondaryAbilityTypeId)))
-            {
-                RewardSecondaryAbilities.Add(_staticDataService.ForSecondaryAbility(abilityKey));
+            { 
+            
+                if(((int)abilityKey) < 55) 
+                {
+                    RewardSecondaryAbilities.Add(_staticDataService.ForSecondaryAbility(abilityKey));
+                }
             }
 
             AllSecondaryAbilities.AddRange(RewardSecondaryAbilities);
             _secondaryAbilityService.SetAvailableAbilityList(RewardSecondaryAbilities);
+
+        }
+
+        public void CreateAttributeAbilityList()
+        {
+            if (AttributeAbilities != null)
+            {
+                AttributeAbilities.Clear();
+            }
+            else
+            {
+                AttributeAbilities = new List<SecondaryAbility>();
+            }
+
+            foreach (SecondaryAbilityTypeId abilityKey in Enum.GetValues(typeof(SecondaryAbilityTypeId)))
+            {
+                if (((int)abilityKey) > 54)
+                {
+                    AttributeAbilities.Add(_staticDataService.ForAttributeAbility(abilityKey));
+                }
+            }
+            _secondaryAbilityService.SetAttributeAbilityList(AttributeAbilities);
+
         }
 
         public void RegisterEnemy(int groupId)

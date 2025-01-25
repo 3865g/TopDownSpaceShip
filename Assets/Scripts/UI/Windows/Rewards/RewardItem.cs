@@ -9,10 +9,14 @@ namespace Scripts.UI.Windows.Rewards
     public class RewardItem : MonoBehaviour
     {
         public Button SelectAbilityButton;
+
+        public Image Icon;
         public TextMeshProUGUI NameAbility;
         public TextMeshProUGUI DescriptionAbility;
 
-        public SecondaryAbility SecondaryAbility;
+        private SecondaryAbility SecondaryAbility;
+        private SecondaryAbility AttributeAbility;
+        private bool _secondary;
 
         [SerializeField] private Button TakeAbilityButton;
 
@@ -23,11 +27,39 @@ namespace Scripts.UI.Windows.Rewards
             TakeAbilityButton.onClick.AddListener(() => ClickButton());
         }
 
+        public void FillingSecondaryData(SecondaryAbility secondaryAbility)
+        {
+            _secondary = true;
+            NameAbility.SetText(secondaryAbility.name);
+            DescriptionAbility.SetText(secondaryAbility.description);
+            SecondaryAbility = secondaryAbility;
+            Icon.sprite = secondaryAbility.Icon;
+
+        }
+
+        public void FillingAttributeData(SecondaryAbility attributeAbility)
+        {
+            _secondary = false;
+            NameAbility.SetText(attributeAbility.name);
+            DescriptionAbility.SetText(attributeAbility.description);
+            AttributeAbility = attributeAbility;
+            Icon.sprite = attributeAbility.Icon;
+        }
+
         private void ClickButton()
         {
             RewardWindow rewardWindow = GetComponentInParent<RewardWindow>();
-            rewardWindow.TakeAbility(SecondaryAbility);
+            if (_secondary) 
+            {
+                rewardWindow.TakeSacondaryAbility(SecondaryAbility);
+            }
+            else
+            {
+                rewardWindow.TakeAttributeAbility(AttributeAbility);
+            }
         }
+
+
     }
 }
 

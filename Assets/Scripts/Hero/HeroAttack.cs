@@ -1,14 +1,13 @@
 ﻿using Scripts.Data;
 using Scripts.Services.PersistentProgress;
 using UnityEngine;
-using Scripts.Hero;
 using Assets.Scripts.Hero;
 using System.Collections;
 using Scripts.Services.Randomizer;
 using Scripts.Weapon;
 using System;
 
-namespace Scripts.Enemy
+namespace Scripts.Hero
 {
     public class HeroAttack : MonoBehaviour, ISavedProgressReader
     {

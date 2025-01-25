@@ -10,10 +10,12 @@ namespace Scripts.Services.SecondaryAbilityService
 
         GameObject Player { get; set; }
         SecondaryAbility SecondaryAbility { get; set; }
+        SecondaryAbility AttributeAbility { get; set; }
         List<SecondaryAbility> ServiceSecondaryAbilities { get; set; }
         List<SecondaryAbility> CurrrentSecondaryAbilities { get; set; }
         AbilityManager AbilityManager { get; set; }
         void SetAvailableAbilityList(List<SecondaryAbility> secondaryAbilities);
+        void SetAttributeAbilityList(List<SecondaryAbility> secondaryAbilities);
         void GetRandomSkill();
     }
 }

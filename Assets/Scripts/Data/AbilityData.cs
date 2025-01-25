@@ -1,9 +1,6 @@
 using Scripts.Hero.Ability;
-using Scripts.Hero.Ability.ConfigurationStattes;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Scripts.Data
 {
@@ -13,6 +10,7 @@ namespace Scripts.Data
         public ConfigurationAbility ability;
         public SecondaryAbility secondaryAbility;
         public List<SecondaryAbility> secondaryAbilitiesData;
+        public List<SecondaryAbility> attributeAbilitiesData;
 
         public SkillType skillType;
         public int SkillTypeId;

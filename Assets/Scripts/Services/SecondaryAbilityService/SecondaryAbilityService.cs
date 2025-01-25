@@ -1,6 +1,6 @@
 using Scripts.Hero.Ability;
-using System;
 using System.Collections.Generic;
+using System;
 
 namespace Scripts.Services.SecondaryAbilityService
 {
@@ -9,7 +9,9 @@ namespace Scripts.Services.SecondaryAbilityService
 
         public List<SecondaryAbility> ServiceSecondaryAbilities { get; set; }
         public List<SecondaryAbility> CurrrentSecondaryAbilities { get; set; }
+        public List<SecondaryAbility> AttributeAbilities { get; set; }
         public SecondaryAbility SecondaryAbility { get; set; }
+        public SecondaryAbility AttributeAbility { get; set; }
         public AbilityManager AbilityManager { get; set; }
 
         public bool BoosLoot { get; set; }
@@ -32,19 +34,38 @@ namespace Scripts.Services.SecondaryAbilityService
             CurrrentSecondaryAbilities.AddRange(ServiceSecondaryAbilities);
         }
 
+        public void SetAttributeAbilityList(List<SecondaryAbility> secondaryAbilities)
+        {
+            if (AttributeAbilities != null)
+            {
+                AttributeAbilities.Clear();
+            }
+            else
+            {
+                AttributeAbilities = new List<SecondaryAbility>();
+            }
+
+            AttributeAbilities = secondaryAbilities;
+
+        }
+
         public void GetRandomSkill()
         {
 
-            int randomIndex = new Random().Next(0, CurrrentSecondaryAbilities.Count);
+           
 
-            if (CurrrentSecondaryAbilities.Count != 0)
+            if (CurrrentSecondaryAbilities.Count > 0)
             {
+                int randomIndex = new Random().Next(0, CurrrentSecondaryAbilities.Count);
+                AttributeAbility = null;
                 SecondaryAbility = CurrrentSecondaryAbilities[randomIndex];
                 CurrrentSecondaryAbilities.RemoveAt(randomIndex);
             }
             else
             {
+                int randomIndex = new Random().Next(0, 2);
                 SecondaryAbility = null;
+                AttributeAbility = AttributeAbilities[randomIndex];
             }
 
             

@@ -5,7 +5,7 @@ namespace Scripts.Hero.Ability
 {
     public class SecondaryAbility : ScriptableObject
     {
-        public new string name;
+        public string name;
         public Sprite Icon;
         public SecondaryAbilityTypeId  abilityTypeId;
         [TextArea (1, 4)]

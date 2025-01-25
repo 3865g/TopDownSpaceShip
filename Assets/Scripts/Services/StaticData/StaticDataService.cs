@@ -20,6 +20,7 @@ namespace Scripts.Services.StaticData
         private const string _staticDataHeroPath = "StaticData/Hero";
         private const string _staticDataMainAbilityPath = "StaticData/Hero/Skills/ConfigurationSkills";
         private const string _staticDataSecondaryAbilityPath = "StaticData/Hero/Skills/SecondarySkills";
+        private const string _staticDataAttributeAbilityPath = "StaticData/Hero/Skills/AttributeSkills";
         private const string _staticDataConfigurationPath = "StaticData/Hero/Configurations";
         private Dictionary<MonsterTypeId, MonsterStaticData> _monsters;
         private Dictionary<GateTypeId, GateStaticData> _gate;
@@ -28,6 +29,7 @@ namespace Scripts.Services.StaticData
         private Dictionary<HeroTyoeId, HeroStaticData> _heroConfigs;
         private Dictionary<AbilityTypeId, ConfigurationAbility> _mainAbilities;
         private Dictionary<SecondaryAbilityTypeId, SecondaryAbility> _secondaryAbilities;
+        private Dictionary<SecondaryAbilityTypeId, SecondaryAbility> _attributeAbilities;
         private Dictionary<ConfigurationTypeId, ConfigurationDescription> _configurations;
 
         public void Load()
@@ -45,6 +47,8 @@ namespace Scripts.Services.StaticData
             _mainAbilities = Resources.LoadAll<ConfigurationAbility>(_staticDataMainAbilityPath).ToDictionary(x => x.abilityTypeId, x => x);
 
             _secondaryAbilities = Resources.LoadAll<SecondaryAbility>(_staticDataSecondaryAbilityPath).ToDictionary(x => x.abilityTypeId, x => x);
+
+            _attributeAbilities = Resources.LoadAll<SecondaryAbility>(_staticDataAttributeAbilityPath).ToDictionary(x => x.abilityTypeId, x => x);
 
             _configurations = Resources.LoadAll<ConfigurationDescription>(_staticDataConfigurationPath).ToDictionary(x => x.configurationTypeId, x => x);
 
@@ -110,7 +114,22 @@ namespace Scripts.Services.StaticData
         {
             if (_secondaryAbilities.TryGetValue(abilityTypeId, out SecondaryAbility secondaryAbilityStaticData))
             {
-                return secondaryAbilityStaticData;
+                if(secondaryAbilityStaticData.skillType != SkillType.Attributes)
+                {
+                    return secondaryAbilityStaticData;
+                }
+            }
+            return null;
+        }
+
+        public SecondaryAbility ForAttributeAbility(SecondaryAbilityTypeId abilityTypeId)
+        {
+            if (_attributeAbilities.TryGetValue(abilityTypeId, out SecondaryAbility secondaryAbilityStaticData))
+            {
+                if (secondaryAbilityStaticData.skillType == SkillType.Attributes)
+                {
+                    return secondaryAbilityStaticData;
+                }
             }
             return null;
         }

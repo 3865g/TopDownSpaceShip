@@ -21,14 +21,14 @@ namespace Scripts.Hero
         private IRandomService _randomService;
         private int _randomValue;
 
-        
-        public float CurrentHP 
 
-        { 
+        public float CurrentHP
+
+        {
             get => _state.CurrentHP;
             set
             {
-                if(_state.CurrentHP != value)
+                if (_state.CurrentHP != value)
                 {
 
                     _state.CurrentHP = value;
@@ -37,7 +37,7 @@ namespace Scripts.Hero
             }
 
         }
-        public float MaxHP 
+        public float MaxHP
         {
             get => _state.MaxHP;
             set => _state.MaxHP = value;
@@ -57,8 +57,8 @@ namespace Scripts.Hero
         public void LoadProgress(PlayerProgress progress)
         {
 
-           _state = progress.HeroState;
-            
+            _state = progress.HeroState;
+
 
             HealthChanged?.Invoke();
 
@@ -66,12 +66,12 @@ namespace Scripts.Hero
 
         public void UpdateProgress(PlayerProgress progress)
         {
-            if(!gameObject)
+            if (!gameObject)
             {
                 progress.HeroState.CurrentHP = CurrentHP;
-               // progress.HeroState.MaxHP = MaxHP;
+                // progress.HeroState.MaxHP = MaxHP;
             }
-            
+
 
         }
 
@@ -92,7 +92,7 @@ namespace Scripts.Hero
                     return;
                 }
                 CurrentHP -= damage;
-                
+
 
             }
             else
@@ -117,7 +117,14 @@ namespace Scripts.Hero
             {
                 return;
             }
-            CurrentHP += Hp;
+            if (CurrentHP + Hp <= MaxHP)
+            {
+                CurrentHP += Hp;
+            }
+            else
+            {
+                CurrentHP = MaxHP;
+            }
             ShowText(Hp.ToString(), Color.green);
         }
 
@@ -134,13 +141,13 @@ namespace Scripts.Hero
 
         public void CalculateRandomValue()
         {
-            _randomValue = _randomService.Next(0,100);
+            _randomValue = _randomService.Next(0, 100);
         }
 
 
 
 
-        
+
         private void ShowText(string textHP, Color color)
         {
             GameObject textPrefab = Instantiate(TextPrefab, gameObject.transform.position, Quaternion.identity);
@@ -152,7 +159,7 @@ namespace Scripts.Hero
         }
         private IEnumerator StartDestroyTimer(GameObject textPrefab)
         {
-            
+
             yield return new WaitForSeconds(0.5f);
             Destroy(textPrefab);
         }

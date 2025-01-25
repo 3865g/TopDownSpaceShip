@@ -24,16 +24,27 @@ namespace Scripts.UI.Windows.Shop
             _rewardItem = GetComponentsInChildren<RewardItem>();
         }
 
-        public void TakeAbility(SecondaryAbility secondaryAbility)
+        public void TakeSacondaryAbility(SecondaryAbility secondaryAbility)
         {
 
-            if (secondaryAbility != null)
+            if (secondaryAbility.skillType != SkillType.Attributes)
             {
                 _player.GetComponent<AbilityHolder>().ActivateSecondaryAbility(secondaryAbility);
             }
-            else
+
+            Destroy(gameObject);
+            if (Time.timeScale == 0)
             {
-                //Send coin
+                Time.timeScale = 1;
+            }
+        }
+
+        public void TakeAttributeAbility(SecondaryAbility secondaryAbility)
+        {
+
+            if (secondaryAbility.skillType == SkillType.Attributes)
+            {
+                _player.GetComponent<AbilityHolder>().ActivateStatAbility(secondaryAbility);
             }
 
             Destroy(gameObject);
@@ -49,26 +60,22 @@ namespace Scripts.UI.Windows.Shop
         }
 
 
-        //Need refactoring
         public void ProcessingItems()
         {
             for (int i = 0; i < _rewardItem.Length; i++)
             {
-                if (_secondaryAbilityService.CurrrentSecondaryAbilities.Count > 0)
-                {
-                    _secondaryAbilityService.GetRandomSkill(); 
-                    _rewardItem[i].NameAbility.SetText(_secondaryAbilityService.SecondaryAbility.name);
-                    _rewardItem[i].DescriptionAbility.SetText(_secondaryAbilityService.SecondaryAbility.description);
-                    _rewardItem[i].SecondaryAbility = _secondaryAbilityService.SecondaryAbility;
-                }
-                else
-                {
-                    _rewardItem[i].NameAbility.SetText("Take Coin");
-                    _rewardItem[i].DescriptionAbility.SetText("Abilities is over");
-                    _rewardItem[i].SecondaryAbility = null;
-                }
+              
+                    _secondaryAbilityService.GetRandomSkill();
 
-                //Debug.LogError(_secondaryAbilityService.CurrrentSecondaryAbilities.Count);
+                if(_secondaryAbilityService.SecondaryAbility != null)
+                {
+                    _rewardItem[i].FillingSecondaryData( _secondaryAbilityService.SecondaryAbility);
+                }
+                else if (_secondaryAbilityService.AttributeAbility != null)
+                {
+                    _rewardItem[i].FillingAttributeData( _secondaryAbilityService.AttributeAbility);
+                }
+                
 
             }
         }

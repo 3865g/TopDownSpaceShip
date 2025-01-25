@@ -29,11 +29,13 @@ namespace Scripts.Hero.Ability
 
 
         //public List<Ability> passiveAbilities;
-        public List<SecondaryAbility> secondaryAbilities;
+        public List<SecondaryAbility> SecondaryAbilities;
+        public List<SecondaryAbility> AttributeAbilities;
         public RewardsManager RewardsManager;
 
         private ConfigurationAbility _passiveAbility;
         private SecondaryAbility _secondaryAbility;
+        private SecondaryAbility _attributeAbility;
         private AbilityManager _abilityManager;
 
         private float _pausedCooldownTime;
@@ -168,15 +170,22 @@ namespace Scripts.Hero.Ability
 
         public void ActivateSecondaryAbility(SecondaryAbility secondaryAbility)
         {
-            if (!secondaryAbilities.Contains(secondaryAbility))
+            if (!SecondaryAbilities.Contains(secondaryAbility))
             {
                 _secondaryAbility = secondaryAbility;
                 _secondaryAbility.ActivatePassive(gameObject);
-                secondaryAbilities.Add(_secondaryAbility);
+                SecondaryAbilities.Add(_secondaryAbility);
                 RewardsManager.UpdateList(_secondaryAbility);
 
                 _abilityManager.CalculatePoints(_secondaryAbility);
             }
+        }
+
+        public void ActivateStatAbility(SecondaryAbility secondaryAbility)
+        {
+            _attributeAbility = secondaryAbility;
+            _attributeAbility.ActivatePassive(gameObject);
+            AttributeAbilities.Add(_attributeAbility);
         }
 
 
@@ -198,11 +207,11 @@ namespace Scripts.Hero.Ability
             state = AbilityState.ready;
         }
 
-        public void ActivateAbilitiesAfterLoad()
+        public void ActivateSecondaryAbilitiesAfterLoad()
         {
 
 
-            foreach (SecondaryAbility element in secondaryAbilities)
+            foreach (SecondaryAbility element in SecondaryAbilities)
             {
                 _secondaryAbility = element;
                 RewardsManager.UpdateList(_secondaryAbility);
@@ -212,31 +221,68 @@ namespace Scripts.Hero.Ability
                 {                    
                     _secondaryAbility.ActivatePassive(gameObject);
                 }
+            }
 
+        }
+
+        public void ActivateAttributeAbilitiesAfterLoad()
+        {
+            foreach (SecondaryAbility element in AttributeAbilities)
+            {
+                _attributeAbility = element;
+
+                if (_secondaryAbility.ReActivateAfterLoad)
+                {
+                    _secondaryAbility.ActivatePassive(gameObject);
+                }
             }
         }
 
         public void UpdateProgress(PlayerProgress progress)
         {
-            progress.AbilityProgress.secondaryAbilitiesData = secondaryAbilities;
+            progress.AbilityProgress.secondaryAbilitiesData = SecondaryAbilities;
+            progress.AbilityProgress.attributeAbilitiesData = AttributeAbilities;
         }
 
         public void LoadProgress(PlayerProgress progress)
         {
+            LoadSecondaryAbilities(progress);
+
+            LoadAttributeAbilities(progress);
+        }
+
+        public void LoadSecondaryAbilities(PlayerProgress progress)
+        {
             if (progress.AbilityProgress.secondaryAbilitiesData != null)
             {
-                secondaryAbilities = progress.AbilityProgress.secondaryAbilitiesData;
+                SecondaryAbilities = progress.AbilityProgress.secondaryAbilitiesData;
             }
             else
             {
-                secondaryAbilities = new List<SecondaryAbility>();
+                SecondaryAbilities = new List<SecondaryAbility>();
             }
 
-            if (secondaryAbilities.Count > 0)
+            if (SecondaryAbilities.Count > 0)
             {
-                ActivateAbilitiesAfterLoad();
+                ActivateSecondaryAbilitiesAfterLoad();
+            }
+        }
+
+        public void LoadAttributeAbilities(PlayerProgress progress)
+        {
+            if (progress.AbilityProgress.attributeAbilitiesData != null)
+            {
+                AttributeAbilities = progress.AbilityProgress.attributeAbilitiesData;
+            }
+            else
+            {
+                AttributeAbilities = new List<SecondaryAbility>();
             }
 
+            if (AttributeAbilities.Count > 0)
+            {
+                ActivateAttributeAbilitiesAfterLoad();
+            }
         }
 
         public void DeactivateAbility()

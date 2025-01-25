@@ -19,6 +19,7 @@ namespace Scripts.Services.StaticData
 
         ConfigurationAbility ForAbility(AbilityTypeId abilityTypeId);
         SecondaryAbility ForSecondaryAbility(SecondaryAbilityTypeId abilityTypeId);
+        SecondaryAbility ForAttributeAbility(SecondaryAbilityTypeId abilityTypeId);
         ConfigurationDescription ForConfiguration(ConfigurationTypeId configurationTypeId);
 
     }

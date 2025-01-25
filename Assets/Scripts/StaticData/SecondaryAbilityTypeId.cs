@@ -49,6 +49,9 @@
         //DefencePoint3_3 = 52,
         //DefencePoint3_4 = 53,
         //DefencePoint3_5 = 54
+        AttributeAddedHP = 55,
+        AttributeAddedDmg = 56
+
 
 
     }

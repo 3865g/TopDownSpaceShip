@@ -32,7 +32,7 @@ namespace Scripts.UI.Windows.Menu
         public void FillCurrentAbilityContainer()
         {
             _abilityHolder = _player.GetComponent<AbilityHolder>();
-            foreach (SecondaryAbility element in _abilityHolder.secondaryAbilities)
+            foreach (SecondaryAbility element in _abilityHolder.SecondaryAbilities)
             {
                 ShortViewAbilities detailedViewAbility = GameObject.Instantiate(ShortAbilityView, CurrentAbilityContainer).GetComponent<ShortViewAbilities>();
                 if (detailedViewAbility)
