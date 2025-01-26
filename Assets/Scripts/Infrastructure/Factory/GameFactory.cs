@@ -129,7 +129,7 @@ namespace Scripts.Infrastructure.Factory
 
             _hud = await InstantiateRegisteredAsync(AssetsAddress.HudPath);
 
-            _hud.GetComponentInChildren<LootCounter>().Construct(_persistentProgressService.Progress.WorldData);
+           // _hud.GetComponentInChildren<LootCounter>().Construct(_persistentProgressService.Progress.WorldData);
 
             foreach(OpenWindowButton openWindowButton in _hud.GetComponentsInChildren<OpenWindowButton>())
             {
