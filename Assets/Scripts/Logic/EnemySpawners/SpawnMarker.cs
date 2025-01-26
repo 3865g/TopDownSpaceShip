@@ -7,5 +7,6 @@ namespace Scripts.Logic.EnemySpawners
     {
         public MonsterTypeId MonsterTypeId;
         public int GroupId;
+        public bool ThereAreAwards;
     }
 }

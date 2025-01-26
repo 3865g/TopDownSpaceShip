@@ -182,7 +182,7 @@ namespace Scripts.Infrastructure.Factory
             LootPiece lootPiece = InstantiateRegistered(prefab).GetComponent<LootPiece>();
             if (_heroGameObject != null)
             {
-                lootPiece.Construct(_persistentProgressService.Progress.WorldData, _heroGameObject);
+                lootPiece.Construct(_persistentProgressService.Progress.WorldData, _heroGameObject, _gameManager.GetComponent<RewardsManager>());
             }
                 
 
@@ -232,7 +232,7 @@ namespace Scripts.Infrastructure.Factory
             return monster;
         }
 
-        public async Task  CreateSpawner(string spawnerId, Vector3 position, MonsterTypeId monsterTypeId, int groupid)
+        public async Task  CreateSpawner(string spawnerId, Vector3 position, MonsterTypeId monsterTypeId, int groupid, bool thereAwaerds)
         {
             GameObject prefab = await _assetsProvider.Load<GameObject>(AssetsAddress.Spawner);
 
@@ -245,6 +245,7 @@ namespace Scripts.Infrastructure.Factory
             spawnPoint.EnemyCount = _gameManager.GetComponent<EnemyCount>();
             spawnPoint.RewardsManager = _gameManager.GetComponent<RewardsManager>();
             spawnPoint.GroupId = groupid;
+            spawnPoint.ThereAreAwards = thereAwaerds;
 
 
         }

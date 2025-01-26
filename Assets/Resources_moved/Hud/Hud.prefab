@@ -433,7 +433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &767675831053760151
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1540,6 +1540,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loot
       objectReference: {fileID: 0}
+    - target: {fileID: 2154378935984417544, guid: 650d99e6908b7f44aa2570fe91a5fe81, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2257715226815267965, guid: 650d99e6908b7f44aa2570fe91a5fe81, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1626,43 +1630,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6555094649991656056, guid: 650d99e6908b7f44aa2570fe91a5fe81, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6555094649991656056, guid: 650d99e6908b7f44aa2570fe91a5fe81, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6555094649991656056, guid: 650d99e6908b7f44aa2570fe91a5fe81, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 223.73
       objectReference: {fileID: 0}
     - target: {fileID: 6555094649991656056, guid: 650d99e6908b7f44aa2570fe91a5fe81, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 888.135
       objectReference: {fileID: 0}
     - target: {fileID: 6555094649991656056, guid: 650d99e6908b7f44aa2570fe91a5fe81, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 6781033918958425649, guid: 650d99e6908b7f44aa2570fe91a5fe81, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6781033918958425649, guid: 650d99e6908b7f44aa2570fe91a5fe81, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6781033918958425649, guid: 650d99e6908b7f44aa2570fe91a5fe81, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6781033918958425649, guid: 650d99e6908b7f44aa2570fe91a5fe81, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 690.27
       objectReference: {fileID: 0}
     - target: {fileID: 6781033918958425649, guid: 650d99e6908b7f44aa2570fe91a5fe81, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 7317444022590114591, guid: 650d99e6908b7f44aa2570fe91a5fe81, type: 3}
       propertyPath: m_text

@@ -136,7 +136,7 @@ namespace Scripts.Infrastructure.States
 
             foreach(EnemySpawnerStaticData enemySpawnerData in levelStaticData.EnemySpawnerData)
             {
-               await _gameFactory.CreateSpawner(enemySpawnerData.Id, enemySpawnerData.Position, enemySpawnerData.MonsterTypeId, enemySpawnerData.GroupId);
+               await _gameFactory.CreateSpawner(enemySpawnerData.Id, enemySpawnerData.Position, enemySpawnerData.MonsterTypeId, enemySpawnerData.GroupId, enemySpawnerData.ThereAreAwards);
             }
         }
 

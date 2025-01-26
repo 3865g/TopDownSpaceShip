@@ -142,6 +142,12 @@ namespace Scripts.Logic
                 _secondaryAbilityService.BoosLoot = true;
             }
 
+            //Play Reward sound??
+            Invoke("OpenWindow", 1.5f);
+        }
+
+        public void OpenWindow()
+        {
             _windowService.Open(WindowId.Rewards);
             Time.timeScale = 0f;
         }

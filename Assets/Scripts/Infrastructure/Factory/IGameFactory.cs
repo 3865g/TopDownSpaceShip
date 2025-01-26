@@ -21,7 +21,7 @@ namespace Scripts.Infrastructure.Factory
         Task<GameObject> CreateMenu();
         Task<GameObject> CreateEnemy(MonsterTypeId monsterTypeId, Transform parent);
         Task<LootPiece> CreateLoot();
-        Task CreateSpawner(string spawnerId,Vector3 position, MonsterTypeId monsterTypeId, int groupid);
+        Task CreateSpawner(string spawnerId,Vector3 position, MonsterTypeId monsterTypeId, int groupid, bool thereAwaerds);
         void Cleanup();
         Task WarmUp();
         Task CreateLevelTransfer(Vector3 transferInitialPoint, string transferTo);

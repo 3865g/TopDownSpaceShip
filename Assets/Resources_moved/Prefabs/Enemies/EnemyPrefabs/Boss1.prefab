@@ -881,6 +881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyDeath: {fileID: 1409043926831190060}
+  HaveLoot: 0
 --- !u!1 &709298753611811840
 GameObject:
   m_ObjectHideFlags: 0
@@ -2051,6 +2052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyDeath: {fileID: 5189843024150911162}
+  HaveLoot: 1
 --- !u!1 &2542884701452060113
 GameObject:
   m_ObjectHideFlags: 0
@@ -2556,6 +2558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyDeath: {fileID: 5398130432693652923}
+  HaveLoot: 1
 --- !u!1 &3653887130746467606
 GameObject:
   m_ObjectHideFlags: 0
@@ -4255,6 +4258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyDeath: {fileID: 1207589086525733260}
+  HaveLoot: 1
 --- !u!1 &7578345870752716431
 GameObject:
   m_ObjectHideFlags: 0
@@ -4948,6 +4952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyDeath: {fileID: 1979313290107153534}
+  HaveLoot: 1
 --- !u!1 &8222026108180919881
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ namespace Scripts.Enemy
     public class LootSpawner : MonoBehaviour
     {
         public EnemyDeath EnemyDeath;
+        public bool HaveLoot = true;
         private IGameFactory _gameFactory;
         private IRandomService _randomService;
         private int _lootMin;
@@ -32,14 +33,17 @@ namespace Scripts.Enemy
 
         private async void SpawnLoot()
         {
-            EnemyDeath.Happened -= SpawnLoot;
+            if (HaveLoot)
+            {
+                EnemyDeath.Happened -= SpawnLoot;
 
-            LootPiece lootPiece = await _gameFactory.CreateLoot();
-            lootPiece.transform.position = transform.position;
+                LootPiece lootPiece = await _gameFactory.CreateLoot();
+                lootPiece.transform.position = transform.position;
 
-            Loot lootItem = GenerateLoot();
+                Loot lootItem = GenerateLoot();
 
-            lootPiece.Initialize(lootItem);
+                lootPiece.Initialize(lootItem);
+            }
         }
 
         private Loot GenerateLoot()

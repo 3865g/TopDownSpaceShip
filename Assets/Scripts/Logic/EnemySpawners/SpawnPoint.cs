@@ -16,6 +16,7 @@ namespace Scripts.Logic.EnemySpawners
         public string Id { get; set; }
         public bool _slain;
         public int GroupId;
+        public bool ThereAreAwards;
 
         private IGameFactory _gameFactory;
         private EnemyDeath _enemyDeath;
@@ -31,7 +32,10 @@ namespace Scripts.Logic.EnemySpawners
         private void Start()
         {
             EnemyCount.SpawnPoints.Add(this);
-            RewardsManager.RegisterEnemy(GroupId);
+            if (ThereAreAwards)
+            {
+                RewardsManager.RegisterEnemy(GroupId);
+            }
         }
 
         private void OnDestroy()
@@ -81,7 +85,10 @@ namespace Scripts.Logic.EnemySpawners
             }
             _slain = true;
             EnemyCount.UpdateEnemyList(this);
-            RewardsManager.UpdateEnemyCount(GroupId);
+            if (ThereAreAwards)
+            {
+                RewardsManager.UpdateEnemyCount(GroupId);
+            }
         }
     }
 

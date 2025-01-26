@@ -17,6 +17,7 @@ namespace Scripts.Enemy
         private float _speed = 1.5f;
         private Loot _loot;
         private WorldData _worldData;
+        private RewardsManager _rewardManager;
         private Transform _player;
 
 
@@ -24,10 +25,12 @@ namespace Scripts.Enemy
         private bool _loadedFromProgress;
         private string _id;
 
-        public void Construct(WorldData worldData, GameObject player)
+
+        public void Construct(WorldData worldData, GameObject player, RewardsManager rewardsManager)
         {
             _worldData = worldData;
             _player = player.transform;
+            _rewardManager = rewardsManager;
         }
 
         public void LoadProgress(PlayerProgress progress)
@@ -91,9 +94,26 @@ namespace Scripts.Enemy
         {
             //UpdateWorldData();
             HideModel();
-            PlayPickupFx();
-            ShowText();
+            ReceivingAward();
+            //PlayPickupFx();
+            //ShowText();
             StartCoroutine(StartDestroyTimer());
+        }
+
+        public void ReceivingAward()
+        {
+            int random = Random.Range(0, 6);
+            
+
+            if (random < 5)
+            {
+                int randomHealth = Random.Range(1, 5);
+                _player.GetComponent<IHealth>().TakeHP(randomHealth);
+            }
+            else
+            {
+                _rewardManager.SendReward(0);
+            }
         }
 
         private void UpdateWorldData()
