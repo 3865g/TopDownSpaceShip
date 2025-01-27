@@ -12,12 +12,13 @@ namespace Scripts.Hero.Ability
         private HeroHealth _heroHealth;
         private ShipMove _shipMove;
         private bool _speedChanged;
+        private bool _activeAfterLoad;
 
         public override void ActivatePassive(GameObject parent)
         {
             _heroHealth = parent.GetComponent<HeroHealth>();
             _shipMove = parent.GetComponent<ShipMove>();
-
+            FirstActivate();
             ChangeDamage();
 
             _heroHealth.HealthChanged += ChangeDamage;
@@ -27,16 +28,28 @@ namespace Scripts.Hero.Ability
 
         public void ChangeDamage()
         {
+            
+
+
             if (_heroHealth.CurrentHP >= _heroHealth.MaxHP && !_speedChanged)
             {
-                _shipMove.MovementSpeed += BonusSpeed;
+                _shipMove.UpdateBonuseSpeed(BonusSpeed);
                 _speedChanged = true;
             }
             else if (_heroHealth.CurrentHP < _heroHealth.MaxHP && _speedChanged)
             {
-                _shipMove.MovementSpeed -= BonusSpeed;
+                _shipMove.UpdateBonuseSpeed(-BonusSpeed);
                 _speedChanged = false;
 
+            }
+        }
+
+        public void FirstActivate()
+        {
+            if(!_activeAfterLoad && (_heroHealth.CurrentHP == _heroHealth.MaxHP))
+            {
+                _speedChanged = false;
+                _activeAfterLoad = true;
             }
         }
     }

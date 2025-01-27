@@ -12,15 +12,10 @@ namespace Scripts.Hero.Ability
         private HeroHealth _heroHealth;
 
         public override void ActivatePassive(GameObject parent)
-        {
-            
-
+        {         
             _heroHealth = parent.GetComponent<HeroHealth>();
 
             _heroHealth.AddedBonusMaxHP(AddedMaxHP);
-
-
-
         }
     }
 }

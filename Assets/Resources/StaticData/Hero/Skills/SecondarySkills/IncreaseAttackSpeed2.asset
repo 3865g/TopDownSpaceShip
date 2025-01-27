@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: IncreaseAttackSpeed2
   m_EditorClassIdentifier: 
   name: IncreaseAttackSpeed2
+  Icon: {fileID: 0}
   abilityTypeId: 8
-  description: Increase the attack speed by 0.5 sec
+  description: Increase the attack speed by 0.15 sec
   skillType: 0
+  ReActivateAfterLoad: 1
   Point: 2
-  AttackSpeedCooldown: -0.5
+  AttackSpeedCooldown: 0.15

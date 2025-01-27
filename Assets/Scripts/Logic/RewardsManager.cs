@@ -143,7 +143,9 @@ namespace Scripts.Logic
             }
 
             //Play Reward sound??
-            Invoke("OpenWindow", 1.5f);
+            //Invoke("OpenWindow", 0.5f);
+
+            OpenWindow();
         }
 
         public void OpenWindow()

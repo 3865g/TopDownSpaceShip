@@ -231,9 +231,9 @@ namespace Scripts.Hero.Ability
             {
                 _attributeAbility = element;
 
-                if (_secondaryAbility.ReActivateAfterLoad)
+                if (_attributeAbility.ReActivateAfterLoad)
                 {
-                    _secondaryAbility.ActivatePassive(gameObject);
+                    _attributeAbility.ActivatePassive(gameObject);
                 }
             }
         }

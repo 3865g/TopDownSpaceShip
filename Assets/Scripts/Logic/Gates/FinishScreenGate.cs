@@ -1,6 +1,5 @@
 ﻿using Scripts.Data;
 using Scripts.Infrastructure.States;
-using Scripts.Services.Input;
 using Scripts.Services;
 using Scripts.Services.PersistentProgress;
 using Scripts.UI.Services.Windows;

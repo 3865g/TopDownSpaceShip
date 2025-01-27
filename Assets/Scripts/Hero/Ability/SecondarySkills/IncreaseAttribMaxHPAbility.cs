@@ -16,7 +16,6 @@ namespace Scripts.Hero.Ability
             _heroHealth = parent.GetComponent<HeroHealth>();
 
             _heroHealth.AddedBonusMaxHP(AddedMaxHP);
-
         }
     }
 }
