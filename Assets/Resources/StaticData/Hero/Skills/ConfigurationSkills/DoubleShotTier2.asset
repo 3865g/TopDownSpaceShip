@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: DoubleShotTier2
   m_EditorClassIdentifier: 
   name: TripleShoot
+  Icon: {fileID: 0}
   abilityTypeId: 2
-  description: 
+  description: Doble shoot but hp 40%
   skillType: 0
   ColdownTime: 0
   ActiveTime: 0

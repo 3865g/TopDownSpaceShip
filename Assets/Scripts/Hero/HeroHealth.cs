@@ -130,8 +130,19 @@ namespace Scripts.Hero
 
         public void AddedBonusMaxHP(float bonusHP)
         {
-            MaxHP += bonusHP;
-            CurrentHP += bonusHP;
+            if(bonusHP >= 0)
+            {
+                MaxHP += bonusHP;
+                CurrentHP += bonusHP;
+            }
+            else
+            {
+                MaxHP += bonusHP;
+                if (CurrentHP > MaxHP)
+                {
+                    CurrentHP = MaxHP;
+                }
+            }
         }
 
         public void UpdateDodgeChance(int dodgeChance)

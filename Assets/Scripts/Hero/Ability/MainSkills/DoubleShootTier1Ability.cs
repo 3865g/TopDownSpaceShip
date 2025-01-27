@@ -1,7 +1,5 @@
-using Scripts.Enemy;
 using Scripts.Logic;
 using UnityEngine;
-using Scripts.Data;
 
 
 namespace Scripts.Hero.Ability
@@ -14,31 +12,22 @@ namespace Scripts.Hero.Ability
         public float MaxHPMultiplyer;
 
         private HeroAttack _heroAttack;
-        private IHealth _health;
-        private PlayerProgress _playerProgress;
+        private HeroHealth _health;
+        private float _bonusHp;
 
         public override void ActivatePassive(GameObject parent)
         {
             _heroAttack = parent.GetComponent<HeroAttack>();
             _heroAttack.BurstAmount = BurstAmount;
 
-            _health = parent.GetComponent<IHealth>();
+            //_health = parent.GetComponent<HeroHealth>();
+
+            //_bonusHp -= _health.MaxHP * MaxHPMultiplyer;
+
+            //_health.AddedBonusMaxHP(_bonusHp);
 
 
         }
-        //public void UpdateMaxHP()
-        //{
-        //    _health.MaxHP -= _playerProgress.HeroState.MaxHP * MaxHPMultiplyer;
-        //}
-
-        //public void LoadProgress(PlayerProgress progress)
-        //{
-        //    _playerProgress = progress;
-        //}
-
-        //public void UpdateProgress(PlayerProgress progress)
-        //{
-        //}
     }
 }
 
