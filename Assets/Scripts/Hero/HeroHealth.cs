@@ -16,6 +16,8 @@ namespace Scripts.Hero
 
         public bool CanDodge;
         public int DodgeChance;
+        //Need refactoring
+        public float DamageMultiplier;
 
         private State _state;
         private IRandomService _randomService;
@@ -78,6 +80,12 @@ namespace Scripts.Hero
         public void TakeDamage(float damage, Color color)
         {
 
+            if (DamageMultiplier == 0)
+            {
+                DamageMultiplier = 1;
+            }
+            float finalDamage = (int)Math.Round( damage * DamageMultiplier);
+
             if (CanDodge)
             {
                 CalculateRandomValue();
@@ -91,7 +99,7 @@ namespace Scripts.Hero
                     //Play Dodge Effect
                     return;
                 }
-                CurrentHP -= damage;
+                CurrentHP -= finalDamage;
 
 
             }
@@ -101,11 +109,11 @@ namespace Scripts.Hero
                 {
                     return;
                 }
-                CurrentHP -= damage;
+                CurrentHP -= finalDamage;
                 //Animator.PlayHit();
             }
 
-            ShowText(damage.ToString(), Color.red);
+            ShowText(finalDamage.ToString(), Color.red);
 
 
 
@@ -130,6 +138,7 @@ namespace Scripts.Hero
 
         public void AddedBonusMaxHP(float bonusHP)
         {
+
             if(bonusHP >= 0)
             {
                 MaxHP += bonusHP;

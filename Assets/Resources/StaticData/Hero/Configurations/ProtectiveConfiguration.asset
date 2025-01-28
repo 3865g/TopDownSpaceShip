@@ -20,8 +20,8 @@ MonoBehaviour:
   ConfigurationIcon: {fileID: 0}
   DetailedDescription: When you select this configuration, survivability increases
     and the ship gains the ability to create a shield.
-  OpeningConditions: If you score 3 and 9 points of the current direction, you will
-    unlock the second and third ability levels.
+  OpeningConditions: If you take 2, 4 or 6 upgrades of the current direction, you
+    will unlock the second and third ability levels.
   AbilityTier1Icon: {fileID: 0}
   AbilityTier1Name: Shield
   AbilityTier1Description: can use shield

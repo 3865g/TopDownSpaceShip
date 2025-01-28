@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: DoubleShotTier3
   m_EditorClassIdentifier: 
   name: QuadrupleShot
+  Icon: {fileID: 0}
   abilityTypeId: 3
-  description: QuadrupleShot but hp 25%
+  description: QuadrupleShot, but you take 100% more damage.
   skillType: 0
   ColdownTime: 0
   ActiveTime: 0
@@ -22,4 +23,4 @@ MonoBehaviour:
   Point: 0
   IsPassive: 1
   BurstAmount: 4
-  MaxHPMultiplyer: 0.25
+  DamageMultiplier: 2

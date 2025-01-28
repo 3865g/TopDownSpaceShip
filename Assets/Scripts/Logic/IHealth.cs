@@ -17,5 +17,7 @@ namespace Scripts.Logic
 
         void TakeDamage(float damage, Color color);
         void TakeHP(float HP);
+
+        void AddedBonusMaxHP(float bonusHP);
     }
 }

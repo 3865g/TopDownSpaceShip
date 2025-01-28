@@ -70,5 +70,9 @@ namespace Scripts.Enemy
             yield return new WaitForSeconds(0.5f);
             Destroy(textPrefab);
         }
+
+        public void AddedBonusMaxHP(float bonusHP)
+        {
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
 
         private int _attackPoints;
         private int _movementPoints;
-        private int _defencePoints;
+        private int _protectivePoints;
 
 
         public override void Construct(IStaticDataService staticDataService, GameObject player)
@@ -43,11 +43,10 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
 
         public override void ChangePoints(int attackPoints, int movementPoints, int defencePoints)
         {
-            base.ChangePoints(attackPoints, movementPoints, defencePoints);
 
             _attackPoints = _attackPoints + attackPoints;
             _movementPoints = _movementPoints + movementPoints;
-            _defencePoints = _defencePoints + defencePoints;
+            _protectivePoints = _protectivePoints + defencePoints;
 
             UnlockAbility();
 
@@ -55,19 +54,18 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
 
         public override void UnlockAbility()
         {
-            base.UnlockAbility();
 
-            if(_defencePoints < 3)
+            if(_protectivePoints >= 2 && _protectivePoints < 4)
             {
                 _activeAbility = _abilityTier1;
                 SetActiveAbility();
             }
-            else if (_defencePoints >= 3 && _defencePoints < 9)
+            else if (_protectivePoints >= 4 && _protectivePoints < 6)
             {
                 _activeAbility = _abilityTier2;
                 SetActiveAbility();
             }
-            else
+            else if (_protectivePoints >= 6)
             {
                 _activeAbility = _abilityTier3;
                 SetActiveAbility();

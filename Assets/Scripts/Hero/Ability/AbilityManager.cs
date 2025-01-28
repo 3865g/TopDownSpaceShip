@@ -22,7 +22,7 @@ namespace Scripts.Hero.Ability
 
         private int _attackPoints;
         private int _movementPoints;
-        private int _defencePoints;
+        private int _protectivePoints;
 
         public AbilityData _abilityData { get; private set; }
 
@@ -90,29 +90,38 @@ namespace Scripts.Hero.Ability
 
             _currentConfiguration.Construct(_staticDataService, _player);
             _currentConfiguration.InitActiveAbility();
-            _currentConfiguration.ChangePoints(_attackPoints, _movementPoints, _defencePoints);
+            _currentConfiguration.ChangePoints(_attackPoints, _movementPoints, _protectivePoints);
+        }
+
+        public void ActivateAbility()
+        {
+
+            _currentConfiguration.InitActiveAbility();
         }
 
         public void CalculatePoints(SecondaryAbility ability)
         {
+            _attackPoints = 0;
+            _movementPoints = 0;
+            _protectivePoints = 0;
             switch (ability.skillType)
             {
                 case SkillType.Attacking:
                     {
-                        _attackPoints +=  ability.Point;
-                        _currentConfiguration.ChangePoints(_attackPoints, _movementPoints , _defencePoints);
+                        _attackPoints +=  1;
+                        _currentConfiguration.ChangePoints(_attackPoints, _movementPoints , _protectivePoints);
                     }
                     break;
                 case SkillType.Movement:
                     {
-                        _movementPoints += ability.Point;
-                        _currentConfiguration.ChangePoints(_attackPoints, _movementPoints, _defencePoints);
+                        _movementPoints += 1;
+                        _currentConfiguration.ChangePoints(_attackPoints, _movementPoints, _protectivePoints);
                     }
                     break;
                 case SkillType.Protective:
                     {
-                        _defencePoints += ability.Point;
-                        _currentConfiguration.ChangePoints(_attackPoints, _movementPoints, _defencePoints);
+                        _protectivePoints += 1;
+                        _currentConfiguration.ChangePoints(_attackPoints, _movementPoints, _protectivePoints);
                     }
                     break;
             }

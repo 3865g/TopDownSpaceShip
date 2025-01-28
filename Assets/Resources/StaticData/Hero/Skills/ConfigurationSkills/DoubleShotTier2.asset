@@ -15,7 +15,7 @@ MonoBehaviour:
   name: TripleShoot
   Icon: {fileID: 0}
   abilityTypeId: 2
-  description: Doble shoot but hp 40%
+  description: Triple shoot, but you take 50% more damage.
   skillType: 0
   ColdownTime: 0
   ActiveTime: 0
@@ -23,4 +23,4 @@ MonoBehaviour:
   Point: 0
   IsPassive: 1
   BurstAmount: 3
-  MaxHPMultiplyer: 0.4
+  DamageMultiplier: 1.5

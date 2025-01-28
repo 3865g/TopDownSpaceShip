@@ -1,8 +1,5 @@
-using Scripts.Hero.Ability.ConfigurationStattes;
 using Scripts.Services.StaticData;
 using Scripts.StaticData;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Scripts.Hero.Ability.ConfigurationStattes
@@ -58,17 +55,17 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
         public override void UnlockAbility()
         {
 
-            if (_attackPoints < 3)
+            if (_attackPoints >= 2 && _attackPoints < 4)
             {
                 _activeAbility = _abilityTier1;
                 SetActiveAbility();
             }
-            else if (_attackPoints >= 3 && _attackPoints < 9)
+            else if (_attackPoints >= 4 && _attackPoints < 6)
             {
                 _activeAbility = _abilityTier2;
                 SetActiveAbility();
             }
-            else
+            else if (_attackPoints >= 6)
             {
                 _activeAbility = _abilityTier3;
                 SetActiveAbility();
@@ -80,11 +77,11 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
         {
 
 
-            if (_player != null && _activeAbility.IsPassive == false)
+            if (_activeAbility!= null && _player != null && _activeAbility.IsPassive == false)
             {
                 _player.GetComponent<AbilityHolder>().ChangeAbility(_activeAbility);
             }
-            else if (_player != null && _activeAbility.IsPassive == true)
+            else if (_activeAbility != null && _player != null && _activeAbility.IsPassive == true)
             {
                 _player.GetComponent<AbilityHolder>().ActivatePassiveAbility(_activeAbility);
             }

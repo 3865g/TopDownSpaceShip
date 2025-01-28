@@ -1,6 +1,3 @@
-using Scripts.Data;
-using Scripts.Hero.Ability.ConfigurationStattes;
-using Scripts.Services.PersistentProgress;
 using Scripts.Services.StaticData;
 using Scripts.StaticData;
 using UnityEngine;
@@ -57,17 +54,17 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
         public override void UnlockAbility()
         {
 
-            if(_movementPoints < 3)
+            if(_movementPoints >= 2 && _movementPoints < 4)
             {
                 _activeAbility = _abilityTier1;
                 SetActiveAbility();
             }
-            else if (_movementPoints >= 3 && _movementPoints < 9)
+            else if (_movementPoints >= 4 && _movementPoints < 6)
             {
                 _activeAbility = _abilityTier2;
                 SetActiveAbility();
             }
-            else
+            else if(_movementPoints >= 6)
             {
                 _activeAbility = _abilityTier3;
                 SetActiveAbility();

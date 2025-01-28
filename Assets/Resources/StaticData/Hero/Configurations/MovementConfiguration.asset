@@ -20,8 +20,8 @@ MonoBehaviour:
   ConfigurationIcon: {fileID: 0}
   DetailedDescription: When you select this configuration, maneuverability increases
     and the ship gains the ability to make a dash.
-  OpeningConditions: If you score 3 and 9 points of the current direction, you will
-    unlock the second and third ability levels.
+  OpeningConditions: If you take 2, 4 or 6 upgrades of the current direction, you
+    will unlock the second and third ability levels.
   AbilityTier1Icon: {fileID: 0}
   AbilityTier1Name: Dash 1
   AbilityTier1Description: can use dash

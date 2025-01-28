@@ -15,7 +15,7 @@ MonoBehaviour:
   name: DoubleShotTier1
   Icon: {fileID: 0}
   abilityTypeId: 1
-  description: Doble shoot but hp 60%
+  description: Doble shoot, but you take 25% more damage.
   skillType: 0
   ColdownTime: 0
   ActiveTime: 0
@@ -23,4 +23,4 @@ MonoBehaviour:
   Point: 0
   IsPassive: 1
   BurstAmount: 2
-  MaxHPMultiplyer: 0.4
+  DamageMultiplier: 1.25

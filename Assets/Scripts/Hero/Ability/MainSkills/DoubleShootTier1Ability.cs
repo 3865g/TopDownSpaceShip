@@ -9,25 +9,21 @@ namespace Scripts.Hero.Ability
     public class DoubleShootTier1Ability : ConfigurationAbility/*, ISavedProgress*/
     {
         public int BurstAmount;
-        public float MaxHPMultiplyer;
+        public float DamageMultiplier;
 
         private HeroAttack _heroAttack;
         private HeroHealth _health;
-        private float _bonusHp;
 
         public override void ActivatePassive(GameObject parent)
         {
             _heroAttack = parent.GetComponent<HeroAttack>();
             _heroAttack.BurstAmount = BurstAmount;
 
-            //_health = parent.GetComponent<HeroHealth>();
-
-            //_bonusHp -= _health.MaxHP * MaxHPMultiplyer;
-
-            //_health.AddedBonusMaxHP(_bonusHp);
-
-
+            _health = parent.GetComponent<HeroHealth>();  
+            _health.DamageMultiplier = DamageMultiplier;
         }
+
+        
     }
 }
 
