@@ -1,5 +1,6 @@
 using Scripts.Hero.Ability;
 using Scripts.Logic;
+using Scripts.UI.Elements;
 using Scripts.UI.Services.Windows;
 using UnityEngine;
 
@@ -16,6 +17,14 @@ namespace Scripts.UI.Windows.Menu
         public Transform MovementLibriaryContainer;
         public Transform ProtectiveLibriaryContainer;
 
+        public ShortViewAbilities Configuration;
+        public ShortViewAbilities ConfigurationAbilityTier1;
+        public ShortViewAbilities ConfigurationAbilityTier2;
+        public ShortViewAbilities ConfigurationAbilityTier3;
+        public ProgressBar ProgressBar;
+
+
+
         public GameObject _player;
         private AbilityHolder _abilityHolder;
         private IWindowService _windowService;
@@ -26,6 +35,7 @@ namespace Scripts.UI.Windows.Menu
             _player = player;
             FillCurrentAbilityContainer();
             FillLibriaryAbilityContainer();
+            FillCurrentConfigurationProgress();
         }
 
 
@@ -41,6 +51,20 @@ namespace Scripts.UI.Windows.Menu
                 }
             }
         }
+
+        public void FillCurrentConfigurationProgress()
+        {
+            _abilityHolder = _player.GetComponent<AbilityHolder>();
+
+            ProgressBar.SetValue(_abilityHolder.CurentPoints, 6);
+
+            Configuration.Construct(_windowService, _abilityHolder.ConfigurationDescription.ConfigurationIcon, _abilityHolder.ConfigurationDescription.name, _abilityHolder.ConfigurationDescription.DetailedDescription);
+            ConfigurationAbilityTier1.Construct(_windowService, _abilityHolder.ConfigurationDescription.AbilityTier1Icon, _abilityHolder.ConfigurationDescription.AbilityTier1Name, _abilityHolder.ConfigurationDescription.AbilityTier1Description);
+            ConfigurationAbilityTier2.Construct(_windowService, _abilityHolder.ConfigurationDescription.AbilityTier2Icon, _abilityHolder.ConfigurationDescription.AbilityTier2Name, _abilityHolder.ConfigurationDescription.AbilityTier2Description);
+            ConfigurationAbilityTier3.Construct(_windowService, _abilityHolder.ConfigurationDescription.AbilityTier3Icon, _abilityHolder.ConfigurationDescription.AbilityTier3Name, _abilityHolder.ConfigurationDescription.AbilityTier3Description);
+
+        }
+
 
         public void FillLibriaryAbilityContainer()
         {

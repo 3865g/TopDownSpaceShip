@@ -1,5 +1,4 @@
 using Scripts.StaticData;
-using TMPro;
 using UnityEngine;
 
 

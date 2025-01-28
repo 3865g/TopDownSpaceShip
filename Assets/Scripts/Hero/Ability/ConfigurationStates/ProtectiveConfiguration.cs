@@ -16,12 +16,17 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
         private ConfigurationAbility _abilityTier2;
         private ConfigurationAbility _abilityTier3;
 
+        
+
         private GameObject _player;
         private IStaticDataService _staticDataService;
 
         private int _attackPoints;
         private int _movementPoints;
         private int _protectivePoints;
+
+        private AbilityHolder _abilityHolder;
+
 
 
         public override void Construct(IStaticDataService staticDataService, GameObject player)
@@ -37,6 +42,13 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
             _abilityTier2 = _staticDataService.ForAbility(AbilityTypeId.ShieldTier2);
             _abilityTier3 = _staticDataService.ForAbility(AbilityTypeId.ShieldTier3);
 
+            if (_player != null)
+            {
+                AbilityHolder abilityHolder = _player.GetComponent<AbilityHolder>();
+
+                abilityHolder.ConfigurationDescription = _staticDataService.ForConfiguration(ConfigurationTypeId.Protective—onfiguration);
+            }
+
 
             UnlockAbility();
         }
@@ -47,6 +59,15 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
             _attackPoints = _attackPoints + attackPoints;
             _movementPoints = _movementPoints + movementPoints;
             _protectivePoints = _protectivePoints + defencePoints;
+
+
+            if (_player != null) 
+            {
+                AbilityHolder abilityHolder = _player.GetComponent<AbilityHolder>();
+                abilityHolder.CurentPoints = _protectivePoints;
+            }
+
+            
 
             UnlockAbility();
 
@@ -78,7 +99,9 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
 
             if (_player != null)
             {
-                _player.GetComponent<AbilityHolder>().ChangeAbility(_activeAbility);
+                AbilityHolder abilityHolder =  _player.GetComponent<AbilityHolder>();
+                abilityHolder.ChangeAbility(_activeAbility);
+                abilityHolder.ConfigurationDescription = _staticDataService.ForConfiguration(ConfigurationTypeId.Protective—onfiguration);
             }
         }
     }

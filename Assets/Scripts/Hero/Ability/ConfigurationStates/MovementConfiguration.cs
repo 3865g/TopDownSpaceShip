@@ -37,6 +37,13 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
             _abilityTier2 = _staticDataService.ForAbility(AbilityTypeId.DashTier2);
             _abilityTier3 = _staticDataService.ForAbility(AbilityTypeId.DashTier3);
 
+            if (_player != null)
+            {
+                AbilityHolder abilityHolder = _player.GetComponent<AbilityHolder>();
+
+                abilityHolder.ConfigurationDescription = _staticDataService.ForConfiguration(ConfigurationTypeId.MovementConfiguration);
+            }
+
             UnlockAbility();
         }
 
@@ -46,6 +53,12 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
             _attackPoints += attackPoints;
             _movementPoints +=  movementPoints;
             _defencePoints +=  defencePoints;
+
+            if (_player != null)
+            {
+                AbilityHolder abilityHolder = _player.GetComponent<AbilityHolder>();
+                abilityHolder.CurentPoints = _movementPoints;
+            }
 
             UnlockAbility();
 
@@ -76,8 +89,8 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
 
             if (_player != null)
             {
-                //UnlockAbility();
-                _player.GetComponent<AbilityHolder>().ChangeAbility(_activeAbility);
+                AbilityHolder abilityHolder = _player.GetComponent<AbilityHolder>();
+                abilityHolder.ChangeAbility(_activeAbility);
             }
         }
 

@@ -26,6 +26,9 @@ namespace Scripts.Hero.Ability
 
         public ConfigurationAbility activeAbility;
 
+        public ConfigurationDescription ConfigurationDescription;
+        public int CurentPoints;
+
 
 
         //public List<Ability> passiveAbilities;
