@@ -17,17 +17,17 @@ MonoBehaviour:
   ShortDescription: When you select this configuration, maneuverability increases
     and the ship gains the ability to make a dash.
   skillType: 1
-  ConfigurationIcon: {fileID: 0}
+  ConfigurationIcon: {fileID: 21300000, guid: a7b5c5afb27c9054f8af87d95eeb17a6, type: 3}
   DetailedDescription: When you select this configuration, maneuverability increases
     and the ship gains the ability to make a dash.
   OpeningConditions: If you take 2, 4 or 6 upgrades of the current direction, you
     will unlock the second and third ability levels.
-  AbilityTier1Icon: {fileID: 0}
+  AbilityTier1Icon: {fileID: 21300000, guid: 12eb6ba40cc9a474c9680232f2a205c7, type: 3}
   AbilityTier1Name: Dash 1
   AbilityTier1Description: can use dash
-  AbilityTier2Icon: {fileID: 0}
+  AbilityTier2Icon: {fileID: 21300000, guid: e3df41fc9cc90204ab665df61cefce65, type: 3}
   AbilityTier2Name: Dash 2
   AbilityTier2Description: dash and speed 3 sec after dash
-  AbilityTier3Icon: {fileID: 0}
+  AbilityTier3Icon: {fileID: 21300000, guid: 816c77b751f99f94a9b2bf6dfbe74482, type: 3}
   AbilityTier3Name: Dash 3
   AbilityTier3Description: dash and speed 5sec after dash

@@ -3,6 +3,7 @@ using Scripts.Logic;
 using Scripts.UI.Elements;
 using Scripts.UI.Services.Windows;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Scripts.UI.Windows.Menu
 {
@@ -16,6 +17,7 @@ namespace Scripts.UI.Windows.Menu
         public Transform AttackingLibriaryContainer;
         public Transform MovementLibriaryContainer;
         public Transform ProtectiveLibriaryContainer;
+        public Outline Outline;
 
         public ShortViewAbilities Configuration;
         public ShortViewAbilities ConfigurationAbilityTier1;

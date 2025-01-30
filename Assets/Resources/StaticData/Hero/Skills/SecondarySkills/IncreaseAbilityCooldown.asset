@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: IncreaseAbilityCooldown
   m_EditorClassIdentifier: 
   name: IncreaseAbilityCooldown
+  Icon: {fileID: 21300000, guid: f75ed9e57a4d99e49a6e6e51ce6c0ce3, type: 3}
   abilityTypeId: 51
   description: Reduces active skill cooldown by 20%
   skillType: 2
+  ReActivateAfterLoad: 1
   Point: 3
   CooldownMultyplayer: 0.8

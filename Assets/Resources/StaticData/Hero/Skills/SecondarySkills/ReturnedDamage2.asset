@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: ReturnedDamage2
   m_EditorClassIdentifier: 
   name: ReturnedDamage2
+  Icon: {fileID: 21300000, guid: c0a5864508d0e964a8b91da5b4ed60b4, type: 3}
   abilityTypeId: 47
   description: If an enemy hits the hero, 10 damage is returned to him
   skillType: 2
+  ReActivateAfterLoad: 1
   Point: 2
   ReturnedDamage: 10

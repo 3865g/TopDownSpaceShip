@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: IncreaseMovementSpeed2
   m_EditorClassIdentifier: 
   name: IncreaseMovementSpeed2
+  Icon: {fileID: 21300000, guid: e33d004752b37874190a8720f839de04, type: 3}
   abilityTypeId: 26
   description: Increase Movement Speed by 10
   skillType: 1
+  ReActivateAfterLoad: 1
   Point: 2
   BonuseSpeed: 10

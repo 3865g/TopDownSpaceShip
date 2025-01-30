@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: BurnShoots
   m_EditorClassIdentifier: 
   name: BurnShoots
+  Icon: {fileID: 21300000, guid: dd519d5fee7de8241a199cab5e522931, type: 3}
   abilityTypeId: 12
   description: The shots set the enemy on fire and deal 2 damage every second for
     5 seconds
   skillType: 0
+  ReActivateAfterLoad: 1
   Point: 3
   BurnLaserPrefab: {fileID: 8737532056342513294, guid: 4faaf39af4d1bc9448c0de74ec6e9636, type: 3}

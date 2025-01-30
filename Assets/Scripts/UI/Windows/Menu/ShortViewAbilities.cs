@@ -31,7 +31,7 @@ namespace Scripts.UI.Windows.Menu
         public void OpenDetailedDescription()
         {
             _windowService.Open(WindowId.DetailedViewAbilities);
-            _windowService.DetailedViewAbility.Icon = Icon;
+            _windowService.DetailedViewAbility.Icon.sprite = Icon.sprite;
             _windowService.DetailedViewAbility.AbilityName.SetText(_abilityName);
             _windowService.DetailedViewAbility.AbilityDescription.SetText(_abilityDescription);
 

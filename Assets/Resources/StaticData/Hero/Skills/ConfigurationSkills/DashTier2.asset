@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DashTier2
   m_EditorClassIdentifier: 
   name: DashTier2
+  Icon: {fileID: 21300000, guid: e3df41fc9cc90204ab665df61cefce65, type: 3}
   abilityTypeId: 5
   description: Dash and bonuse speed
   skillType: 1

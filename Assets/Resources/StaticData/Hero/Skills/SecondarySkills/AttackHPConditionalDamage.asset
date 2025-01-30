@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: AttackHPConditionalDamage
   m_EditorClassIdentifier: 
   name: AttackHPConditionalDamage
+  Icon: {fileID: 21300000, guid: aa5175c3bbaaa3a42ad59cbf5607bfc7, type: 3}
   abilityTypeId: 11
   description: If the player's HP is less than 50%, the damage increases by 20
   skillType: 0
+  ReActivateAfterLoad: 1
   Point: 3
   BonusDamage: 20

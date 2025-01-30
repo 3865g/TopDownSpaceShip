@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: IncreaseDodge1
   m_EditorClassIdentifier: 
   name: IncreaseDodge1
+  Icon: {fileID: 21300000, guid: b951a2fd93030be47b1c02a5eebc3ce1, type: 3}
   abilityTypeId: 20
   description: Adds the ability to dodge with a chance 5%
   skillType: 1
+  ReActivateAfterLoad: 1
   Point: 1
   DodgeChance: 5

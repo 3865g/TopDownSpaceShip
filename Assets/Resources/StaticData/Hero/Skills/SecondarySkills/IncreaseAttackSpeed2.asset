@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IncreaseAttackSpeed2
   m_EditorClassIdentifier: 
   name: IncreaseAttackSpeed2
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 4acdcd3b6eff0084b8e6517c73d2b623, type: 3}
   abilityTypeId: 8
   description: Increase the attack speed by 0.15 sec
   skillType: 0

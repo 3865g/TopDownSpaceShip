@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DoubleShotTier2
   m_EditorClassIdentifier: 
   name: TripleShoot
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 53f90cff771c51547b3f7879c491e0c5, type: 3}
   abilityTypeId: 2
   description: Triple shoot, but you take 50% more damage.
   skillType: 0

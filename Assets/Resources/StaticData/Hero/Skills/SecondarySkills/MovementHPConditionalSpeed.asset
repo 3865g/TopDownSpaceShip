@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: MovementHPConditionalSpeed
   m_EditorClassIdentifier: 
   name: MovementHPConditionalSpeed
+  Icon: {fileID: 21300000, guid: 429bd5e14b88c3d4fae317289c6730cf, type: 3}
   abilityTypeId: 31
   description: If the player's HP is equal to the maximum, then the speed increases
     by 20
   skillType: 1
+  ReActivateAfterLoad: 1
   Point: 3
   BonusSpeed: 20

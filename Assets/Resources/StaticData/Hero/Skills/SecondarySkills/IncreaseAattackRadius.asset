@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: IncreaseAattackRadius
   m_EditorClassIdentifier: 
   name: IncreaseAttackRadius
+  Icon: {fileID: 21300000, guid: 89a90b4a2b233a0448b9814e315108ea, type: 3}
   abilityTypeId: 27
   description: Increase the attack radius by 10
   skillType: 1
+  ReActivateAfterLoad: 1
   Point: 2
   AttackRadius: 10

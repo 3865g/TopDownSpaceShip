@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: AttackHPBalancer
   m_EditorClassIdentifier: 
   name: AttackHPBalancer
+  Icon: {fileID: 21300000, guid: 3b8bc2df088d14645be2cdfac6ac1959, type: 3}
+  Color: {r: 1, g: 0, b: 0, a: 0}
   abilityTypeId: 6
   description: If the HP is more than 50%, then he receives 2 damage when attacking,
     if less than 50%, then he restores 1 hp when attacking
   skillType: 0
+  ReActivateAfterLoad: 1
   Point: 2
   RestoreHP: 1
   DamageHP: 2

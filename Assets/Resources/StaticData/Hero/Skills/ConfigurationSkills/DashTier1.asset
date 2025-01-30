@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DashTier1
   m_EditorClassIdentifier: 
   name: DashTier1
+  Icon: {fileID: 21300000, guid: 12eb6ba40cc9a474c9680232f2a205c7, type: 3}
   abilityTypeId: 4
   description: 
   skillType: 1

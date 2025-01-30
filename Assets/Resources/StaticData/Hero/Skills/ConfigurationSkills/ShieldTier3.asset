@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ShieldTier3
   m_EditorClassIdentifier: 
   name: ShieldTier3
+  Icon: {fileID: 21300000, guid: 9f0c10ea8f8e7d34982af8e8c6c14bd5, type: 3}
   abilityTypeId: 9
   description: Sheld + Damage wave (5 damage in 100 radius)
   skillType: 2
@@ -22,6 +23,5 @@ MonoBehaviour:
   Point: 0
   IsPassive: 0
   ShieldGameObject: {fileID: 146389794037421487, guid: e70998772a7271046aadce16441b6cb5, type: 3}
-  SpawnedShield: {fileID: 0}
   DamageWave: 1
   DamageWaveAmount: 5
