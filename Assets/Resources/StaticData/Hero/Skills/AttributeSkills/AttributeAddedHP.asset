@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Added HP
   Icon: {fileID: 0}
+  Color: {r: 1, g: 1, b: 1, a: 0}
   abilityTypeId: 55
   description: Increase Max HP +1
   skillType: 3

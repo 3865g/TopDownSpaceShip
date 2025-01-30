@@ -12,10 +12,10 @@ namespace Scripts.UI.Windows.Menu
         public TextMeshProUGUI AbilityName;
         public TextMeshProUGUI AbilityDescription;
 
-        public void Construct(Sprite sprite, string abilityName, string abilityDescription)
+        public void Construct(Sprite sprite, string abilityName, string abilityDescription, Color color)
         {
             Icon.sprite = sprite;
-            Outline.effectColor = Color.white;
+            Outline.effectColor = color;
             AbilityName.SetText(abilityName);
             AbilityDescription.SetText(abilityDescription);
         }

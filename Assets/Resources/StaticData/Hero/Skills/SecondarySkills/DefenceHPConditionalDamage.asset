@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: DefenceHPConditionalDamage
   Icon: {fileID: 21300000, guid: b7605336dc7e4af4bbba08e39db2259b, type: 3}
+  Color: {r: 0, g: 0.5372549, b: 0.13333334, a: 1}
   abilityTypeId: 45
   description: If the player's HP is maximum, the damage increases by 10
   skillType: 2

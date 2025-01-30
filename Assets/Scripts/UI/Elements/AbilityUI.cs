@@ -19,6 +19,20 @@ namespace Scripts.UI.Elements
         public void Construct(AbilityHolder abilityHolder)
         {
             _abilityHolder = abilityHolder;
+            //UpdateButtonIcon();
+        }
+
+        public void UpdateButtonIcon()
+        {
+            if (_abilityHolder.activeAbility != null)
+            {
+                AbilityButton.gameObject.SetActive(true);
+                AbilityButton.AbilityImage.sprite = _abilityHolder.activeAbility.Icon;
+            }
+            else
+            {
+                AbilityButton.gameObject.SetActive(false);
+            }
         }
 
 
@@ -29,7 +43,15 @@ namespace Scripts.UI.Elements
             if (_abilityHolder)
             {
                 UpdateButton();
-            }     
+            }
+
+            //if (_abilityHolder.activeAbility != null)
+            //{
+            //    if (AbilityButton.AbilityImage.sprite != _abilityHolder.activeAbility.Icon)
+            //    {
+            //        UpdateButtonIcon();
+            //    }
+            //}
         }
 
 

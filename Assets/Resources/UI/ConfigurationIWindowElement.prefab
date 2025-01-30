@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6929384789914702107}
   - component: {fileID: 8828663964004596221}
   - component: {fileID: 8313503924208465492}
+  - component: {fileID: 4560427798110983859}
   m_Layer: 5
   m_Name: ConfigurationIWindowElement
   m_TagString: Untagged
@@ -64,7 +65,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 4, y: 4, z: 4, w: 4}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -142,6 +143,21 @@ MonoBehaviour:
   Configuration: {fileID: 0}
   ConfigurationConfirmation: {fileID: 0}
   ConfigurationTypeId: 0
+--- !u!114 &4560427798110983859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5044483180151660446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &6013980122069563887
 GameObject:
   m_ObjectHideFlags: 0

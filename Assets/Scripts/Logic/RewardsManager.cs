@@ -38,6 +38,12 @@ namespace Scripts.Logic
             {
                 SendReward(2);
             }
+
+            //NeedRefactoring
+            if (Input.GetKeyUp(KeyCode.Escape))
+            {
+                _windowService.Open(WindowId.PauseMenu);
+            }
         }
 
         public void CreateLists()

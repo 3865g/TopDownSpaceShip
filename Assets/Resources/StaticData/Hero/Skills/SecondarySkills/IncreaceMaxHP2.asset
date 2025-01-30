@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: IncreaceMaxHP2
   Icon: {fileID: 21300000, guid: fcc0552e1163a294bb5a618074f1c073, type: 3}
+  Color: {r: 0, g: 0.5372549, b: 0.13333334, a: 1}
   abilityTypeId: 46
   description: increace max hp by 20
   skillType: 2

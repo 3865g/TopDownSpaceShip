@@ -16,11 +16,14 @@ namespace Assets.Scripts.UI.Elements
             _windowService = windowService;
         }
 
+
+
         private void Awake()
         {
             Button.onClick.AddListener(Open);
             //Button = GetComponent<Button>();
         }
+
 
         private void Open()
         {

@@ -17,6 +17,7 @@ MonoBehaviour:
   ShortDescription: When you select this configuration, damage increases and the
     ship gains the ability to fire a double shot.
   skillType: 0
+  Color: {r: 1, g: 0.40000004, b: 0, a: 1}
   ConfigurationIcon: {fileID: 21300000, guid: 49b8deedee39bc34cac7cac33abb8344, type: 3}
   DetailedDescription: When you select this configuration, damage increases and the
     ship gains the ability to fire a double shot.

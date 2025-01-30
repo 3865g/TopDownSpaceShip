@@ -25,6 +25,7 @@ namespace Scripts.UI.Windows.Rewards
 
 
 
+        private Outline _outline;
         private AbilityManager _abilityManager;
         private ISaveLoadService _saveLoadService;
         private IStaticDataService _staticDataService;
@@ -38,6 +39,7 @@ namespace Scripts.UI.Windows.Rewards
             _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
 
             LevelsMenu levelsMenu = GetComponentInParent<LevelsMenu>();
+            _outline = GetComponent<Outline>();
             _abilityManager = levelsMenu.AbilityManager;
             _staticDataService = levelsMenu.StaticDataService;
 
@@ -52,6 +54,7 @@ namespace Scripts.UI.Windows.Rewards
             Icon.sprite = configuration.ConfigurationIcon;
             NameConfiguration.SetText(configuration.Name);
             DescriptionConfiguration.SetText(configuration.ShortDescription);
+            _outline.effectColor = configuration.Color;
         }
 
         public void ChangeShipConfiguration()

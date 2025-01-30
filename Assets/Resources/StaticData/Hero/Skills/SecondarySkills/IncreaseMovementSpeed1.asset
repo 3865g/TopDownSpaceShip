@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: IncreaseMovementSpeed1
   Icon: {fileID: 21300000, guid: 0da3a17c78c60804f81f2e30b2b6e758, type: 3}
+  Color: {r: 0, g: 0.9176471, b: 1, a: 1}
   abilityTypeId: 21
   description: Increase Movement Speed by 5
   skillType: 1

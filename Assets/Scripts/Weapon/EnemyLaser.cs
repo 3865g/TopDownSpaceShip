@@ -1,5 +1,4 @@
 ﻿using Scripts.Logic;
-using System;
 using UnityEngine;
 
 namespace Scripts.Hero
@@ -31,7 +30,10 @@ namespace Scripts.Hero
 
         public void ReturnDamage(float damage)
         {
-            _enemy.GetComponent<IHealth>()?.TakeDamage(damage, Color.red);
+            if (_enemy != null)
+            {
+                _enemy.GetComponent<IHealth>()?.TakeDamage(damage, Color.red);
+            }
         }
 
 

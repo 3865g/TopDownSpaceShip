@@ -17,6 +17,7 @@ MonoBehaviour:
   ShortDescription: When you select this configuration, maneuverability increases
     and the ship gains the ability to make a dash.
   skillType: 1
+  Color: {r: 0, g: 0.9176471, b: 1, a: 1}
   ConfigurationIcon: {fileID: 21300000, guid: a7b5c5afb27c9054f8af87d95eeb17a6, type: 3}
   DetailedDescription: When you select this configuration, maneuverability increases
     and the ship gains the ability to make a dash.

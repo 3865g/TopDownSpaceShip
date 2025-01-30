@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: ShieldTier2
   Icon: {fileID: 21300000, guid: b550c648d4ba5174f9892937a41c786d, type: 3}
+  Color: {r: 0, g: 0.5372549, b: 0.13333334, a: 1}
   abilityTypeId: 8
   description: Sheld + Damage wave (2 damage in 100 radius)
   skillType: 2

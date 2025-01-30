@@ -16,7 +16,7 @@ namespace Scripts.Hero.Ability
         public SkillType skillType;
 
 
-
+        public Color Color;
         public Sprite ConfigurationIcon;
         [TextArea(1, 4)]
         public string DetailedDescription;

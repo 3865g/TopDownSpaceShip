@@ -17,6 +17,7 @@ MonoBehaviour:
   ShortDescription: When you select this configuration, survivability increases and
     the ship gains the ability to create a shield.
   skillType: 2
+  Color: {r: 0, g: 0.5372549, b: 0.13333334, a: 1}
   ConfigurationIcon: {fileID: 21300000, guid: eae03aa122355234a82aa7eb3b0ea690, type: 3}
   DetailedDescription: When you select this configuration, survivability increases
     and the ship gains the ability to create a shield.

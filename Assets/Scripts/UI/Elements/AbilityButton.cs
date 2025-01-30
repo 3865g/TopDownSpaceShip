@@ -7,6 +7,7 @@ namespace Scripts.UI.Elements
     public class AbilityButton : MonoBehaviour
     {
         public Image TimerImage;
+        public Image AbilityImage;
         public TextMeshProUGUI TimerText;
 
 

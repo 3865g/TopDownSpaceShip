@@ -8,6 +8,7 @@ namespace Scripts.Hero.Ability
 
         public new string name;
         public Sprite Icon;
+        public Color Color;
         public AbilityTypeId abilityTypeId;
         [TextArea (1, 4)]
         public string description;

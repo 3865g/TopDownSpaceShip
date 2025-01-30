@@ -12,17 +12,18 @@ namespace Scripts.UI.Windows.Menu
         public GameObject DetailedViewAbilities;
         public Button Button;
 
-
+        private Color _color;
         private string _abilityName;
         private string _abilityDescription;
         private IWindowService _windowService;
 
-        public void Construct(IWindowService windowService, Sprite icon, string abilityName, string abilityDescription)
+        public void Construct(IWindowService windowService, Sprite icon, string abilityName, string abilityDescription, Color color)
         {
             _windowService = windowService;
             Icon.sprite = icon;
             _abilityName = abilityName;
             _abilityDescription = abilityDescription;
+            _color = color;
             Button.onClick.AddListener(OpenDetailedDescription);
 
         }
@@ -31,9 +32,10 @@ namespace Scripts.UI.Windows.Menu
         public void OpenDetailedDescription()
         {
             _windowService.Open(WindowId.DetailedViewAbilities);
-            _windowService.DetailedViewAbility.Icon.sprite = Icon.sprite;
-            _windowService.DetailedViewAbility.AbilityName.SetText(_abilityName);
-            _windowService.DetailedViewAbility.AbilityDescription.SetText(_abilityDescription);
+            //_windowService.DetailedViewAbility.Icon.sprite = Icon.sprite;
+            //_windowService.DetailedViewAbility.AbilityName.SetText(_abilityName);
+            //_windowService.DetailedViewAbility.AbilityDescription.SetText(_abilityDescription);
+            _windowService.DetailedViewAbility.Construct(Icon.sprite, _abilityName, _abilityDescription, _color);
 
         }
     }

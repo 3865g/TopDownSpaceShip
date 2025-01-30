@@ -13,6 +13,7 @@ namespace Scripts.Hero.Ability
         private HeroHealth _heroHealth;
         private HeroAttack _heroAttack;
         private bool _damageChanged;
+        private bool _activeAfterLoad;
 
         public override void ActivatePassive(GameObject parent)
         {
@@ -36,6 +37,15 @@ namespace Scripts.Hero.Ability
             {
                 _heroAttack.BonuseDamage -= BonusDamage;
                 _damageChanged = false;
+            }
+        }
+
+        public void FirstActivate()
+        {
+            if (!_activeAfterLoad && (_heroHealth.CurrentHP == _heroHealth.MaxHP))
+            {
+                _damageChanged = false;
+                _activeAfterLoad = true;
             }
         }
     }

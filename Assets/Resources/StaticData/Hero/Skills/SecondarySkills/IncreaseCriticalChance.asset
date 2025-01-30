@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: IncreaseCriticalChance
   Icon: {fileID: 21300000, guid: e928ef7b96556194c831a40aab3d4567, type: 3}
+  Color: {r: 0, g: 0.9176471, b: 1, a: 1}
   abilityTypeId: 30
   description: The player gets a 10% chance to deal an additional 100 damage
   skillType: 1

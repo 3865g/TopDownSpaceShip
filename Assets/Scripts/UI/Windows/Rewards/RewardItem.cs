@@ -16,6 +16,7 @@ namespace Scripts.UI.Windows.Rewards
 
         private SecondaryAbility SecondaryAbility;
         private SecondaryAbility AttributeAbility;
+        private Outline _outline;
         private bool _secondary;
 
         [SerializeField] private Button TakeAbilityButton;
@@ -25,6 +26,7 @@ namespace Scripts.UI.Windows.Rewards
         private void Awake()
         {
             TakeAbilityButton.onClick.AddListener(() => ClickButton());
+            _outline = GetComponent<Outline>();
         }
 
         public void FillingSecondaryData(SecondaryAbility secondaryAbility)
@@ -34,6 +36,7 @@ namespace Scripts.UI.Windows.Rewards
             DescriptionAbility.SetText(secondaryAbility.description);
             SecondaryAbility = secondaryAbility;
             Icon.sprite = secondaryAbility.Icon;
+            _outline.effectColor = secondaryAbility.Color;
 
         }
 
