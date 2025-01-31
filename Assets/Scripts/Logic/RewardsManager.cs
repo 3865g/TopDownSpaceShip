@@ -42,7 +42,15 @@ namespace Scripts.Logic
             //NeedRefactoring
             if (Input.GetKeyUp(KeyCode.Escape))
             {
-                _windowService.Open(WindowId.PauseMenu);
+                if (!_windowService.PauseMenu)
+                {
+                    _windowService.Open(WindowId.PauseMenu);
+                }
+                else
+                {
+                    Destroy(_windowService.PauseMenu.gameObject);
+                }
+                
             }
         }
 

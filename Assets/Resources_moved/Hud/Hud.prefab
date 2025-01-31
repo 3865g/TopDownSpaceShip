@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -105,7 +105,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: -2413806693520163455, guid: 5ed423aca4c149b43adbbb4476f5e3fb, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -879,6 +879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityButtonUi: {fileID: 0}
   AbilityButton: {fileID: 7256955452366698141}
+  Slider: {fileID: 4410461011803713386}
 --- !u!114 &1335589228671103165
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -62,6 +62,7 @@ namespace Scripts.UI.Services.Factory
             WindowStaticData config = _staticDataService.ForWindow(WindowId.PauseMenu);
             PauseMenu pauseMenu = Object.Instantiate(config.Prefab, _uiRoot) as PauseMenu;
             pauseMenu.Construct(_gameStateMachine, _secondaryAbilityService, windowService);
+            windowService.PauseMenu = pauseMenu;
         }
 
         public void CreateDetailedViewAbility(IWindowService windowService)

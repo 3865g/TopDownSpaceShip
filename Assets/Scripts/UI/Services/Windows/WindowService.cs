@@ -15,6 +15,7 @@ namespace Scripts.UI.Services.Windows
         //I want to get a link to this window so that I can use it in different places, but am I doing the right thing??
         public ChoiceWindow ChoiceWindow { get; set; }
         public ConfimWindow ConfimWindow { get; set; }
+        public PauseMenu PauseMenu { get; set; }
 
         public DetailedViewAbility DetailedViewAbility { get; set; }
 

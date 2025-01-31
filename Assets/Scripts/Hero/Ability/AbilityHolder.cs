@@ -6,6 +6,7 @@ using UnityEngine;
 using Scripts.Logic;
 using Scripts.Data;
 using Scripts.Services.PersistentProgress;
+using Scripts.UI.Elements;
 
 
 namespace Scripts.Hero.Ability
@@ -46,6 +47,7 @@ namespace Scripts.Hero.Ability
         private bool _saveAfterPause = false;
         private bool _loadAfterPause = false;
         private AbilityState _pauseState;
+        private AbilityUI _abilityUi;
 
         //Need Refactoring
         private bool _isAbilityUseKeyboard;
@@ -65,12 +67,18 @@ namespace Scripts.Hero.Ability
             _abilityManager = abilityManager;
         }
 
+        public void InitHUD(AbilityUI abilityUI)
+        {
+            _abilityUi = abilityUI;
+            _abilityUi.AbilityButton.gameObject.SetActive(false);
+        }
         //Need Refactoring
 
         private void Awake()
         {
             _inputService = AllServices.Container.Single<IInputService>();
             cooldownMultiplayer = 1;
+           
         }
 
 
@@ -118,6 +126,7 @@ namespace Scripts.Hero.Ability
                     if (activeTime > 0)
                     {
                         activeTime -= Time.deltaTime;
+                        _abilityUi.AbilityButton.ButtonActive(activeTime);
                         CurrentAbilityState = 1;
                         IsAbilityUse = false;
                     }
@@ -133,6 +142,7 @@ namespace Scripts.Hero.Ability
                     if (cooldownTime > 0)
                     {
                         cooldownTime -= Time.deltaTime;
+                        _abilityUi.AbilityButton.ButtoonCooldown(cooldownTime, activeAbility.ColdownTime);
                         CurrentAbilityState = 2;
                         IsAbilityUse = false;
                     }
@@ -160,6 +170,13 @@ namespace Scripts.Hero.Ability
             state = _pauseState;
             cooldownTime = _pausedCooldownTime;
             activeTime = _pausedActiveTime;
+
+            if (activeAbility)
+            {
+                _abilityUi.AbilityButton.ButtonActive(activeTime);
+                _abilityUi.AbilityButton.ButtoonCooldown(cooldownTime, activeAbility.ColdownTime);
+            }
+            
             _saveAfterPause = false;
             _loadAfterPause = true;
         }
@@ -168,6 +185,9 @@ namespace Scripts.Hero.Ability
         public void ActivatePassiveAbility(ConfigurationAbility passiveAbility)
         {
             _passiveAbility = passiveAbility;
+            _abilityUi.AbilityButton.gameObject.SetActive(true);
+            _abilityUi.Slider.SetActive(false);
+            _abilityUi.AbilityButton.AbilityImage.sprite = _passiveAbility.Icon;
             _passiveAbility.ActivatePassive(gameObject);
         }
 
@@ -196,17 +216,20 @@ namespace Scripts.Hero.Ability
 
         public void ChangeAbility(ConfigurationAbility ability)
         {
+
             if (CurrentAbilityState != 0 && activeAbility != ability)
             {
                 activeAbility.Deactivate(gameObject);
                 activeTime = 0;
                 cooldownTime = 0;
-                _pausedCooldownTime =0;
-                _pausedActiveTime =0;
+                _pausedCooldownTime = 0;
+                _pausedActiveTime = 0;
                 _pauseState = 0;
-    }
+            }
 
             activeAbility = ability;
+            _abilityUi.AbilityButton.gameObject.SetActive(true);
+            _abilityUi.AbilityButton.AbilityImage.sprite = ability.Icon;
             state = AbilityState.ready;
         }
 
@@ -221,7 +244,7 @@ namespace Scripts.Hero.Ability
                 _abilityManager.CalculatePoints(_secondaryAbility);
 
                 if (_secondaryAbility.ReActivateAfterLoad)
-                {                    
+                {
                     _secondaryAbility.ActivatePassive(gameObject);
                 }
             }
