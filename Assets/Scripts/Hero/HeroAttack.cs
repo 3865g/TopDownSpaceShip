@@ -76,7 +76,7 @@ namespace Scripts.Hero
             if(CriticalChance >= _randomValue)
             {
                 _criticalDamge = CriticalDamage;
-                CurrentColor = new Color(255, 104, 0, 255);
+                CurrentColor = new Color(255, 104, 0, 200);
             }
             else
             {
@@ -117,13 +117,6 @@ namespace Scripts.Hero
                 GameObject laserPrefab = Instantiate(Laserprefab, LaserStartTransform.position, Quaternion.identity);
                 IProjectile laser = laserPrefab.GetComponent<IProjectile>();
                 laser.Construct(laserDirection, _stats.Damage + BonuseDamage + _criticalDamge, CurrentColor);
-
-                //if (laserDirection != null)
-                //{
-                //    GameObject laserPrefab = Instantiate(Laserprefab, LaserStartTransform.position, Quaternion.identity);
-                //    IProjectile laser = laserPrefab.GetComponent<IProjectile>();
-                //    laser.Construct(laserDirection, _stats.Damage + BonuseDamage + _criticalDamge, CurrentColor);
-                //}
 
                 shootcount--;
                 Shooting?.Invoke();

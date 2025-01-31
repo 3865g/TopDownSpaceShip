@@ -23,6 +23,8 @@ namespace Scripts.Hero
 
         public void Construct(Vector3 laserDirection, float damage, Color color)
         {
+
+            Color = color;
             if(laserDirection == null)
             {
                 laserDirection = transform.forward;
@@ -33,7 +35,7 @@ namespace Scripts.Hero
             rigibody.AddForce(laserDirection * Speed, ForceMode.Impulse);
 
             Renderer render = gameObject.GetComponent<Renderer>();
-            render.material.SetColor("color", color);
+            render.material.SetColor("_BaseColor", color );
 
             transform.forward = laserDirection;
 

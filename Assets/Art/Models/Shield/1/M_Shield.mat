@@ -103,6 +103,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _DstBlendAlpha: 10
+    - _Emissive: -0.04
     - _EnvironmentReflections: 1
     - _FrenselOpacityPower: 2
     - _FrenselPowerColor: 2

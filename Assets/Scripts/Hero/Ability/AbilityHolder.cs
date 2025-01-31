@@ -119,6 +119,8 @@ namespace Scripts.Hero.Ability
                         activeTime = activeAbility.ActiveTime;
                         cooldownTime = activeAbility.ColdownTime * cooldownMultiplayer;
                         CurrentAbilityState = 0;
+                        _abilityUi.AbilityButton.ButtonActive(activeTime);
+                        _abilityUi.AbilityButton.ButtoonCooldown(cooldownTime, activeAbility.ColdownTime);
                         IsAbilityUse = false;
                     }
                     break;
@@ -135,6 +137,7 @@ namespace Scripts.Hero.Ability
                         state = AbilityState.cooldown;
                         activeAbility.Deactivate(gameObject);
                         cooldownTime = activeAbility.ColdownTime * cooldownMultiplayer;
+                        _abilityUi.AbilityButton.ButtoonCooldown(cooldownTime, activeAbility.ColdownTime);
                         IsAbilityUse = false;
                     }
                     break;

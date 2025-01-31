@@ -1,4 +1,3 @@
-using Scripts.Enemy;
 using UnityEngine;
 
 
@@ -17,8 +16,10 @@ namespace Scripts.Hero.Ability
 
         public override void ActivatePassive(GameObject parent)
         {
+            _activeAfterLoad = false;
             _heroHealth = parent.GetComponent<HeroHealth>();
             _heroAttack = parent.GetComponent<HeroAttack>();
+            FirstActivate();
             ChangeDamage();
 
             _heroHealth.HealthChanged += ChangeDamage;

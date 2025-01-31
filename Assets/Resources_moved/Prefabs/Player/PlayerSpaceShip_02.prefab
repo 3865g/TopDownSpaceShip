@@ -218,6 +218,7 @@ MonoBehaviour:
   MovementVector: {x: 0, y: 0, z: 0}
   RoationSpeed: 100
   speed: 15
+  ShipSpeed: 0
 --- !u!1 &2704065691913930194
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,6 +755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 35
   BonuseSpeed: 0
+  BuffSpeed: 0
   MovementVector: {x: 0, y: 0, z: 0}
   _characterController: {fileID: 0}
 --- !u!54 &4493251844961922401
@@ -818,6 +820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanDodge: 0
   DodgeChance: 0
+  DamageMultiplier: 0
 --- !u!114 &4448857839822134430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,6 +836,9 @@ MonoBehaviour:
   heroHealth: {fileID: 7462249170531715992}
   shipMove: {fileID: 6095162580398375173}
   DeathFx: {fileID: 5386389529857311023, guid: 452ad8e7431d84142b20d957526a1111, type: 3}
+  Button1Text: main menu
+  ChoiseHeadding: The end of the adventure
+  ChoiseBody: Your ship is down, you need to get back to base.
 --- !u!114 &8967763076268185012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,7 +857,7 @@ MonoBehaviour:
   LaserStartTransform: {fileID: 1607851520391202898}
   Laserprefab: {fileID: 8737532056342513294, guid: 25e604096b4f7d54d8696159f0e44765, type: 3}
   CurrentColor: {r: 0, g: 0, b: 0, a: 0}
-  DefaultColor: {r: 0, g: 255, b: 255, a: 255}
+  DefaultColor: {r: 0, g: 0.74901974, b: 0.74901974, a: 0.78431374}
   shootcount: 0
   CanCrit: 0
   CriticalChance: 0
@@ -906,7 +912,10 @@ MonoBehaviour:
   CurrentAbilityState: 0
   IsAbilityUse: 0
   activeAbility: {fileID: 0}
-  secondaryAbilities: []
+  ConfigurationDescription: {fileID: 0}
+  CurentPoints: 0
+  SecondaryAbilities: []
+  AttributeAbilities: []
   RewardsManager: {fileID: 0}
 --- !u!1 &5647978734092758888
 GameObject:
@@ -1309,3 +1318,4 @@ MonoBehaviour:
   MovementVector: {x: 0, y: 0, z: 0}
   RoationSpeed: 100
   speed: 15
+  ShipSpeed: 0

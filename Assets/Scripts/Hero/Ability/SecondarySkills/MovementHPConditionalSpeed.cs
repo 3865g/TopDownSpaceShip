@@ -16,6 +16,7 @@ namespace Scripts.Hero.Ability
 
         public override void ActivatePassive(GameObject parent)
         {
+            _activeAfterLoad = false;
             _heroHealth = parent.GetComponent<HeroHealth>();
             _shipMove = parent.GetComponent<ShipMove>();
             FirstActivate();

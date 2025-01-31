@@ -75,7 +75,14 @@ namespace Scripts.Hero
 
         public void UpdateBuffSpeed(float buffSpeed)
         {
-            BuffSpeed += buffSpeed;
+            if(BuffSpeed == 0 && buffSpeed < 0)
+            {
+                return;
+            }
+            else
+            {
+                BuffSpeed += buffSpeed;
+            }
         }
 
         private void Warp(Vector3Data savedPosition)
