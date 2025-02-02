@@ -14,7 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: LocalizationTableColection1
   m_TableCollectionNameGuidString: f683d903239ab204d93fa7e17435ca91
-  m_Entries: []
+  m_Entries:
+  - m_Id: 77627747762176
+    m_Key: "menu_exit\t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 351937003520
+    m_Key: "menu_start\t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 77518024769536
+    m_Key: menu_settings
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

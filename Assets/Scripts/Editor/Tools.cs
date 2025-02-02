@@ -1,4 +1,4 @@
-using Scripts.Infrastructure.States;
+using Scripts.Hero.Ability;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,6 +12,9 @@ namespace Scripts.Editor
             PlayerPrefs.DeleteAll();
             PlayerPrefs.Save();
         }
+
+
+
         //[MenuItem("Tools/Level/L1P1")]
         //public static void ChangeStartLevel()
         //{

@@ -15,12 +15,12 @@ MonoBehaviour:
   Name: Attacking configuration
   configurationTypeId: 1
   ShortDescription: When you select this configuration, damage increases and the
-    ship gains the ability to fire a double shot.
+    ship gains the ability to fire a double, triple or quadro shot.
   skillType: 0
   Color: {r: 1, g: 0.40000004, b: 0, a: 1}
   ConfigurationIcon: {fileID: 21300000, guid: 49b8deedee39bc34cac7cac33abb8344, type: 3}
   DetailedDescription: When you select this configuration, damage increases and the
-    ship gains the ability to fire a double shot.
+    ship gains the ability to fire a double, triple or quadro shot.
   OpeningConditions: IIf you take 2, 4 or 6 upgrades of the current direction, you
     will unlock the second and third ability levels.
   AbilityTier1Icon: {fileID: 21300000, guid: adc0f0d025790f44d88fb2bedb56c28e, type: 3}
