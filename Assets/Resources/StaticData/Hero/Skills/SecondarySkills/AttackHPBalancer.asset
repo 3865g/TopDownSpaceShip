@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe135a2975257304bacbb54c6978b2a1, type: 3}
   m_Name: AttackHPBalancer
   m_EditorClassIdentifier: 
-  name: AttackHPBalancer
+  name: Attacking HP Balancer
   Icon: {fileID: 21300000, guid: 3b8bc2df088d14645be2cdfac6ac1959, type: 3}
   Color: {r: 1, g: 0.40000004, b: 0, a: 1}
   abilityTypeId: 6

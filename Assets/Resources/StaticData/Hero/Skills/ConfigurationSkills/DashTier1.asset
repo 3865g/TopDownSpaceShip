@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77dd61f92b915c14c8754a00233114a9, type: 3}
   m_Name: DashTier1
   m_EditorClassIdentifier: 
-  name: DashTier1
+  name: Dash I
   Icon: {fileID: 21300000, guid: 12eb6ba40cc9a474c9680232f2a205c7, type: 3}
   Color: {r: 0.121568635, g: 0.92549026, b: 0.9960785, a: 1}
   abilityTypeId: 4
-  description: 
+  description: The ship makes an instant leap in space
   skillType: 1
   ColdownTime: 5
   ActiveTime: 1

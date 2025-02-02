@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 853b05f8e56c8d747928215cd4ac5fd6, type: 3}
   m_Name: BurnShoots
   m_EditorClassIdentifier: 
-  name: BurnShoots
+  name: Burn shoots
   Icon: {fileID: 21300000, guid: dd519d5fee7de8241a199cab5e522931, type: 3}
   Color: {r: 1, g: 0.40000004, b: 0, a: 1}
   abilityTypeId: 12

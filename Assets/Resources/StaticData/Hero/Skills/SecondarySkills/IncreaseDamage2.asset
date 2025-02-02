@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24df896b0284d44baea389ef090d450, type: 3}
   m_Name: IncreaseDamage2
   m_EditorClassIdentifier: 
-  name: IncreaseDamage2
+  name: Increase Damage II
   Icon: {fileID: 21300000, guid: 37d5362694b632449b4e8f7fe94358b1, type: 3}
   Color: {r: 1, g: 0.40000004, b: 0, a: 1}
   abilityTypeId: 7

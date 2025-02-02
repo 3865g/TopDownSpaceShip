@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fb5bcb58fd97746a10c110b2e2038e, type: 3}
   m_Name: DoubleShotTier1
   m_EditorClassIdentifier: 
-  name: DoubleShotTier1
+  name: Double Shot
   Icon: {fileID: 21300000, guid: adc0f0d025790f44d88fb2bedb56c28e, type: 3}
   Color: {r: 1, g: 0.40000004, b: 0, a: 1}
   abilityTypeId: 1

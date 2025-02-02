@@ -24,13 +24,15 @@ MonoBehaviour:
   OpeningConditions: If you take 2, 4 or 6 upgrades of the current direction, you
     will unlock the second and third ability levels.
   AbilityTier1Icon: {fileID: 21300000, guid: 834784252bb61bd4cb14736e3c2341a4, type: 3}
-  AbilityTier1Name: Shield
-  AbilityTier1Description: can use shield
+  AbilityTier1Name: Shield I
+  AbilityTier1Description: Creation of a force field that blocks damage.
   AbilityTier2Icon: {fileID: 21300000, guid: b550c648d4ba5174f9892937a41c786d, type: 3}
-  AbilityTier2Name: Shield shock wave
-  AbilityTier2Description: If an enemy hits the shield, the shield activates an electric
-    wave that causes damage to everyone in a certain radius.
+  AbilityTier2Name: Shield II
+  AbilityTier2Description: Creating a force shield that blocks damage. If an enemy
+    hits the shield, there is an electrical surge that deals 2 damage to enemies
+    within a certain radius.
   AbilityTier3Icon: {fileID: 21300000, guid: 9f0c10ea8f8e7d34982af8e8c6c14bd5, type: 3}
-  AbilityTier3Name: Shield shock wave 2
-  AbilityTier3Description: If an enemy hits the shield, the shield activates an electric
-    wave that causes damage to everyone in a certain radius.  but stronger
+  AbilityTier3Name: Shield III
+  AbilityTier3Description: Creating a force shield that blocks damage. If an enemy
+    hits the shield, there is an electrical surge that deals 5 damage to enemies
+    within a certain radius.

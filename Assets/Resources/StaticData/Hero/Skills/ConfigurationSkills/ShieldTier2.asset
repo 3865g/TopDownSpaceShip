@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22b04c8efbd97149bd862d168d6030f, type: 3}
   m_Name: ShieldTier2
   m_EditorClassIdentifier: 
-  name: ShieldTier2
+  name: Shield II
   Icon: {fileID: 21300000, guid: b550c648d4ba5174f9892937a41c786d, type: 3}
   Color: {r: 0, g: 0.5372549, b: 0.13333334, a: 1}
   abilityTypeId: 8
-  description: Sheld + Damage wave (2 damage in 100 radius)
+  description: Creating a force shield that blocks damage. If an enemy hits the shield,
+    there is an electrical surge that deals 2 damage to enemies within a certain
+    radius.
   skillType: 2
   ColdownTime: 5
   ActiveTime: 4

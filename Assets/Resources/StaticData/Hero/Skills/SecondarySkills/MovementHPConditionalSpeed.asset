@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98be14ffcccf43409ee048c5a35adf5, type: 3}
   m_Name: MovementHPConditionalSpeed
   m_EditorClassIdentifier: 
-  name: MovementHPConditionalSpeed
+  name: Movement HP conditional speed
   Icon: {fileID: 21300000, guid: 429bd5e14b88c3d4fae317289c6730cf, type: 3}
   Color: {r: 0, g: 0.9176471, b: 1, a: 1}
   abilityTypeId: 31

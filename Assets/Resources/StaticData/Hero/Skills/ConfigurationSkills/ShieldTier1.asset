@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22b04c8efbd97149bd862d168d6030f, type: 3}
   m_Name: ShieldTier1
   m_EditorClassIdentifier: 
-  name: ShieldTier1
+  name: Shield I
   Icon: {fileID: 21300000, guid: 834784252bb61bd4cb14736e3c2341a4, type: 3}
   Color: {r: 0, g: 0.5372549, b: 0.13333334, a: 1}
   abilityTypeId: 7
-  description: 
+  description: Creation of a force field that blocks damage.
   skillType: 2
   ColdownTime: 5
   ActiveTime: 4

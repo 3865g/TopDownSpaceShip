@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5533b24296e1c43499cd5f09f1658370, type: 3}
   m_Name: HPRegeneration
   m_EditorClassIdentifier: 
-  name: HPRegeneration
+  name: Regeneration
   Icon: {fileID: 21300000, guid: ee4c1010186a6234b9da1e324d94ca3e, type: 3}
   Color: {r: 0, g: 0.5372549, b: 0.13333334, a: 1}
   abilityTypeId: 50

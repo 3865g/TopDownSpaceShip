@@ -24,13 +24,13 @@ MonoBehaviour:
   OpeningConditions: IIf you take 2, 4 or 6 upgrades of the current direction, you
     will unlock the second and third ability levels.
   AbilityTier1Icon: {fileID: 21300000, guid: adc0f0d025790f44d88fb2bedb56c28e, type: 3}
-  AbilityTier1Name: Double Shoot
-  AbilityTier1Description: Doble shoot, but you take 25% more damage.
+  AbilityTier1Name: Double shot
+  AbilityTier1Description: Doble shot, but you take 25% more damage.
   AbilityTier2Icon: {fileID: 21300000, guid: 53f90cff771c51547b3f7879c491e0c5, type: 3}
-  AbilityTier2Name: Triple shoot, but you take 50% more damage.
+  AbilityTier2Name: Triple shot
   AbilityTier2Description: Passive ability. A triple shot opens, but you take 50%
     more damage.
   AbilityTier3Icon: {fileID: 21300000, guid: c87ce4fdf4f764c40acb941d65c44b21, type: 3}
-  AbilityTier3Name: Quadro Shoot, but you take 100% more damage.
+  AbilityTier3Name: Quadro shot
   AbilityTier3Description: Passive ability. A quadro shot opens, but you take 100%
     more damage.

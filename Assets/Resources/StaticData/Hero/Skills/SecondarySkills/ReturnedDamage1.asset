@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76a44cba2a992845acbd5ea0f7f0bdd, type: 3}
   m_Name: ReturnedDamage1
   m_EditorClassIdentifier: 
-  name: ReturnedDamage1
+  name: Damage reflection I
   Icon: {fileID: 21300000, guid: 6420a4d210141bb419e61408798349b1, type: 3}
   Color: {r: 0, g: 0.5372549, b: 0.13333334, a: 1}
   abilityTypeId: 41

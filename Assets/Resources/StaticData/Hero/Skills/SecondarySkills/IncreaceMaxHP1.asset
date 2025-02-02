@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ddc0cfdac8e3534c97376ffc29692e0, type: 3}
   m_Name: IncreaceMaxHP1
   m_EditorClassIdentifier: 
-  name: IncreaceMaxHP1
+  name: Increace HP I
   Icon: {fileID: 21300000, guid: b00107c82d48e644cb87fed33ec3bc5a, type: 3}
   Color: {r: 0, g: 0.5372549, b: 0.13333334, a: 1}
   abilityTypeId: 40

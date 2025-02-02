@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ce047c3eac13c44b485b11f5963a79, type: 3}
   m_Name: IncreaseAattackRadius
   m_EditorClassIdentifier: 
-  name: IncreaseAttackRadius
+  name: Increase attack radius
   Icon: {fileID: 21300000, guid: 89a90b4a2b233a0448b9814e315108ea, type: 3}
   Color: {r: 0, g: 0.9176471, b: 1, a: 1}
   abilityTypeId: 27
