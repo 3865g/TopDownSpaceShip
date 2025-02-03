@@ -1,0 +1,352 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: AbilityLocaliztion_01_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 81a90d67637a70145a59e34770b13d6d, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 43777294336
+    m_Localized: When you select this configuration, damage increases, and the ship
+      gains the ability to fire a double, triple, or quadruple shot.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877248
+    m_Localized: If you take 2, 4, or 6 upgrades in the current configuration, you
+      will unlock the second and third ability levels.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877249
+    m_Localized: Double Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877250
+    m_Localized: Double shot, but you take 25% more damage.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877251
+    m_Localized: Triple Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877252
+    m_Localized: Triple shot, but you take 50% more damage.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877253
+    m_Localized: Quadruple Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877254
+    m_Localized: Passive ability. A quadruple shot is unlocked, but you take 100%
+      more damage.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877255
+    m_Localized: When you select this configuration, maneuverability increases, and
+      the ship gains the ability to perform a dash.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877256
+    m_Localized: If you take 2, 4, or 6 upgrades in the current configuration, you
+      will unlock the second and third ability levels.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877257
+    m_Localized: Dash I
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877258
+    m_Localized: The ship makes an instant leap in space.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877259
+    m_Localized: Dash II
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877260
+    m_Localized: The ship makes an instant leap in space, and for 3 seconds, its
+      speed increases by 30%.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877261
+    m_Localized: Dash III
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877262
+    m_Localized: The ship makes an instant leap in space, and for 5 seconds, its
+      speed increases by 30%.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877263
+    m_Localized: When you select this configuration, survivability increases, and
+      the ship gains the ability to create a shield.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877264
+    m_Localized: If you take 2, 4, or 6 upgrades in the current configuration, you
+      will unlock the second and third ability levels.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877265
+    m_Localized: Shield I
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877266
+    m_Localized: Creates a force field that blocks damage.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877267
+    m_Localized: Shield II
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877268
+    m_Localized: Creates a force shield that blocks damage. If an enemy hits the
+      shield, an electrical surge deals 2 damage to enemies within a certain radius.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877269
+    m_Localized: Shield III
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877270
+    m_Localized: Creates a force shield that blocks damage. If an enemy hits the
+      shield, an electrical surge deals 5 damage to enemies within a certain radius.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877271
+    m_Localized: Quadruple Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43789877272
+    m_Localized: Quadruple shot, but you take 100% more damage.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2456231903232
+    m_Localized: attacking configuration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2456231903233
+    m_Localized: When you select this configuration, damage increases, and the ship
+      gains the ability to fire a double, triple, or quadruple shot.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2456231903234
+    m_Localized: movement configuration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2456236097536
+    m_Localized: When you select this configuration, maneuverability increases, and
+      the ship gains the ability to perform a dash.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2456236097537
+    m_Localized: protective configuration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2456236097538
+    m_Localized: When you select this configuration, survivability increases, and
+      the ship gains the ability to create a shield.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502465490944
+    m_Localized: Attacking HP Balancer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851072
+    m_Localized: If the HP is more than 50%, then the ship receives 2 damage when
+      attacking; if less than 50%, it restores 1 HP when attacking.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851073
+    m_Localized: Attack HP Conditional Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851074
+    m_Localized: If the player's HP is less than 50%, the damage increases by 20.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851075
+    m_Localized: Burn Shots
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851076
+    m_Localized: The shots set the enemy on fire and deal 2 damage every second for
+      5 seconds.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851077
+    m_Localized: Defence HP Conditional Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851078
+    m_Localized: If the player's HP is at maximum, the damage increases by 10.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851079
+    m_Localized: Regeneration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851080
+    m_Localized: Restores 5 health every 5 seconds.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851081
+    m_Localized: Increase HP I
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851082
+    m_Localized: Increase max HP by 10.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851083
+    m_Localized: Increase HP II
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851084
+    m_Localized: Increase max HP by 20.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851085
+    m_Localized: Increase Attack Radius
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851086
+    m_Localized: Increase the attack radius by 10.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851087
+    m_Localized: Reduce Cooldown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851088
+    m_Localized: Reduces active skill cooldown by 20%.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851089
+    m_Localized: Increase Attack Speed I
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851090
+    m_Localized: Increase the attack speed by 0.05 sec.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851091
+    m_Localized: Increase Attack Speed II
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851092
+    m_Localized: Increase the attack speed by 0.15 sec.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851093
+    m_Localized: Critical Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851094
+    m_Localized: The player gets a 10% chance to deal an additional 100 damage.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851095
+    m_Localized: Increase Damage I
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851096
+    m_Localized: Increase damage by 5.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851097
+    m_Localized: Increase Damage II
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851098
+    m_Localized: Increase damage by 10.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851099
+    m_Localized: Increase Dodge I
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851100
+    m_Localized: Adds the ability to dodge with a 5% chance.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851101
+    m_Localized: Increase Dodge II
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851102
+    m_Localized: Adds the ability to dodge with a 10% chance.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851103
+    m_Localized: Increase Speed I
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851104
+    m_Localized: Increase movement speed by 5.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851105
+    m_Localized: Increase Speed II
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851106
+    m_Localized: Increase movement speed by 10.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851107
+    m_Localized: Movement HP Conditional Speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851108
+    m_Localized: If the player's HP is equal to the maximum, the speed increases
+      by 20.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851109
+    m_Localized: Damage Reflection I
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851110
+    m_Localized: If an enemy hits the hero, 5 damage is returned to them.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851111
+    m_Localized: Damage Reflection II
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851112
+    m_Localized: If an enemy hits the hero, 10 damage is returned to them.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851113
+    m_Localized: Added Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851114
+    m_Localized: Increase damage by 1.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851115
+    m_Localized: Added HP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9502494851116
+    m_Localized: Increase max HP by 1.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

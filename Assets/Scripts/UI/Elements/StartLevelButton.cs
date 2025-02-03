@@ -14,10 +14,10 @@ namespace Assets.Scripts.UI.Menu
         public Button Button;
 
 
-        public string ChoiseButton1 = "conture";
-        public string ChoiseButton2 = "new travel";
-        public string ChoiseHeadding = "Do you want to continue?";
-        public string ChoiseBody = "If you start a new playthrough, the progress of the current playthrough will disappear";
+        public string ChoiseButton1 = "menu_conture";
+        public string ChoiseButton2 = "menu_new_travel";
+        public string ChoiseHeadding = "menu_new_travel_heading";
+        public string ChoiseBody = "menu_new_travel_body";
 
         private IWindowService _windowService;
 
@@ -73,10 +73,7 @@ namespace Assets.Scripts.UI.Menu
         public void CreateChoiseWindow()
         {
             _windowService.Open(WindowId.ChoiceWindow);
-            _windowService.ChoiceWindow.Button1Text.text = ChoiseButton1;
-            _windowService.ChoiceWindow.Button2Text.text = ChoiseButton2;
-            _windowService.ChoiceWindow.MainTextHeading.text = ChoiseHeadding;
-            _windowService.ChoiceWindow.MainTextBody.text = ChoiseBody;
+            _windowService.ChoiceWindow.Construct(ChoiseButton1, ChoiseButton2, ChoiseHeadding, ChoiseBody);
             _windowService.ChoiceWindow.Choice1 += ContinueGame;
             _windowService.ChoiceWindow.Choice2 += NewGame;
             _windowService.ChoiceWindow.DestroyWindow += DestroyWindow;

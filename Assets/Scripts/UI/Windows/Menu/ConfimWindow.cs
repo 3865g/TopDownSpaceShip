@@ -1,5 +1,5 @@
 using System;
-using TMPro;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 namespace Scripts.UI.Windows.Menu
@@ -11,10 +11,26 @@ namespace Scripts.UI.Windows.Menu
 
         public Action Choice1;
 
-        public TextMeshProUGUI Button1Text;
-        public TextMeshProUGUI MainTextHeading;
-        public TextMeshProUGUI MainTextBody;
+        public LocalizeStringEvent Button1Text;
+        public LocalizeStringEvent MainTextHeading;
+        public LocalizeStringEvent MainTextBody;
 
+
+        public void Construct(string button1Text, string heading, string body)
+        {
+            Button1Text.StringReference.TableEntryReference = button1Text;
+            MainTextHeading.StringReference.TableEntryReference = heading;
+            MainTextBody.StringReference.TableEntryReference = body;
+
+            RefreshText();
+        }
+
+        public void RefreshText()
+        {
+            Button1Text.RefreshString();
+            MainTextHeading.RefreshString();
+            MainTextBody.RefreshString();
+        }
 
         private void Awake()
         {

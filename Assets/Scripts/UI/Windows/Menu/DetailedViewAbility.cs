@@ -1,5 +1,5 @@
-using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 namespace Scripts.UI.Windows.Menu
@@ -9,15 +9,18 @@ namespace Scripts.UI.Windows.Menu
     {
         public Image Icon;
         public Outline Outline;
-        public TextMeshProUGUI AbilityName;
-        public TextMeshProUGUI AbilityDescription;
+        public LocalizeStringEvent AbilityName;
+        public LocalizeStringEvent AbilityDescription;
 
         public void Construct(Sprite sprite, string abilityName, string abilityDescription, Color color)
         {
             Icon.sprite = sprite;
             Outline.effectColor = color;
-            AbilityName.SetText(abilityName);
-            AbilityDescription.SetText(abilityDescription);
+            AbilityName.StringReference.TableEntryReference = abilityName;            
+            AbilityDescription.StringReference.TableEntryReference = abilityDescription;
+
+            AbilityName.RefreshString();
+            AbilityDescription.RefreshString();
         }
     }
 }

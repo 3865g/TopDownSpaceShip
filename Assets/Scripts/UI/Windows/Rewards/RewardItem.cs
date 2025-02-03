@@ -2,6 +2,7 @@ using Scripts.Hero.Ability;
 using Scripts.UI.Windows.Shop;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 namespace Scripts.UI.Windows.Rewards
@@ -11,8 +12,8 @@ namespace Scripts.UI.Windows.Rewards
         public Button SelectAbilityButton;
 
         public Image Icon;
-        public TextMeshProUGUI NameAbility;
-        public TextMeshProUGUI DescriptionAbility;
+        public LocalizeStringEvent AbilityName;
+        public LocalizeStringEvent AbilityDescription;
 
         private SecondaryAbility SecondaryAbility;
         private SecondaryAbility AttributeAbility;
@@ -32,21 +33,27 @@ namespace Scripts.UI.Windows.Rewards
         public void FillingSecondaryData(SecondaryAbility secondaryAbility)
         {
             _secondary = true;
-            NameAbility.SetText(secondaryAbility.name);
-            DescriptionAbility.SetText(secondaryAbility.description);
+            AbilityName.StringReference.TableEntryReference = secondaryAbility.AbilityName;
+            AbilityDescription.StringReference.TableEntryReference = secondaryAbility.Description;
             SecondaryAbility = secondaryAbility;
             Icon.sprite = secondaryAbility.Icon;
             _outline.effectColor = secondaryAbility.Color;
+
+            AbilityName.RefreshString();
+            AbilityDescription.RefreshString();
 
         }
 
         public void FillingAttributeData(SecondaryAbility attributeAbility)
         {
             _secondary = false;
-            NameAbility.SetText(attributeAbility.name);
-            DescriptionAbility.SetText(attributeAbility.description);
+            AbilityName.StringReference.TableEntryReference = attributeAbility.AbilityName;
+            AbilityDescription.StringReference.TableEntryReference = attributeAbility.Description;
             AttributeAbility = attributeAbility;
             Icon.sprite = attributeAbility.Icon;
+
+            AbilityName.RefreshString();
+            AbilityDescription.RefreshString();
         }
 
         private void ClickButton()

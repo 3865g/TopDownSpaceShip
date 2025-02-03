@@ -49,7 +49,7 @@ namespace Scripts.UI.Windows.Menu
                 ShortViewAbilities detailedViewAbility = GameObject.Instantiate(ShortAbilityView, CurrentAbilityContainer).GetComponent<ShortViewAbilities>();
                 if (detailedViewAbility)
                 {
-                    detailedViewAbility.Construct(_windowService, element.Icon, element.name, element.description, element.Color);
+                    detailedViewAbility.Construct(_windowService, element.Icon, element.AbilityName, element.Description, element.Color);
                 }
             }
         }
@@ -60,7 +60,7 @@ namespace Scripts.UI.Windows.Menu
 
             ProgressBar.SetValue(_abilityHolder.CurentPoints, 6);
 
-            Configuration.Construct(_windowService, _abilityHolder.ConfigurationDescription.ConfigurationIcon, _abilityHolder.ConfigurationDescription.name, _abilityHolder.ConfigurationDescription.DetailedDescription , _abilityHolder.ConfigurationDescription.Color);
+            Configuration.Construct(_windowService, _abilityHolder.ConfigurationDescription.ConfigurationIcon, _abilityHolder.ConfigurationDescription.ConfigurationName, _abilityHolder.ConfigurationDescription.DetailedDescription , _abilityHolder.ConfigurationDescription.Color);
             ConfigurationAbilityTier1.Construct(_windowService, _abilityHolder.ConfigurationDescription.AbilityTier1Icon, _abilityHolder.ConfigurationDescription.AbilityTier1Name, _abilityHolder.ConfigurationDescription.AbilityTier1Description, _abilityHolder.ConfigurationDescription.Color);
             ConfigurationAbilityTier2.Construct(_windowService, _abilityHolder.ConfigurationDescription.AbilityTier2Icon, _abilityHolder.ConfigurationDescription.AbilityTier2Name, _abilityHolder.ConfigurationDescription.AbilityTier2Description, _abilityHolder.ConfigurationDescription.Color);
             ConfigurationAbilityTier3.Construct(_windowService, _abilityHolder.ConfigurationDescription.AbilityTier3Icon, _abilityHolder.ConfigurationDescription.AbilityTier3Name, _abilityHolder.ConfigurationDescription.AbilityTier3Description, _abilityHolder.ConfigurationDescription.Color);
@@ -80,21 +80,21 @@ namespace Scripts.UI.Windows.Menu
                         ShortViewAbilities attackingDetailedViewAbility = GameObject.Instantiate(ShortAbilityView, AttackingLibriaryContainer).GetComponent<ShortViewAbilities>();
                         if (attackingDetailedViewAbility)
                         {
-                            attackingDetailedViewAbility.Construct(_windowService, element.Icon, element.name, element.description, element.Color);
+                            attackingDetailedViewAbility.Construct(_windowService, element.Icon, element.AbilityName, element.Description, element.Color);
                         }
                         break;
                     case SkillType.Movement:
                         ShortViewAbilities movementDetailedViewAbility = GameObject.Instantiate(ShortAbilityView, MovementLibriaryContainer).GetComponent<ShortViewAbilities>();
                         if (movementDetailedViewAbility)
                         {
-                            movementDetailedViewAbility.Construct(_windowService, element.Icon, element.name, element.description, element.Color);
+                            movementDetailedViewAbility.Construct(_windowService, element.Icon, element.AbilityName, element.Description, element.Color);
                         }
                         break;
                     case SkillType.Protective:
                         ShortViewAbilities protectiveDetailedViewAbility = GameObject.Instantiate(ShortAbilityView, ProtectiveLibriaryContainer).GetComponent<ShortViewAbilities>();
                         if (protectiveDetailedViewAbility)
                         {
-                            protectiveDetailedViewAbility.Construct(_windowService, element.Icon, element.name, element.description, element.Color);
+                            protectiveDetailedViewAbility.Construct(_windowService, element.Icon, element.AbilityName, element.Description, element.Color);
                         }
                         break;
 

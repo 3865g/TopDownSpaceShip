@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c761579e8172754690a786031ef2916, type: 3}
   m_Name: IncreaseDodge1
   m_EditorClassIdentifier: 
-  name: Increase dodge I
+  AbilityName: ability_increase_dodge_1_name
   Icon: {fileID: 21300000, guid: b951a2fd93030be47b1c02a5eebc3ce1, type: 3}
   Color: {r: 0, g: 0.9176471, b: 1, a: 1}
   abilityTypeId: 20
-  description: Adds the ability to dodge with a chance 5%
+  Description: ability_increase_dodge_1_desc
   skillType: 1
   ReActivateAfterLoad: 1
   Point: 1

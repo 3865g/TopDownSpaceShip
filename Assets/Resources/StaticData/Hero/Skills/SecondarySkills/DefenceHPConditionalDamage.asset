@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbe63dbed3e22f4084e4f7b2ebdbea4, type: 3}
   m_Name: DefenceHPConditionalDamage
   m_EditorClassIdentifier: 
-  name: Defence HP donditional damage
+  AbilityName: ability_defence_hp_conditional_name
   Icon: {fileID: 21300000, guid: b7605336dc7e4af4bbba08e39db2259b, type: 3}
   Color: {r: 0, g: 0.5372549, b: 0.13333334, a: 1}
   abilityTypeId: 45
-  description: If the player's HP is maximum, the damage increases by 10
+  Description: ability_defence_hp_conditional_desc
   skillType: 2
   ReActivateAfterLoad: 1
   Point: 2

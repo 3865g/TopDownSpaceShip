@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ddc0cfdac8e3534c97376ffc29692e0, type: 3}
   m_Name: AttributeAddedHP
   m_EditorClassIdentifier: 
-  name: Added HP
+  AbilityName: ability_added_hp_name
   Icon: {fileID: 0}
   Color: {r: 1, g: 1, b: 1, a: 0}
   abilityTypeId: 55
-  description: Increase Max HP +1
+  Description: ability_added_hp_desc
   skillType: 3
   ReActivateAfterLoad: 0
   Point: 0

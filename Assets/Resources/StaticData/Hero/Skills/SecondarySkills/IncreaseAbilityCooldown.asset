@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f071779b61e924c8950d9ec90b520d, type: 3}
   m_Name: IncreaseAbilityCooldown
   m_EditorClassIdentifier: 
-  name: Increase ability cooldown
+  AbilityName: ability_reduce_cooldown_name
   Icon: {fileID: 21300000, guid: f75ed9e57a4d99e49a6e6e51ce6c0ce3, type: 3}
   Color: {r: 0, g: 0.5372549, b: 0.13333334, a: 1}
   abilityTypeId: 51
-  description: Reduces active skill cooldown by 20%
+  Description: ability_reduce_cooldown_desc
   skillType: 2
   ReActivateAfterLoad: 1
   Point: 3

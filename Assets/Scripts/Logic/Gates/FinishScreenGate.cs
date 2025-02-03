@@ -11,9 +11,9 @@ namespace Scripts.Logic.Gates
     {
 
 
-        public string Button1Text = "main menu";
-        public string ChoiseHeadding = "You have cleared this planet";
-        public string ChoiseBody = "You have finished your business on this planet. It's time to go to the base for new tasks.";
+        public string Button1Text = "menu_mainMenu_button";
+        public string ChoiseHeadding = "menu_finish_screen_heading";
+        public string ChoiseBody = "menu_finish_screen_body";
 
         private string _mainMenu = "MainMenu";
 
@@ -38,9 +38,7 @@ namespace Scripts.Logic.Gates
         public void CreateChoiseWindow()
         {
             _windowService.Open(WindowId.Confim);
-            _windowService.ConfimWindow.Button1Text.text = Button1Text;
-            _windowService.ConfimWindow.MainTextHeading.text = ChoiseHeadding;
-            _windowService.ConfimWindow.MainTextBody.text = ChoiseBody;
+            _windowService.ConfimWindow.Construct(Button1Text, ChoiseHeadding, ChoiseBody);
             _windowService.ConfimWindow.Choice1 += GameOver;
         }
 

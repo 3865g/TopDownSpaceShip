@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
-  m_Name: LocalizationTableColection1
+  m_Name: AbilityLocaliztion_01
   m_EditorClassIdentifier: 
-  m_SharedTableData: {fileID: 11400000, guid: f683d903239ab204d93fa7e17435ca91, type: 2}
+  m_SharedTableData: {fileID: 11400000, guid: 81a90d67637a70145a59e34770b13d6d, type: 2}
   m_Tables:
-  - {fileID: 11400000, guid: a21feeed2e02b0a47b70190f61f35b5e, type: 2}
-  - {fileID: 11400000, guid: f09eedc8915d17442a6c7f80ac7c3692, type: 2}
+  - {fileID: 11400000, guid: 36aea88d565a86941911914e9ea166d0, type: 2}
+  - {fileID: 11400000, guid: 1fc0e5d5732c22f4f8c47e6e7dec1eb8, type: 2}
   m_Extensions: []
   m_Group: String Table
   references:

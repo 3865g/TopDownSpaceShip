@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fb5bcb58fd97746a10c110b2e2038e, type: 3}
   m_Name: DoubleShotTier2
   m_EditorClassIdentifier: 
-  name: Triple shoot
+  name: ability_triple_shot_name
   Icon: {fileID: 21300000, guid: 53f90cff771c51547b3f7879c491e0c5, type: 3}
   Color: {r: 1, g: 0.40000004, b: 0, a: 1}
   abilityTypeId: 2
-  description: Triple shoot, but you take 50% more damage.
+  description: ability_triple_shot_desc
   skillType: 0
   ColdownTime: 0
   ActiveTime: 0

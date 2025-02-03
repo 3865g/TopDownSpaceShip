@@ -12,25 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc20dcde31da77a429a9c11d3f059510, type: 3}
   m_Name: AttackConfiguration
   m_EditorClassIdentifier: 
-  Name: Attacking configuration
+  ConfigurationName: config_attack_name
   configurationTypeId: 1
-  ShortDescription: When you select this configuration, damage increases and the
-    ship gains the ability to fire a double, triple or quadro shot.
+  ShortDescription: config_attack_short_description
   skillType: 0
   Color: {r: 1, g: 0.40000004, b: 0, a: 1}
   ConfigurationIcon: {fileID: 21300000, guid: 49b8deedee39bc34cac7cac33abb8344, type: 3}
-  DetailedDescription: When you select this configuration, damage increases and the
-    ship gains the ability to fire a double, triple or quadro shot.
-  OpeningConditions: IIf you take 2, 4 or 6 upgrades of the current direction, you
-    will unlock the second and third ability levels.
+  DetailedDescription: config_attack_description
+  OpeningConditions: config_attack_upgrade_note
   AbilityTier1Icon: {fileID: 21300000, guid: adc0f0d025790f44d88fb2bedb56c28e, type: 3}
-  AbilityTier1Name: Double shot
-  AbilityTier1Description: Doble shot, but you take 25% more damage.
+  AbilityTier1Name: ability_double_shot_name
+  AbilityTier1Description: ability_double_shot_desc
   AbilityTier2Icon: {fileID: 21300000, guid: 53f90cff771c51547b3f7879c491e0c5, type: 3}
-  AbilityTier2Name: Triple shot
-  AbilityTier2Description: Passive ability. A triple shot opens, but you take 50%
-    more damage.
+  AbilityTier2Name: ability_triple_shot_name
+  AbilityTier2Description: ability_triple_shot_desc
   AbilityTier3Icon: {fileID: 21300000, guid: c87ce4fdf4f764c40acb941d65c44b21, type: 3}
-  AbilityTier3Name: Quadro shot
-  AbilityTier3Description: Passive ability. A quadro shot opens, but you take 100%
-    more damage.
+  AbilityTier3Name: ability_quadro_shot_name
+  AbilityTier3Description: ability_quadro_shot_desc

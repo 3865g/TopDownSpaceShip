@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Scripts.StaticData;
 using Scripts.Services.StaticData;
+using UnityEngine.Localization.Components;
 
 namespace Scripts.UI.Windows.Rewards
 {
@@ -15,8 +16,11 @@ namespace Scripts.UI.Windows.Rewards
     {
         public Button Button;
         public Image Icon;
-        public TextMeshProUGUI NameConfiguration;
-        public TextMeshProUGUI DescriptionConfiguration;
+        //public TextMeshProUGUI NameConfiguration;
+        //public TextMeshProUGUI DescriptionConfiguration;
+        public LocalizeStringEvent NameConfiguration;
+        public LocalizeStringEvent DescriptionConfiguration;
+
 
         public ConfigurationDescription Configuration;
         public ConfigurationConfirmation ConfigurationConfirmation;
@@ -52,8 +56,10 @@ namespace Scripts.UI.Windows.Rewards
         public void FillData(ConfigurationDescription configuration)
         {
             Icon.sprite = configuration.ConfigurationIcon;
-            NameConfiguration.SetText(configuration.Name);
-            DescriptionConfiguration.SetText(configuration.ShortDescription);
+            NameConfiguration.StringReference.TableEntryReference = configuration.ConfigurationName;
+            DescriptionConfiguration.StringReference.TableEntryReference = configuration.ShortDescription;
+            DescriptionConfiguration.RefreshString();
+            NameConfiguration.RefreshString();
             _outline.effectColor = configuration.Color;
         }
 

@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 853b05f8e56c8d747928215cd4ac5fd6, type: 3}
   m_Name: BurnShoots
   m_EditorClassIdentifier: 
-  name: Burn shoots
+  AbilityName: ability_burn_shots_name
   Icon: {fileID: 21300000, guid: dd519d5fee7de8241a199cab5e522931, type: 3}
   Color: {r: 1, g: 0.40000004, b: 0, a: 1}
   abilityTypeId: 12
-  description: The shots set the enemy on fire and deal 2 damage every second for
-    5 seconds
+  Description: ability_burn_shots_desc
   skillType: 0
   ReActivateAfterLoad: 1
   Point: 3

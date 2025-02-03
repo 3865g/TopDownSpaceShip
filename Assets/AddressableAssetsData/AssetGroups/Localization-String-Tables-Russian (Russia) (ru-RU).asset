@@ -17,11 +17,19 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 82f2a98d4560d754098fa399a28af5f7
   m_SerializeEntries:
-  - m_GUID: f09eedc8915d17442a6c7f80ac7c3692
-    m_Address: LocalizationTableColection1_ru-RU
+  - m_GUID: 1fc0e5d5732c22f4f8c47e6e7dec1eb8
+    m_Address: AbilityLocaliztion_01_ru-RU
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru-RU
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f09eedc8915d17442a6c7f80ac7c3692
+    m_Address: UILocaliztion_01_ru-RU
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru-RU
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: f2f41985b8a4e254fa1c4f9ca021e517, type: 2}

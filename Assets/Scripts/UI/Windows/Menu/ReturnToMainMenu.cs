@@ -15,10 +15,10 @@ namespace Scripts.UI.Windows.Menu
         public Button Button;
 
 
-        public string ChoiseButton1 = "Cancel";
-        public string ChoiseButton2 = "Confirm";
-        public string ChoiseHeadding = "Do you want to return to the main menu?";
-        public string ChoiseBody = "If you return to the main menu, the current playthrough will end.";
+        public string ChoiseButton1 = "menu_cansel";
+        public string ChoiseButton2 = "menu_confim";
+        public string ChoiseHeadding = "menu_return_mainmenu_heading";
+        public string ChoiseBody = "menu_return_mainmenu_body";
 
         private string _mainMenu = "MainMenu";
 
@@ -53,10 +53,7 @@ namespace Scripts.UI.Windows.Menu
         public void CreateChoiseWindow()
         {
             _windowService.Open(WindowId.ChoiceWindow);
-            _windowService.ChoiceWindow.Button1Text.text = ChoiseButton1;
-            _windowService.ChoiceWindow.Button2Text.text = ChoiseButton2;
-            _windowService.ChoiceWindow.MainTextHeading.text = ChoiseHeadding;
-            _windowService.ChoiceWindow.MainTextBody.text = ChoiseBody;
+            _windowService.ChoiceWindow.Construct(ChoiseButton1, ChoiseButton2, ChoiseHeadding, ChoiseBody);
             _windowService.ChoiceWindow.Choice1 += Cancel;
             _windowService.ChoiceWindow.Choice2 += Confirm;
             _windowService.ChoiceWindow.DestroyWindow += DestroyWindow;

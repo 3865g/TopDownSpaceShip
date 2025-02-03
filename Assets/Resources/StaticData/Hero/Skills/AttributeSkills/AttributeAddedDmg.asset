@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418fd4a61fbe432409f6abb7ca70229d, type: 3}
   m_Name: AttributeAddedDmg
   m_EditorClassIdentifier: 
-  name: Added Damage
+  AbilityName: ability_added_damage_name
   Icon: {fileID: 0}
   Color: {r: 1, g: 1, b: 1, a: 0}
   abilityTypeId: 56
-  description: Increase damge +1
+  Description: ability_added_damage_desc
   skillType: 3
   ReActivateAfterLoad: 1
   Point: 0

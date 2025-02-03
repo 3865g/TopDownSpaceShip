@@ -9,7 +9,7 @@ namespace Scripts.Hero.Ability
 
     public class ConfigurationDescription : ScriptableObject
     {
-        public new string Name;
+        public string ConfigurationName;
         public ConfigurationTypeId configurationTypeId;
         [TextArea(1, 4)]
         public string ShortDescription;

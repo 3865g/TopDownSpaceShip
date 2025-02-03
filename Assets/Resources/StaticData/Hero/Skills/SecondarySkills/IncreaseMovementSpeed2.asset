@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346443824b4973f4fb86b3d187203317, type: 3}
   m_Name: IncreaseMovementSpeed2
   m_EditorClassIdentifier: 
-  name: Increase speed II
+  AbilityName: ability_increase_speed_2_name
   Icon: {fileID: 21300000, guid: e33d004752b37874190a8720f839de04, type: 3}
   Color: {r: 0, g: 0.9176471, b: 1, a: 1}
   abilityTypeId: 26
-  description: Increase Movement Speed by 10
+  Description: ability_increase_speed_2_desc
   skillType: 1
   ReActivateAfterLoad: 1
   Point: 2

@@ -62,10 +62,7 @@ namespace Scripts.UI.Windows.Menu
         public void CreateChoiseWindow()
         {
             _windowService.Open(WindowId.ChoiceWindow);
-            _windowService.ChoiceWindow.Button1Text.text = ChoiseButton1;
-            _windowService.ChoiceWindow.Button2Text.text = ChoiseButton2;
-            _windowService.ChoiceWindow.MainTextHeading.text = ChoiseHeadding;
-            _windowService.ChoiceWindow.MainTextBody.text = ChoiseBody;
+            _windowService.ChoiceWindow.Construct(ChoiseButton1, ChoiseButton2, ChoiseHeadding, ChoiseBody);
             _windowService.ChoiceWindow.Choice1 += Cancel;
             _windowService.ChoiceWindow.Choice2 += Confirm;
             _windowService.ChoiceWindow.DestroyWindow += DestroyWindow;

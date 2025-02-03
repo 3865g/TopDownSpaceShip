@@ -1,5 +1,5 @@
 using System;
-using TMPro;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 namespace Scripts.UI.Windows.Menu
@@ -14,12 +14,28 @@ namespace Scripts.UI.Windows.Menu
         public Action Choice2;
         public Action DestroyWindow;
 
-        public TextMeshProUGUI Button1Text;
-        public TextMeshProUGUI Button2Text;
-        public TextMeshProUGUI MainTextHeading;
-        public TextMeshProUGUI MainTextBody;
+        public LocalizeStringEvent Button1Text;
+        public LocalizeStringEvent Button2Text;
+        public LocalizeStringEvent MainTextHeading;
+        public LocalizeStringEvent MainTextBody;
 
 
+        public void Construct(string button1Text, string button2Text, string heading, string body)
+        {
+            Button1Text.StringReference.TableEntryReference = button1Text;
+            Button2Text.StringReference.TableEntryReference = button2Text;
+            MainTextHeading.StringReference.TableEntryReference = heading;
+            MainTextBody.StringReference.TableEntryReference = body;
+            RefreshText();
+        }
+
+        public void RefreshText()
+        {
+            Button1Text.RefreshString();
+            Button2Text.RefreshString();
+            MainTextHeading.RefreshString();
+            MainTextBody.RefreshString();
+        }
 
 
         private void Awake()

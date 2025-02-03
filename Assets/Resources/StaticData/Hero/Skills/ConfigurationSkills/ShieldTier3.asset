@@ -12,13 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22b04c8efbd97149bd862d168d6030f, type: 3}
   m_Name: ShieldTier3
   m_EditorClassIdentifier: 
-  name: Shield III
+  name: ability_shield_3_name
   Icon: {fileID: 21300000, guid: 9f0c10ea8f8e7d34982af8e8c6c14bd5, type: 3}
   Color: {r: 0, g: 0.5372549, b: 0.13333334, a: 1}
   abilityTypeId: 9
-  description: Creating a force shield that blocks damage. If an enemy hits the shield,
-    there is an electrical surge that deals 5 damage to enemies within a certain
-    radius.
+  description: ability_shield_3_desc
   skillType: 2
   ColdownTime: 5
   ActiveTime: 4

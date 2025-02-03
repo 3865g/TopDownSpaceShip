@@ -15,9 +15,9 @@ namespace Scripts.Hero
 
         public GameObject DeathFx;
 
-        public string Button1Text = "main menu";
-        public string ChoiseHeadding = "The end of the adventure";
-        public string ChoiseBody = "Your ship is down, you need to get back to base.";
+        public string Button1Text = "menu_mainMenu_button";
+        public string ChoiseHeadding = "menu_death_choise_heading";
+        public string ChoiseBody = "menu_death_choise_body";
 
         private string _mainMenu = "MainMenu";
 
@@ -83,9 +83,7 @@ namespace Scripts.Hero
         public void CreateChoiseWindow()
         {
             _windowService.Open(WindowId.Confim);
-            _windowService.ConfimWindow.Button1Text.text = Button1Text;
-            _windowService.ConfimWindow.MainTextHeading.text = ChoiseHeadding;
-            _windowService.ConfimWindow.MainTextBody.text = ChoiseBody;
+            _windowService.ConfimWindow.Construct(Button1Text, ChoiseHeadding, ChoiseBody);
             _windowService.ConfimWindow.Choice1 += GameOver;
         }
 

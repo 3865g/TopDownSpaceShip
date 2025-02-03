@@ -12,25 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc20dcde31da77a429a9c11d3f059510, type: 3}
   m_Name: MovementConfiguration
   m_EditorClassIdentifier: 
-  Name: Movement configuration
+  ConfigurationName: config_movement_name
   configurationTypeId: 2
-  ShortDescription: When you select this configuration, maneuverability increases
-    and the ship gains the ability to make a dash.
+  ShortDescription: config_movement_short_description
   skillType: 1
   Color: {r: 0, g: 0.9176471, b: 1, a: 1}
   ConfigurationIcon: {fileID: 21300000, guid: a7b5c5afb27c9054f8af87d95eeb17a6, type: 3}
-  DetailedDescription: When you select this configuration, maneuverability increases
-    and the ship gains the ability to make a dash.
-  OpeningConditions: If you take 2, 4 or 6 upgrades of the current direction, you
-    will unlock the second and third ability levels.
+  DetailedDescription: config_movement_description
+  OpeningConditions: config_movement_upgrade_note
   AbilityTier1Icon: {fileID: 21300000, guid: 12eb6ba40cc9a474c9680232f2a205c7, type: 3}
-  AbilityTier1Name: Dash I
-  AbilityTier1Description: The ship makes an instant leap in space
+  AbilityTier1Name: ability_dash_1_name
+  AbilityTier1Description: ability_dash_1_desc
   AbilityTier2Icon: {fileID: 21300000, guid: e3df41fc9cc90204ab665df61cefce65, type: 3}
-  AbilityTier2Name: Dash II
-  AbilityTier2Description: The ship makes an instant leap in space, and for 3 seconds
-    its speed is increased by 30
+  AbilityTier2Name: ability_dash_2_name
+  AbilityTier2Description: ability_dash_2_desc
   AbilityTier3Icon: {fileID: 21300000, guid: 816c77b751f99f94a9b2bf6dfbe74482, type: 3}
-  AbilityTier3Name: Dash III
-  AbilityTier3Description: The ship makes an instant leap in space, and for 5 seconds
-    its speed is increased by 30
+  AbilityTier3Name: ability_dash_3_name
+  AbilityTier3Description: ability_dash_3_desc
