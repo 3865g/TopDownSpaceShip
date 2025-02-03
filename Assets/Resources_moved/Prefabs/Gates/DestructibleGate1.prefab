@@ -30,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3707223149550991592, guid: 4f9f4d43c69c42c43bcf2657994596f4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 25
+      value: 34.3
       objectReference: {fileID: 0}
     - target: {fileID: 5989523357293080675, guid: 4f9f4d43c69c42c43bcf2657994596f4, type: 3}
       propertyPath: m_Name
-      value: Gate1
+      value: DestructibleGate1
       objectReference: {fileID: 0}
     - target: {fileID: 6154475502682113977, guid: 4f9f4d43c69c42c43bcf2657994596f4, type: 3}
       propertyPath: m_RootOrder

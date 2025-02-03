@@ -1,5 +1,4 @@
-﻿
-namespace Scripts.Logic.Gates
+﻿namespace Scripts.Logic.Gates
 {
     public interface IGatesStatus
     {

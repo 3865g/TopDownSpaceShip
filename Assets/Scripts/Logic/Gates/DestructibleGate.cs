@@ -1,7 +1,4 @@
-﻿using Scripts.Infrastructure.States;
-using Scripts.Services.PersistentProgress;
-using Scripts.UI.Services.Windows;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Scripts.Logic.Gates
 {
