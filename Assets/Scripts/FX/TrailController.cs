@@ -5,8 +5,6 @@ public class TrailController : MonoBehaviour
 {
     public VisualEffect visualEffect;
 
-    public bool test;
-
     public void SetVariables(Vector3 startPosition, Vector3 endPosition, Vector3 rotation)
     {
 
