@@ -2,9 +2,13 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 
-public class ChangeLocalization : MonoBehaviour
+public class ChangeLocalization : MonoBehaviour /*ISavedSettings*/
 {
     private bool active = false;
+
+
+
+ 
 
     public void ChangeLocate(int localeID)
     {
@@ -15,6 +19,7 @@ public class ChangeLocalization : MonoBehaviour
         StartCoroutine(SetLocale(localeID));
     }
 
+
     IEnumerator SetLocale(int localeID)
     {
         active = true;
@@ -22,5 +27,4 @@ public class ChangeLocalization : MonoBehaviour
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[localeID];
         active = false;
     }
-
 }

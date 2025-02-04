@@ -15,6 +15,7 @@ using Scripts.UI.Services.Factory;
 using System.Threading.Tasks;
 using Scripts.Data;
 using Scripts.Hero.Ability;
+using Scripts.Services.GameSettings;
 
 namespace Scripts.Infrastructure.States
 {
@@ -29,6 +30,7 @@ namespace Scripts.Infrastructure.States
         private readonly LoadingCurtain _curtain;
         private readonly IGameFactory _gameFactory;
         private readonly IPersistentProgressService _persistentProgressService;
+        private readonly IGameSettingsService _gameSettingsService;
         private readonly IStaticDataService _staticDataService;
         private readonly IUIFactory _uiFactory;
 
@@ -36,7 +38,8 @@ namespace Scripts.Infrastructure.States
             SceneLoader sceneLoader, 
             LoadingCurtain curtain, 
             IGameFactory gameFactory, 
-            IPersistentProgressService progressService, 
+            IPersistentProgressService progressService,
+            IGameSettingsService gameSettingsService,
             IStaticDataService staticDataService, 
             IUIFactory uiFactory)
         {
@@ -45,6 +48,7 @@ namespace Scripts.Infrastructure.States
             _curtain = curtain;
             _gameFactory = gameFactory;
             _persistentProgressService = progressService;
+            _gameSettingsService = gameSettingsService;
             _staticDataService = staticDataService;
             _uiFactory = uiFactory;
         }
@@ -66,6 +70,7 @@ namespace Scripts.Infrastructure.States
             await InitUIRoot();
             await InitGameWorld();
             InformProgressReaders();
+            InformSettingsReaders();
 
             _stateMachine.Enter<GameLoopState>();
         }
@@ -74,6 +79,14 @@ namespace Scripts.Infrastructure.States
             foreach (ISavedProgressReader progressReader in _gameFactory.ProgressReaders)
             {
                 progressReader.LoadProgress(_persistentProgressService.Progress);
+            }
+        }
+
+        private void InformSettingsReaders()
+        {
+            foreach (ISavedSettingsReader settingsReader in _gameFactory.SettingsReaders)
+            {
+                settingsReader.LoadSettings(_gameSettingsService.GameGlobalSettings);
             }
         }
 

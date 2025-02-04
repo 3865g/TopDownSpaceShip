@@ -11,6 +11,7 @@ using Scripts.UI.Services.Factory;
 using Scripts.UI.Services.Windows;
 using Scripts.Services.Ads;
 using Scripts.Services.SecondaryAbilityService;
+using Scripts.Services.GameSettings;
 
 namespace Scripts.Infrastructure.States
 {
@@ -50,6 +51,7 @@ namespace Scripts.Infrastructure.States
             _services.RegisterSingle<IRandomService>(new RandomService());
             _services.RegisterSingle<IAssetProvider>(new AssetProvider());
             _services.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
+            _services.RegisterSingle<IGameSettingsService>(new GameSettingsService());
             _services.RegisterSingle<ISecondaryAbilityService>(new SecondaryAbilityService());
 
             _services.RegisterSingle<IUIFactory>(new UIFactory(_services.Single<IAssetProvider>(), 
@@ -64,13 +66,15 @@ namespace Scripts.Infrastructure.States
             _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssetProvider>(), 
                 _services.Single<IStaticDataService>(), 
                 _services.Single<IRandomService>(), 
-                _services.Single<IPersistentProgressService>(), 
+                _services.Single<IPersistentProgressService>(),
+                _services.Single<IGameSettingsService>(),
                 _services.Single<IWindowService>(),
                 _services.Single<IGameStateMachine>(),
                 _services.Single<ISecondaryAbilityService>()));
 
             _services.RegisterSingle<ISaveLoadService>(new SaveLoadService(
                 _services.Single<IPersistentProgressService>(),
+                _services.Single<IGameSettingsService>(),
                 _services.Single<IGameFactory>()));
 
         }

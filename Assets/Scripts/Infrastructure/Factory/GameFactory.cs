@@ -20,13 +20,17 @@ using Assets.Scripts.UI.Menu;
 using Scripts.Hero.Ability;
 using Scripts.Hero;
 using Scripts.Services.SecondaryAbilityService;
+using Scripts.Services.Ga;
+using Scripts.Services.GameSettings;
 
 namespace Scripts.Infrastructure.Factory
 {
     public class GameFactory : IGameFactory
     {
         public List<ISavedProgressReader> ProgressReaders { get; } = new List<ISavedProgressReader>();
+        public List<ISavedSettingsReader> SettingsReaders { get; } = new List<ISavedSettingsReader>();
         public List<ISavedProgress> ProgressWriters { get; } = new List<ISavedProgress>();
+        public List<ISavedSettings> SettingsWriters { get; } = new List<ISavedSettings>();
 
 
 
@@ -34,6 +38,7 @@ namespace Scripts.Infrastructure.Factory
         private readonly IStaticDataService _staticDataService;
         private readonly IRandomService _randomService;
         private readonly IPersistentProgressService _persistentProgressService;
+        private readonly IGameSettingsService _gameSettingsService;
         private readonly IWindowService _windowService;
         private readonly IGameStateMachine _gameStateMachine;
         private readonly ISecondaryAbilityService _secondaryAbilityService;
@@ -50,6 +55,7 @@ namespace Scripts.Infrastructure.Factory
             IStaticDataService staticDataService,
             IRandomService randomService,
             IPersistentProgressService persistentProgressService,
+            IGameSettingsService gameSettingsService,
             IWindowService windowService,
             IGameStateMachine gameStateMachine,
             ISecondaryAbilityService secondaryAbilityService)
@@ -58,6 +64,7 @@ namespace Scripts.Infrastructure.Factory
             _staticDataService = staticDataService;
             _randomService = randomService;
             _persistentProgressService = persistentProgressService;
+            _gameSettingsService = gameSettingsService;
             _windowService = windowService;
             _gameStateMachine = gameStateMachine;
             _secondaryAbilityService = secondaryAbilityService;
@@ -261,6 +268,18 @@ namespace Scripts.Infrastructure.Factory
 
             ProgressReaders.Add(progressReader);
         }
+
+        public void RegisterSettings(ISavedSettingsReader settingsReader)
+        {
+            if (settingsReader is ISavedSettings settingsWriter)
+            {
+                SettingsWriters.Add(settingsWriter);
+            }
+
+            SettingsReaders.Add(settingsReader);
+        }
+
+
         public void Cleanup()
         {
             ProgressReaders.Clear();
@@ -292,6 +311,7 @@ namespace Scripts.Infrastructure.Factory
         {
             GameObject gameObject = await _assetsProvider.Instantiate(prefabPath);
             RegisterProgressWatchers(gameObject);
+            RegisterSettingsWatchers(gameObject);
             return gameObject;
         }
 
@@ -303,6 +323,14 @@ namespace Scripts.Infrastructure.Factory
             }
         }
 
-        
+        private void RegisterSettingsWatchers(GameObject gameObject)
+        {
+            foreach (ISavedSettingsReader settingsReader in gameObject.GetComponentsInChildren<ISavedSettingsReader>())
+            {
+                RegisterSettings(settingsReader);
+            }
+        }
+
+
     }
 }

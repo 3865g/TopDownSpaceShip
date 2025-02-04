@@ -6,6 +6,7 @@ using Scripts.Services.SaveLoad;
 using Scripts.Services.PersistentProgress;
 using Scripts.Services.StaticData;
 using Scripts.UI.Services.Factory;
+using Scripts.Services.GameSettings;
 
 namespace Scripts.Infrastructure.States
 {
@@ -21,9 +22,10 @@ namespace Scripts.Infrastructure.States
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, curtain, services.Single<IGameFactory>(),
                 services.Single<IPersistentProgressService>(),
+                services.Single<IGameSettingsService>(),
                 services.Single<IStaticDataService>(),
                 services.Single<IUIFactory>()),
-                [typeof(LoadProgressState)] = new LoadProgressState(this, services.Single<IPersistentProgressService>(), services.Single<ISaveLoadService>()),
+                [typeof(LoadProgressState)] = new LoadProgressState(this, services.Single<IPersistentProgressService>(), services.Single<IGameSettingsService>(), services.Single<ISaveLoadService>()),
                 [typeof(GameLoopState)] = new GameLoopState(this),
             };
         }

@@ -1,6 +1,7 @@
 ﻿using Scripts.Enemy;
 using Scripts.Logic.EnemySpawners;
 using Scripts.Services;
+using Scripts.Services.Ga;
 using Scripts.Services.PersistentProgress;
 using Scripts.StaticData;
 using System;
@@ -13,7 +14,9 @@ namespace Scripts.Infrastructure.Factory
     public interface IGameFactory : IService
     {
         List<ISavedProgressReader> ProgressReaders { get; }
+        List<ISavedSettingsReader> SettingsReaders { get; }
         List<ISavedProgress> ProgressWriters { get; }
+        List<ISavedSettings> SettingsWriters { get; }
 
 
         Task<GameObject> CreateHero(Vector3 playerInitialPoint);

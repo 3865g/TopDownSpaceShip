@@ -40,15 +40,15 @@ namespace Scripts.Hero.Ability
 
             if (!_abilityIsActive)
             {
-                _startPosition = parent.transform.position;
 
+                _startPosition = parent.transform.position;
+                _endPosition = _startPosition + (_shipMove.MovementVector * DashRange);
                 _characterController.Move(_shipMove.MovementVector * DashRange);
 
 
-                _endPosition = parent.transform.position;
                 _rotation = parent.transform.rotation.eulerAngles;
 
-                _spawnedTrail = Instantiate(Trail, parent.transform);
+                _spawnedTrail = Instantiate(Trail);
                 _effect = _spawnedTrail.GetComponent<TrailController>();
 
                 _effect.SetVariables(_startPosition, _endPosition, _rotation);

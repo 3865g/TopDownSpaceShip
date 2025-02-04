@@ -836,9 +836,9 @@ MonoBehaviour:
   heroHealth: {fileID: 7462249170531715992}
   shipMove: {fileID: 6095162580398375173}
   DeathFx: {fileID: 5386389529857311023, guid: 452ad8e7431d84142b20d957526a1111, type: 3}
-  Button1Text: main menu
-  ChoiseHeadding: The end of the adventure
-  ChoiseBody: Your ship is down, you need to get back to base.
+  Button1Text: menu_mainMenu_button
+  ChoiseHeadding: menu_death_choise_heading
+  ChoiseBody: menu_death_choise_body
 --- !u!114 &8967763076268185012
 MonoBehaviour:
   m_ObjectHideFlags: 0
