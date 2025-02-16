@@ -58,7 +58,7 @@ namespace Scripts.Hero
             {
                 if (collision.transform.GetComponentInChildren<BurningDamage>() == null)
                 {
-                    _burningModule = Instantiate(BurningModule, collision.transform.parent);
+                    _burningModule = Instantiate(BurningModule, collision.transform);
                     _burningModule.transform.SetParent(collision.transform);
                     //Debug.Log(_burningModule);
                     BurningDamage burningDamage = _burningModule.GetComponent<BurningDamage>();

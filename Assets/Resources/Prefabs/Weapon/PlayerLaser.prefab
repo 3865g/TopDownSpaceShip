@@ -122,7 +122,7 @@ MonoBehaviour:
   Speed: 250
   Target: {fileID: 0}
   Impact: {fileID: 3475387905439212809, guid: 12c53247dd4df4e4e9200c635ec64ff5, type: 3}
-  LaserMaterial: {fileID: 2100000, guid: 905091173aca8d74dbc8983b5edb8a77, type: 2}
+  Render: {fileID: 6462455296061970776}
 --- !u!54 &4422127426136389288
 Rigidbody:
   m_ObjectHideFlags: 0

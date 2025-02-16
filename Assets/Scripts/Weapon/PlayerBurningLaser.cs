@@ -11,6 +11,7 @@ namespace Scripts.Hero
         public float DamageAmount;
         public float DamageInterval;
         public int DamgaeDuration;
+        public Renderer Render;
 
         public Color Color { get; set; }
 
@@ -41,6 +42,7 @@ namespace Scripts.Hero
             // Debug.Log(_damage);
             Rigidbody rigibody = GetComponent<Rigidbody>();
             rigibody.AddForce(Direction * Speed, ForceMode.Impulse);
+            Render.material.SetColor("_BaseColor", color );
 
             transform.forward = Direction;
 

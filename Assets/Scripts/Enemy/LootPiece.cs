@@ -63,6 +63,10 @@ namespace Scripts.Enemy
             {
                 transform.position = Vector3.Lerp(transform.position, _player.position, _speed * Time.deltaTime);
             }
+            else
+            {
+                gameObject.SetActive(false);
+            }
         }
 
         private void OnTriggerEnter(Collider other)

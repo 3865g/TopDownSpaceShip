@@ -56,6 +56,7 @@ namespace Assets.Scripts.Hero
             _positionToLook = new Vector3(positionDiff.x, positionDiff.y, positionDiff.z);
         }
 
+
         private Quaternion SmoothedRotation(Quaternion rotation, Vector3 positionToLook)
         {
             return Quaternion.Lerp(rotation, TargetRotation(positionToLook), SpeedFactor());

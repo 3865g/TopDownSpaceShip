@@ -858,6 +858,7 @@ MonoBehaviour:
   Laserprefab: {fileID: 8737532056342513294, guid: 25e604096b4f7d54d8696159f0e44765, type: 3}
   CurrentColor: {r: 0, g: 0, b: 0, a: 0}
   DefaultColor: {r: 0, g: 0.74901974, b: 0.74901974, a: 0.78431374}
+  CritColor: {r: 1, g: 0, b: 0.90992355, a: 0.79607844}
   shootcount: 0
   CanCrit: 0
   CriticalChance: 0

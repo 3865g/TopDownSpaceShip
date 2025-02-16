@@ -16,6 +16,7 @@ namespace Scripts.Hero.Ability
         {
             _heroAttack = parent.GetComponent<HeroAttack>();
             _heroAttack.Laserprefab = BurnLaserPrefab;
+            _heroAttack.DefaultColor = Color.yellow;
 
         }
     }

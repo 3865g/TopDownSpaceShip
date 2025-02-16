@@ -135,9 +135,13 @@ namespace Scripts.Hero.Ability
 
         public void LoadProgress(PlayerProgress progress)
         {
-            _abilityData = progress.AbilityProgress;
-            _skillType = progress.AbilityProgress.skillType;
-            _skillTypeId = progress.AbilityProgress.SkillTypeId;
+            if (progress != null)
+            {
+                _abilityData = progress.AbilityProgress;
+                _skillType = progress.AbilityProgress.skillType;
+                _skillTypeId = progress.AbilityProgress.SkillTypeId;
+            }
+            
         }
     }
 }

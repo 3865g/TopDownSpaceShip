@@ -2,30 +2,27 @@
 
 namespace Scripts.Enemy
 {
-    public class RotateToHero : Follow
+    public class RotateWeapon : Follow
     {
         public float speed = 15f;
         public bool IsCollided;
-
-
-        private Transform _heroTransform;
+        public Transform _heroTransform;
         private Vector3 _positionToLook;
-
-        public RotateWeapon RotateWeapon;
 
         public void Construct(Transform heroTransform)
         {
             _heroTransform = heroTransform;
-            
-            RotateWeapon?.Construct(_heroTransform);
         }
 
 
 
         void Update()
         {
-            if(Initialized() && IsCollided)
+            if(Initialized())
             {
+                //gameObject.transform.rotation = Quaternion.LookRotation(_heroTransform.transform.position);
+                //Debug.LogError("Work");
+
                 RotateTowardshero();
             }
         }
@@ -39,7 +36,7 @@ namespace Scripts.Enemy
         private void UpdatePositionLookAt()
         {
             Vector3 positionDiff = _heroTransform.position - transform.position;
-            _positionToLook = new Vector3(positionDiff.x, positionDiff.y, positionDiff.z);
+            _positionToLook = new Vector3(positionDiff.x, transform.rotation.y, positionDiff.z);
         }
 
         private Quaternion SmoothedRotation(Quaternion rotation, Vector3 positionToLook)

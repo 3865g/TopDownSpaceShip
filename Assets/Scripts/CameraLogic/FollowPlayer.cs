@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System;
 using Cinemachine;
 
 namespace Scripts.CameraLogic

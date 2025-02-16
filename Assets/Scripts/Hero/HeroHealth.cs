@@ -133,6 +133,7 @@ namespace Scripts.Hero
             {
                 CurrentHP = MaxHP;
             }
+
             ShowText(Hp.ToString(), Color.green);
         }
 
@@ -170,12 +171,15 @@ namespace Scripts.Hero
 
         private void ShowText(string textHP, Color color)
         {
-            GameObject textPrefab = Instantiate(TextPrefab, gameObject.transform.position, Quaternion.identity);
-            textPrefab.transform.SetParent(gameObject.transform);
-            textPrefab.GetComponent<TMP_Text>().SetText(textHP);
-            textPrefab.GetComponent<TMP_Text>().color = color;
+            if (gameObject.activeSelf)
+            {
+                GameObject textPrefab = Instantiate(TextPrefab, gameObject.transform.position, Quaternion.identity);
+                textPrefab.transform.SetParent(gameObject.transform);
+                textPrefab.GetComponent<TMP_Text>().SetText(textHP);
+                textPrefab.GetComponent<TMP_Text>().color = color;
 
-            StartCoroutine(StartDestroyTimer(textPrefab));
+                StartCoroutine(StartDestroyTimer(textPrefab));
+            }
         }
         private IEnumerator StartDestroyTimer(GameObject textPrefab)
         {

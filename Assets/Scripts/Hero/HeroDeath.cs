@@ -57,6 +57,7 @@ namespace Scripts.Hero
             if(!_isDead && heroHealth.CurrentHP <= 0)
             {
                 Die();
+
             }
             //Debug.Log(heroHealth.CurrentHP);
         }
@@ -67,17 +68,24 @@ namespace Scripts.Hero
             shipMove.enabled = false;
             _heroAttack.enabled = false;
             //Animator.Play(Die);
-            Destroy(gameObject);
+
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
+
             Instantiate(DeathFx, transform.position, Quaternion.identity);
 
-            GameOverWindow();
+            Invoke("GameOverWindow", 1f);
+
+            
 
             //Debug.Log(heroHealth.CurrentHP);
+
         }
 
         public void GameOverWindow()
         {
             CreateChoiseWindow();
+            
         }
 
         public void CreateChoiseWindow()
@@ -90,7 +98,7 @@ namespace Scripts.Hero
 
         public void GameOver()
         {
-            _persistentProgressService.Progress = NewProgress();
+            _persistentProgressService.Progress = null;
             _gameStateMachine.Enter<LoadLevelState, string>(_mainMenu);
         }
 

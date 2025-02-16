@@ -170,7 +170,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 9502494851073
-    m_Localized: Attack HP Conditional Damage
+    m_Localized: Rage
     m_Metadata:
       m_Items: []
   - m_Id: 9502494851074
@@ -187,7 +187,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 9502494851077
-    m_Localized: Defence HP Conditional Damage
+    m_Localized: Confidence
     m_Metadata:
       m_Items: []
   - m_Id: 9502494851078
@@ -307,7 +307,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 9502494851107
-    m_Localized: Movement HP Conditional Speed
+    m_Localized: Impetuosity
     m_Metadata:
       m_Items: []
   - m_Id: 9502494851108

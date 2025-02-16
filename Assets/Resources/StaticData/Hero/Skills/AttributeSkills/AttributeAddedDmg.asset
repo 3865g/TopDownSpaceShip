@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AttributeAddedDmg
   m_EditorClassIdentifier: 
   AbilityName: ability_added_damage_name
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 90889ec0efc806a4080da93f60689b0a, type: 3}
   Color: {r: 1, g: 1, b: 1, a: 0}
   abilityTypeId: 56
   Description: ability_added_damage_desc

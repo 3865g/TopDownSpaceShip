@@ -1,6 +1,7 @@
 ﻿using Scripts.Logic;
 using Scripts.Weapon;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Scripts.Hero
 {
@@ -9,6 +10,7 @@ namespace Scripts.Hero
         public float Speed = 500f;
         public Transform Target;
         public GameObject Impact;
+        public Renderer Render;
 
         public Color Color {  get; set; }
 
@@ -34,8 +36,8 @@ namespace Scripts.Hero
             Rigidbody rigibody = GetComponent<Rigidbody>();
             rigibody.AddForce(laserDirection * Speed, ForceMode.Impulse);
 
-            Renderer render = gameObject.GetComponent<Renderer>();
-            render.material.SetColor("_BaseColor", color );
+            
+            Render.material.SetColor("_BaseColor", color );
 
             transform.forward = laserDirection;
 

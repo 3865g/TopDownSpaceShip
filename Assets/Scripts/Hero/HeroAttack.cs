@@ -21,7 +21,8 @@ namespace Scripts.Hero
         public Transform LaserStartTransform;
         public GameObject Laserprefab;
         public Color CurrentColor;
-        public Color DefaultColor = new Color(0, 255, 255, 255);
+        public Color DefaultColor;
+        public Color CritColor;
 
         public int shootcount;
         public bool CanCrit;
@@ -76,7 +77,7 @@ namespace Scripts.Hero
             if(CriticalChance >= _randomValue)
             {
                 _criticalDamge = CriticalDamage;
-                CurrentColor = new Color(255, 104, 0, 200);
+                CurrentColor = CritColor;
             }
             else
             {

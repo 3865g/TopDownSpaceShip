@@ -28,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8737532056342513294}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6618693988459902173
 BoxCollider:
@@ -150,6 +150,7 @@ MonoBehaviour:
   DamageAmount: 2
   DamageInterval: 1
   DamgaeDuration: 5
+  Render: {fileID: 6462455296061970776}
   Target: {fileID: 0}
   Impact: {fileID: 3475387905439212809, guid: 12c53247dd4df4e4e9200c635ec64ff5, type: 3}
   BurningModule: {fileID: 6808077533544478112, guid: 447d1efac09526843956af8042bcacad, type: 3}

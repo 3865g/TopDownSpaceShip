@@ -131,8 +131,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 527450259095552
-    m_Localized: You have finished your business on this planet. It's time to go
-      to the base for new tasks.
+    m_Localized: Your mission on this planet is over. It's time to go to the base
+      for new tasks.
     m_Metadata:
       m_Items: []
   - m_Id: 532510774951936

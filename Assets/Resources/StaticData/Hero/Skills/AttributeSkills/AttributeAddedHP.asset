@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AttributeAddedHP
   m_EditorClassIdentifier: 
   AbilityName: ability_added_hp_name
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: c0dc8a7790c0c2643a2875bab644dccd, type: 3}
   Color: {r: 1, g: 1, b: 1, a: 0}
   abilityTypeId: 55
   Description: ability_added_hp_desc

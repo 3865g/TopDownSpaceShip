@@ -32,7 +32,7 @@ namespace Scripts.Logic.Gates
 
         public void UpdateStatus()
         {
-            CreateChoiseWindow();
+            Invoke("CreateChoiseWindow", 0.5f);
         }
 
         public void CreateChoiseWindow()

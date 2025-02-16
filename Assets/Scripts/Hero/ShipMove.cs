@@ -14,11 +14,15 @@ namespace Scripts.Hero
         public float MovementSpeed = 35f;
         public float BonuseSpeed;
         public float BuffSpeed;
+
+        public float FlightAmplitude = 16; 
         //public bool RotateToEnemy = false;
         public Vector3 MovementVector;
 
         public CharacterController _characterController;
         public IInputService _inputService;
+
+        private bool isReturning = false;
 
 
 
@@ -47,7 +51,39 @@ namespace Scripts.Hero
 
             }
 
+            //ReturnFlightAltitude();
+
             _characterController.Move(movementVector * Time.deltaTime * (MovementSpeed + BonuseSpeed + BuffSpeed));
+
+
+
+        }
+
+        public void ReturnFlightAltitude(Vector3 movment)
+        {
+            
+            float returnSpeed = 10f;
+
+            
+
+
+            if (Mathf.Abs(transform.position.y - FlightAmplitude) > 1f && !isReturning)
+            {
+                isReturning = true;
+            }
+
+            
+            if (isReturning)
+            {
+                Vector3 targetPosition = new Vector3(transform.position.x, FlightAmplitude, transform.position.z);
+                 transform.position = Vector3.Lerp(transform.position, targetPosition, returnSpeed * Time.deltaTime);
+
+                if (Mathf.Abs(transform.position.y - FlightAmplitude) < .25f)
+                {
+                    //transform.position = targetPosition; 
+                    isReturning = false;
+                }
+            }
         }
 
         public void UpdateProgress(PlayerProgress progress)
