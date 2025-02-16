@@ -119,8 +119,7 @@ namespace Scripts.Hero.Ability
                         activeTime = activeAbility.ActiveTime;
                         cooldownTime = activeAbility.ColdownTime * cooldownMultiplayer;
                         CurrentAbilityState = 0;
-                        _abilityUi.AbilityButton.ButtonActive(activeTime);
-                        _abilityUi.AbilityButton.ButtoonCooldown(cooldownTime, activeAbility.ColdownTime);
+                        _abilityUi.AbilityButton.ButtonReady();
                         IsAbilityUse = false;
                     }
                     break;
@@ -152,6 +151,7 @@ namespace Scripts.Hero.Ability
                     else
                     {
                         state = AbilityState.ready;
+                        _abilityUi.AbilityButton.ButtonReady();
                     }
                     break;
             }
@@ -278,6 +278,12 @@ namespace Scripts.Hero.Ability
             LoadSecondaryAbilities(progress);
 
             LoadAttributeAbilities(progress);
+            
+            if (_abilityUi.AbilityButton)
+            {
+                _abilityUi.AbilityButton.ButtonReady();
+            }
+            
         }
 
         public void LoadSecondaryAbilities(PlayerProgress progress)

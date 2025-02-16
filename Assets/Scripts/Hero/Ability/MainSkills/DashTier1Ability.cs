@@ -40,10 +40,23 @@ namespace Scripts.Hero.Ability
 
             if (!_abilityIsActive)
             {
-
+                Vector3 currentDirection;
+                if (_shipMove.MovementVector == Vector3.zero)
+                {
+                     currentDirection =  _shipMove.transform.forward;
+                }
+                else
+                {
+                     currentDirection = _shipMove.MovementVector;
+                }
                 _startPosition = parent.transform.position;
-                _endPosition = _startPosition + (_shipMove.MovementVector * DashRange);
-                _characterController.Move(_shipMove.MovementVector * DashRange);
+                if (_shipMove.MovementVector != Vector3.zero)
+                {
+                    
+                }
+                _endPosition = _startPosition + (currentDirection * DashRange);
+                _characterController.Move(currentDirection * DashRange);
+                
 
 
                 _rotation = parent.transform.rotation.eulerAngles;
