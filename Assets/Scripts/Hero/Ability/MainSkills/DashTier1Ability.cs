@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.VFX;
 
 
 namespace Scripts.Hero.Ability
@@ -50,10 +49,6 @@ namespace Scripts.Hero.Ability
                      currentDirection = _shipMove.MovementVector;
                 }
                 _startPosition = parent.transform.position;
-                if (_shipMove.MovementVector != Vector3.zero)
-                {
-                    
-                }
                 _endPosition = _startPosition + (currentDirection * DashRange);
                 _characterController.Move(currentDirection * DashRange);
                 

@@ -17,26 +17,29 @@ namespace Scripts.Hero.Ability
         private BoxCollider _boxCollider;
         private CharacterController _characterController;
         private bool _abilityIsActive = false;
+        
+        
 
         public override void Activate(GameObject parent)
         {
+            _abilityHolder = parent.GetComponent<AbilityHolder>();
 
-            if (!_abilityIsActive)
+            if (_abilityHolder.CurrentAbilityState == 0)
             {
                 _spawnedShield = Instantiate(ShieldGameObject, parent.transform);
                 _spawnedShield.transform.SetParent(parent.transform);
                 ShieldPrefab shieldPrefab = _spawnedShield.GetComponent<ShieldPrefab>();
 
 
-                _abilityHolder = parent.GetComponent<AbilityHolder>();
+                
 
                 IHealth playerHealth = parent.GetComponent<IHealth>();
                 shieldPrefab.Construct(playerHealth.ReturnDamage, DamageWave, playerHealth.ReturnedDamage, DamageWaveAmount, _abilityHolder);
 
 
                 _boxCollider = parent.GetComponent<BoxCollider>();
-                _boxCollider.enabled = false;
                 _characterController = parent.GetComponent<CharacterController>();
+                _boxCollider.enabled = false;
                 _characterController.detectCollisions = false;
                 _abilityIsActive = true;
             }
@@ -44,9 +47,13 @@ namespace Scripts.Hero.Ability
 
         public override void Deactivate(GameObject parent)
         {
+            _abilityHolder = parent.GetComponent<AbilityHolder>();
+            
 
-            if (_abilityIsActive)
+            if (_abilityHolder.CurrentAbilityState == 1)
             {
+                _boxCollider = parent.GetComponent<BoxCollider>();
+                _characterController = parent.GetComponent<CharacterController>();
                 _boxCollider.enabled = true;
                 _characterController.detectCollisions = true;
                 Destroy(_spawnedShield);

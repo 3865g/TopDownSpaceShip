@@ -94,13 +94,13 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
             {
                 AbilityHolder abilityHolder = _player.GetComponent<AbilityHolder>();
                 abilityHolder.ChangeAbility(_activeAbility);
-                abilityHolder.ConfigurationDescription = _staticDataService.ForConfiguration(ConfigurationTypeId.Protective—onfiguration);
+                abilityHolder.ConfigurationDescription = _staticDataService.ForConfiguration(ConfigurationTypeId.Protective–°onfiguration);
             }
             else if (_activeAbility != null && _player != null && _activeAbility.IsPassive == true)
             {
                 AbilityHolder abilityHolder = _player.GetComponent<AbilityHolder>();
                 abilityHolder.ActivatePassiveAbility(_activeAbility);
-                abilityHolder.ConfigurationDescription = _staticDataService.ForConfiguration(ConfigurationTypeId.Protective—onfiguration);
+                abilityHolder.ConfigurationDescription = _staticDataService.ForConfiguration(ConfigurationTypeId.Protective–°onfiguration);
                 
             }
         }

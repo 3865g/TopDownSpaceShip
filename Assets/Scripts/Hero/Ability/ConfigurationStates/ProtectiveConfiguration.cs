@@ -46,7 +46,7 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
             {
                 AbilityHolder abilityHolder = _player.GetComponent<AbilityHolder>();
 
-                abilityHolder.ConfigurationDescription = _staticDataService.ForConfiguration(ConfigurationTypeId.Protective—onfiguration);
+                abilityHolder.ConfigurationDescription = _staticDataService.ForConfiguration(ConfigurationTypeId.Protective–°onfiguration);
             }
 
 
@@ -101,7 +101,7 @@ namespace Scripts.Hero.Ability.ConfigurationStattes
             {
                 AbilityHolder abilityHolder =  _player.GetComponent<AbilityHolder>();
                 abilityHolder.ChangeAbility(_activeAbility);
-                abilityHolder.ConfigurationDescription = _staticDataService.ForConfiguration(ConfigurationTypeId.Protective—onfiguration);
+                abilityHolder.ConfigurationDescription = _staticDataService.ForConfiguration(ConfigurationTypeId.Protective–°onfiguration);
             }
         }
     }

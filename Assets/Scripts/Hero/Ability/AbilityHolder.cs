@@ -1,7 +1,6 @@
 using Scripts.Services.Input;
 using Scripts.Services;
 using System.Collections.Generic;
-
 using UnityEngine;
 using Scripts.Logic;
 using Scripts.Data;
@@ -11,12 +10,8 @@ using Scripts.UI.Elements;
 
 namespace Scripts.Hero.Ability
 {
-
-
     public class AbilityHolder : MonoBehaviour, ISavedProgress
     {
-        public IInputService _inputService;
-
         public float cooldownTime;
         public float cooldownMultiplayer;
         public float activeTime;
@@ -31,7 +26,6 @@ namespace Scripts.Hero.Ability
         public int CurentPoints;
 
 
-
         //public List<Ability> passiveAbilities;
         public List<SecondaryAbility> SecondaryAbilities;
         public List<SecondaryAbility> AttributeAbilities;
@@ -44,10 +38,12 @@ namespace Scripts.Hero.Ability
 
         private float _pausedCooldownTime;
         private float _pausedActiveTime;
+        private int _pausedIndexState;
         private bool _saveAfterPause = false;
         private bool _loadAfterPause = false;
         private AbilityState _pauseState;
         private AbilityUI _abilityUi;
+        private IInputService _inputService;
 
         //Need Refactoring
         private bool _isAbilityUseKeyboard;
@@ -78,14 +74,11 @@ namespace Scripts.Hero.Ability
         {
             _inputService = AllServices.Container.Single<IInputService>();
             cooldownMultiplayer = 1;
-           
         }
-
 
 
         private void Update()
         {
-
             //Need refactoring (custom pause?)
 
             if (Time.timeScale == 0 && !_saveAfterPause)
@@ -112,16 +105,16 @@ namespace Scripts.Hero.Ability
             switch (state)
             {
                 case AbilityState.ready:
+                    CurrentAbilityState = 0;
                     if ((IsAbilityUse || _isAbilityUseKeyboard) && activeAbility)
                     {
                         activeAbility.Activate(gameObject);
                         state = AbilityState.active;
                         activeTime = activeAbility.ActiveTime;
                         cooldownTime = activeAbility.ColdownTime * cooldownMultiplayer;
-                        CurrentAbilityState = 0;
-                        _abilityUi.AbilityButton.ButtonReady();
                         IsAbilityUse = false;
                     }
+
                     break;
                 case AbilityState.active:
                     if (activeTime > 0)
@@ -139,6 +132,7 @@ namespace Scripts.Hero.Ability
                         _abilityUi.AbilityButton.ButtoonCooldown(cooldownTime, activeAbility.ColdownTime);
                         IsAbilityUse = false;
                     }
+
                     break;
                 case AbilityState.cooldown:
                     if (cooldownTime > 0)
@@ -152,10 +146,11 @@ namespace Scripts.Hero.Ability
                     {
                         state = AbilityState.ready;
                         _abilityUi.AbilityButton.ButtonReady();
+                        CurrentAbilityState = 0;
                     }
+
                     break;
             }
-
         }
 
 
@@ -163,6 +158,7 @@ namespace Scripts.Hero.Ability
         {
             _pauseState = state;
             _pausedCooldownTime = cooldownTime;
+            //_pausedIndexState = CurrentAbilityState;
             _pausedActiveTime = activeTime;
             _saveAfterPause = true;
             _loadAfterPause = false;
@@ -171,6 +167,7 @@ namespace Scripts.Hero.Ability
         public void LoadAfterPause()
         {
             state = _pauseState;
+            //CurrentAbilityState = _pausedIndexState;
             cooldownTime = _pausedCooldownTime;
             activeTime = _pausedActiveTime;
 
@@ -179,7 +176,7 @@ namespace Scripts.Hero.Ability
                 _abilityUi.AbilityButton.ButtonActive(activeTime);
                 _abilityUi.AbilityButton.ButtoonCooldown(cooldownTime, activeAbility.ColdownTime);
             }
-            
+
             _saveAfterPause = false;
             _loadAfterPause = true;
         }
@@ -215,11 +212,8 @@ namespace Scripts.Hero.Ability
         }
 
 
-
-
         public void ChangeAbility(ConfigurationAbility ability)
         {
-
             if (CurrentAbilityState != 0 && activeAbility != ability)
             {
                 activeAbility.Deactivate(gameObject);
@@ -228,6 +222,7 @@ namespace Scripts.Hero.Ability
                 _pausedCooldownTime = 0;
                 _pausedActiveTime = 0;
                 _pauseState = 0;
+                CurrentAbilityState = 0;
             }
 
             activeAbility = ability;
@@ -236,10 +231,9 @@ namespace Scripts.Hero.Ability
             state = AbilityState.ready;
         }
 
+
         public void ActivateSecondaryAbilitiesAfterLoad()
         {
-
-
             foreach (SecondaryAbility element in SecondaryAbilities)
             {
                 _secondaryAbility = element;
@@ -251,7 +245,6 @@ namespace Scripts.Hero.Ability
                     _secondaryAbility.ActivatePassive(gameObject);
                 }
             }
-
         }
 
         public void ActivateAttributeAbilitiesAfterLoad()
@@ -278,12 +271,8 @@ namespace Scripts.Hero.Ability
             LoadSecondaryAbilities(progress);
 
             LoadAttributeAbilities(progress);
-            
-            if (_abilityUi.AbilityButton)
-            {
-                _abilityUi.AbilityButton.ButtonReady();
-            }
-            
+
+            RefreshAbility();
         }
 
         public void LoadSecondaryAbilities(PlayerProgress progress)
@@ -323,6 +312,23 @@ namespace Scripts.Hero.Ability
         public void DeactivateAbility()
         {
             activeTime = 0;
+        }
+
+        private void RefreshAbility()
+        {
+            activeAbility?.Deactivate(gameObject);
+            activeTime = 0;
+            cooldownTime = 0;
+            _pausedCooldownTime = 0;
+            _pausedActiveTime = 0;
+            //_pauseState = 0;
+
+            state = AbilityState.ready;
+
+            if (_abilityUi.AbilityButton)
+            {
+                _abilityUi.AbilityButton.ButtonReady();
+            }
         }
     }
 }
